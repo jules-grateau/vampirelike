@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8b646a8dcb20a4084a497d36202016, type: 3}
+  m_Name: Weapon with circular projectile
+  m_EditorClassIdentifier: 
+  _cooldown: 1
+  _icon: {fileID: -7781884262184873700, guid: 95466139244b82d4583629332f841c90, type: 3}
+  _projectilPrefab: {fileID: 4751453757278165355, guid: ace2f96cec4d03e409faf00b4fcacee7, type: 3}
+  _speed: 3
+  _damage: 1000
+  _amount: 10
+  _radius: 5

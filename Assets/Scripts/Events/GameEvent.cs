@@ -30,7 +30,6 @@ namespace Assets.Scripts.Events
         }
     }
 
-    [CreateAssetMenu(fileName = "GameEvent with no", menuName = "GameEvent/T", order = 1)]
     public abstract class GameEvent<T> : ScriptableObject
     {
         private List<IGameEventListener<T>> gameEventListeners = new List<IGameEventListener<T>>();

@@ -5,7 +5,8 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
     public abstract class ProjectileCollision : MonoBehaviour
     {
-        public bool bounceOnWall { get; set; }
+        [SerializeField]
+        private bool bounceOnWall;
 
         protected abstract void HandleEnemyCollision(Collision2D collision2D);
 

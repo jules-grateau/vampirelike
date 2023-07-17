@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f0b8a412b46054ba1b281626a063db, type: 3}
+  m_Name: Arrow
+  m_EditorClassIdentifier: 
+  _cooldown: 1
+  _icon: {fileID: -3282728817448708057, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
+  _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
+  _speed: 10
+  _damage: 5
+  _offset: {x: 1, y: 1}

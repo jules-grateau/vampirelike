@@ -1,0 +1,23 @@
+using Assets.Scripts.ScriptableObjects.Items;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UIWeaponInventoryController : MonoBehaviour
+{
+    private GameObject _inventorySlotPrefab;
+
+    public void Start()
+    {
+        _inventorySlotPrefab = (GameObject)Resources.Load("UI/Prefabs/WeaponSlot");
+    }
+
+    public void AddWeapon(WeaponSO weapon)
+    {
+        GameObject inventorySlot = Instantiate(_inventorySlotPrefab,gameObject.transform);
+        Image image = inventorySlot.transform.Find("Icon").GetComponent<Image>();
+        image.overrideSprite = weapon.icon;
+
+    }
+}

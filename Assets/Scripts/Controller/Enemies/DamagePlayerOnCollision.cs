@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Events;
+﻿using Assets.Scripts.Events.TypedEvents;
 using UnityEngine;
 
 namespace Assets.Scripts.Controller.Enemies

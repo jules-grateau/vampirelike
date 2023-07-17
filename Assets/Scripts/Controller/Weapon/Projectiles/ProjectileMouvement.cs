@@ -6,7 +6,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     [RequireComponent(typeof(Collider2D))]
     public abstract class ProjectileMouvement : MonoBehaviour
     {
-        public float speed;
+        public float speed { get; set; }
 
         // Update is called once per frame
         void Update()
