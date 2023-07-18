@@ -141,7 +141,7 @@ TextureImporter:
       213: -7533763211022438485
     second: dj_gros_murs_terre_sol_45
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -158,10 +158,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -170,7 +172,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -200,6 +202,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -211,6 +215,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -223,6 +228,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -235,6 +241,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1216,9 +1236,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      dj_gros_murs_terre_sol_0: 6420460117653651203
+      dj_gros_murs_terre_sol_1: -7043009240751206761
+      dj_gros_murs_terre_sol_10: -3258221131072769806
+      dj_gros_murs_terre_sol_11: 7420963212044540142
+      dj_gros_murs_terre_sol_12: 1037304100609155866
+      dj_gros_murs_terre_sol_13: -1255169072206418630
+      dj_gros_murs_terre_sol_14: -2863722058667531997
+      dj_gros_murs_terre_sol_15: 4307325673499361087
+      dj_gros_murs_terre_sol_16: 2613861039978019682
+      dj_gros_murs_terre_sol_17: -7263152381238222804
+      dj_gros_murs_terre_sol_18: -4756425811954671384
+      dj_gros_murs_terre_sol_19: 6169961363059264842
+      dj_gros_murs_terre_sol_2: 2691726847817360468
+      dj_gros_murs_terre_sol_22: 1196716211886109862
+      dj_gros_murs_terre_sol_23: -4911550380774845620
+      dj_gros_murs_terre_sol_24: -8685757744157711564
+      dj_gros_murs_terre_sol_27: -1199290338556502540
+      dj_gros_murs_terre_sol_28: 3047067324388853144
+      dj_gros_murs_terre_sol_29: 6814854102537739560
+      dj_gros_murs_terre_sol_3: -8990490821201011843
+      dj_gros_murs_terre_sol_30: 6463052748393132555
+      dj_gros_murs_terre_sol_31: -6055635982011403424
+      dj_gros_murs_terre_sol_32: 1083287363438182755
+      dj_gros_murs_terre_sol_33: -4670997550726017605
+      dj_gros_murs_terre_sol_34: -7543982148439388921
+      dj_gros_murs_terre_sol_35: -4242735077280487010
+      dj_gros_murs_terre_sol_36: -7932676893128367842
+      dj_gros_murs_terre_sol_37: 6802982609240103148
+      dj_gros_murs_terre_sol_38: -2026305591317015729
+      dj_gros_murs_terre_sol_39: -368785407745075465
+      dj_gros_murs_terre_sol_4: 4359738047107795685
+      dj_gros_murs_terre_sol_40: -1041279296408794071
+      dj_gros_murs_terre_sol_41: -8837975137174954421
+      dj_gros_murs_terre_sol_42: 2367026071492051292
+      dj_gros_murs_terre_sol_43: 1732727446024299637
+      dj_gros_murs_terre_sol_44: -209880105632885594
+      dj_gros_murs_terre_sol_45: -7533763211022438485
+      dj_gros_murs_terre_sol_5: 8633236888849347326
+      dj_gros_murs_terre_sol_6: -4564375577812305698
+      dj_gros_murs_terre_sol_7: 3056640150986470829
+      dj_gros_murs_terre_sol_8: 1202396511643297499
+      dj_gros_murs_terre_sol_9: -1336871998849877902
+      sol_bottomleft: -4382373399744497418
+      sol_bottomright: -1358131247854329100
+      sol_topleft: -2805619925673857606
+      sol_topright: 7048034131002237089
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
