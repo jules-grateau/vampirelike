@@ -13121,7 +13121,7 @@ MonoBehaviour:
   enemyPrefab:
   - {fileID: 881878062649732175, guid: 048def7f5292e974ea148d8d3c6c0413, type: 3}
   - {fileID: 881878062649732175, guid: 74fb525422333e04bbdf6eb6a0a9b927, type: 3}
-  spawnCooldown: 1
+  spawnCooldown: 2
 --- !u!4 &1580486934
 Transform:
   m_ObjectHideFlags: 0

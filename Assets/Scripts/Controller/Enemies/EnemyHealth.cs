@@ -18,6 +18,11 @@ namespace Assets.Scripts.Controller.Enemies
 
             if(_health <= 0)
             {
+                DestructibleController destructible = gameObject.GetComponent<DestructibleController>();
+                if (destructible)
+                {
+                    destructible.onDestroy();
+                }
                 Destroy(gameObject);
             }
         }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 881878062649732181}
   - component: {fileID: 881878062649732180}
   - component: {fileID: 881878062649732183}
+  - component: {fileID: 7480804512460441818}
   - component: {fileID: 881878062649732182}
   m_Layer: 8
   m_Name: GreenSlime
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -680378409246535183, guid: 95466139244b82d4583629332f841c90, type: 3}
-  m_Color: {r: 1, g: 1, b: 0.24592379, a: 1}
+  m_Color: {r: 1, g: 0.92988515, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -205,6 +206,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 50
+--- !u!114 &7480804512460441818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881878062649732175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a645545c24de2d64fb5b2bb1114d3a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &881878062649732182
 Animator:
   serializedVersion: 3
