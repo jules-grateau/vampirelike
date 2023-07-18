@@ -1,9 +1,11 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [Obsolete("Use SelfTarget Weapon instead", true)]
     public class TargetClosestEnemyProjectile : ProjectileMouvement
     {
         GameObject _target;
@@ -13,12 +15,24 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         {
             _rigidbody = GetComponent<Rigidbody2D>();
 
-            var hit = Physics2D.CircleCast(transform.position,Mathf.Infinity, Vector2.right,Mathf.Infinity, 1 << LayerMask.NameToLayer("Enemy"));
-            if(hit.collider)
+            var hits = Physics2D.CircleCastAll(transform.position,Mathf.Infinity, Vector2.right,Mathf.Infinity, 1 << LayerMask.NameToLayer("Enemy"));
+
+            if (hits.Length < 0) return;
+
+            var distance = hits[0].distance;
+            var target = hits[0].transform.gameObject;
+            foreach(var hit in hits)
             {
-                Debug.Log($"Found {hit.transform.gameObject.name}");
-              _target = hit.transform.gameObject;
+                if(distance > hit.distance)
+                {
+                    distance = hit.distance;
+                    target = hits[0].transform.gameObject;
+                }
             }
+            
+            Debug.Log($"Found {target.name}");
+            _target = target;
+
         }
         public override void HandleProjectileMouvement()
         {

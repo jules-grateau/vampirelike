@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Weapon with circular projectile
   m_EditorClassIdentifier: 
   _cooldown: 1
-  _icon: {fileID: -7781884262184873700, guid: 95466139244b82d4583629332f841c90, type: 3}
+  _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _projectilPrefab: {fileID: 4751453757278165355, guid: ace2f96cec4d03e409faf00b4fcacee7, type: 3}
   _speed: 3
   _damage: 1000
-  _amount: 10
-  _radius: 5
+  _amount: 6
+  _radius: 2

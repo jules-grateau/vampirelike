@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17f0b8a412b46054ba1b281626a063db, type: 3}
-  m_Name: Arrow
+  m_Script: {fileID: 11500000, guid: 320c671b51c266747a2da936e3c79731, type: 3}
+  m_Name: MouseLazer
   m_EditorClassIdentifier: 
   _cooldown: 1
-  _icon: {fileID: -3282728817448708057, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
+  _icon: {fileID: -5488431172643268487, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
   _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
   _speed: 10
   _damage: 5

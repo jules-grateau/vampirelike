@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8865363524136437284}
   - component: {fileID: 8865363524136437287}
   - component: {fileID: 8865363524136437286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: laser_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 8865363525268724606}
   - component: {fileID: 8865363525268724593}
   - component: {fileID: 8865363525268724592}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: laser_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 8865363525301911345}
   - component: {fileID: 8865363525301911359}
   - component: {fileID: 8865363525301911358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: laser_tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,8 +329,8 @@ GameObject:
   - component: {fileID: 8865363525728305452}
   - component: {fileID: 8865363525728305455}
   - component: {fileID: -1256843197021297412}
-  - component: {fileID: 298733026117682794}
-  m_Layer: 0
+  - component: {fileID: 5034762922775791394}
+  m_Layer: 6
   m_Name: lazer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ MonoBehaviour:
   bounceOnWall: 0
   enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _destroyOnHit: 1
---- !u!114 &298733026117682794
+--- !u!114 &5034762922775791394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,6 +445,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8865363525728305454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa74e94524f0df42bfe156065b1f41c, type: 3}
+  m_Script: {fileID: 11500000, guid: d2ba350a4999e58419935f766c08b869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
