@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class StraightFowardProjectile : ProjectileMouvement
 {
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     private void Start()
     {

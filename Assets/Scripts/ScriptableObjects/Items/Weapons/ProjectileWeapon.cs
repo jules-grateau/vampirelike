@@ -27,6 +27,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             if(damageScript != null)
             {
                 damageScript.damage = _damage;
+                damageScript.parent = parent;
             }
             return projectile;
         }

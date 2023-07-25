@@ -7,4 +7,5 @@ public struct HitData
     public float damage {get;set;}
     public int instanceID { get; set; } 
     public Vector2 position { get; set; }
+    public GameObject source { get; set; }
 }

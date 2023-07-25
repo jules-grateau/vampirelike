@@ -14,5 +14,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
 
         public float cooldown { get { return _cooldown; } }
         public abstract void Use(Vector2 holderPosition, Vector2 holderDirection);
+
+        public GameObject parent { get; set; }
     }
 }

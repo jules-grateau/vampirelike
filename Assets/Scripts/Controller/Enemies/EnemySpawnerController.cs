@@ -7,6 +7,8 @@ namespace Assets.Scripts.Controller.Enemies
     public class EnemySpawnerController : MonoBehaviour
     {
         [SerializeField]
+        private bool triggerSpawn;
+        [SerializeField]
         private GameObject[] enemyPrefab = Array.Empty<GameObject>();
         [SerializeField]
         private float spawnCooldown = 5;
@@ -27,7 +29,7 @@ namespace Assets.Scripts.Controller.Enemies
         // Update is called once per frame
         void Update()
         {
-            if(_delay >= spawnCooldown || _forceSpawn)
+            if((_delay >= spawnCooldown || _forceSpawn) && triggerSpawn)
             {
                 // Get random position
                 Vector2 playerPos = player.transform.position;

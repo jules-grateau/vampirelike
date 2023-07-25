@@ -23,7 +23,6 @@ namespace Assets.Scripts.Controller.Player
         public void TakeDamage(float damage)
         {
             hp.value -= damage;
-            Debug.Log(hp.value);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 namespace Assets.Scripts.Controller.Enemies
 {
@@ -8,12 +9,45 @@ namespace Assets.Scripts.Controller.Enemies
         [SerializeField]
         private float _health;
 
+        private GameObject _damageDisplay;
+
+        void Awake()
+        {
+            _damageDisplay = Resources.Load<GameObject>("Prefabs/Particles/damage_display");
+        }
+        
+        private void DisplayDamage(float damage, bool isCrit)
+        {
+            GameObject dd = Instantiate(_damageDisplay);
+            dd.transform.position = gameObject.transform.position + new Vector3(0, 0.5f, 0);
+            dd.transform.localScale = Vector3.one;
+            TextMeshPro tm = dd.GetComponentInChildren<TextMeshPro>();
+            tm.SetText(damage.ToString());
+            if (isCrit)
+            {
+                tm.gameObject.GetComponent<Animator>().Play("damage_crit");
+            }
+            else
+            {
+                tm.gameObject.GetComponent<Animator>().Play("damage_appear");
+            }
+            
+        }
+
         public void TakeDamage(HitData hit)
         {
-            Debug.Log($"Enemy with instanceId {gameObject.GetInstanceID()} recieved hit for {hit.instanceID} - {hit.damage} damages");
             if(gameObject.GetInstanceID() == hit.instanceID)
             {
-                _health -= hit.damage;
+                float modifiedDamage = hit.damage;
+                bool isCrit = false;
+                PlayerStatsController stats = hit.source.GetComponent<PlayerStatsController>();
+                if (stats)
+                {
+                    (isCrit, modifiedDamage) = stats.ComputeDamage(hit.damage);
+                }
+
+                DisplayDamage(modifiedDamage, isCrit);
+                _health -= modifiedDamage;
             }
 
             if(_health <= 0)

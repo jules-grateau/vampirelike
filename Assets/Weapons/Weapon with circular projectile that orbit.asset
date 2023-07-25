@@ -16,7 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 97753deaea6287746a4c54f8c65330c3, type: 3}
   _projectilPrefab: {fileID: 4389094783381097955, guid: 2b0f3d6f95c5e1044aed10ecfe4775ff, type: 3}
   _speed: 1
-  _damage: 500
+  _damage: 10
   _amount: 5
   _radius: 2
   _angularSpeed: 5
