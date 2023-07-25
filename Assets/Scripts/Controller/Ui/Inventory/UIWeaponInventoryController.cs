@@ -10,7 +10,7 @@ public class UIWeaponInventoryController : MonoBehaviour
 
     public void Start()
     {
-        _inventorySlotPrefab = (GameObject)Resources.Load("UI/Prefabs/WeaponSlot");
+        _inventorySlotPrefab = (GameObject) Resources.Load("Prefabs/UI/WeaponSlot");
     }
 
     public void AddWeapon(WeaponSO weapon)
