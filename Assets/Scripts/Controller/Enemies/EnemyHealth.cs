@@ -23,6 +23,11 @@ namespace Assets.Scripts.Controller.Enemies
                 {
                     destructible.onDestroy();
                 }
+                DropCollectible drop = gameObject.GetComponent<DropCollectible>();
+                if (drop)
+                {
+                    drop.onDestroy();
+                }
                 Destroy(gameObject);
             }
         }
