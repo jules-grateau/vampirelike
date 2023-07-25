@@ -13,11 +13,17 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         [SerializeField]
         private Boolean _destroyOnHit = true;
 
+        public GameObject parent { get; set; }
         public float damage { get; set; }
 
         protected override void HandleEnemyCollision(Collision2D collision2D)
         {
-            enemyHitEvent.Raise(new HitData { damage = damage,instanceID = collision2D.gameObject.GetInstanceID(),position = collision2D.transform.position });
+            enemyHitEvent.Raise(new HitData {
+                damage = damage,
+                instanceID = collision2D.gameObject.GetInstanceID(),
+                position = collision2D.transform.position,
+                source = parent
+            });
             if(_destroyOnHit) Destroy(gameObject);
             return;
         }

@@ -18,7 +18,7 @@ public class PickUpCollectible : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             gameEvent.Raise(collectible);
-            collectible.Collect();
+            collectible.Collect(transform.position);
             Destroy(gameObject);
         }
     }

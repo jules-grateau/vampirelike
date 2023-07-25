@@ -28,7 +28,7 @@ namespace Assets.Scripts.Controller.Player
 
         public void Collect(CollectibleSO collect)
         {
-            xp.value += collect._xpValue;
+            xp.value += ((XpCollectible)collect)._xpValue;
 
             if (xp.value >= maxXp.value)
             {

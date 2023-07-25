@@ -19,30 +19,31 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             aimDirection.Normalize();
 
             var projectile = GetProjectile();
-            Vector2 newPos = (holderPosition + _offset * aimDirection);
+            Vector2 newPos = (holderPosition + _offset - aimDirection);
             projectile.transform.position = newPos;
-            projectile.transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * (newPos - holderPosition));
+            projectile.transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * (holderPosition - newPos));
             projectile.SetActive(true);
         }
 
         private GameObject GetTarget(Vector2 shootFrom)
         {
-            var hits = Physics2D.CircleCastAll(shootFrom, Mathf.Infinity, Vector2.right, Mathf.Infinity, 1 << LayerMask.NameToLayer("Enemy"));
+            var hits = Physics2D.OverlapCircleAll(shootFrom, Mathf.Infinity, 1 << LayerMask.NameToLayer("Enemy"));
 
-            if (hits.Length < 0) return null;
+            if (hits.Length <= 0) return null;
 
-            var distance = hits[0].distance;
+            var distance = Vector2.Distance(shootFrom, hits[0].transform.position);
             var target = hits[0].transform.gameObject;
             foreach (var hit in hits)
             {
-                if (distance > hit.distance)
+                float newDist = Vector2.Distance(shootFrom, hit.transform.position);
+                if (distance > newDist)
                 {
-                    distance = hit.distance;
-                    target = hits[0].transform.gameObject;
+                    distance = newDist;
+                    target = hit.transform.gameObject;
                 }
             }
 
-            Debug.Log($"Found {target.name}");
+            Debug.DrawLine(shootFrom, target.transform.position, Color.red, 2, false);
             return target;
         }
     }
