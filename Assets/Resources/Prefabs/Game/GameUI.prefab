@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7511182955850491076}
   - component: {fileID: 1015626298327641549}
   - component: {fileID: 2772259256786760995}
-  - component: {fileID: 6004247050905058631}
+  - component: {fileID: 2490006910403351748}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6004247050905058631
+--- !u!114 &2490006910403351748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,12 +86,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1985966134658628127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3568b1956c598f429b274bd48ff10bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 92725526a96d0fd40bdb29221fdf9fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _variable: {fileID: 11400000, guid: d4db0cd2a503abf41b9d684b5cee96fe, type: 2}
   _min: 0
-  _max: {fileID: 11400000, guid: d1fd8c728af4fbe4788962cec4128ff0, type: 2}
 --- !u!1 &2560782690997402137
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +129,7 @@ RectTransform:
   - {fileID: 7024598668850302705}
   - {fileID: 2375647166718088488}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

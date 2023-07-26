@@ -15,4 +15,5 @@ MonoBehaviour:
   _name: Maxime-kun
   _sprite: {fileID: 21300000, guid: 100f47fb6d4168c4384d031d480e3c58, type: 3}
   _description: Le plus grand fan du garliguet du monde
+  _characterStatistics: {fileID: 11400000, guid: aca3efc5809923d48ac68d5bbc75548e, type: 2}
   _prefab: {fileID: 704638989827276549, guid: 589e25e8651f30d4fb091b69843fc079, type: 3}

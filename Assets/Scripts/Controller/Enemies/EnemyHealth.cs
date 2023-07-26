@@ -38,7 +38,7 @@ namespace Assets.Scripts.Controller.Enemies
         {
             if(gameObject.GetInstanceID() == hit.instanceID && hit.source)
             {
-                float modifiedDamage = hit.damage;
+               float modifiedDamage = hit.damage;
                 bool isCrit = false;
                 PlayerStatsController stats = hit.source.GetComponent<PlayerStatsController>();
                 if (stats)

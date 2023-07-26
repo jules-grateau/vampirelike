@@ -15,5 +15,5 @@ MonoBehaviour:
   _title: Maximum health
   _sprite: {fileID: -2127351997, guid: 11ffae92e3ce07546966de09c16c138d, type: 3}
   _description: Get 3 more max hp
-  _statsToUpgrade: {fileID: 11400000, guid: d1fd8c728af4fbe4788962cec4128ff0, type: 2}
+  _statsToUpgrade: 5
   _valueToAdd: 3

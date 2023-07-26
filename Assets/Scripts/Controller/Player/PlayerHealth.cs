@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.Events;
+using Assets.Scripts.ScriptableObjects;
+using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.Variables;
 using Assets.Scripts.Variables.Constants;
 using System.Collections;
@@ -6,26 +8,34 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controller.Player
 {
+    [RequireComponent(typeof(PlayerStatsController))]
     public class PlayerHealth : MonoBehaviour
     {
         [SerializeField]
         private bool _resetOnStart;
-        [SerializeField]
-        private FloatVariable _hp;
-        [SerializeField]
-        private FloatVariable _maxHp;
+        public float Hp => _hp;
+        private float _hp;
+
         [SerializeField]
         private GameEvent _onPlayerDeathEvent;
-
-        private void OnEnable()
+        [SerializeField]
+        private PlayerStatsController _playerStatsController;
+        private void Start()
         {
-            if (_resetOnStart) _hp.value = _maxHp.value;
+            _playerStatsController = GetComponent<PlayerStatsController>();
+            if (!_playerStatsController) return;
+
+            CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
+            if (!characterStatistics) return;
+
+            if (_resetOnStart) _hp = characterStatistics.GetStats(Types.StatisticEnum.MaxHp);
+            Debug.Log($"HP : {_hp}");
         }
 
         public void TakeDamage(float damage)
         {
-            _hp.value -= damage;
-            if(_hp.value <= 0)
+            _hp -= damage;
+            if(_hp <= 0)
             {
                 Die();
             } 
@@ -35,6 +45,17 @@ namespace Assets.Scripts.Controller.Player
         {
             Destroy(gameObject);
             _onPlayerDeathEvent.Raise();
+        }
+
+        public void OnSelectUpgrade(UpgradeSO upgrade)
+        {
+            if (upgrade is not StatsUpgradeSO) return;
+            
+            StatsUpgradeSO statsUpgrade = (StatsUpgradeSO) upgrade;
+
+            if (statsUpgrade.StatsToUpgrade != Types.StatisticEnum.MaxHp) return;
+            Debug.Log("Added HP");
+            _hp += statsUpgrade.ValueToAdd;  
         }
     }
 }

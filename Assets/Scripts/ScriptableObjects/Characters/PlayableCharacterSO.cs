@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.ScriptableObjects.Characters;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
@@ -18,8 +20,21 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         string _description;
 
+        [SerializeField]
+        CharacterStatisticsSO _characterStatistics;
+
         public GameObject Prefab => _prefab;
         [SerializeField]
         GameObject _prefab;
+
+        public void Init(Vector3 spawnPosition)
+        {
+            GameObject playableCharacterInstance = Instantiate(_prefab, spawnPosition, _prefab.transform.rotation);
+            PlayerStatsController playerStatsController = playableCharacterInstance.GetComponent<PlayerStatsController>();
+
+            if (!playerStatsController) return;
+
+            playerStatsController.Init(_characterStatistics);
+        }
     }
 }

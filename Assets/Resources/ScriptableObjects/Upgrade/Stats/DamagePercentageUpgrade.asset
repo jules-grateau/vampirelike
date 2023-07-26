@@ -15,5 +15,5 @@ MonoBehaviour:
   _title: Damage
   _sprite: {fileID: 0}
   _description: Your deal 1% more damage
-  _statsToUpgrade: {fileID: 11400000, guid: 1593a4dd11fdefd488eba6c72c027b11, type: 2}
+  _statsToUpgrade: 2
   _valueToAdd: 1

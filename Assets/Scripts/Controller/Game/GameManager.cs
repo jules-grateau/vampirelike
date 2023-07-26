@@ -30,7 +30,7 @@ namespace Assets.Scripts.Controller.Game
 
             Vector3 playerSpawnPosition = playerSpawnGO.transform.position;
 
-            Instantiate(_gameData.PlayerPrefab, playerSpawnPosition,_gameData.PlayerPrefab.transform.rotation);
+            _gameData.PlayableCharacter.Init(playerSpawnPosition);
 
             Time.timeScale = 1;
         }
