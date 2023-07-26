@@ -29,7 +29,7 @@ public class PlayerStatsController : MonoBehaviour
 
         if (isCrit)
         {
-            computedDamage = computedDamage * (_characterStatistics.GetStats(StatisticEnum.DamagePercentage) / 100f);
+            computedDamage = computedDamage * (_characterStatistics.GetStats(StatisticEnum.CritDamage) / 100f);
         }
 
 
