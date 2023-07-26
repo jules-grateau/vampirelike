@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX

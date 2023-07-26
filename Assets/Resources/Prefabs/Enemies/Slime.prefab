@@ -246,8 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a645545c24de2d64fb5b2bb1114d3a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectible: {fileID: 6801104700241300836, guid: 5742c1fb69ec88447beb02e8e7abee9d, type: 3}
-  _amount: 1
 --- !u!95 &881878062649732182
 Animator:
   serializedVersion: 5
@@ -281,3 +279,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e79f5feca9f134998069fc2fd89ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collectible: {fileID: 6801104700241300836, guid: 5742c1fb69ec88447beb02e8e7abee9d, type: 3}
+  _amount: 1
