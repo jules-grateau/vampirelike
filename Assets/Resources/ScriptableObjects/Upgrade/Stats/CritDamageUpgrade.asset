@@ -15,5 +15,5 @@ MonoBehaviour:
   _title: Crit Damage
   _sprite: {fileID: -1570866722, guid: 11ffae92e3ce07546966de09c16c138d, type: 3}
   _description: Gain 50% critical hit damage
-  _statsToUpgrade: {fileID: 11400000, guid: 21d21092f74567d4a86ea9ddfb95ae15, type: 2}
+  _statsToUpgrade: 1
   _valueToAdd: 50

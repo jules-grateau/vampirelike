@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Variables;
+﻿using Assets.Scripts.Types;
+using Assets.Scripts.Variables;
 using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects
@@ -6,15 +7,12 @@ namespace Assets.Scripts.ScriptableObjects
     [CreateAssetMenu(fileName = "StatsUpgrade", menuName = "Upgrade/Stats", order = 1)]
     public class StatsUpgradeSO : UpgradeSO
     {
+        public StatisticEnum StatsToUpgrade => _statsToUpgrade;
         [SerializeField]
-        FloatVariable _statsToUpgrade;
+        StatisticEnum _statsToUpgrade;
+
+        public float ValueToAdd => _valueToAdd;
         [SerializeField]
         float _valueToAdd;
-
-
-        public override void Consume()
-        {
-            _statsToUpgrade.value += _valueToAdd;
-        }
     }
 }

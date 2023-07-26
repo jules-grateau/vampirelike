@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
-  m_Name: DamagePercentageUpgrade
+  m_Script: {fileID: 11500000, guid: 1d89dfce7e25b2f40aaef2f55d667d91, type: 3}
+  m_Name: CritChance
   m_EditorClassIdentifier: 
-  _title: Damage
-  _sprite: {fileID: 0}
-  _description: Your deal 1% more damage
-  _statsToUpgrade: 3
-  _valueToAdd: 1
+  _key: 0
+  _name: Critical Hit Chance
+  _valueAppendix: '%'

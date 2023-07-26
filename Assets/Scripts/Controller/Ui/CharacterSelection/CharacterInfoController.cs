@@ -16,14 +16,14 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
         [SerializeField]
         GameDataSO _gameData;
 
-        GameObject _prefab;
+        PlayableCharacterSO _playableCharacter;
 
         public void Init(PlayableCharacterSO playableCharacter)
         {
             _name = transform.Find("Name").GetComponent<TextMeshProUGUI>();
             _image = transform.Find("Image").GetComponent<Image>();
             _description = transform.Find("Description").GetComponent<TextMeshProUGUI>();
-            _prefab = playableCharacter.Prefab;
+            _playableCharacter = playableCharacter;
 
             _name.text = playableCharacter.Name;
             _image.sprite = playableCharacter.Sprite;
@@ -32,7 +32,7 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
 
         public void OnClick()
         {
-            _gameData.PlayerPrefab = _prefab;
+            _gameData.PlayableCharacter = _playableCharacter;
         }
 
     }

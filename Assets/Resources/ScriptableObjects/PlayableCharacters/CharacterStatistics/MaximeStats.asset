@@ -9,11 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
-  m_Name: DamagePercentageUpgrade
+  m_Script: {fileID: 11500000, guid: 33c539f10fb2fb74b813eb01188937f9, type: 3}
+  m_Name: MaximeStats
   m_EditorClassIdentifier: 
-  _title: Damage
-  _sprite: {fileID: 0}
-  _description: Your deal 1% more damage
-  _statsToUpgrade: 3
-  _valueToAdd: 1
+  _baseStats:
+  - _key: 0
+    _value: 100
+  - _key: 1
+    _value: 200
+  - _key: 2
+    _value: 100
+  - _key: 3
+    _value: 100
+  - _key: 4
+    _value: 50
+  - _key: 5
+    _value: 1

@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.ScriptableObjects.Items;
+using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Game
 {
     public class GameDataSO : ScriptableObject
     {
-        public GameObject PlayerPrefab {
-            get { return _playerPrefab; }
-            set { _playerPrefab = value; }
+        public PlayableCharacterSO PlayableCharacter {
+            get { return _playableCharacter; }
+            set { _playableCharacter = value; }
         }
 
         [SerializeField]
-        GameObject _playerPrefab;
+        PlayableCharacterSO _playableCharacter;
     }
 }
