@@ -23,6 +23,8 @@ public class GetRadiusPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_player) return;
+
         float radius = _player.GetComponent<PlayerCollect>().getRadius();
         float distance = Vector2.Distance(_player.transform.position, transform.position);
         if (distance <= radius)

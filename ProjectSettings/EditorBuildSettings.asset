@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Menus/MainMenu.unity
     guid: 3c2388f48ddf1614f91cbe4417ef76cc
   - enabled: 1
     path: Assets/Scenes/World1.unity
@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/World2.unity
     guid: 731e3fc8e81940e4fba54416cd7a878d
   - enabled: 1
-    path: Assets/Scenes/PauseMenu.unity
+    path: Assets/Scenes/Menus/PauseMenu.unity
     guid: ae4998584a8b5bb429e10f0178bb1d32
   - enabled: 1
-    path: Assets/Scenes/DeathMenu.unity
+    path: Assets/Scenes/Menus/DeathMenu.unity
     guid: 8ee773dde1223c841a0462464b1e558c
+  - enabled: 1
+    path: Assets/Scenes/Menus/UpgradeMenu.unity
+    guid: 4dad743e3350ab34cbb9451a2c97c388
   m_configObjects: {}

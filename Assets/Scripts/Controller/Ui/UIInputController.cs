@@ -13,6 +13,8 @@ namespace Assets.Scripts.Controller.Ui
         [SerializeField]
         GameEvent _unpauseEvent;
 
+        bool _isPausedFromOther;
+
         void Update()
         {
           if(Input.GetKeyDown(KeyCode.Escape))

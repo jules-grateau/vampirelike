@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7285952802528126592}
   - component: {fileID: 8864972913782304005}
   - component: {fileID: 9110955650624085769}
+  - component: {fileID: 1284124363385911551}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameData: {fileID: 11400000, guid: bd5e39cc44a757e4a90d84135f4e373a, type: 2}
   _deathMenuSceneName: DeathMenu
+  _upgradeMenuSceneName: UpgradeMenu
+  _pauseEvent: {fileID: 11400000, guid: 6d9dbd05ca6ea874fa46ca39ba71faff, type: 2}
 --- !u!114 &7285952802528126592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +127,34 @@ MonoBehaviour:
       - m_Target: {fileID: 2105279640170783832}
         m_TargetAssemblyTypeName: Assets.Scripts.Controller.Game.GameManager, Assembly-CSharp
         m_MethodName: OnPlayerDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1284124363385911551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285e44abffadaca47afce6ae9e89351f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 9fdb7426a996d4d4d99b3c5b345ec99a, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2105279640170783832}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Game.GameManager, Assembly-CSharp
+        m_MethodName: OnPlayerLevelUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

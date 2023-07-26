@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4333342926462182793}
   - component: {fileID: 8663408860301830518}
   - component: {fileID: 2930062219622115911}
+  - component: {fileID: 3444596221446627305}
   m_Layer: 7
   m_Name: PlayerVariant
   m_TagString: Player
@@ -283,8 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f51ae839738004890eb27d1ed50992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xp: {fileID: 11400000, guid: c678101c49edafa498744f1ae7df8f49, type: 2}
-  maxXp: {fileID: 11400000, guid: 86990462fda9503438982221eb449b5a, type: 2}
+  _xp: {fileID: 11400000, guid: c678101c49edafa498744f1ae7df8f49, type: 2}
+  _maxXp: {fileID: 11400000, guid: 86990462fda9503438982221eb449b5a, type: 2}
+  _playerLevelUpEvent: {fileID: 11400000, guid: 9fdb7426a996d4d4d99b3c5b345ec99a, type: 2}
 --- !u!114 &5115566951842065350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e87d5280b2a97642b2e49611a60bba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 10
+  _radius: {fileID: 11400000, guid: 1802d3df5a5bef6459d6af313e01f334, type: 2}
 --- !u!114 &2930062219622115911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +392,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _critChance: {fileID: 11400000, guid: 59e0b2984e0ebb94eb5e110892fa90bf, type: 2}
   _critDamage: {fileID: 11400000, guid: 21d21092f74567d4a86ea9ddfb95ae15, type: 2}
+  _baseDamage: {fileID: 11400000, guid: cf7580df100a11846b8e84eb81b8a992, type: 2}
+  _damagePercentage: {fileID: 11400000, guid: 1593a4dd11fdefd488eba6c72c027b11, type: 2}
+  _maxHp: {fileID: 11400000, guid: d1fd8c728af4fbe4788962cec4128ff0, type: 2}
+  _pickUpRadius: {fileID: 11400000, guid: 1802d3df5a5bef6459d6af313e01f334, type: 2}
+  _baseCritChance: 10
+  _baseCritDamage: 10000
+  _baseBaseDamage: 0
+  _baseDamagePercentage: 0
+  _baseMaxHp: 1
+  _basePickUpRadius: 50
+--- !u!114 &3444596221446627305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595b542e79fccad468762a762d214e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1f6685dba6f763f46938d2aa18b4d420, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2930062219622115911}
+        m_TargetAssemblyTypeName: PlayerStatsController, Assembly-CSharp
+        m_MethodName: OnSelectUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5219585304589539954
 GameObject:
   m_ObjectHideFlags: 0

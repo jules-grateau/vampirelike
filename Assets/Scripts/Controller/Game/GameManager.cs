@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.ScriptableObjects.Game;
+﻿using Assets.Scripts.Events;
+using Assets.Scripts.ScriptableObjects.Game;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,10 @@ namespace Assets.Scripts.Controller.Game
         GameDataSO _gameData;
         [SerializeField]
         string _deathMenuSceneName = "DeathMenu";
+        [SerializeField]
+        string _upgradeMenuSceneName = "UpgradeMenu";
+        [SerializeField]
+        GameEvent _pauseEvent;
 
         void Awake()
         {
@@ -42,6 +47,12 @@ namespace Assets.Scripts.Controller.Game
         public void OnPlayerDeath()
         {
             SceneManager.LoadScene(_deathMenuSceneName, LoadSceneMode.Additive);
+        }
+
+        public void OnPlayerLevelUp()
+        {
+            _pauseEvent.Raise();
+            SceneManager.LoadScene(_upgradeMenuSceneName,LoadSceneMode.Additive);
         }
     }
 }
