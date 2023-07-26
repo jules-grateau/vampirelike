@@ -267,9 +267,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef60c6cb1a38164f8090dbbfa438fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetOnStart: 1
-  hp: {fileID: 11400000, guid: d4db0cd2a503abf41b9d684b5cee96fe, type: 2}
-  maxHp: {fileID: 11400000, guid: d1fd8c728af4fbe4788962cec4128ff0, type: 2}
+  _resetOnStart: 1
+  _hp: {fileID: 11400000, guid: d4db0cd2a503abf41b9d684b5cee96fe, type: 2}
+  _maxHp: {fileID: 11400000, guid: d1fd8c728af4fbe4788962cec4128ff0, type: 2}
+  _onPlayerDeathEvent: {fileID: 11400000, guid: e52a29c257b87af4499524eee03d0667, type: 2}
 --- !u!114 &466390313952093619
 MonoBehaviour:
   m_ObjectHideFlags: 0

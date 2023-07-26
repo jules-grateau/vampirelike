@@ -22,6 +22,8 @@ public class FollowPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_player) return;
+
         var direction = _player.transform.position - transform.position;
         _rigidbody.velocity = direction.normalized * _speed;
     }

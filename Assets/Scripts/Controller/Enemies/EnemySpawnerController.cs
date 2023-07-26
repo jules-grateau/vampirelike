@@ -34,6 +34,8 @@ namespace Assets.Scripts.Controller.Enemies
         // Update is called once per frame
         void Update()
         {
+            if (!_player) return;
+
             if((_delay >= spawnCooldown || _forceSpawn) && triggerSpawn)
             {
                 // Get random position

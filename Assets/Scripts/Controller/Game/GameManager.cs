@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.ScriptableObjects.Game;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Controller.Game
 {
@@ -8,6 +9,8 @@ namespace Assets.Scripts.Controller.Game
     {
         [SerializeField]
         GameDataSO _gameData;
+        [SerializeField]
+        string _deathMenuSceneName = "DeathMenu";
 
         void Awake()
         {
@@ -34,6 +37,11 @@ namespace Assets.Scripts.Controller.Game
         public void OnUnpause()
         {
             Time.timeScale = 1;
+        }
+
+        public void OnPlayerDeath()
+        {
+            SceneManager.LoadScene(_deathMenuSceneName, LoadSceneMode.Additive);
         }
     }
 }

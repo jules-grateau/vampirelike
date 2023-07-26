@@ -9,20 +9,32 @@ namespace Assets.Scripts.Controller.Player
     public class PlayerHealth : MonoBehaviour
     {
         [SerializeField]
-        private bool resetOnStart;
+        private bool _resetOnStart;
         [SerializeField]
-        private FloatVariable hp;
+        private FloatVariable _hp;
         [SerializeField]
-        private FloatVariable maxHp;
+        private FloatVariable _maxHp;
+        [SerializeField]
+        private GameEvent _onPlayerDeathEvent;
 
         private void OnEnable()
         {
-            if (resetOnStart) hp.value = maxHp.value;
+            if (_resetOnStart) _hp.value = _maxHp.value;
         }
 
         public void TakeDamage(float damage)
         {
-            hp.value -= damage;
+            _hp.value -= damage;
+            if(_hp.value <= 0)
+            {
+                Die();
+            } 
+        }
+
+        void Die()
+        {
+            Destroy(gameObject);
+            _onPlayerDeathEvent.Raise();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Assets.Scripts.Controller.Enemies
 
         public void TakeDamage(HitData hit)
         {
-            if(gameObject.GetInstanceID() == hit.instanceID)
+            if(gameObject.GetInstanceID() == hit.instanceID && hit.source)
             {
                 float modifiedDamage = hit.damage;
                 bool isCrit = false;
