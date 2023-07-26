@@ -15,13 +15,15 @@ public class FollowPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.Find("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!_player) return;
+
         var direction = _player.transform.position - transform.position;
         _rigidbody.velocity = direction.normalized * _speed;
     }

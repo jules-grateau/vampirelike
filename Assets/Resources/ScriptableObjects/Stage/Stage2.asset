@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f460faa811e3e654b84c432d3ca57ac5, type: 3}
+  m_Name: Stage2
+  m_EditorClassIdentifier: 
+  _name: World 2
+  _sprite: {fileID: 7048034131002237089, guid: 198112b8ad4c09242aa09764cff6f8c8, type: 3}
+  _description: Un monde, en mieux
+  _sceneName: World2

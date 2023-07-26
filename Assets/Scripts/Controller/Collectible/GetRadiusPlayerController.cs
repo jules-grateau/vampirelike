@@ -16,13 +16,15 @@ public class GetRadiusPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.Find("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!_player) return;
+
         float radius = _player.GetComponent<PlayerCollect>().getRadius();
         float distance = Vector2.Distance(_player.transform.position, transform.position);
         if (distance <= radius)

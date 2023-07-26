@@ -10,11 +10,14 @@ namespace Assets.Scripts.Controller.Player
     public class PlayerXp : MonoBehaviour
     {
         [SerializeField]
-        private FloatVariable xp;
+        private FloatVariable _xp;
         [SerializeField]
-        private FloatVariable maxXp;
+        private FloatVariable _maxXp;
 
         private ParticleSystem _LevelUpEffect;
+
+        [SerializeField]
+        private GameEvent _playerLevelUpEvent;
 
         void Awake()
         {
@@ -23,17 +26,18 @@ namespace Assets.Scripts.Controller.Player
 
         private void OnEnable()
         {
-            xp.value = 0;
+            _xp.value = 0;
         }
 
         public void Collect(CollectibleSO collect)
         {
-            xp.value += ((XpCollectible)collect)._xpValue;
+            _xp.value += ((XpCollectible)collect)._xpValue;
 
-            if (xp.value >= maxXp.value)
+            if (_xp.value >= _maxXp.value)
             {
                 this._LevelUpEffect.Play();
-                xp.value = xp.value - maxXp.value;
+                _xp.value = _xp.value - _maxXp.value;
+                _playerLevelUpEvent.Raise();
             }
         }
     }

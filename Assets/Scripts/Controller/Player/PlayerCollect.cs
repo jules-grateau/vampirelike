@@ -9,11 +9,11 @@ namespace Assets.Scripts.Controller.Player
     public class PlayerCollect : MonoBehaviour
     {
         [SerializeField]
-        private float _radius;
+        private FloatVariable _radius;
 
         public float getRadius()
         {
-            return _radius;
+            return _radius.value;
         }
     }
 }

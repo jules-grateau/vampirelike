@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: dd9d2cc37052c0d48b1d999896f9233d, type: 2}
-  collectible: {fileID: 11400000, guid: 397691b6f687a604893d5151be24977b, type: 2}
+  collectible: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
 --- !u!114 &5177443497870124350
 MonoBehaviour:
   m_ObjectHideFlags: 0
