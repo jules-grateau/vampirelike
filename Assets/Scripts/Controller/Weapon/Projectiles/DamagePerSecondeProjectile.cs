@@ -6,30 +6,26 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
-    public class DamagePerSecondeProjectile : ProjectileTrigger, IDamageProjectile
+    public class DamagePerSecondeProjectile : ProjectileCollision
     {
         [SerializeField]
-        private GameEventHitData enemyHitEvent;
+        public GameEventHitData enemyHitEvent;
         [SerializeField]
-        private float tickSpeed;
+        public float tickSpeed;
         private float _cooloff;
-
-        public GameObject parent { get; set; }
-        public float damage { get ; set; }
-
-        protected override void HandleEnemyCollision(Collider2D collider2D)
+        protected override void HandleEnemyCollision(Collision2D collision2D)
         {
             if(_cooloff >= tickSpeed)
             {
                 enemyHitEvent.Raise(new HitData {
                     damage = damage,
-                    instanceID = collider2D.gameObject.GetInstanceID(),
-                    position = collider2D.transform.position,
+                    instanceID = collision2D.gameObject.GetInstanceID(),
+                    position = collision2D.transform.position,
                     source = parent
                 });
                 _cooloff = 0f;
             }
-            
+            if (destroyOnHit) Destroy(gameObject);
             _cooloff += Time.deltaTime;
         }
     }

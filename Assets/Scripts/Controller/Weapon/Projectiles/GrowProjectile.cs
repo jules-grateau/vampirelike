@@ -5,9 +5,9 @@ using UnityEngine;
 public class GrowProjectile : ProjectileBehaviour
 {
     [SerializeField]
-    private Vector3 _growValue;
+    public Vector3 growValue;
     public override void HandleProjectileBehaviour()
     {
-        gameObject.transform.localScale += _growValue;
+        gameObject.transform.localScale += growValue;
     }
 }

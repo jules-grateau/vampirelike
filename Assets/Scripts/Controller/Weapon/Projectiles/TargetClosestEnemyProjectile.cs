@@ -5,7 +5,6 @@ using UnityEngine;
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    [Obsolete("Use SelfTarget Weapon instead", true)]
     public class TargetClosestEnemyProjectile : ProjectileMouvement
     {
         GameObject _target;

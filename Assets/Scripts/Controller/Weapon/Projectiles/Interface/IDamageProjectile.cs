@@ -7,5 +7,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles.Interface
     {
         public GameObject parent { get; set; }
         public float damage { get; set; }
+        public bool destroyOnHit { get; set; }
+        public bool bounceOnWall { get; set; }
     }
 }

@@ -6,16 +6,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
-    public class DirectDamageProjectile : ProjectileCollision, IDamageProjectile 
+    public class DirectDamageProjectile : ProjectileCollision 
     {
         [SerializeField]
-        private GameEventHitData enemyHitEvent;
-        [SerializeField]
-        private Boolean _destroyOnHit = true;
-
-        public GameObject parent { get; set; }
-        public float damage { get; set; }
-
+        public GameEventHitData enemyHitEvent;
         protected override void HandleEnemyCollision(Collision2D collision2D)
         {
             enemyHitEvent.Raise(new HitData {
@@ -24,7 +18,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                 position = collision2D.transform.position,
                 source = parent
             });
-            if(_destroyOnHit) Destroy(gameObject);
+            if(destroyOnHit) Destroy(gameObject);
             return;
         }
     }

@@ -7,14 +7,14 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     {
 
         [SerializeField]
-        private float _minDelay;
+        public float minDelay;
         [SerializeField]
-        private float _maxDelay;
+        public float maxDelay;
 
         // Use this for initialization
         void Start()
         {
-            Destroy(gameObject, Random.Range(_minDelay, _maxDelay));
+            Destroy(gameObject, Random.Range(minDelay, maxDelay));
         }
     }
 }

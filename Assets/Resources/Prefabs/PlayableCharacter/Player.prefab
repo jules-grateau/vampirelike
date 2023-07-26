@@ -117,7 +117,7 @@ Transform:
   - {fileID: 4459226523663874623}
   - {fileID: 6865606651064289717}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8951663144810521054
 SpriteRenderer:
@@ -285,6 +285,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _xp: {fileID: 11400000, guid: c678101c49edafa498744f1ae7df8f49, type: 2}
   _maxXp: {fileID: 11400000, guid: 86990462fda9503438982221eb449b5a, type: 2}
+  _currentLevel: {fileID: 11400000, guid: 89937cfc28117db48a84b0622dcdd94a, type: 2}
+  _xpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 25
+      inSlope: 0.6571015
+      outSlope: 0.6571015
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.025170326
+    - serializedVersion: 3
+      time: 50
+      value: 500
+      inSlope: 0.02858643
+      outSlope: 0.02858643
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.25239128
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _playerLevelUpEvent: {fileID: 11400000, guid: 9fdb7426a996d4d4d99b3c5b345ec99a, type: 2}
 --- !u!114 &5115566951842065350
 MonoBehaviour:
@@ -493,7 +518,7 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 1
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensity: 0.25
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:

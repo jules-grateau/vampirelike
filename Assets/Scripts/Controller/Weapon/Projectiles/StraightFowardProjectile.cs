@@ -13,6 +13,7 @@ public class StraightFowardProjectile : ProjectileMouvement
 
     public override void HandleProjectileMouvement()
     {
+        if (Time.timeScale == 0) return;
         _rigidbody.velocity = transform.right * speed;
     }
 }

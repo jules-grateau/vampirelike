@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 881878062649732174}
   - component: {fileID: 881878062649732171}
   - component: {fileID: 881878062649732168}
-  - component: {fileID: 881878062649732170}
+  - component: {fileID: 8518874315514901466}
   - component: {fileID: 881878062649732181}
   - component: {fileID: 881878062649732180}
   - component: {fileID: 881878062649732183}
   - component: {fileID: 7480804512460441818}
   - component: {fileID: 881878062649732182}
   - component: {fileID: 8286605188781137757}
+  - component: {fileID: 694665347246158294}
   m_Layer: 8
   m_Name: GreenSlime
   m_TagString: Enemy
@@ -133,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
---- !u!61 &881878062649732170
-BoxCollider2D:
+--- !u!58 &8518874315514901466
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -152,10 +153,10 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 887
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -165,19 +166,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.4375, y: 0.375}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.0035489402, y: -0.005323033}
   serializedVersion: 2
-  m_Size: {x: 0.4375, y: 0.375}
-  m_EdgeRadius: 0
+  m_Radius: 0.1992321
 --- !u!114 &881878062649732181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,3 +272,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collectible: {fileID: 6801104700241300836, guid: 5742c1fb69ec88447beb02e8e7abee9d, type: 3}
   _amount: 1
+--- !u!114 &694665347246158294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881878062649732175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.15130335, y: -0.11630589, z: 0}
+  - {x: -0.18257242, y: -0.08640629, z: 0}
+  - {x: -0.18069878, y: 0.02413196, z: 0}
+  - {x: -0.12132619, y: 0.11630586, z: 0}
+  - {x: -0.05704536, y: 0.1534055, z: 0}
+  - {x: 0.060986463, y: 0.15527903, z: 0}
+  - {x: 0.123200364, y: 0.12379991, z: 0}
+  - {x: 0.18838654, y: 0.027879065, z: 0}
+  - {x: 0.1902602, y: -0.090153396, z: 0}
+  - {x: 0.15317625, y: -0.12379998, z: 0}
+  - {x: 0.087215684, y: -0.1538534, z: 0}
+  - {x: -0.090769194, y: -0.15197994, z: 0}
+  m_ShapePathHash: -704626121
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 66134
+  m_LocalBounds:
+    m_Center: {x: 0.0038438886, y: 0.00071281195, z: 0}
+    m_Extent: {x: 0.18641631, y: 0.15456621, z: 0}
