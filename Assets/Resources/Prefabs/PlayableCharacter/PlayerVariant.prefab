@@ -270,7 +270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resetOnStart: 1
   _onPlayerDeathEvent: {fileID: 11400000, guid: e52a29c257b87af4499524eee03d0667, type: 2}
-  _playerStatsController: {fileID: 0}
 --- !u!114 &466390313952093619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,10 +284,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _xp: {fileID: 11400000, guid: c678101c49edafa498744f1ae7df8f49, type: 2}
   _maxXp: {fileID: 11400000, guid: 86990462fda9503438982221eb449b5a, type: 2}
-  _currentLevel: {fileID: 0}
+  _currentLevel: {fileID: 11400000, guid: 89937cfc28117db48a84b0622dcdd94a, type: 2}
   _xpCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 25
+      inSlope: 0.6571015
+      outSlope: 0.6571015
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.025170326
+    - serializedVersion: 3
+      time: 50
+      value: 500
+      inSlope: 0.02858643
+      outSlope: 0.02858643
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.25239128
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -383,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e87d5280b2a97642b2e49611a60bba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: {fileID: 11400000, guid: 1802d3df5a5bef6459d6af313e01f334, type: 2}
 --- !u!114 &2930062219622115911
 MonoBehaviour:
   m_ObjectHideFlags: 0

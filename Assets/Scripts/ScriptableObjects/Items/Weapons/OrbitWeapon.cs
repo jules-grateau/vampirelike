@@ -23,6 +23,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         public override void Use(Vector2 holderPosition, Vector2 holderDirection)
         {
+            SanitizeProjectiles();
             int count = _projectiles.Count;
             for (int i = 0; i < _amount - count; i++)
             {
@@ -49,6 +50,15 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
             if (_localAngle >= 360f)
                 _localAngle = 0f;
+        }
+
+        // Get rid of all the "null" projectiles in the list
+        void SanitizeProjectiles()
+        {
+            for(int i = _projectiles.Count -1 ; i >= 0; i--)
+            {
+                if (!_projectiles[i]) _projectiles.RemoveAt(i);
+            }
         }
     }
 }
