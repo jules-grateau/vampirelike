@@ -7,7 +7,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     public abstract class ProjectileBehaviour : MonoBehaviour
     {
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             HandleProjectileBehaviour();
         }

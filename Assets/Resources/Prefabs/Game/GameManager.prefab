@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8864972913782304005}
   - component: {fileID: 9110955650624085769}
   - component: {fileID: 1284124363385911551}
+  - component: {fileID: -6507167564589464170}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2105279640170783832
 MonoBehaviour:
@@ -164,3 +165,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-6507167564589464170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f2498a385d30648be01d8d794c0ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerSpawn: 1
+  enemyPrefab:
+  - {fileID: 881878062649732175, guid: 048def7f5292e974ea148d8d3c6c0413, type: 3}
+  - {fileID: 881878062649732175, guid: 74fb525422333e04bbdf6eb6a0a9b927, type: 3}
+  spawnCooldown: 0.25
+  floor: {fileID: 0}
