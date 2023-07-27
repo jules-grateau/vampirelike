@@ -30,8 +30,19 @@ namespace Assets.Scripts.Events
 
     public class GameEventListener<T, E, UER> : MonoBehaviour , IGameEventListener<T> where E: GameEvent<T> where UER: UnityEvent<T>
     {
+        public E GameEvent 
+        { 
+            get => gameEvent;
+            set { gameEvent = value; }
+        }
         [SerializeField]
         private E gameEvent;
+
+        public UER UnityEvent
+        {
+            get => unityEvent;
+            set { unityEvent = value; }
+        }
         [SerializeField]
         private UER unityEvent;
 

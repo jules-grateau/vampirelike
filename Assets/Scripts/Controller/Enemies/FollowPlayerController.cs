@@ -1,15 +1,15 @@
 using Assets;
+using Assets.Scripts.Controller.Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class FollowPlayerController : MonoBehaviour
+public class FollowPlayerController : IEnemyMovement
 {
+    [SerializeField]
     private GameObject _player;
     private Rigidbody2D _rigidbody;
-    [SerializeField]
-    private float _speed = 2f;
 
 
     // Start is called before the first frame update
@@ -25,6 +25,6 @@ public class FollowPlayerController : MonoBehaviour
         if (!_player) return;
 
         var direction = _player.transform.position - transform.position;
-        _rigidbody.velocity = direction.normalized * _speed;
+        _rigidbody.velocity = direction.normalized * Speed;
     }
 }

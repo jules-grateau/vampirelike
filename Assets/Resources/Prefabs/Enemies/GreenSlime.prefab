@@ -11,14 +11,9 @@ GameObject:
   - component: {fileID: 881878062649732169}
   - component: {fileID: 881878062649732174}
   - component: {fileID: 881878062649732171}
-  - component: {fileID: 881878062649732168}
   - component: {fileID: 8518874315514901466}
-  - component: {fileID: 881878062649732181}
-  - component: {fileID: 881878062649732180}
-  - component: {fileID: 881878062649732183}
   - component: {fileID: 7480804512460441818}
   - component: {fileID: 881878062649732182}
-  - component: {fileID: 8286605188781137757}
   - component: {fileID: 694665347246158294}
   m_Layer: 8
   m_Name: GreenSlime
@@ -121,19 +116,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &881878062649732168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c786f9bcb0dfc348ad3086152598c31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 2
 --- !u!58 &8518874315514901466
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -169,62 +151,6 @@ CircleCollider2D:
   m_Offset: {x: 0.0035489402, y: -0.005323033}
   serializedVersion: 2
   m_Radius: 0.1992321
---- !u!114 &881878062649732181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05e4f5988b8aec04ab814e6224a190b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 1
-  playerCollisionEvent: {fileID: 11400000, guid: 532e962d558155b458520d5ff1f64c1c, type: 2}
---- !u!114 &881878062649732180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031776349f7507e47b97fc6d49ce5e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 881878062649732183}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Enemies.EnemyHealth,
-          Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &881878062649732183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4c7146d9c3b1e4fb9f18c2feea43bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 50
 --- !u!114 &7480804512460441818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,20 +184,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8286605188781137757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e79f5feca9f134998069fc2fd89ed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collectible: {fileID: 6801104700241300836, guid: 5742c1fb69ec88447beb02e8e7abee9d, type: 3}
-  _amount: 1
 --- !u!114 &694665347246158294
 MonoBehaviour:
   m_ObjectHideFlags: 0

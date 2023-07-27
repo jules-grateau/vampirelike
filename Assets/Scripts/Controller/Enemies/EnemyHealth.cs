@@ -7,7 +7,7 @@ namespace Assets.Scripts.Controller.Enemies
     public class EnemyHealth : MonoBehaviour
     {
         [SerializeField]
-        private float _health;
+        public float Health { get; set; }
 
         private GameObject _damageDisplay;
 
@@ -47,10 +47,10 @@ namespace Assets.Scripts.Controller.Enemies
                 }
 
                 DisplayDamage(modifiedDamage, isCrit);
-                _health -= modifiedDamage;
+                Health -= modifiedDamage;
             }
 
-            if(_health <= 0)
+            if(Health <= 0)
             {
                 DestructibleController destructible = gameObject.GetComponent<DestructibleController>();
                 if (destructible)

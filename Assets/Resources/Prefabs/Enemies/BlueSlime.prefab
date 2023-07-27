@@ -11,17 +11,12 @@ GameObject:
   - component: {fileID: 881878062649732169}
   - component: {fileID: 881878062649732174}
   - component: {fileID: 881878062649732171}
-  - component: {fileID: 881878062649732168}
-  - component: {fileID: -6902371024215115218}
-  - component: {fileID: 881878062649732181}
-  - component: {fileID: 881878062649732180}
-  - component: {fileID: 881878062649732183}
-  - component: {fileID: 1031235469974911364}
+  - component: {fileID: 8518874315514901466}
+  - component: {fileID: 7480804512460441818}
   - component: {fileID: 881878062649732182}
-  - component: {fileID: 5490071193828546527}
-  - component: {fileID: 1837040489564926695}
+  - component: {fileID: 694665347246158294}
   m_Layer: 8
-  m_Name: Slime
+  m_Name: BlueSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881878062649732175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 13.1, y: -0.72, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -121,20 +116,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &881878062649732168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c786f9bcb0dfc348ad3086152598c31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 1.5
---- !u!58 &-6902371024215115218
+--- !u!58 &8518874315514901466
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,66 +148,10 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000031789145, y: 0.0008048813}
+  m_Offset: {x: 0.0035489402, y: -0.005323033}
   serializedVersion: 2
-  m_Radius: 0.2082866
---- !u!114 &881878062649732181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05e4f5988b8aec04ab814e6224a190b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 1
-  playerCollisionEvent: {fileID: 11400000, guid: 532e962d558155b458520d5ff1f64c1c, type: 2}
---- !u!114 &881878062649732180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031776349f7507e47b97fc6d49ce5e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 881878062649732183}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Enemies.EnemyHealth,
-          Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &881878062649732183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4c7146d9c3b1e4fb9f18c2feea43bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 50
---- !u!114 &1031235469974911364
+  m_Radius: 0.1992321
+--- !u!114 &7480804512460441818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,21 +184,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5490071193828546527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881878062649732175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e79f5feca9f134998069fc2fd89ed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collectible: {fileID: 6801104700241300836, guid: 5742c1fb69ec88447beb02e8e7abee9d, type: 3}
-  _amount: 1
---- !u!114 &1837040489564926695
+--- !u!114 &694665347246158294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,21 +204,21 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.15017039, y: -0.117950216, z: 0}
-  - {x: -0.18197289, y: -0.08759028, z: 0}
-  - {x: -0.18069433, y: 0.024122464, z: 0}
-  - {x: -0.11894518, y: 0.116670795, z: 0}
-  - {x: -0.05802383, y: 0.15193276, z: 0}
-  - {x: 0.05626959, y: 0.15193279, z: 0}
-  - {x: 0.1189457, y: 0.119890325, z: 0}
-  - {x: 0.18504997, y: 0.027981745, z: 0}
-  - {x: 0.18344079, y: -0.08631084, z: 0}
-  - {x: 0.15114048, y: -0.11828059, z: 0}
-  - {x: 0.08524476, y: -0.15231071, z: 0}
-  - {x: -0.08538856, y: -0.15070099, z: 0}
-  m_ShapePathHash: 250028029
+  - {x: -0.15130335, y: -0.11630589, z: 0}
+  - {x: -0.18257242, y: -0.08640629, z: 0}
+  - {x: -0.18069878, y: 0.02413196, z: 0}
+  - {x: -0.12132619, y: 0.11630586, z: 0}
+  - {x: -0.05704536, y: 0.1534055, z: 0}
+  - {x: 0.060986463, y: 0.15527903, z: 0}
+  - {x: 0.123200364, y: 0.12379991, z: 0}
+  - {x: 0.18838654, y: 0.027879065, z: 0}
+  - {x: 0.1902602, y: -0.090153396, z: 0}
+  - {x: 0.15317625, y: -0.12379998, z: 0}
+  - {x: 0.087215684, y: -0.1538534, z: 0}
+  - {x: -0.090769194, y: -0.15197994, z: 0}
+  m_ShapePathHash: -704626121
   m_Mesh: {fileID: 0}
-  m_InstanceId: 66236
+  m_InstanceId: 66134
   m_LocalBounds:
-    m_Center: {x: 0.0015385449, y: -0.00018896163, z: 0}
-    m_Extent: {x: 0.18351144, y: 0.15212175, z: 0}
+    m_Center: {x: 0.0038438886, y: 0.00071281195, z: 0}
+    m_Extent: {x: 0.18641631, y: 0.15456621, z: 0}
