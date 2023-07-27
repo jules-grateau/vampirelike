@@ -17,9 +17,13 @@ namespace Assets.Scripts.Controller.Enemies
         private EnemySO[] _enemies;
 
         [SerializeField]
-        private float spawnCooldown = 5;
+        private float _spawnCooldown = 5;
+
         [SerializeField]
         private Tilemap floor;
+
+        [SerializeField]
+        private float _waveAmount;
 
         private GameObject _player;
 
@@ -47,29 +51,34 @@ namespace Assets.Scripts.Controller.Enemies
             if (_gameManager.GameState == Types.GameStateEnum.PAUSE) return;
             if (!_player) return;
 
-            if((_delay >= spawnCooldown || _forceSpawn) && triggerSpawn)
+            if ((_delay >= _spawnCooldown || _forceSpawn) && triggerSpawn)
             {
-                // Get random position
-                Vector2 playerPos = _player.transform.position;
-                Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * _radius + playerPos;
-                bool isCorrectSpawn = floor.HasTile(Vector3Int.FloorToInt(spawnPos));
-                if (isCorrectSpawn)
+                int spawnedEnemy = 0;
+                while (spawnedEnemy < _waveAmount)
                 {
-                    // Pick random enemy
-                    int random = UnityEngine.Random.Range(0, _enemies.Length);
-                    //Debug.DrawLine(_player.transform.position, spawnPos, Color.green, 2, false);
-                    GameObject enemyGo = _enemies[random].GetEnemy();
-                    enemyGo.transform.position = spawnPos;
-                    enemyGo.transform.rotation = Quaternion.identity;
-                    _delay = 0;
-                    _forceSpawn = false;
-                    enemyGo.SetActive(true);
+                    // Get random position
+                    Vector2 playerPos = _player.transform.position;
+                    Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * _radius + playerPos;
+                    bool isCorrectSpawn = floor.HasTile(Vector3Int.FloorToInt(spawnPos));
+
+                    if (isCorrectSpawn)
+                    {
+                        // Pick random enemy
+                        int random = UnityEngine.Random.Range(0, _enemies.Length);
+                        Debug.DrawLine(_player.transform.position, spawnPos, Color.yellow, 2, false);
+                        GameObject enemyGo = _enemies[random].GetEnemy();
+                        enemyGo.transform.position = spawnPos;
+                        enemyGo.transform.rotation = Quaternion.identity;
+                        
+                        enemyGo.SetActive(true);
+                        spawnedEnemy++;
+                    }
                 }
-                else
-                {
-                    _forceSpawn = true;
-                }  
-            }
+                
+                _delay = 0;
+                _forceSpawn = false;
+            }  
+
             _delay += Time.deltaTime;
         }
     }
