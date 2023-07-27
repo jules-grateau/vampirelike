@@ -1,20 +1,20 @@
-﻿using Assets.Scripts.Events.TypedEvents;
+﻿using Assets.Scripts.Controller.Enemies.Interface;
+using Assets.Scripts.Events.TypedEvents;
 using UnityEngine;
 
 namespace Assets.Scripts.Controller.Enemies
 {
     [RequireComponent(typeof(Collider2D))]
-    public class DamagePlayerOnCollision : MonoBehaviour
+    public class DamagePlayerOnCollision : IEnemyDamage
     {
         [SerializeField]
-        float _damage;
-        [SerializeField]
-        GameEventFloat playerCollisionEvent;
+        public GameEventFloat PlayerColisionEvent { get; set; }
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if(collision.gameObject.CompareTag("Player"))
             {
-                playerCollisionEvent.Raise(_damage);
+                PlayerColisionEvent.Raise(Damage);
             }
         }
     }

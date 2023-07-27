@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Controller.Game;
+using Assets.Scripts.ScriptableObjects.Enemies;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,8 +12,10 @@ namespace Assets.Scripts.Controller.Enemies
     {
         [SerializeField]
         private bool triggerSpawn;
+
         [SerializeField]
-        private GameObject[] enemyPrefab = Array.Empty<GameObject>();
+        private EnemySO[] _enemies;
+
         [SerializeField]
         private float spawnCooldown = 5;
         [SerializeField]
@@ -34,6 +38,7 @@ namespace Assets.Scripts.Controller.Enemies
         {
             _player = GameObject.FindGameObjectWithTag("Player");
             _gameManager = GetComponent<GameManager>();
+            _enemies = Resources.LoadAll<EnemySO>("ScriptableObjects/Enemy");
         }
 
         // Update is called once per frame
@@ -51,11 +56,14 @@ namespace Assets.Scripts.Controller.Enemies
                 if (isCorrectSpawn)
                 {
                     // Pick random enemy
-                    int random = UnityEngine.Random.Range(0, enemyPrefab.Length);
+                    int random = UnityEngine.Random.Range(0, _enemies.Length);
                     //Debug.DrawLine(_player.transform.position, spawnPos, Color.green, 2, false);
-                    Instantiate(enemyPrefab[random], spawnPos, Quaternion.identity);
+                    GameObject enemyGo = _enemies[random].GetEnemy();
+                    enemyGo.transform.position = spawnPos;
+                    enemyGo.transform.rotation = Quaternion.identity;
                     _delay = 0;
                     _forceSpawn = false;
+                    enemyGo.SetActive(true);
                 }
                 else
                 {
