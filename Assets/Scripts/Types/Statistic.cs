@@ -5,11 +5,11 @@ using UnityEngine;
 namespace Assets.Scripts.Types
 {
     [Serializable]
-    public class Statistic
+    public class Statistic<T>
     {
-        public StatisticEnum Key => _key;
+        public T Key => _key;
         [SerializeField]
-        StatisticEnum _key;
+        T _key;
 
         public float Value => _value;
         [SerializeField]

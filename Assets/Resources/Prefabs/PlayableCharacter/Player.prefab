@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4459226523663874623}
   - component: {fileID: 296468058830763380}
   - component: {fileID: 2163766243254025714}
+  - component: {fileID: 5162105934162180178}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -65,6 +66,35 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
           Assembly-CSharp
         m_MethodName: EquipWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5162105934162180178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46691603790076844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595b542e79fccad468762a762d214e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1f6685dba6f763f46938d2aa18b4d420, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 296468058830763380}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
+          Assembly-CSharp
+        m_MethodName: OnSelectUpgrade
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -255,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294af4184e684f428ad6869f276c780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _defaultSpeed: 3.5
 --- !u!114 &4409285678151217457
 MonoBehaviour:
   m_ObjectHideFlags: 0

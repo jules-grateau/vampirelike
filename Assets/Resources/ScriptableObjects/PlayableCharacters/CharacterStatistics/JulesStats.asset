@@ -25,3 +25,5 @@ MonoBehaviour:
     _value: 5
   - _key: 5
     _value: 50
+  - _key: 6
+    _value: 0

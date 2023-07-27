@@ -6,6 +6,8 @@ using System.Collections;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 {
@@ -18,8 +20,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         [DrawIf("behaviourType", ProjectileBehaviourEnum.Grow, ComparisonType.Equals, DisablingType.DontDraw)]
         private Vector3 _growValue;
-        [SerializeField]
-        private float _speed;
 
         [Header("Damage")]
         [SerializeField]
@@ -27,8 +27,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         [DrawIf("damageType", ProjectileDamages.PerSecond, ComparisonType.Equals, DisablingType.DontDraw)]
         private float _tickSpeed;
-        [SerializeField]
-        private float _damage;
         [SerializeField]
         public GameEventHitData _enemyHitEvent;
 
@@ -45,6 +43,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [DrawIf("autoDestroy", true, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         private Vector2 _minMaxDelay;
+
         protected GameObject GetProjectile()
         {
             var projectile = Instantiate(_projectilPrefab);
@@ -73,7 +72,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     ((DirectDamageProjectile)directDamageProjectileScript).enemyHitEvent = _enemyHitEvent;
                     break;
             }
-            directDamageProjectileScript.damage = _damage;
+            directDamageProjectileScript.damage = GetStats(WeaponStatisticEnum.BaseDamage);
             directDamageProjectileScript.parent = parent;
             directDamageProjectileScript.destroyOnHit = _destroyOnHit;
             directDamageProjectileScript.bounceOnWall = _bounceOnWall;
@@ -85,21 +84,23 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     break;
                 case ProjectileDirection.Straight:
                     mouvementScript = projectile.AddComponent<StraightFowardProjectile>();
-                    mouvementScript.speed = _speed;
+                    mouvementScript.speed = GetStats(WeaponStatisticEnum.BaseSpeed) * ( 1 + GetStats(WeaponStatisticEnum.SpeedPercentage)/100);
                     break;
                 case ProjectileDirection.AutoAimed:
                 default:
                     mouvementScript = projectile.AddComponent<TargetClosestEnemyProjectile>();
-                    mouvementScript.speed = _speed;
+                    mouvementScript.speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100);
                     break;
             }
 
             if (autoDestroy)
             {
                 SelfDestroyRandomDelay selfDestroyRandomDelayScript = projectile.AddComponent<SelfDestroyRandomDelay>();
-                selfDestroyRandomDelayScript.minDelay = _minMaxDelay.x;
-                selfDestroyRandomDelayScript.maxDelay = _minMaxDelay.y;
+                selfDestroyRandomDelayScript.minDelay = _minMaxDelay.x * (1 + (GetStats(WeaponStatisticEnum.Range) / 100));
+                selfDestroyRandomDelayScript.maxDelay = _minMaxDelay.y * (1 + (GetStats(WeaponStatisticEnum.Range) / 100));
             }
+
+            projectile.transform.localScale = new Vector3(1f * (1 + (GetStats(WeaponStatisticEnum.Size)/100)), 1f * (1 + (GetStats(WeaponStatisticEnum.Size) / 100)), 1f);
 
             return projectile;
         }

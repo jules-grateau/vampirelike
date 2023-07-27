@@ -49,9 +49,9 @@ namespace Assets.Scripts.Controller.Player
 
         public void OnSelectUpgrade(UpgradeSO upgrade)
         {
-            if (upgrade is not StatsUpgradeSO) return;
-            
-            StatsUpgradeSO statsUpgrade = (StatsUpgradeSO) upgrade;
+            if (upgrade is not CharacterStatsUpgradeSO) return;
+
+            CharacterStatsUpgradeSO statsUpgrade = (CharacterStatsUpgradeSO) upgrade;
 
             if (statsUpgrade.StatsToUpgrade != Types.StatisticEnum.MaxHp) return;
             Debug.Log("Added HP");

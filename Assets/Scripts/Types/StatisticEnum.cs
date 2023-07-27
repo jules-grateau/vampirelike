@@ -10,7 +10,7 @@ namespace Assets.Scripts.Types
         BaseDamage,
         DamagePercentage,
         PickUpRadius,
-        MaxHp
-
+        MaxHp,
+        MovementSpeed
     }
 }

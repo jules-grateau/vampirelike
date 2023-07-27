@@ -14,6 +14,8 @@ namespace Assets.Scripts.ScriptableObjects
 
         public string Description => _description;
         [SerializeField]
-        string _description;
+        protected string _description;
+
+        public abstract string getDescription();
     }
 }

@@ -18,6 +18,7 @@ public class PickUpWeapon : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             weapon.parent = collision.gameObject;
+            weapon.Init();
             gameEvent.Raise(weapon);
             Destroy(gameObject);
         }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.ScriptableObjects.Characters;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovementController : MonoBehaviour
@@ -6,14 +7,16 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private bool _lookRight = true;
     private Animator _animator;
+    private PlayerStatsController _playerStatsController;
 
     [SerializeField]
-    private float _speed = 10f;
+    private float _defaultSpeed = 2.5f;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _playerStatsController = GetComponent<PlayerStatsController>();
     }
 
     void FixedUpdate()
@@ -24,10 +27,16 @@ public class PlayerMovementController : MonoBehaviour
         Rotate(horizontalInput);
         Animate(horizontalInput, verticalInput);
 
-        _rigidbody.velocity = new Vector2(horizontalInput, verticalInput).normalized * _speed;
+        float speed = _defaultSpeed * (1 + getBonusSpeed()/100);
 
+        _rigidbody.velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
+    }
 
-
+    private float getBonusSpeed()
+    {
+        CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
+        if (!characterStatistics) return 0f;
+        return characterStatistics.GetStats(Assets.Scripts.Types.StatisticEnum.MovementSpeed);
     }
 
     void Rotate(float horizontalInput)

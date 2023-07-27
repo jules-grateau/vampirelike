@@ -4,12 +4,11 @@ using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Characters
 {
-    [CreateAssetMenu(fileName = "Statistics", menuName = "Statistics", order = 8)]
-    public class StatisticSO : ScriptableObject
+    public class BaseStatisticDescriptionSO<T> : ScriptableObject
     {
-        public StatisticEnum Key => _key;
+        public T Key => _key;
         [SerializeField]
-        StatisticEnum _key;
+        T _key;
 
         public string Name => _name;
         [SerializeField]

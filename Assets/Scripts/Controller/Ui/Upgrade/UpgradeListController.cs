@@ -19,16 +19,20 @@ namespace Assets.Scripts.Controller.Ui
         void Awake()
         {
             GameObject upgradeInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/UpgradeInfo");
-            UpgradeSO[] upgrades = Resources.LoadAll<UpgradeSO>($"ScriptableObjects/Upgrade/{_upgradeType}");
+            List<UpgradeSO> upgrades = new List<UpgradeSO>();
+            foreach (string upgrade in _upgradeType.Split(";"))
+            {
+                upgrades.AddRange(Resources.LoadAll<UpgradeSO>($"ScriptableObjects/Upgrade/{upgrade}"));
+            }
             List<UpgradeSO> upgradesToShow = new List<UpgradeSO>();
             List<int> selectedUpgradeIndex = new List<int>();
             float maxUpgrade = _numberSelectableUpgrade.value;
 
-            if(upgrades.Length > maxUpgrade)
+            if(upgrades.Count > maxUpgrade)
             {
                 while(upgradesToShow.Count < maxUpgrade)
                 {
-                    int randomUpgradeIndex = Random.Range(0, upgrades.Length);
+                    int randomUpgradeIndex = Random.Range(0, upgrades.Count);
                     if (!selectedUpgradeIndex.Contains(randomUpgradeIndex))
                     {
                         UpgradeSO upgrade = upgrades[randomUpgradeIndex];
