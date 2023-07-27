@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CritChanceUpgrade
   m_EditorClassIdentifier: 
   _title: Crit Chance
-  _sprite: {fileID: -2127351997, guid: 11ffae92e3ce07546966de09c16c138d, type: 3}
+  _sprite: {fileID: -891775503, guid: 3846e1a06511034409055317b4421918, type: 3}
   _description: Gain 5% critical hit chance
-  _statsToUpgrade: {fileID: 11400000, guid: 59e0b2984e0ebb94eb5e110892fa90bf, type: 2}
+  _statsToUpgrade: 0
   _valueToAdd: 5

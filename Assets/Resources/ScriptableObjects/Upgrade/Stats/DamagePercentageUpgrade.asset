@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DamagePercentageUpgrade
   m_EditorClassIdentifier: 
   _title: Damage
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 2086238819, guid: 3846e1a06511034409055317b4421918, type: 3}
   _description: Your deal 1% more damage
   _statsToUpgrade: 3
   _valueToAdd: 1

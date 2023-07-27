@@ -24,7 +24,7 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
         public void Init(UpgradeSO upgrade)
         {
             _title = transform.Find("Title").GetComponent<TextMeshProUGUI>();
-            _image = transform.Find("Image").GetComponent<Image>();
+            _image = transform.Find("Icon/Image").GetComponent<Image>();
             _description = transform.Find("Description").GetComponent<TextMeshProUGUI>();
             _upgrade = upgrade;
 

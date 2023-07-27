@@ -270,7 +270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resetOnStart: 1
   _onPlayerDeathEvent: {fileID: 11400000, guid: e52a29c257b87af4499524eee03d0667, type: 2}
-  _playerStatsController: {fileID: 0}
 --- !u!114 &466390313952093619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e87d5280b2a97642b2e49611a60bba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: {fileID: 11400000, guid: 1802d3df5a5bef6459d6af313e01f334, type: 2}
 --- !u!114 &2930062219622115911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,20 +435,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4409285678151217457}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerHealth,
-          Assembly-CSharp
-        m_MethodName: OnSelectUpgrade
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Assets.Scripts.ScriptableObjects.UpgradeSO,
-            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
