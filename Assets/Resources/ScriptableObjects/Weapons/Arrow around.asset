@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilPrefab: {fileID: 319311135818076577, guid: 628282353657a5342841555f4e916013, type: 3}
   _icon: {fileID: 21300000, guid: 7185783c26d576b4cb8929840eda1e73, type: 3}
-  _cooldown: 1
-  behaviourType: 1
+  _cooldown: 15
+  behaviourType: 0
   _growValue: {x: 0.001, y: 0.001, z: 0}
   _speed: 3
   damageType: 0
   _tickSpeed: 0
-  _damage: 1000
+  _damage: 8
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   directionType: 1
   _bounceOnWall: 0
   _destroyOnHit: 1
   autoDestroy: 0
   _minMaxDelay: {x: 0, y: 0}
-  _amount: 6
-  _radius: 2
+  _amount: 2
+  _radius: 1

@@ -17,10 +17,10 @@ MonoBehaviour:
   _cooldown: 2
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
-  _speed: 10
+  _speed: 8
   damageType: 0
   _tickSpeed: 0
-  _damage: 1000
+  _damage: 10
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   directionType: 1
   _bounceOnWall: 0

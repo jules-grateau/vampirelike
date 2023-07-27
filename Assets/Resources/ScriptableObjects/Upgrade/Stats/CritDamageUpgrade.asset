@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CritDamageUpgrade
   m_EditorClassIdentifier: 
   _title: Crit Damage
-  _sprite: {fileID: -1570866722, guid: 11ffae92e3ce07546966de09c16c138d, type: 3}
+  _sprite: {fileID: -930477250, guid: 3846e1a06511034409055317b4421918, type: 3}
   _description: Gain 50% critical hit damage
   _statsToUpgrade: 1
   _valueToAdd: 50
