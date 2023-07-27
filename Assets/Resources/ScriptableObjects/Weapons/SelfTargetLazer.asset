@@ -23,7 +23,7 @@ MonoBehaviour:
   _damage: 1000
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   directionType: 0
-  _bounceOnWall: 0
+  _bounceOnWall: 1
   _destroyOnHit: 0
   autoDestroy: 0
   _minMaxDelay: {x: 0, y: 0}

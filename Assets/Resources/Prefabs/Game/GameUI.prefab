@@ -239,7 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _min: 0
-  _max: {fileID: 11400000, guid: d1fd8c728af4fbe4788962cec4128ff0, type: 2}
   _displayText: {fileID: 361481339625749737}
 --- !u!1 &2560782690997402137
 GameObject:

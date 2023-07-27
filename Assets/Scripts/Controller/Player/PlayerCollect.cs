@@ -10,8 +10,6 @@ namespace Assets.Scripts.Controller.Player
     [RequireComponent(typeof(PlayerStatsController))]
     public class PlayerCollect : MonoBehaviour
     {
-        [SerializeField]
-        private FloatVariable _radius;
         private PlayerStatsController _playerStatsController;
 
         private void Start()

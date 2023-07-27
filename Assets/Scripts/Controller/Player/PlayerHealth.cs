@@ -18,8 +18,8 @@ namespace Assets.Scripts.Controller.Player
 
         [SerializeField]
         private GameEvent _onPlayerDeathEvent;
-        [SerializeField]
         private PlayerStatsController _playerStatsController;
+
         private void Start()
         {
             _playerStatsController = GetComponent<PlayerStatsController>();
