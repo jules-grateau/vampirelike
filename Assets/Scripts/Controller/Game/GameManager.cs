@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.Events;
 using Assets.Scripts.ScriptableObjects.Game;
 using Assets.Scripts.Types;
+using Assets.Scripts.Variables;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,11 +20,15 @@ namespace Assets.Scripts.Controller.Game
         [SerializeField]
         GameEvent _pauseEvent;
 
+        [SerializeField]
+        FloatVariable _gameTime;
+
         public GameStateEnum GameState => _gameState;
         GameStateEnum _gameState = GameStateEnum.PAUSE;
 
         void Awake()
         {
+            _gameTime.value = 0f;
             OnPause();
 
             GameObject playerSpawnGO = GameObject.FindGameObjectWithTag("PlayerSpawn");
@@ -37,6 +43,11 @@ namespace Assets.Scripts.Controller.Game
             _gameData.PlayableCharacter.Init(playerSpawnPosition);
 
             OnUnpause();
+        }
+
+        private void Update()
+        {
+            _gameTime.value += Time.deltaTime;
         }
         public void OnPause()
         {

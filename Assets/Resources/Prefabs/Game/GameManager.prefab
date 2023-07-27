@@ -53,6 +53,7 @@ MonoBehaviour:
   _deathMenuSceneName: DeathMenu
   _upgradeMenuSceneName: UpgradeMenu
   _pauseEvent: {fileID: 11400000, guid: 6d9dbd05ca6ea874fa46ca39ba71faff, type: 2}
+  _gameTime: {fileID: 11400000, guid: 1a818c579457a884c8446bcc77bc185a, type: 2}
 --- !u!114 &7285952802528126592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,5 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerSpawn: 1
   _enemies: []
-  spawnCooldown: 1
+  _spawnCooldown: 5
   floor: {fileID: 0}
+  _waveAmount: 10
