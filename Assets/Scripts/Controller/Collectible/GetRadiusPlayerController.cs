@@ -12,6 +12,8 @@ public class GetRadiusPlayerController : MonoBehaviour
     [SerializeField]
     private float _speed = 2f;
 
+    public bool forceCollect = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +28,20 @@ public class GetRadiusPlayerController : MonoBehaviour
         if (!_player) return;
 
         float radius = _player.GetComponent<PlayerCollect>().getRadius();
+        var hit = Physics2D.OverlapCircle(transform.position, radius, 1 << LayerMask.NameToLayer("Player"));
+
         float distance = Vector2.Distance(_player.transform.position, transform.position);
-        if (distance <= radius)
-        {
-            var direction = _player.transform.position - transform.position;
-            _rigidbody.velocity = direction.normalized * _speed * ( 1 - (distance / radius)) * 2;
-        }
-        else
+
+        // Don't know why distance is some times bigger than radius even when giving radius to OverlapCircle
+        if (!forceCollect && (!hit || distance > radius))
         {
             _rigidbody.velocity = Vector2.zero;
+            return;
         }
+
+        var direction = _player.transform.position - transform.position;
+
+        float flow = forceCollect ? distance * 0.5f : (1 - (distance / radius)) * 2f ;
+        _rigidbody.velocity = direction.normalized * _speed * Mathf.Max(flow, 1f);
     }
 }

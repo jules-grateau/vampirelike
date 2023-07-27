@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
-    [CreateAssetMenu(fileName = "Collectible", menuName = "Collectible/Basic", order = 1)]
+    [CreateAssetMenu(fileName = "Collectible", menuName = "Collectible/Xp", order = 1)]
     public class XpCollectible : CollectibleSO
     {
         [SerializeField]

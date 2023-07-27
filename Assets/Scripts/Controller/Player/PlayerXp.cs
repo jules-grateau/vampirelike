@@ -36,6 +36,8 @@ namespace Assets.Scripts.Controller.Player
 
         public void Collect(CollectibleSO collect)
         {
+            if (!(collect is XpCollectible)) return;
+
             _xp.value += ((XpCollectible)collect)._xpValue;
             int xpToReach = XpToReach(_currentLevel);
 
