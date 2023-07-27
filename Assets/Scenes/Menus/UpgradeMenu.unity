@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdbbd3ebaeacb244af0fa0dff5e401d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradeType: Stats
+  _upgradeType: Stats;Weapon
   _numberSelectableUpgrade: {fileID: 11400000, guid: e507ae7c6810479428b2dae4b182c1d0, type: 2}
 --- !u!1 &650342327
 GameObject:

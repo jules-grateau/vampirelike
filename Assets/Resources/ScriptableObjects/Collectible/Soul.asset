@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Soul
   m_EditorClassIdentifier: 
   pickupAudio: {fileID: 8300000, guid: 2138d00602a51f4479b741e8492cc9f3, type: 3}
-  _xpValue: 1
+  _xpValue: 5

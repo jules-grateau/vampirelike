@@ -2,6 +2,7 @@
 using Assets.Scripts.Controller.Weapon.Projectiles.Interface;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Types;
 using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Weapons
@@ -13,8 +14,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         private int _amount;
         [SerializeField]
         private int _radius;
-        [SerializeField]
-        private float _angularSpeed = 2f;
 
         [System.NonSerialized]
         private float _localAngle = 0f;
@@ -44,9 +43,10 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 );
                 _projectiles[i].transform.position = newPos;
                 _projectiles[i].transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, -90) * (newPos - holderPosition));
+                _projectiles[i].transform.localScale = new Vector3(1f * (1 + (GetStats(WeaponStatisticEnum.Size) / 100)), 1f * (1 + (GetStats(WeaponStatisticEnum.Size) / 100)), 1f);
                 _projectiles[i].SetActive(true);
             }
-            _localAngle += Time.deltaTime * _angularSpeed;
+            _localAngle += Time.deltaTime * (GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100));
 
             if (_localAngle >= 360f)
                 _localAngle = 0f;

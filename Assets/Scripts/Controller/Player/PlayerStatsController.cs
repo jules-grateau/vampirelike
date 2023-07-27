@@ -32,20 +32,21 @@ public class PlayerStatsController : MonoBehaviour
             computedDamage = computedDamage * (_characterStatistics.GetStats(StatisticEnum.CritDamage) / 100f);
         }
 
+        computedDamage = Mathf.FloorToInt(computedDamage);
 
         return (isCrit, computedDamage);
     }
 
     public void OnSelectUpgrade(UpgradeSO upgrade)
     {
-        if(upgrade is StatsUpgradeSO)
+        if(upgrade is CharacterStatsUpgradeSO)
         {
-            HandleStatUpgrade((StatsUpgradeSO)upgrade);
+            HandleStatUpgrade((CharacterStatsUpgradeSO)upgrade);
         }
 
     }
 
-    void HandleStatUpgrade(StatsUpgradeSO upgrade)
+    void HandleStatUpgrade(CharacterStatsUpgradeSO upgrade)
     {
         _characterStatistics.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd);
     }

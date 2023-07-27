@@ -30,7 +30,7 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
 
             _title.text = upgrade.Title;
             _image.sprite = upgrade.Sprite;
-            _description.text = upgrade.Description;
+            _description.text = upgrade.getDescription();
         }
 
         public void OnClick()

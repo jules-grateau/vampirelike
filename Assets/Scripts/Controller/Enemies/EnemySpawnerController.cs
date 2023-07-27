@@ -35,7 +35,7 @@ namespace Assets.Scripts.Controller.Enemies
 
         private void Awake()
         {
-            _radius = Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height;
+            _radius = (Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height) / 1.5f;
         }
 
         private void Start()

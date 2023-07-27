@@ -15,12 +15,15 @@ MonoBehaviour:
   _projectilPrefab: {fileID: 4389094783381097955, guid: 2b0f3d6f95c5e1044aed10ecfe4775ff, type: 3}
   _icon: {fileID: 21300000, guid: 97753deaea6287746a4c54f8c65330c3, type: 3}
   _cooldown: 0
+  _baseStats:
+  - _key: 2
+    _value: 10
+  - _key: 4
+    _value: 2
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
-  _speed: 1
   damageType: 0
   _tickSpeed: 1
-  _damage: 2
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   directionType: 1
   _bounceOnWall: 1
@@ -29,4 +32,3 @@ MonoBehaviour:
   _minMaxDelay: {x: 0, y: 0}
   _amount: 3
   _radius: 2
-  _angularSpeed: 2
