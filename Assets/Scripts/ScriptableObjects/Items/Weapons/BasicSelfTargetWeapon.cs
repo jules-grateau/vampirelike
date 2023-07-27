@@ -8,20 +8,30 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
     {
         [SerializeField]
         private Vector2 _offset;
+        [SerializeField]
+        private bool _shootFromBehind;
 
         public override void Use(Vector2 holderPosition, Vector2 holderDirection)
         {
+            Vector2 shootFrom = holderPosition + _offset;
             GameObject target = GetTarget(holderPosition);
             if (!target) return;
 
             Vector2 targetPosition = target.transform.position;
-            Vector2 aimDirection = (targetPosition - holderPosition);
+            Vector2 aimDirection = (targetPosition - shootFrom)
+                ;
             aimDirection.Normalize();
 
             var projectile = GetProjectile();
-            Vector2 newPos = (holderPosition + _offset - aimDirection);
+            Vector2 newPos = (shootFrom);
+            if(_shootFromBehind)
+            {
+                newPos -= aimDirection;
+            }
+
             projectile.transform.position = newPos;
-            projectile.transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * (holderPosition - newPos));
+            projectile.transform.right = aimDirection;
+
             projectile.SetActive(true);
         }
 
@@ -31,11 +41,22 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
             if (hits.Length <= 0) return null;
 
-            var distance = Vector2.Distance(shootFrom, hits[0].transform.position);
-            var target = hits[0].transform.gameObject;
+            var distance = Mathf.Infinity;
+            GameObject target = null;
+
             foreach (var hit in hits)
             {
                 float newDist = Vector2.Distance(shootFrom, hit.transform.position);
+                RaycastHit2D raycastHit = Physics2D.Raycast(shootFrom, hit.transform.position, newDist, 1 << LayerMask.NameToLayer("Wall"));
+
+                if (raycastHit.collider)
+                {
+                    Debug.Log(raycastHit.collider.tag);
+                    Debug.DrawLine(shootFrom, hit.transform.position, Color.red, 2, false);
+                    continue;
+                }
+                
+                Debug.DrawLine(shootFrom, hit.transform.position, Color.blue, 2, false);
                 if (distance > newDist)
                 {
                     distance = newDist;
@@ -43,7 +64,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 }
             }
 
-            Debug.DrawLine(shootFrom, target.transform.position, Color.red, 2, false);
+            if(target) Debug.DrawLine(shootFrom, target.transform.position, Color.green, 2, false);
+
             return target;
         }
     }

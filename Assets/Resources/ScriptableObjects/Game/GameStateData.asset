@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915fe00c07444ed46858bf4befb5aa35, type: 3}
   m_Name: GameStateData
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 704638989827276549, guid: eb4d5473f1d909748879000eac17e969, type: 3}
+  _playableCharacter: {fileID: 11400000, guid: 387764db623a29042bb84cca818e8b58, type: 2}

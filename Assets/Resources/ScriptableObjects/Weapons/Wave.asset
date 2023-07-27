@@ -28,3 +28,4 @@ MonoBehaviour:
   autoDestroy: 1
   _minMaxDelay: {x: 2, y: 2}
   _offset: {x: 0, y: 0}
+  _shootFromBehind: 1

@@ -22,9 +22,10 @@ MonoBehaviour:
   _tickSpeed: 0
   _damage: 1000
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  directionType: 0
-  _bounceOnWall: 1
-  _destroyOnHit: 0
+  directionType: 1
+  _bounceOnWall: 0
+  _destroyOnHit: 1
   autoDestroy: 0
   _minMaxDelay: {x: 0, y: 0}
-  _offset: {x: 1, y: 1}
+  _offset: {x: 0, y: 0}
+  _shootFromBehind: 0

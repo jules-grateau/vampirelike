@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Assets.Scripts.Controller.Game;
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace Assets.Scripts.Controller.Enemies
 {
+    [RequireComponent(typeof(GameManager))]
     public class EnemySpawnerController : MonoBehaviour
     {
         [SerializeField]
@@ -17,6 +19,8 @@ namespace Assets.Scripts.Controller.Enemies
 
         private GameObject _player;
 
+        private GameManager _gameManager;
+
         private float _delay = 0;
         private float _radius = 0;
         private bool _forceSpawn;
@@ -29,11 +33,13 @@ namespace Assets.Scripts.Controller.Enemies
         private void Start()
         {
             _player = GameObject.FindGameObjectWithTag("Player");
+            _gameManager = GetComponent<GameManager>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (_gameManager.GameState == Types.GameStateEnum.PAUSE) return;
             if (!_player) return;
 
             if((_delay >= spawnCooldown || _forceSpawn) && triggerSpawn)
@@ -46,7 +52,7 @@ namespace Assets.Scripts.Controller.Enemies
                 {
                     // Pick random enemy
                     int random = UnityEngine.Random.Range(0, enemyPrefab.Length);
-                    Debug.DrawLine(_player.transform.position, spawnPos, Color.green, 2, false);
+                    //Debug.DrawLine(_player.transform.position, spawnPos, Color.green, 2, false);
                     Instantiate(enemyPrefab[random], spawnPos, Quaternion.identity);
                     _delay = 0;
                     _forceSpawn = false;
