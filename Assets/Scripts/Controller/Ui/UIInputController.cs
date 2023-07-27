@@ -13,22 +13,33 @@ namespace Assets.Scripts.Controller.Ui
         [SerializeField]
         GameEvent _unpauseEvent;
 
-        bool _isPausedFromOther;
+        bool _isPaused = false;
+        bool _isPlayerDead = false;
 
+        private void Awake()
+        {
+            Debug.Log("Hello");
+        }
         void Update()
         {
+          if (_isPlayerDead) return;
+
           if(Input.GetKeyDown(KeyCode.Escape))
             {
-                if(_isPauseMenuOpen)
+                if(_isPauseMenuOpen && _isPaused)
                 {
                     ClosePauseMenu();
                     return;
                 }
-                OpenPauseMenu();
+                if(!_isPauseMenuOpen && !_isPaused)
+                {
+                    OpenPauseMenu();
+                }
             }  
         }
         void OpenPauseMenu()
         {
+            Debug.Log(_isPlayerDead);
             _pauseEvent.Raise();
             SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
             _isPauseMenuOpen = true;
@@ -39,6 +50,23 @@ namespace Assets.Scripts.Controller.Ui
             SceneManager.UnloadSceneAsync("PauseMenu");
             _isPauseMenuOpen = false;
             _unpauseEvent.Raise();
+        }
+
+        public void OnPause()
+        {
+            _isPaused = true;
+        }
+
+        public void OnUnpause()
+        {
+            _isPaused = false;
+        }
+
+        public void OnPlayerDeath()
+        {
+            Debug.Log("Died");
+            _isPlayerDead = true;
+            Debug.Log(_isPlayerDead);
         }
 
 
