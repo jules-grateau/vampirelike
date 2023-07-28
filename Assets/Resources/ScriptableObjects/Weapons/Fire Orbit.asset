@@ -17,9 +17,14 @@ MonoBehaviour:
     _value: 10
   - _key: 4
     _value: 2
+  - _key: 10
+    _value: 3
+  - _key: 7
+    _value: 2
+  - _key: 11
+    _value: 3
   _projectilPrefab: {fileID: 4389094783381097955, guid: 2b0f3d6f95c5e1044aed10ecfe4775ff, type: 3}
   _icon: {fileID: 21300000, guid: 97753deaea6287746a4c54f8c65330c3, type: 3}
-  _cooldown: 0
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0
@@ -30,5 +35,3 @@ MonoBehaviour:
   _destroyOnHit: 0
   DestructionType: 2
   _minMaxDelay: {x: 0, y: 0}
-  _amount: 3
-  _radius: 2

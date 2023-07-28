@@ -12,7 +12,8 @@ using Assets.Scripts.ScriptableObjects.Characters;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 {
-    public abstract class WeaponStatisticsSO : BaseStatisticsSO<WeaponStatisticEnum>
+    [CreateAssetMenu(fileName = "WeaponStatistics", menuName = "Statistics/WeaponStatistics", order = 1)]
+    public class WeaponStatisticsSO : BaseStatisticsSO<WeaponStatisticEnum>
     {
         public virtual float GetCooldown()
         {

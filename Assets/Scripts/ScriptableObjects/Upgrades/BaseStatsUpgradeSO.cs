@@ -8,11 +8,11 @@ namespace Assets.Scripts.ScriptableObjects
     {
         public T StatsToUpgrade => _statsToUpgrade;
         [SerializeField]
-        T _statsToUpgrade;
+        public T _statsToUpgrade;
 
         public float ValueToAdd => _valueToAdd;
         [SerializeField]
-        float _valueToAdd;
+        public float _valueToAdd;
 
         public AdditionTypes AdditionType => _additionType;
         [SerializeField]

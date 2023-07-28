@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using Assets.Scripts.Types;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 {
@@ -15,11 +16,15 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             Vector2 aimDirection = (mousePosition - holderPosition);
             aimDirection.Normalize();
 
-            var projectile = GetProjectile();
-            Vector2 newPos = (holderPosition + _offset * aimDirection);
-            projectile.transform.position = newPos;
-            projectile.transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * (newPos - holderPosition));
-            projectile.SetActive(true);
+            int amount = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.ProjectileNumber));
+            for (int i = 0; i < amount; i++)
+            {
+                var projectile = GetProjectile();
+                Vector2 newPos = (holderPosition + _offset * aimDirection);
+                projectile.transform.position = newPos;
+                projectile.transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * (newPos - holderPosition));
+                projectile.SetActive(true);
+            }
 
             return true;
         }

@@ -10,11 +10,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
     [CreateAssetMenu(fileName = "Weapon with circular projectile that orbit", menuName = "Weapon/Orbit", order = 1)]
     public class OrbitWeapon : ProjectileWeapon
     {
-        [SerializeField]
-        private int _amount;
-        [SerializeField]
-        private int _radius;
-
         [System.NonSerialized]
         private float _localAngle = 0f;
         [System.NonSerialized]
@@ -24,23 +19,25 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         {
             SanitizeProjectiles();
             int count = _projectiles.Count;
-            for (int i = 0; i < _amount - count; i++)
+            int amount = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.ProjectileNumber));
+            float radius = GetStats(WeaponStatisticEnum.Radius);
+            for (int i = 0; i < amount - count; i++)
             {
                 GameObject projectile = GetProjectile();
                 _projectiles.Add(projectile);
             }
-            for (int i = count - 1; i >= _amount; i--)
+            for (int i = count - 1; i >= amount; i--)
             {
                 Destroy(_projectiles[i]);
                 _projectiles.RemoveAt(i);
             }
 
-            for (int i = 0; i < _amount; i++)
+            for (int i = 0; i < amount; i++)
             {
-                float angle = (i * Mathf.PI * 2f / _amount) + _localAngle;
+                float angle = (i * Mathf.PI * 2f / amount) + _localAngle;
                 Vector2 newPos = holderPosition + new Vector2(
-                    Mathf.Cos(angle) * _radius,
-                    Mathf.Sin(angle) * _radius
+                    Mathf.Cos(angle) * radius,
+                    Mathf.Sin(angle) * radius
                 );
                 _projectiles[i].transform.position = newPos;
                 _projectiles[i].transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, -90) * (newPos - holderPosition));

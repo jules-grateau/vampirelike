@@ -19,6 +19,8 @@ MonoBehaviour:
     _value: 5
   - _key: 9
     _value: 3
+  - _key: 10
+    _value: 1
   _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
   _icon: {fileID: -3282728817448708057, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
   behaviourType: 0

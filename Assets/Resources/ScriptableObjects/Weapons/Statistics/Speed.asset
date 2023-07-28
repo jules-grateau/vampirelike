@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd72a9201f814df49a547ce3e7183c20, type: 3}
   m_Name: Speed
   m_EditorClassIdentifier: 
-  _key: 4
+  _key: 5
   _name: Projectile speed
   _valueAppendix: '%'

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Characters
 {
-    public class BaseStatisticDescriptionSO<T> : ScriptableObject
+    public abstract class BaseStatisticDescriptionSO<T> : ScriptableObject
     {
         public T Key => _key;
         [SerializeField]

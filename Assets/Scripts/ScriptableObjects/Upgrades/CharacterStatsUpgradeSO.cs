@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "CharacterStatsUpgradeSO", menuName = "Upgrade/Stats", order = 1)]
+    [CreateAssetMenu(fileName = "CharacterStatsUpgradeSO", menuName = "Upgrade/CharacterStats", order = 1)]
     public class CharacterStatsUpgradeSO : BaseStatsUpgradeSO<StatisticEnum>
     {
     }

@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c60608f5454609419e4baaa4e563121, type: 3}
   m_Name: Jules
   m_EditorClassIdentifier: 
+  _baseStats:
+  - _key: 0
+    _value: 5
+  - _key: 1
+    _value: 200
+  - _key: 2
+    _value: 1
+  - _key: 3
+    _value: 25
+  - _key: 4
+    _value: 2.5
+  - _key: 5
+    _value: 0
+  - _key: 6
+    _value: 0.5
   _name: Jules
   _sprite: {fileID: 21300000, guid: 66352d50960e24e4586ed86a7fdea963, type: 3}
   _description: "Le mec le plus styl\xE9 de France"
-  _characterStatistics: {fileID: 11400000, guid: 454afdce9c149b748af6f643257c33e9, type: 2}
   _prefab: {fileID: 704638989827276549, guid: eb4d5473f1d909748879000eac17e969, type: 3}
+  _weaponStatistics: {fileID: 0}

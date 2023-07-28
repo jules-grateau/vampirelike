@@ -18,34 +18,54 @@ namespace Assets.Scripts.Controller.Player
 
         [SerializeField]
         private GameEvent _onPlayerDeathEvent;
-        private PlayerStatsController _playerStatsController;
+        private CharacterStatisticsSO _characterStatistics;
+        private SpriteRenderer _spriteRenderer;
+
+        private bool isInvincible;
 
         private void Start()
         {
-            _playerStatsController = GetComponent<PlayerStatsController>();
-            if (!_playerStatsController) return;
+            isInvincible = false;
 
-            CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
-            if (!characterStatistics) return;
+            _spriteRenderer = GetComponent<SpriteRenderer>();
 
-            if (_resetOnStart) _hp = characterStatistics.GetStats(Types.StatisticEnum.MaxHp);
+            PlayerStatsController playerStatsController = GetComponent<PlayerStatsController>();
+            if (!playerStatsController) return;
+
+            _characterStatistics = playerStatsController.CharacterStatistics;
+            if (!_characterStatistics) return;
+
+            if (_resetOnStart) _hp = _characterStatistics.GetStats(Types.StatisticEnum.MaxHp);
         }
 
         public void TakeDamage(float damage)
         {
-            CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
-            if (!characterStatistics) return;
-
-            float armor = characterStatistics.GetStats(Types.StatisticEnum.Armor);
-            float computedDamage = damage - armor;
-
-            if (computedDamage < 1) return;
-
-            _hp -= computedDamage;
-            if(_hp <= 0)
+            if (!isInvincible)
             {
-                Die();
-            } 
+                float armor = _characterStatistics.GetStats(Types.StatisticEnum.Armor);
+                float computedDamage = damage - armor;
+
+                if (computedDamage < 1) return;
+
+                _hp -= computedDamage;
+                if (_hp <= 0)
+                {
+                    Die();
+                }
+                else
+                {
+                    StartCoroutine(triggerInvincibility());
+                }
+            }
+        }
+
+        private IEnumerator triggerInvincibility()
+        {
+            isInvincible = true;
+            _spriteRenderer.material.SetInt("_Hit", 1);
+            yield return new WaitForSeconds(_characterStatistics.GetStats(Types.StatisticEnum.Invincibility));
+            isInvincible = false;
+            _spriteRenderer.material.SetInt("_Hit", 0);
         }
 
         void Die()

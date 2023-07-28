@@ -14,6 +14,8 @@ namespace Assets.Scripts.Types
         Range,
         Size,
         AttackSpeed,
-        AttackCooldown
+        AttackCooldown,
+        ProjectileNumber,
+        Radius,
     }
 }

@@ -38,7 +38,6 @@ public class PlayerStatsController : MonoBehaviour
         {
             HandleStatUpgrade((CharacterStatsUpgradeSO)upgrade);
         }
-
     }
 
     void HandleStatUpgrade(CharacterStatsUpgradeSO upgrade)
