@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
   m_Name: SelfTargetLazer
   m_EditorClassIdentifier: 
-  _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
-  _icon: {fileID: -5488431172643268487, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
-  _cooldown: 2
   _baseStats:
   - _key: 2
     _value: 5
   - _key: 4
     _value: 5
+  - _key: 6
+    _value: 5
+  _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
+  _icon: {fileID: -5488431172643268487, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
+  _cooldown: 2
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0
@@ -28,7 +30,7 @@ MonoBehaviour:
   directionType: 1
   _bounceOnWall: 0
   _destroyOnHit: 1
-  autoDestroy: 0
+  DestructionType: 1
   _minMaxDelay: {x: 0, y: 0}
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

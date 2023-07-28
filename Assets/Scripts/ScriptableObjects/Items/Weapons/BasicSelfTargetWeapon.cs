@@ -37,7 +37,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         private GameObject GetTarget(Vector2 shootFrom)
         {
-            var hits = Physics2D.OverlapCircleAll(shootFrom, Mathf.Infinity, 1 << LayerMask.NameToLayer("Enemy"));
+            var hits = Physics2D.OverlapCircleAll(shootFrom, GetStats(Types.WeaponStatisticEnum.Range), 1 << LayerMask.NameToLayer("Enemy"));
 
             if (hits.Length <= 0) return null;
 

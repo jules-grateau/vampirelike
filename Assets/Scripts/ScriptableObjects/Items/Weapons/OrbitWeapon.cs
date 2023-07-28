@@ -34,6 +34,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 Destroy(_projectiles[i]);
                 _projectiles.RemoveAt(i);
             }
+
             for (int i = 0; i < _amount; i++)
             {
                 float angle = (i * Mathf.PI * 2f / _amount) + _localAngle;
@@ -58,6 +59,25 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             for(int i = _projectiles.Count -1 ; i >= 0; i--)
             {
                 if (!_projectiles[i]) _projectiles.RemoveAt(i);
+            }
+        }
+
+        protected override void OnUpgradeStats()
+        {
+            List<GameObject> updatedProjectiles = new List<GameObject>();
+
+            for(int i = _projectiles.Count -1; i >= 0; i-- )
+            {
+                GameObject projectile = _projectiles[i];
+
+                GameObject updatedProjectile = GetProjectile();
+                updatedProjectile.transform.position = projectile.transform.position;
+                updatedProjectile.transform.rotation = projectile.transform.rotation;
+                updatedProjectile.transform.localScale = projectile.transform.localScale;
+
+                _projectiles[i] = updatedProjectile;
+                Destroy(projectile);
+                updatedProjectile.SetActive(true);
             }
         }
     }

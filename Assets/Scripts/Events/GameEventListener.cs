@@ -23,7 +23,6 @@ namespace Assets.Scripts.Events
 
         public void RaiseEvent()
         {
-            Debug.Log("RaiseEvent");
             unityEvent.Invoke();
         }
     }

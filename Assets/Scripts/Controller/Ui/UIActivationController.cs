@@ -7,7 +7,6 @@ namespace Assets.Scripts.Controller.Ui
     {
         public void DisableAllChildren()
         {
-            Debug.Log("Disable all");
             foreach(Transform child in transform) 
             {
                 child.gameObject.SetActive(false);
@@ -16,7 +15,6 @@ namespace Assets.Scripts.Controller.Ui
 
         public void EnableAllChildren()
         {
-            Debug.Log("Enable all");
             foreach (Transform child in transform)
             {
                 child.gameObject.SetActive(true);
