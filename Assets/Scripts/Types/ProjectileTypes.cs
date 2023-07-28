@@ -19,4 +19,11 @@ namespace Assets.Scripts.Types
         Direct,
         PerSecond
     }
+
+    public enum ProjectileDestruction
+    {
+        RandomAfterTime,
+        DestroyOnRangeReach,
+        None
+    }
 }

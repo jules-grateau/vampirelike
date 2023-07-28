@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
   m_Name: Wave
   m_EditorClassIdentifier: 
-  _projectilPrefab: {fileID: 2423956319905214540, guid: 3622115743b2c7e4bb975e1d16911672, type: 3}
-  _icon: {fileID: -1972531703252746297, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
-  _cooldown: 1
   _baseStats:
   - _key: 2
     _value: 10
   - _key: 4
     _value: 2
+  - _key: 6
+    _value: 1000
+  _projectilPrefab: {fileID: 2423956319905214540, guid: 3622115743b2c7e4bb975e1d16911672, type: 3}
+  _icon: {fileID: -1972531703252746297, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
+  _cooldown: 1
   behaviourType: 1
   _growValue: {x: 0.01, y: 0.025, z: 0}
   damageType: 0
@@ -28,7 +30,7 @@ MonoBehaviour:
   directionType: 1
   _bounceOnWall: 0
   _destroyOnHit: 0
-  autoDestroy: 1
+  DestructionType: 0
   _minMaxDelay: {x: 2, y: 2}
   _offset: {x: 0, y: 0}
   _shootFromBehind: 1

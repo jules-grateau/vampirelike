@@ -7,8 +7,6 @@ namespace Assets.Scripts.Types
     {
         CritChance,
         CritDamage,
-        BaseDamage,
-        DamagePercentage,
         PickUpRadius,
         MaxHp,
         MovementSpeed

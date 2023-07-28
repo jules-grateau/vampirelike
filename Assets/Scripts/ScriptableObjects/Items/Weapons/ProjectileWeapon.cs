@@ -38,9 +38,11 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         private bool _bounceOnWall;
         [SerializeField]
         private bool _destroyOnHit;
+
+        [Header("Destruction")]
         [SerializeField]
-        public bool autoDestroy;
-        [DrawIf("autoDestroy", true, ComparisonType.Equals, DisablingType.DontDraw)]
+        public ProjectileDestruction DestructionType;
+        [DrawIf("DestructionType", ProjectileDestruction.RandomAfterTime, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         private Vector2 _minMaxDelay;
 
@@ -72,7 +74,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     ((DirectDamageProjectile)directDamageProjectileScript).enemyHitEvent = _enemyHitEvent;
                     break;
             }
-            directDamageProjectileScript.damage = GetStats(WeaponStatisticEnum.BaseDamage);
+            directDamageProjectileScript.damage = GetStats(WeaponStatisticEnum.BaseDamage) * ( 1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100) );
             directDamageProjectileScript.parent = parent;
             directDamageProjectileScript.destroyOnHit = _destroyOnHit;
             directDamageProjectileScript.bounceOnWall = _bounceOnWall;
@@ -93,11 +95,20 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     break;
             }
 
-            if (autoDestroy)
+            switch(DestructionType)
             {
-                SelfDestroyRandomDelay selfDestroyRandomDelayScript = projectile.AddComponent<SelfDestroyRandomDelay>();
-                selfDestroyRandomDelayScript.minDelay = _minMaxDelay.x * (1 + (GetStats(WeaponStatisticEnum.Range) / 100));
-                selfDestroyRandomDelayScript.maxDelay = _minMaxDelay.y * (1 + (GetStats(WeaponStatisticEnum.Range) / 100));
+                case ProjectileDestruction.RandomAfterTime:
+                    SelfDestroyRandomDelay selfDestroyRandomDelayScript = projectile.AddComponent<SelfDestroyRandomDelay>();
+                    selfDestroyRandomDelayScript.minDelay = _minMaxDelay.x * (1 + (GetStats(WeaponStatisticEnum.Range) / 100));
+                    selfDestroyRandomDelayScript.maxDelay = _minMaxDelay.y * (1 + (GetStats(WeaponStatisticEnum.Range) / 100));
+                    break;
+                case ProjectileDestruction.DestroyOnRangeReach:
+                    SelfDestroyRange selfDestroyRangeSript = projectile.AddComponent<SelfDestroyRange>();
+                    selfDestroyRangeSript.Range = GetStats(WeaponStatisticEnum.Range);
+                    break;
+                case ProjectileDestruction.None:
+                default:
+                    break;
             }
 
             projectile.transform.localScale = new Vector3(1f * (1 + (GetStats(WeaponStatisticEnum.Size)/100)), 1f * (1 + (GetStats(WeaponStatisticEnum.Size) / 100)), 1f);

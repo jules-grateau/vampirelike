@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Characters
 {
-    public class BaseStatisticsSO<T> : ScriptableObject
+    public abstract class BaseStatisticsSO<T> : ScriptableObject
     {
         [SerializeField]
         Statistic<T>[] _baseStats;
@@ -16,8 +16,9 @@ namespace Assets.Scripts.ScriptableObjects.Characters
 
         public void Init()
         {
-            // Init all filled weapon stats and 0 if not used
             _stats = new Dictionary<T, float>();
+
+            // Init all filled weapon stats and 0 if not used
             foreach (T weaponStatsEnum in Enum.GetValues(typeof(T)))
             {
                 float value = 0f;
@@ -46,6 +47,13 @@ namespace Assets.Scripts.ScriptableObjects.Characters
             }
 
             _stats[statisticEnum] += value;
+            OnUpgradeStats();
+        }
+
+        // Function to override in Childs if behavior wanted on Upgrade
+        protected virtual void OnUpgradeStats()
+        {
+            return;
         }
     }
 }

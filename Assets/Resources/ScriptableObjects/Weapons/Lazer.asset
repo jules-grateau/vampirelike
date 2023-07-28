@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f0b8a412b46054ba1b281626a063db, type: 3}
   m_Name: Lazer
   m_EditorClassIdentifier: 
-  _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
-  _icon: {fileID: -3282728817448708057, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
-  _cooldown: 1
   _baseStats:
   - _key: 2
     _value: 5
   - _key: 4
     _value: 5
+  _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
+  _icon: {fileID: -3282728817448708057, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
+  _cooldown: 1
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0
@@ -28,6 +28,6 @@ MonoBehaviour:
   directionType: 1
   _bounceOnWall: 1
   _destroyOnHit: 0
-  autoDestroy: 0
+  DestructionType: 1
   _minMaxDelay: {x: 0, y: 0}
   _offset: {x: 1, y: 1}

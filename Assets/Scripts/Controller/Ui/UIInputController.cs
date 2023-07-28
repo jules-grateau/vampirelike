@@ -16,10 +16,6 @@ namespace Assets.Scripts.Controller.Ui
         bool _isPaused = false;
         bool _isPlayerDead = false;
 
-        private void Awake()
-        {
-            Debug.Log("Hello");
-        }
         void Update()
         {
           if (_isPlayerDead) return;
