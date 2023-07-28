@@ -31,7 +31,7 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
         {
             foreach(WeaponController weapon in _inventory)
             {
-                weapon.weapon.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd);
+                weapon.weapon.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd, upgrade.AdditionType,upgrade.MaxValue);
             }
         }
     }

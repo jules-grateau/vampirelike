@@ -38,15 +38,34 @@ namespace Assets.Scripts.ScriptableObjects.Characters
             return _stats.GetValueOrDefault(statisticEnum);
         }
 
-        public void UpgradeStats(T statisticEnum, float value)
+        public void UpgradeStats(T statisticEnum, float value, AdditionTypes additionType, float maxValue)
         {
             if (!_stats.ContainsKey(statisticEnum))
             {
                 _stats.Add(statisticEnum, value);
                 return;
             }
+            
+            switch(additionType)
+            {
+                case AdditionTypes.Additive:
+                    _stats[statisticEnum] += value;
+                    break;
+                case AdditionTypes.Multiplicative:
+                    float currValue = _stats[statisticEnum];
+                    if (currValue == 0f)
+                    {
+                        _stats[statisticEnum] = value;
+                    }
+                    else
+                    {
+                        //Diminishing return by adding the percentage of what is left to be added
+                        _stats[statisticEnum] += (maxValue - currValue) * (value / 100);
+                    }
+                    break;
 
-            _stats[statisticEnum] += value;
+            }
+
             OnUpgradeStats();
         }
 

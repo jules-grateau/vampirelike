@@ -17,9 +17,10 @@ MonoBehaviour:
     _value: 7
   - _key: 4
     _value: 10
+  - _key: 9
+    _value: 15
   _projectilPrefab: {fileID: 319311135818076577, guid: 628282353657a5342841555f4e916013, type: 3}
   _icon: {fileID: 21300000, guid: 7185783c26d576b4cb8929840eda1e73, type: 3}
-  _cooldown: 15
   behaviourType: 0
   _growValue: {x: 0.001, y: 0.001, z: 0}
   damageType: 0

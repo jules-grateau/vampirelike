@@ -43,6 +43,6 @@ public class PlayerStatsController : MonoBehaviour
 
     void HandleStatUpgrade(CharacterStatsUpgradeSO upgrade)
     {
-        _characterStatistics.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd);
+        _characterStatistics.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd, upgrade.AdditionType, upgrade.MaxValue);
     }
 }

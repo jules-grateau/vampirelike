@@ -14,12 +14,9 @@ namespace Assets.Scripts.ScriptableObjects.Items
         protected GameObject _projectilPrefab;
         [SerializeField]
         protected Sprite _icon;
-        [SerializeField]
-        protected float _cooldown;
 
         public Sprite icon { get { return _icon; } }
-        public float cooldown { get { return _cooldown; } }
-        public abstract void Use(Vector2 holderPosition, Vector2 holderDirection);
+        public abstract bool Use(Vector2 holderPosition, Vector2 holderDirection);
         public GameObject parent { get; set; }
     }
 }

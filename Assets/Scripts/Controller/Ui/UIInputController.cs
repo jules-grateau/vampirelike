@@ -35,7 +35,6 @@ namespace Assets.Scripts.Controller.Ui
         }
         void OpenPauseMenu()
         {
-            Debug.Log(_isPlayerDead);
             _pauseEvent.Raise();
             SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
             _isPauseMenuOpen = true;
@@ -60,7 +59,6 @@ namespace Assets.Scripts.Controller.Ui
 
         public void OnPlayerDeath()
         {
-            Debug.Log("Died");
             _isPlayerDead = true;
             Debug.Log(_isPlayerDead);
         }

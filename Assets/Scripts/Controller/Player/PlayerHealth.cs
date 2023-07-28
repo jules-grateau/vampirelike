@@ -29,12 +29,19 @@ namespace Assets.Scripts.Controller.Player
             if (!characterStatistics) return;
 
             if (_resetOnStart) _hp = characterStatistics.GetStats(Types.StatisticEnum.MaxHp);
-            Debug.Log($"HP : {_hp}");
         }
 
         public void TakeDamage(float damage)
         {
-            _hp -= damage;
+            CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
+            if (!characterStatistics) return;
+
+            float armor = characterStatistics.GetStats(Types.StatisticEnum.Armor);
+            float computedDamage = damage - armor;
+
+            if (computedDamage < 1) return;
+
+            _hp -= computedDamage;
             if(_hp <= 0)
             {
                 Die();
@@ -54,7 +61,7 @@ namespace Assets.Scripts.Controller.Player
             CharacterStatsUpgradeSO statsUpgrade = (CharacterStatsUpgradeSO) upgrade;
 
             if (statsUpgrade.StatsToUpgrade != Types.StatisticEnum.MaxHp) return;
-            Debug.Log("Added HP");
+
             _hp += statsUpgrade.ValueToAdd;  
         }
     }

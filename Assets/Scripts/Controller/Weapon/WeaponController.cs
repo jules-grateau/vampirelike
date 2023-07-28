@@ -12,21 +12,25 @@ public class WeaponController : MonoBehaviour
     {
         _parentRigidBody = gameObject.GetComponentInParent<Rigidbody2D>();
         setLastDirection();
+
+        //First shoot;
+        cooloff = weapon.GetCooldown();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (weapon == null) return;
 
         setLastDirection();
+        float weapCooldown = weapon.GetCooldown();
 
-        if (cooloff >= weapon.cooldown)
+        if (cooloff >= weapCooldown)
         {
-            weapon.Use(gameObject.transform.position, _lastDirection);
-            cooloff = 0;
+            bool didUse = weapon.Use(gameObject.transform.position, _lastDirection);
+            if(didUse) cooloff = 0;
         }
-        cooloff += Time.deltaTime;
+        cooloff += Time.fixedDeltaTime;
     }
 
     void setLastDirection()

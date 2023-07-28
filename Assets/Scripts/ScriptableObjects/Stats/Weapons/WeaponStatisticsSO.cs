@@ -14,5 +14,12 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 {
     public abstract class WeaponStatisticsSO : BaseStatisticsSO<WeaponStatisticEnum>
     {
+        public virtual float GetCooldown()
+        {
+            float attackCooldown = GetStats(WeaponStatisticEnum.AttackCooldown);
+            float attackSpeed = GetStats(WeaponStatisticEnum.AttackSpeed);
+
+            return attackCooldown * (1 - (attackSpeed / 100));
+        }
     }
 }

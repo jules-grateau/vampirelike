@@ -20,7 +20,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [System.NonSerialized]
         private List<GameObject> _projectiles = new List<GameObject>();
 
-        public override void Use(Vector2 holderPosition, Vector2 holderDirection)
+        public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
             SanitizeProjectiles();
             int count = _projectiles.Count;
@@ -51,6 +51,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
             if (_localAngle >= 360f)
                 _localAngle = 0f;
+
+            return true;
         }
 
         // Get rid of all the "null" projectiles in the list
@@ -79,6 +81,11 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 Destroy(projectile);
                 updatedProjectile.SetActive(true);
             }
+        }
+
+        public override float GetCooldown()
+        {
+            return 0;
         }
     }
 }
