@@ -22,11 +22,6 @@ public class PlayerStatsController : MonoBehaviour
         bool isCrit = rand <= _characterStatistics.GetStats(StatisticEnum.CritChance)/ 100f;
         float computedDamage = damage;
 
-        //Base Damage
-        computedDamage += _characterStatistics.GetStats(StatisticEnum.BaseDamage);
-        //Damage Percentage
-        computedDamage *= (1 + (_characterStatistics.GetStats(StatisticEnum.DamagePercentage) / 100));
-
         if (isCrit)
         {
             computedDamage = computedDamage * (_characterStatistics.GetStats(StatisticEnum.CritDamage) / 100f);

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: Damage upgrade
   _sprite: {fileID: 2086238819, guid: 3846e1a06511034409055317b4421918, type: 3}
-  _description: Add {value}  damage to weapons
+  _description: Add {value}% damage to weapons
   _statsToUpgrade: 3
   _valueToAdd: 5
