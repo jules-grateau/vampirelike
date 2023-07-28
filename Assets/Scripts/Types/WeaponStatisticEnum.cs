@@ -12,6 +12,8 @@ namespace Assets.Scripts.Types
         BaseSpeed,
         SpeedPercentage,
         Range,
-        Size
+        Size,
+        AttackSpeed,
+        AttackCooldown
     }
 }

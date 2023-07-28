@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Weapons
@@ -6,7 +7,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
     [CreateAssetMenu(fileName = "Trail weapon", menuName = "Weapon/Trail", order = 2)]
     public class TrailWeapon : ProjectileWeapon
     {
-        [SerializeField]
+       [SerializeField]
         private Vector2 _minOffset;
         [SerializeField]
         private Vector2 _maxOffset;
@@ -25,9 +26,11 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             trailContainer.AddComponent<CompositeCollider2D>(); 
         }
 
-        public override void Use(Vector2 holderPosition, Vector2 holderDirection)
+        public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
-            if(!trailContainer)
+            throw new NotImplementedException();
+
+            /*if(!trailContainer)
             {
                 generateParent();
             }
@@ -58,7 +61,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 projectile.transform.rotation = Quaternion.identity;
 
                 projectile.SetActive(true);
-            }
+            }*/
 
         }
     }

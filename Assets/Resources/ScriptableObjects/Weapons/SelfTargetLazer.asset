@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseStats:
   - _key: 2
-    _value: 5
+    _value: 10
   - _key: 4
     _value: 5
   - _key: 6
     _value: 5
+  - _key: 9
+    _value: 8
   _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
   _icon: {fileID: -5488431172643268487, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
-  _cooldown: 2
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0

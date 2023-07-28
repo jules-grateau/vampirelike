@@ -9,13 +9,15 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         private Vector2 _offset;
 
-        public override void Use(Vector2 holderPosition, Vector2 holderDirection)
+        public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
             var projectile = GetProjectile();
             Vector2 newPos = (holderPosition + _offset * holderDirection);
             projectile.transform.position = newPos;
             projectile.transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * (newPos - holderPosition));
             projectile.SetActive(true);
+
+            return true;
         }
     }
 }

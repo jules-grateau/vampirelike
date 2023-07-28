@@ -11,11 +11,11 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         private bool _shootFromBehind;
 
-        public override void Use(Vector2 holderPosition, Vector2 holderDirection)
+        public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
             Vector2 shootFrom = holderPosition + _offset;
             GameObject target = GetTarget(holderPosition);
-            if (!target) return;
+            if (!target) return false;
 
             Vector2 targetPosition = target.transform.position;
             Vector2 aimDirection = (targetPosition - shootFrom)
@@ -33,6 +33,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             projectile.transform.right = aimDirection;
 
             projectile.SetActive(true);
+            return true;
         }
 
         private GameObject GetTarget(Vector2 shootFrom)
@@ -51,7 +52,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
                 if (raycastHit.collider)
                 {
-                    Debug.Log(raycastHit.collider.tag);
                     Debug.DrawLine(shootFrom, hit.transform.position, Color.red, 2, false);
                     continue;
                 }

@@ -10,7 +10,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         private int _radius;
 
-        public override void Use(Vector2 holderPosition, Vector2 holderDirection)
+        public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
             
             for(int i = 0; i < _amount; i++)
@@ -22,6 +22,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 projectile.transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * (newPos - holderPosition));
                 projectile.SetActive(true);
             }
+
+            return true;
         }
     }
 }

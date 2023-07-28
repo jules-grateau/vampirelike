@@ -9,6 +9,7 @@ namespace Assets.Scripts.Types
         CritDamage,
         PickUpRadius,
         MaxHp,
-        MovementSpeed
+        MovementSpeed,
+        Armor
     }
 }

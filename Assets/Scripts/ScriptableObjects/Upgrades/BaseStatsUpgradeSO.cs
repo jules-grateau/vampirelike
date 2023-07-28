@@ -14,6 +14,17 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         float _valueToAdd;
 
+        public AdditionTypes AdditionType => _additionType;
+        [SerializeField]
+        public AdditionTypes _additionType;
+
+
+        public float MaxValue => _maxValue;
+
+        [DrawIf("_additionType", AdditionTypes.Multiplicative, ComparisonType.Equals, DisablingType.DontDraw)]
+        [SerializeField]
+        float _maxValue;
+
         public override string getDescription()
         {
             return _description.Replace("{value}", _valueToAdd.ToString());
