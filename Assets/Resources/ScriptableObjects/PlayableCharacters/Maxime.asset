@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c60608f5454609419e4baaa4e563121, type: 3}
   m_Name: Maxime
   m_EditorClassIdentifier: 
+  _baseStats:
+  - _key: 0
+    _value: 100
+  - _key: 1
+    _value: 1000
+  - _key: 2
+    _value: 1
+  - _key: 3
+    _value: 9999
+  - _key: 4
+    _value: 10
+  - _key: 5
+    _value: 0
+  - _key: 6
+    _value: 0.5
   _name: Maxime-kun
   _sprite: {fileID: 21300000, guid: 100f47fb6d4168c4384d031d480e3c58, type: 3}
   _description: Le plus grand fan du garliguet du monde
-  _characterStatistics: {fileID: 11400000, guid: aca3efc5809923d48ac68d5bbc75548e, type: 2}
   _prefab: {fileID: 704638989827276549, guid: 589e25e8651f30d4fb091b69843fc079, type: 3}
+  _weaponStatistics: {fileID: 11400000, guid: 37cbf8970cd85664fac645d84a5da48c, type: 2}

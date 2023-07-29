@@ -12,7 +12,7 @@ namespace Assets.Scripts.ScriptableObjects.Characters
         [SerializeField]
         Statistic<T>[] _baseStats;
 
-        Dictionary<T, float> _stats;
+        public Dictionary<T, float> _stats;
 
         public void Init()
         {

@@ -9,17 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c539f10fb2fb74b813eb01188937f9, type: 3}
-  m_Name: JulesStats
+  m_Script: {fileID: 11500000, guid: 2aeed8a0296f24f4fb1a9af66fb9ad61, type: 3}
+  m_Name: JulesWeaponStatistics
   m_EditorClassIdentifier: 
-  _baseStats:
-  - _key: 0
-    _value: 10
-  - _key: 1
-    _value: 200
-  - _key: 2
-    _value: 5
-  - _key: 3
-    _value: 100
-  - _key: 4
-    _value: 5
+  _baseStats: []

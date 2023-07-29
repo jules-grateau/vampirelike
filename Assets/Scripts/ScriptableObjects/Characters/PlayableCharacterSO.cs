@@ -1,12 +1,14 @@
 ﻿using Assets.Scripts.ScriptableObjects.Characters;
 using System.Collections;
 using UnityEngine;
+using Assets.Scripts.ScriptableObjects.Items.Weapons;
 using UnityEngine.Playables;
+using Assets.Scripts.Controller.Inventory.Weapons;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
     [CreateAssetMenu(fileName = "PlayableCharacter", menuName = "PlayableCharacter", order = 1)]
-    public class PlayableCharacterSO : ScriptableObject
+    public class PlayableCharacterSO : CharacterStatisticsSO
     {
         public string Name => _name;
         [SerializeField]
@@ -20,21 +22,24 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         string _description;
 
-        [SerializeField]
-        CharacterStatisticsSO _characterStatistics;
-
         public GameObject Prefab => _prefab;
         [SerializeField]
         GameObject _prefab;
 
+        [SerializeField]
+        private WeaponStatisticsSO _weaponStatistics;
+
         public void Init(Vector3 spawnPosition)
         {
             GameObject playableCharacterInstance = Instantiate(_prefab, spawnPosition, _prefab.transform.rotation);
+
             PlayerStatsController playerStatsController = playableCharacterInstance.GetComponent<PlayerStatsController>();
-
             if (!playerStatsController) return;
+            playerStatsController.Init(this);
 
-            playerStatsController.Init(_characterStatistics);
+            WeaponInventoryManager weaponInventoryManager = playableCharacterInstance.GetComponentInChildren<WeaponInventoryManager>();
+            if (!weaponInventoryManager) return;
+            weaponInventoryManager.Init(_weaponStatistics);
         }
     }
 }

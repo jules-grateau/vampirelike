@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ArmorUpgrade
   m_EditorClassIdentifier: 
   _title: Armor Up
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 1220957953, guid: 04bfa7befce0cfd4ba93bb9b70c48bf2, type: 3}
   _description: You take {value} less damage from enemy
   _statsToUpgrade: 5
   _valueToAdd: 1
+  _additionType: 0
+  _maxValue: 0

@@ -10,6 +10,7 @@ namespace Assets.Scripts.Types
         PickUpRadius,
         MaxHp,
         MovementSpeed,
-        Armor
+        Armor,
+        Invincibility
     }
 }
