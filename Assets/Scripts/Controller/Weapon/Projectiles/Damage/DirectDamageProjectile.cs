@@ -12,13 +12,13 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         public GameEventHitData enemyHitEvent;
         protected override void HandleEnemyCollision(Collision2D collision2D)
         {
+            base.HandleEnemyCollision(collision2D);
             enemyHitEvent.Raise(new HitData {
                 damage = damage,
                 instanceID = collision2D.gameObject.GetInstanceID(),
                 position = collision2D.transform.position,
                 source = parent
             });
-            if(destroyOnHit) Destroy(gameObject);
             return;
         }
     }

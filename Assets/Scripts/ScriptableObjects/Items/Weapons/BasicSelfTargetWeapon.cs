@@ -49,18 +49,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             if (hits.Length <= 0) return null;
 
             GameObject[] targets = hits.Select(hit => new {data = hit, distance = Vector2.Distance(shootFrom, hit.transform.position) })
-                .Where(hit => {
-                    RaycastHit2D raycastHit = Physics2D.Raycast(shootFrom, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall"));
-                    if (raycastHit.collider)
-                    {
-                        Debug.DrawLine(shootFrom, hit.data.transform.position, Color.red, 2, false);
-                        return false;
-                    }
-                    Debug.DrawLine(shootFrom, hit.data.transform.position, Color.green, 2, false);
-                    return true;
-                    // TODO : replace by this when not debuging
-                    //return Physics2D.Raycast(shootFrom, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider != null;
-                })
+                .Where(hit => Physics2D.Raycast(shootFrom, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
                 .OrderBy(hit => hit.distance)
                 .Select(hit => hit.data.gameObject)
                 .Take(numberOfTargets)
