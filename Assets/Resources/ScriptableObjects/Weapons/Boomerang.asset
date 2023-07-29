@@ -9,30 +9,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d9b392452d587044bf9ebdd487824f7, type: 3}
-  m_Name: Fire Orbit
+  m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
+  m_Name: Boomerang
   m_EditorClassIdentifier: 
   _baseStats:
   - _key: 2
     _value: 10
   - _key: 4
-    _value: 2
-  - _key: 10
-    _value: 3
-  - _key: 7
-    _value: 2
+    _value: 5
+  - _key: 6
+    _value: 50
+  - _key: 9
+    _value: 8
   - _key: 11
-    _value: 3
-  _projectilPrefab: {fileID: 4389094783381097955, guid: 2b0f3d6f95c5e1044aed10ecfe4775ff, type: 3}
-  _icon: {fileID: 21300000, guid: 97753deaea6287746a4c54f8c65330c3, type: 3}
+    _value: 5
+  - _key: 10
+    _value: 1
+  _projectilPrefab: {fileID: 319311135818076577, guid: 77facb72367b2f743bc89c0b06214e81, type: 3}
+  _icon: {fileID: -742948596, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0
-  _tickSpeed: 1
+  _tickSpeed: 0
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  directionType: 0
-  _bounceOnWall: 1
-  _destroyOnHit: 0
-  destructionType: 0
+  directionType: 2
+  _bounceOnWall: 0
+  destructionType: 4
   _minMaxDelay: {x: 0, y: 0}
-  _nbrOfHits: 0
+  _nbrOfHits: 1
+  _offset: {x: 0, y: 0}
+  _shootFromBehind: 0

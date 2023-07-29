@@ -29,6 +29,12 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         private float _tickSpeed;
         [SerializeField]
         public GameEventHitData _enemyHitEvent;
+        [DrawIf("damageType", ProjectileDamages.Explosion, ComparisonType.Equals, DisablingType.DontDraw)]
+        [SerializeField]
+        private float _explosionRadius;
+        [DrawIf("damageType", ProjectileDamages.Explosion, ComparisonType.Equals, DisablingType.DontDraw)]
+        [SerializeField]
+        private GameObject _particles;
 
         [Header("Direction")]
         [SerializeField]
@@ -36,15 +42,16 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         [SerializeField]
         private bool _bounceOnWall;
-        [SerializeField]
-        private bool _destroyOnHit;
+        [DrawIf("directionType", ProjectileDirection.Ricochet, ComparisonType.NotEqual, DisablingType.DontDraw)]
 
         [Header("Destruction")]
         [SerializeField]
-        public ProjectileDestruction DestructionType;
-        [DrawIf("DestructionType", ProjectileDestruction.RandomAfterTime, ComparisonType.Equals, DisablingType.DontDraw)]
+        public ProjectileDestruction destructionType;
+        [DrawIf("destructionType", ProjectileDestruction.RandomAfterTime, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         private Vector2 _minMaxDelay;
+        [SerializeField]
+        private int _nbrOfHits;
 
         protected GameObject GetProjectile()
         {
@@ -68,6 +75,12 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     ((DamagePerSecondeProjectile)directDamageProjectileScript).tickSpeed = _tickSpeed;
                     ((DamagePerSecondeProjectile)directDamageProjectileScript).enemyHitEvent = _enemyHitEvent;
                     break;
+                case ProjectileDamages.Explosion:
+                    directDamageProjectileScript = projectile.AddComponent<ExplodeDamageProjectile>();
+                    ((ExplodeDamageProjectile)directDamageProjectileScript).enemyHitEvent = _enemyHitEvent;
+                    ((ExplodeDamageProjectile)directDamageProjectileScript).explosionRadius = _explosionRadius;
+                    ((ExplodeDamageProjectile)directDamageProjectileScript).particles = _particles.GetComponent<ParticleSystem>();
+                    break;
                 case ProjectileDamages.Direct:
                 default:
                     directDamageProjectileScript = projectile.AddComponent<DirectDamageProjectile>();
@@ -76,26 +89,31 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             }
             directDamageProjectileScript.damage = GetStats(WeaponStatisticEnum.BaseDamage) * ( 1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100) );
             directDamageProjectileScript.parent = parent;
-            directDamageProjectileScript.destroyOnHit = _destroyOnHit;
             directDamageProjectileScript.bounceOnWall = _bounceOnWall;
 
             ProjectileMouvement mouvementScript;
             switch (directionType)
             {
-                case ProjectileDirection.None:
-                    break;
                 case ProjectileDirection.Straight:
                     mouvementScript = projectile.AddComponent<StraightFowardProjectile>();
                     mouvementScript.speed = GetStats(WeaponStatisticEnum.BaseSpeed) * ( 1 + GetStats(WeaponStatisticEnum.SpeedPercentage)/100);
                     break;
                 case ProjectileDirection.AutoAimed:
-                default:
                     mouvementScript = projectile.AddComponent<TargetClosestEnemyProjectile>();
                     mouvementScript.speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100);
+                    ((TargetClosestEnemyProjectile)mouvementScript).radius = GetStats(WeaponStatisticEnum.Radius);
+                    break;
+                case ProjectileDirection.Ricochet:
+                    mouvementScript = projectile.AddComponent<RicochetProjectile>();
+                    mouvementScript.speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100);
+                    ((RicochetProjectile)mouvementScript).radius = GetStats(WeaponStatisticEnum.Radius);
+                    break;
+                case ProjectileDirection.None:
+                default:
                     break;
             }
 
-            switch(DestructionType)
+            switch(destructionType)
             {
                 case ProjectileDestruction.RandomAfterTime:
                     SelfDestroyRandomDelay selfDestroyRandomDelayScript = projectile.AddComponent<SelfDestroyRandomDelay>();
@@ -105,6 +123,14 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 case ProjectileDestruction.DestroyOnRangeReach:
                     SelfDestroyRange selfDestroyRangeSript = projectile.AddComponent<SelfDestroyRange>();
                     selfDestroyRangeSript.Range = GetStats(WeaponStatisticEnum.Range);
+                    break;
+                case ProjectileDestruction.DestroyNbrOfHits:
+                    SelfDestroyNbrOfHits selfDestroyNbrOfHits = projectile.AddComponent<SelfDestroyNbrOfHits>();
+                    selfDestroyNbrOfHits.numberOfHits = _nbrOfHits;
+                    break;
+                case ProjectileDestruction.ComebackToPlayer:
+                    ComebackToPlayer comebackToPlayer = projectile.AddComponent<ComebackToPlayer>();
+                    comebackToPlayer.numberOfHits = _nbrOfHits;
                     break;
                 case ProjectileDestruction.None:
                 default:

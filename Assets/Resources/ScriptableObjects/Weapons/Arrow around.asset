@@ -30,8 +30,9 @@ MonoBehaviour:
   damageType: 0
   _tickSpeed: 0
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  directionType: 1
+  directionType: 2
   _bounceOnWall: 0
   _destroyOnHit: 1
-  DestructionType: 2
+  destructionType: 0
   _minMaxDelay: {x: 0, y: 0}
+  _nbrOfHits: 0

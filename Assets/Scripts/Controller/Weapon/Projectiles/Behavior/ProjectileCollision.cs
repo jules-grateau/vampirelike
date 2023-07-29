@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Assets.Scripts.Controller.Weapon.Projectiles.Interface;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
@@ -11,9 +12,12 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         public GameObject parent { get; set; }
         [SerializeField]
         public float damage { get; set; }
-        [SerializeField]
-        public bool destroyOnHit { get; set; } = true;
-        protected abstract void HandleEnemyCollision(Collision2D collision2D);
+
+        public List<GameObject> alreadyTargeted = new List<GameObject>();
+        protected virtual void HandleEnemyCollision(Collision2D collision2D)
+        {
+            alreadyTargeted.Add(collision2D.gameObject);
+        }
 
         protected void HandleWallCollision(Collision2D collision2D)
         {

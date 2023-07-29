@@ -15,7 +15,8 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         private float _cooloff;
         protected override void HandleEnemyCollision(Collision2D collision2D)
         {
-            if(_cooloff >= tickSpeed)
+            base.HandleEnemyCollision(collision2D);
+            if (_cooloff >= tickSpeed)
             {
                 enemyHitEvent.Raise(new HitData {
                     damage = damage,
@@ -25,7 +26,6 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                 });
                 _cooloff = 0f;
             }
-            if (destroyOnHit) Destroy(gameObject);
             _cooloff += Time.deltaTime;
         }
     }

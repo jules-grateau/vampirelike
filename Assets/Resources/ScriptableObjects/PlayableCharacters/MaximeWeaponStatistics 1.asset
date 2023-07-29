@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseStats:
   - _key: 7
-    _value: 100
+    _value: 0
   - _key: 8
     _value: 50
   - _key: 9
