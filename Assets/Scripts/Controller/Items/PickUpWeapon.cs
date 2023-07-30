@@ -13,6 +13,11 @@ public class PickUpWeapon : MonoBehaviour
     [SerializeField]
     private WeaponSO weapon;
 
+    void Start()
+    {
+        GetComponent<SpriteRenderer>().sprite = weapon.icon;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -22,6 +27,5 @@ public class PickUpWeapon : MonoBehaviour
             gameEvent.Raise(weapon);
             Destroy(gameObject);
         }
-
     }
 }
