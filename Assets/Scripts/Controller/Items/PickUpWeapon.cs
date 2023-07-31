@@ -11,13 +11,13 @@ public class PickUpWeapon : MonoBehaviour
     [SerializeField]
     private GameEventWeapon _gameEvent;
     [SerializeField]
-    private WeaponSO _weapon;
+    public WeaponSO weapon;
     [SerializeField]
     private AudioClip _defaultAudioClip;
 
     void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = _weapon.icon;
+        GetComponent<SpriteRenderer>().sprite = weapon.icon;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,9 +25,9 @@ public class PickUpWeapon : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             AudioSource.PlayClipAtPoint(_defaultAudioClip, transform.position, 1);
-            _weapon.parent = collision.gameObject;
-            _weapon.Init();
-            _gameEvent.Raise(_weapon);
+            weapon.parent = collision.gameObject;
+            weapon.Init();
+            _gameEvent.Raise(weapon);
             Destroy(gameObject);
         }
     }

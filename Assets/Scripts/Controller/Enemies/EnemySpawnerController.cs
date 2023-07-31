@@ -27,10 +27,10 @@ namespace Assets.Scripts.Controller.Enemies
         private float _delay = 0;
         private float _radius = 0;
 
-        private bool _forceSpawn;
+        private bool _forceSpawn = false;
         private int _phaseNbr = 0;
-        private int _spawnedEnemy = 0;
-        private int _currentWaveAmount = 0;
+        private float _spawnedPowerValue = 0;
+        private float _currentWaveAmount = 0;
 
         private void Awake()
         {
@@ -56,13 +56,13 @@ namespace Assets.Scripts.Controller.Enemies
                 if (!_forceSpawn)
                 {
                     _phaseNbr++;
-                    _currentWaveAmount = Mathf.FloorToInt(GameManager.GameState.DifficultyCurve.Evaluate(_phaseNbr));
-                    _spawnedEnemy = 0;
+                    _currentWaveAmount = GameManager.GameState.DifficultyCurve.Evaluate(_phaseNbr);
+                    _spawnedPowerValue = 0;
                     Debug.Log("PHASE " + _phaseNbr + " STARTED -> need to generate " + _currentWaveAmount + " enemies");
                 }
 
                 // If there is still enemy missing to be spawned
-                if(_spawnedEnemy < _currentWaveAmount)
+                if(_spawnedPowerValue < _currentWaveAmount)
                 {
                     // Get random position
                     Vector2 playerPos = _player.transform.position;
@@ -79,13 +79,13 @@ namespace Assets.Scripts.Controller.Enemies
                         enemyGo.transform.rotation = Quaternion.identity;
                         
                         enemyGo.SetActive(true);
-                        _spawnedEnemy++;
+                        _spawnedPowerValue += _enemies[random].health;
                     }
                     _forceSpawn = true;
                 }
                 else
                 {
-                    Debug.Log("PHASE " + _phaseNbr + " ENDED -> generated " + _spawnedEnemy + " enemies");
+                    Debug.Log("PHASE " + _phaseNbr + " ENDED -> generated " + _spawnedPowerValue + " enemies");
                     _delay = 0;
                     _forceSpawn = false;
                 }

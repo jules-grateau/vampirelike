@@ -18,6 +18,8 @@ namespace Assets.Scripts.Controller.Player
 
         [SerializeField]
         private AudioClip _hitAudioClip;
+        [SerializeField]
+        private AudioClip _armorAudioClip;
 
         [SerializeField]
         private GameEvent _onPlayerDeathEvent;
@@ -48,7 +50,11 @@ namespace Assets.Scripts.Controller.Player
                 float armor = _characterStatistics.GetStats(Types.StatisticEnum.Armor);
                 float computedDamage = damage - armor;
 
-                if (computedDamage < 1) return;
+                if (computedDamage < 1)
+                {
+                    AudioSource.PlayClipAtPoint(_armorAudioClip, transform.position, 1);
+                    return;
+                }
 
                 _hp -= computedDamage;
                 if (_hp <= 0)

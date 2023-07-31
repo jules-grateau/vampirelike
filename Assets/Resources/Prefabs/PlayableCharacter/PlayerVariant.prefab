@@ -158,7 +158,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01468277, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -169,7 +169,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64762115, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &3768773383118627058
 MonoBehaviour:
@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resetOnStart: 1
   _hitAudioClip: {fileID: 8300000, guid: 281dc59a06f5bdb42a28ad3f59532891, type: 3}
+  _armorAudioClip: {fileID: 8300000, guid: 51a3f7c7491b09d48adeff0b2c4ef7e6, type: 3}
   _onPlayerDeathEvent: {fileID: 11400000, guid: e52a29c257b87af4499524eee03d0667, type: 2}
 --- !u!114 &466390313952093619
 MonoBehaviour:

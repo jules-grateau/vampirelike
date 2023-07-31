@@ -17,5 +17,6 @@ namespace Assets.Scripts.Types
         AttackCooldown,
         ProjectileNumber,
         Radius,
+        NbrOfHit,
     }
 }

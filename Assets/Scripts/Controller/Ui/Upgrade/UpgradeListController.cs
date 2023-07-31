@@ -5,6 +5,9 @@ using Assets.Scripts.Variables;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Assets.Scripts.Controller.Inventory.Weapons;
+using Assets.Scripts.Controller.Game;
+using Assets.Scripts.ScriptableObjects.Items;
 
 namespace Assets.Scripts.Controller.Ui
 {
@@ -25,29 +28,38 @@ namespace Assets.Scripts.Controller.Ui
                 upgrades.AddRange(Resources.LoadAll<UpgradeSO>($"ScriptableObjects/Upgrade/{upgrade}"));
             }
             List<UpgradeSO> upgradesToShow = new List<UpgradeSO>();
-            List<int> selectedUpgradeIndex = new List<int>();
             float maxUpgrade = _numberSelectableUpgrade.value;
 
-            if(upgrades.Count > maxUpgrade)
+            // Retrieve list of weapon currently used by the player
+            List<WeaponSO> weaponManager = GameManager.GameState.Player.GetComponent<WeaponInventoryManager>().Inventory.Select(weaponController => weaponController.weapon).ToList();
+            if (upgrades.Count > maxUpgrade)
             {
-                while(upgradesToShow.Count < maxUpgrade)
+                while (upgradesToShow.Count < maxUpgrade)
                 {
                     int randomUpgradeIndex = Random.Range(0, upgrades.Count);
-                    if (!selectedUpgradeIndex.Contains(randomUpgradeIndex))
+                    UpgradeSO upgrade = upgrades[randomUpgradeIndex];
+                    switch (upgrade)
                     {
-                        UpgradeSO upgrade = upgrades[randomUpgradeIndex];
-                        upgradesToShow.Add(upgrade);
-                        selectedUpgradeIndex.Add(randomUpgradeIndex);
+                        case SpecificWeaponStatsUpgradeSO s:
+                            if (weaponManager.Contains(s.ForWeapon))
+                            {
+                                upgradesToShow.Add(upgrade);
+                                upgrades.RemoveAt(randomUpgradeIndex);
+                            }
+                            break;
+                        default:
+                            upgradesToShow.Add(upgrade);
+                            upgrades.RemoveAt(randomUpgradeIndex);
+                            break;
                     }
                 }
-
-            } else
+            }
+            else
             {
                 upgradesToShow = upgrades.ToList();
             }
 
-
-            foreach(UpgradeSO upgrade in upgradesToShow)
+            foreach (UpgradeSO upgrade in upgradesToShow)
             {
                 GameObject characterInfo = Instantiate(upgradeInfoPrefab, transform);
                 UpgradeInfoController stageInfoController = characterInfo.GetComponent<UpgradeInfoController>();

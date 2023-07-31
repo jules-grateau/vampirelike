@@ -30,7 +30,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
 
         [Header("Health")]
         [SerializeField]
-        float _health;
+        public float health;
         [SerializeField]
         GameEventHitData _enemyHitEvent;
 
@@ -102,7 +102,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             }
 
             EnemyHealth enemyHealth = enemy.AddComponent<EnemyHealth>();
-            enemyHealth.Health = _health;
+            enemyHealth.Health = health;
             enemyHealth.deathAudioClip = _deathAudioClip;
             GameEventListenerHitData listenerHitData = enemy.AddComponent<GameEventListenerHitData>();
             listenerHitData.GameEvent = _enemyHitEvent;
