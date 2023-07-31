@@ -1,13 +1,8 @@
 ﻿using Assets.Scripts.Controller.Weapon.Projectiles;
 using Assets.Scripts.Controller.Weapon.Projectiles.Interface;
-using Assets.Scripts.Types;
 using Assets.Scripts.Events.TypedEvents;
-using System.Collections; 
-using UnityEditor;
-using UnityEditor.UIElements;
+using Assets.Scripts.Types;
 using UnityEngine;
-using System;
-using System.Collections.Generic;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 {
