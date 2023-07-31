@@ -21,7 +21,7 @@ MonoBehaviour:
     _value: 50
   - _key: 9
     _value: 8
-  - _key: 11
+  - _key: 6
     _value: 5
   - _key: 10
     _value: 1
@@ -32,11 +32,12 @@ MonoBehaviour:
   damageType: 0
   _tickSpeed: 0
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  directionType: 1
+  _explosionRadius: 0
+  _particles: {fileID: 0}
+  directionType: 3
   _bounceOnWall: 0
-  _destroyOnHit: 0
   destructionType: 2
   _minMaxDelay: {x: 0, y: 0}
-  _nbrOfHits: 25
+  _nbrOfHits: 1
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

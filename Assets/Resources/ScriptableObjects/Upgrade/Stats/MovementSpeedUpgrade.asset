@@ -15,5 +15,7 @@ MonoBehaviour:
   _title: Movement Speed
   _sprite: {fileID: -768473915, guid: 0e630338424d76d429618acfef22c454, type: 3}
   _description: You walk 5% quickly
-  _statsToUpgrade: 6
+  _statsToUpgrade: 4
   _valueToAdd: 5
+  _additionType: 0
+  _maxValue: 0

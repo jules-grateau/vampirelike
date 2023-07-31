@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d89dfce7e25b2f40aaef2f55d667d91, type: 3}
   m_Name: MaxHp
   m_EditorClassIdentifier: 
-  _key: 5
+  _key: 3
   _name: Maximum HP
   _valueAppendix: 
