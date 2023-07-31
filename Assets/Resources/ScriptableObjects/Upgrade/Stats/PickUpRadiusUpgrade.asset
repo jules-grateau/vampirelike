@@ -15,5 +15,7 @@ MonoBehaviour:
   _title: Pickup Radius
   _sprite: {fileID: -317881635, guid: 0e630338424d76d429618acfef22c454, type: 3}
   _description: You pick up souls 1 units further
-  _statsToUpgrade: 4
+  _statsToUpgrade: 2
   _valueToAdd: 1
+  _additionType: 0
+  _maxValue: 0

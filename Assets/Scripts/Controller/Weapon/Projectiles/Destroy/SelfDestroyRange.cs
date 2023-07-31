@@ -10,17 +10,19 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         private float _range;
 
         private Vector3 initPosition;
+        ProjectileCollision _projectileCollision;
 
         void Start()
         {
             initPosition = transform.position;
         }
 
-        private void FixedUpdate()
+        private void FixedUpdate() 
         {
-            if(Vector2.Distance(initPosition,transform.position) > Range)
+            if(Vector2.Distance(initPosition,transform.position) > _range)
             {
                 Destroy(this);
+                return;
             }
         }
 

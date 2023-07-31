@@ -18,7 +18,7 @@ MonoBehaviour:
   - _key: 1
     _value: 200
   - _key: 2
-    _value: 1
+    _value: 100
   - _key: 3
     _value: 25
   - _key: 4
@@ -27,8 +27,10 @@ MonoBehaviour:
     _value: 0
   - _key: 6
     _value: 0.5
+  - _key: 3
+    _value: 125
   _name: Jules
   _sprite: {fileID: 21300000, guid: 66352d50960e24e4586ed86a7fdea963, type: 3}
   _description: "Le mec le plus styl\xE9 de France"
   _prefab: {fileID: 704638989827276549, guid: eb4d5473f1d909748879000eac17e969, type: 3}
-  _weaponStatistics: {fileID: 0}
+  _weaponStatistics: {fileID: 11400000, guid: a62bdb3aba1de9949a26149ec661ba66, type: 2}
