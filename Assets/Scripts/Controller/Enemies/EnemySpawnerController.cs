@@ -40,15 +40,15 @@ namespace Assets.Scripts.Controller.Enemies
 
         private void Start()
         {
-            _player = GameObject.FindGameObjectWithTag("Player");
-            _gameManager = GetComponent<GameManager>();
+            _player = GameManager.GameState.Player;
+
             _enemies = Resources.LoadAll<EnemySO>("ScriptableObjects/Enemy");
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (_gameManager.GameState == Types.GameStateEnum.PAUSE) return;
+            if (GameManager.GameState.State == Types.GameStateEnum.PAUSE) return;
             if (!_player) return;
 
             if ((_delay >= _spawnCooldown || _forceSpawn) && triggerSpawn)

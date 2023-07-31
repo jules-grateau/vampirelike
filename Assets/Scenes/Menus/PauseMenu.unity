@@ -669,8 +669,8 @@ GameObject:
   - component: {fileID: 640983208}
   - component: {fileID: 640983210}
   - component: {fileID: 640983209}
-  - component: {fileID: 640983212}
   - component: {fileID: 640983213}
+  - component: {fileID: 640983214}
   m_Layer: 5
   m_Name: StatsListInfo
   m_TagString: Untagged
@@ -736,18 +736,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640983207}
   m_CullTransparentMesh: 1
---- !u!114 &640983212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640983207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0054eea2b206f4f8b59112dce316b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &640983213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,6 +746,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 20
+    m_Right: 20
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 0
+  m_Spacing: 25
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &640983214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640983207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215f2082e45e73d4d8bed570778b9d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:

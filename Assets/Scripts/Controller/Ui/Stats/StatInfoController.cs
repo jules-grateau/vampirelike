@@ -8,10 +8,10 @@ namespace Assets.Scripts.Controller.Ui.Stats
 {
     public class StatInfoController : MonoBehaviour
     {
-        public void Init(StatisticSO statistic, float value)
+        public void Init(string name, float value, string valueAppendix)
         {
             TextMeshProUGUI tmp = transform.Find("Text").GetComponent<TextMeshProUGUI>();
-            tmp.text = $"{statistic.Name} : {value.ToString()+statistic.ValueAppendix}";
+            tmp.text = $"{name} : {value.ToString()+valueAppendix}";
         }
     }
 }

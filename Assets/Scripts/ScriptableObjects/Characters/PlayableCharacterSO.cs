@@ -26,20 +26,24 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         GameObject _prefab;
 
+
+        public WeaponStatisticsSO WeaponStatistics => _weaponStatistics; 
         [SerializeField]
         private WeaponStatisticsSO _weaponStatistics;
 
-        public void Init(Vector3 spawnPosition)
+        public GameObject Init(Vector3 spawnPosition)
         {
             GameObject playableCharacterInstance = Instantiate(_prefab, spawnPosition, _prefab.transform.rotation);
 
             PlayerStatsController playerStatsController = playableCharacterInstance.GetComponent<PlayerStatsController>();
-            if (!playerStatsController) return;
+            if (!playerStatsController) return playableCharacterInstance;
             playerStatsController.Init(this);
 
-            WeaponInventoryManager weaponInventoryManager = playableCharacterInstance.GetComponentInChildren<WeaponInventoryManager>();
-            if (!weaponInventoryManager) return;
+            WeaponInventoryManager weaponInventoryManager = playableCharacterInstance.GetComponent<WeaponInventoryManager>();
+            if (!weaponInventoryManager) return playableCharacterInstance;
             weaponInventoryManager.Init(_weaponStatistics);
+
+            return playableCharacterInstance;
         }
     }
 }

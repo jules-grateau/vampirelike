@@ -63,8 +63,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         protected override void OnUpgradeStats()
         {
-            List<GameObject> updatedProjectiles = new List<GameObject>();
-
             for(int i = _projectiles.Count -1; i >= 0; i-- )
             {
                 GameObject projectile = _projectiles[i];

@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Items;
-using UnityEngine;
-using Assets.Scripts.ScriptableObjects;
-using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.ScriptableObjects.Items.Weapons;
-using Assets.Scripts.Types;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.Controller.Inventory.Weapons
 {
@@ -13,35 +10,21 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
     {
         private List<WeaponController> _inventory = new List<WeaponController>();
         private List<WeaponStatsUpgradeSO> _upgrades = new List<WeaponStatsUpgradeSO>();
+        public WeaponStatisticsSO WeaponStats => _weaponStats;
+        private WeaponStatisticsSO _weaponStats;
 
         public void Init(WeaponStatisticsSO weaponStatistics)
         {
             if (!weaponStatistics) return;
             weaponStatistics.Init();
-            WeaponStatsUpgradeSO[] wUpgrades = Resources.LoadAll<WeaponStatsUpgradeSO>($"ScriptableObjects/Upgrade/Weapon");
-            foreach (KeyValuePair<WeaponStatisticEnum, float> weaponStatistic in weaponStatistics._stats)
-            {
-                foreach (WeaponStatsUpgradeSO wUpgrade in wUpgrades)
-                {
-                    if (wUpgrade._statsToUpgrade.Equals(weaponStatistic.Key))
-                    {
-                        WeaponStatsUpgradeSO wUpgradeCopy = Instantiate(wUpgrade);
-                        wUpgradeCopy._valueToAdd = weaponStatistic.Value;
-                        _upgrades.Add(wUpgradeCopy);
-                    }
-                }
-            }
-                
+            _weaponStats = weaponStatistics;
         }
 
         public void EquipWeapon(WeaponSO weapon)
         {
             WeaponController wpController = gameObject.AddComponent<WeaponController>();
+            weapon.Init(_weaponStats);
             wpController.weapon = weapon;
-            foreach (WeaponStatsUpgradeSO upgrade in _upgrades)
-            {
-                HandleStatUpgrade(upgrade, new List<WeaponController>() { wpController });
-            }
             _inventory.Add(wpController);
         }
 
@@ -63,6 +46,11 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
                 {
                     weapon.weapon.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd, upgrade.AdditionType, upgrade.MaxValue);
                 }
+            }
+
+            if (!forWeapon)
+            {
+                _weaponStats.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd, upgrade.AdditionType, upgrade.MaxValue);
             }
         }
     }
