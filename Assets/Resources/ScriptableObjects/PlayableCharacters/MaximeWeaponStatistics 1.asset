@@ -18,8 +18,10 @@ MonoBehaviour:
   - _key: 8
     _value: 50
   - _key: 9
-    _value: 25
+    _value: 0
   - _key: 4
     _value: 1
   - _key: 6
     _value: 100
+  - _key: 10
+    _value: 1

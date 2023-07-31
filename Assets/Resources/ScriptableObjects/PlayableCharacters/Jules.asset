@@ -27,8 +27,6 @@ MonoBehaviour:
     _value: 0
   - _key: 6
     _value: 0.5
-  - _key: 3
-    _value: 125
   _name: Jules
   _sprite: {fileID: 21300000, guid: 66352d50960e24e4586ed86a7fdea963, type: 3}
   _description: "Le mec le plus styl\xE9 de France"

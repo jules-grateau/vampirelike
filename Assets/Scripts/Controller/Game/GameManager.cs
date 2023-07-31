@@ -23,6 +23,12 @@ namespace Assets.Scripts.Controller.Game
         [SerializeField]
         FloatVariable _gameTime;
 
+        [SerializeField]
+        private AnimationCurve _xpCurve;
+
+        [SerializeField]
+        private AnimationCurve _difficultyCurve;
+
         public static GameState GameState => _gameState;
 
         private static GameState _gameState;
@@ -44,6 +50,8 @@ namespace Assets.Scripts.Controller.Game
             Vector3 playerSpawnPosition = playerSpawnGO.transform.position;
 
             GameState.Player = _gameData.PlayableCharacter.Init(playerSpawnPosition);
+            GameState.XpCurve = _gameData.XpCurve;
+            GameState.DifficultyCurve = _gameData.DifficultyCurve;
 
             OnUnpause();
         }
@@ -80,5 +88,7 @@ namespace Assets.Scripts.Controller.Game
     {
         public GameObject Player { get; set; }
         public GameStateEnum State { get; set; }
+        public AnimationCurve XpCurve { get; set; }
+        public AnimationCurve DifficultyCurve { get; set; }
     }
 }

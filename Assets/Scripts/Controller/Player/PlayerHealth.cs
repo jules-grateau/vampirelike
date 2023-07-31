@@ -17,6 +17,9 @@ namespace Assets.Scripts.Controller.Player
         private float _hp;
 
         [SerializeField]
+        private AudioClip _hitAudioClip;
+
+        [SerializeField]
         private GameEvent _onPlayerDeathEvent;
         private CharacterStatisticsSO _characterStatistics;
         private SpriteRenderer _spriteRenderer;
@@ -54,6 +57,7 @@ namespace Assets.Scripts.Controller.Player
                 }
                 else
                 {
+                    AudioSource.PlayClipAtPoint(_hitAudioClip, transform.position, 1);
                     StartCoroutine(triggerInvincibility());
                 }
             }

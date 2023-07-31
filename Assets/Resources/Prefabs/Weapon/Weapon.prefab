@@ -226,5 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc9a5868325e04db8f5e429533869b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 79b1cc068be8ede48986af784f93498c, type: 2}
-  weapon: {fileID: 0}
+  _gameEvent: {fileID: 11400000, guid: 79b1cc068be8ede48986af784f93498c, type: 2}
+  _weapon: {fileID: 0}
+  _defaultAudioClip: {fileID: 8300000, guid: 2d683b1691de61647a4c7f45223f6287, type: 3}

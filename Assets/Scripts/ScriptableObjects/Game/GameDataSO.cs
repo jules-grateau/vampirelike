@@ -12,5 +12,23 @@ namespace Assets.Scripts.ScriptableObjects.Game
 
         [SerializeField]
         PlayableCharacterSO _playableCharacter;
+
+        public AnimationCurve XpCurve
+        {
+            get { return _xpCurve; }
+            set { _xpCurve = value; }
+        }
+
+        [SerializeField]
+        AnimationCurve _xpCurve;
+
+        public AnimationCurve DifficultyCurve
+        {
+            get { return _difficultyCurve; }
+            set { _difficultyCurve = value; }
+        }
+
+        [SerializeField]
+        AnimationCurve _difficultyCurve;
     }
 }

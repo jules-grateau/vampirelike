@@ -42,6 +42,9 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
         GameObject _collectible;
 
         [SerializeField]
+        AudioClip _deathAudioClip;
+
+        [SerializeField]
         GameObject _prefab;
 
         public GameObject GetEnemy()
@@ -100,6 +103,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
 
             EnemyHealth enemyHealth = enemy.AddComponent<EnemyHealth>();
             enemyHealth.Health = _health;
+            enemyHealth.deathAudioClip = _deathAudioClip;
             GameEventListenerHitData listenerHitData = enemy.AddComponent<GameEventListenerHitData>();
             listenerHitData.GameEvent = _enemyHitEvent;
             listenerHitData.UnityEvent = new UnityEvent<HitData>();

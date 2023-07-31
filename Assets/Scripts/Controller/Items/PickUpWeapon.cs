@@ -9,22 +9,25 @@ using UnityEngine;
 public class PickUpWeapon : MonoBehaviour
 {
     [SerializeField]
-    private GameEventWeapon gameEvent;
+    private GameEventWeapon _gameEvent;
     [SerializeField]
-    private WeaponSO weapon;
+    private WeaponSO _weapon;
+    [SerializeField]
+    private AudioClip _defaultAudioClip;
 
     void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = weapon.icon;
+        GetComponent<SpriteRenderer>().sprite = _weapon.icon;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            weapon.parent = collision.gameObject;
-            weapon.Init();
-            gameEvent.Raise(weapon);
+            AudioSource.PlayClipAtPoint(_defaultAudioClip, transform.position, 1);
+            _weapon.parent = collision.gameObject;
+            _weapon.Init();
+            _gameEvent.Raise(_weapon);
             Destroy(gameObject);
         }
     }

@@ -11,6 +11,8 @@ namespace Assets.Scripts.Controller.Enemies
 
         private GameObject _damageDisplay;
 
+        [SerializeField]
+        public AudioClip deathAudioClip;
         void Awake()
         {
             _damageDisplay = Resources.Load<GameObject>("Prefabs/Particles/damage_display");
@@ -52,6 +54,7 @@ namespace Assets.Scripts.Controller.Enemies
 
             if(Health <= 0)
             {
+
                 DestructibleController destructible = gameObject.GetComponent<DestructibleController>();
                 if (destructible)
                 {
@@ -62,6 +65,7 @@ namespace Assets.Scripts.Controller.Enemies
                 {
                     drop.onDestroy();
                 }
+                AudioSource.PlayClipAtPoint(deathAudioClip, transform.position, 1);
                 Destroy(gameObject);
             }
         }

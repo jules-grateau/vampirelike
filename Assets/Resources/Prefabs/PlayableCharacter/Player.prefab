@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resetOnStart: 1
+  _hitAudioClip: {fileID: 8300000, guid: 281dc59a06f5bdb42a28ad3f59532891, type: 3}
   _onPlayerDeathEvent: {fileID: 11400000, guid: e52a29c257b87af4499524eee03d0667, type: 2}
 --- !u!114 &466390313952093619
 MonoBehaviour:
@@ -213,30 +214,8 @@ MonoBehaviour:
   _xp: {fileID: 11400000, guid: c678101c49edafa498744f1ae7df8f49, type: 2}
   _maxXp: {fileID: 11400000, guid: 86990462fda9503438982221eb449b5a, type: 2}
   _currentLevel: {fileID: 11400000, guid: 89937cfc28117db48a84b0622dcdd94a, type: 2}
-  _xpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 25
-      inSlope: 0.6571015
-      outSlope: 0.6571015
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.025170326
-    - serializedVersion: 3
-      time: 50
-      value: 500
-      inSlope: 0.02858643
-      outSlope: 0.02858643
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.25239128
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  _LevelUpEffectGO: {fileID: 5822821294587056223, guid: d51a89497c2380a40a1a2c8798adbfa3, type: 3}
+  _LevelUpAudioClip: {fileID: 8300000, guid: 0e566a8701662924eb677419db5d35f9, type: 3}
   _playerLevelUpEvent: {fileID: 11400000, guid: 9fdb7426a996d4d4d99b3c5b345ec99a, type: 2}
 --- !u!114 &5115566951842065350
 MonoBehaviour:
