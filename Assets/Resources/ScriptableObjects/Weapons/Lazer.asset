@@ -21,6 +21,8 @@ MonoBehaviour:
     _value: 3
   - _key: 10
     _value: 1
+  - _key: 6
+    _value: 20
   _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
   _icon: {fileID: -3282728817448708057, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
   behaviourType: 0
@@ -28,9 +30,11 @@ MonoBehaviour:
   damageType: 0
   _tickSpeed: 0
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  directionType: 1
+  _explosionRadius: 0
+  _particles: {fileID: 0}
+  directionType: 3
   _bounceOnWall: 1
-  _destroyOnHit: 0
-  DestructionType: 1
+  destructionType: 2
   _minMaxDelay: {x: 0, y: 0}
+  _nbrOfHits: 0
   _offset: {x: 1, y: 1}
