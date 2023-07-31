@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BaseDamage
   m_EditorClassIdentifier: 
   _key: 2
-  _name: Projectile base damage
-  _valueAppendix: '%'
+  _name: Base Damage
+  _valueAppendix: 

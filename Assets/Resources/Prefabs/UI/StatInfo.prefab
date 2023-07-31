@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4934310721824958295}
   - component: {fileID: 8851634179078768069}
   - component: {fileID: 1133994787288675606}
-  - component: {fileID: 8697176197056148559}
+  - component: {fileID: 2511193810727012475}
   m_Layer: 5
   m_Name: StatInfo
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8697176197056148559
+--- !u!114 &2511193810727012475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,11 +183,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 8
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1

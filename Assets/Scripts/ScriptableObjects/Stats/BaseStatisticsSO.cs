@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using System;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace Assets.Scripts.ScriptableObjects.Characters
 {
@@ -14,24 +15,30 @@ namespace Assets.Scripts.ScriptableObjects.Characters
 
         public Dictionary<T, float> _stats;
 
-        public void Init()
+        public void Init(BaseStatisticsSO<T> additionalStats = null)
         {
             _stats = new Dictionary<T, float>();
 
-            // Init all filled weapon stats and 0 if not used
+
+            foreach(Statistic<T> val in _baseStats)
+            {
+                float additionalValue = 0;
+                if(additionalStats)
+                {
+                    additionalValue = additionalStats.GetStats(val.Key);
+                }
+                _stats.Add(val.Key, val.Value + additionalValue);
+            }
+
             foreach (T weaponStatsEnum in Enum.GetValues(typeof(T)))
             {
-                float value = 0f;
-                for (int i = 0; i < _baseStats.Length; i++)
-                {
-                    if (_baseStats[i].Key.Equals(weaponStatsEnum))
-                    {
-                        value = _baseStats[i].Value;
-                    }
-                }
-                _stats.Add(weaponStatsEnum, value);
+                if (_stats.ContainsKey(weaponStatsEnum)) continue;
+
+                _stats.Add(weaponStatsEnum, 0);
             }
-        }
+
+
+            }
 
         public float GetStats(T statisticEnum)
         {

@@ -23,11 +23,14 @@ namespace Assets.Scripts.Controller.Game
         [SerializeField]
         FloatVariable _gameTime;
 
-        public GameStateEnum GameState => _gameState;
-        GameStateEnum _gameState = GameStateEnum.PAUSE;
+        public static GameState GameState => _gameState;
+
+        private static GameState _gameState;
 
         void Awake()
         {
+            _gameState = new GameState();
+
             _gameTime.value = 0f;
             OnPause();
 
@@ -40,7 +43,7 @@ namespace Assets.Scripts.Controller.Game
 
             Vector3 playerSpawnPosition = playerSpawnGO.transform.position;
 
-            _gameData.PlayableCharacter.Init(playerSpawnPosition);
+            GameState.Player = _gameData.PlayableCharacter.Init(playerSpawnPosition);
 
             OnUnpause();
         }
@@ -51,13 +54,13 @@ namespace Assets.Scripts.Controller.Game
         }
         public void OnPause()
         {
-            _gameState = GameStateEnum.PAUSE;
+            _gameState.State = GameStateEnum.PAUSE;
             Time.timeScale = 0;
         }
 
         public void OnUnpause()
         {
-            _gameState = GameStateEnum.RUNNING;
+            _gameState.State = GameStateEnum.RUNNING;
             Time.timeScale = 1;
         }
 
@@ -71,5 +74,11 @@ namespace Assets.Scripts.Controller.Game
             _pauseEvent.Raise();
             SceneManager.LoadScene(_upgradeMenuSceneName,LoadSceneMode.Additive);
         }
+    }
+
+    public class GameState
+    {
+        public GameObject Player { get; set; }
+        public GameStateEnum State { get; set; }
     }
 }

@@ -17,14 +17,12 @@ MonoBehaviour:
     _value: 10
   - _key: 4
     _value: 5
-  - _key: 6
-    _value: 50
   - _key: 9
     _value: 8
-  - _key: 6
-    _value: 5
   - _key: 10
     _value: 1
+  - _key: 6
+    _value: 5
   _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
   _icon: {fileID: -5488431172643268487, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
   behaviourType: 0

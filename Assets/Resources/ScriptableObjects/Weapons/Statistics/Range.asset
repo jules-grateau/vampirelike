@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: 6
   _name: Projectile range
-  _valueAppendix: '%'
+  _valueAppendix: 

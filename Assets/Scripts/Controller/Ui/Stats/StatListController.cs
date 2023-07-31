@@ -1,8 +1,12 @@
-﻿using Assets.Scripts.Controller.Ui.CharacterSelection;
+﻿using Assets.Scripts.Controller.Game;
+using Assets.Scripts.Controller.Inventory.Weapons;
+using Assets.Scripts.Controller.Ui.CharacterSelection;
 using Assets.Scripts.Controller.Ui.Stats;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.ScriptableObjects.Items;
+using Assets.Scripts.ScriptableObjects.Items.Weapons;
 using Assets.Scripts.ScriptableObjects.Stage;
+using Assets.Scripts.Types;
 using System.Collections;
 using UnityEngine;
 
@@ -10,27 +14,24 @@ namespace Assets.Scripts.Controller.Ui
 {
     public class StatListController : MonoBehaviour
     {
-        void Awake()
+        public void Init(CharacterStatisticsSO characterStatistics, WeaponStatisticsSO weaponStatistics)
         {
             GameObject statInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/StatInfo");
             StatisticSO[] stats = Resources.LoadAll<StatisticSO>("ScriptableObjects/PlayableCharacters/Statistics/");
+            WeaponStatisticDescriptionSO[] weaponStats = Resources.LoadAll<WeaponStatisticDescriptionSO>("ScriptableObjects/Weapons/Statistics/");
 
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (!player) return;
-
-            PlayerStatsController playerStatsController = player.GetComponent<PlayerStatsController>();
-            if (!playerStatsController) return;
-
-            CharacterStatisticsSO characterStatistics = playerStatsController.CharacterStatistics;
-            if (!characterStatistics) return;
-
-
-
-            foreach(StatisticSO stat in stats)
+            foreach (StatisticSO stat in stats)
             {
                 GameObject statInfo = Instantiate(statInfoPrefab, transform);
                 StatInfoController statInfoController = statInfo.GetComponent<StatInfoController>();
-                statInfoController.Init(stat, characterStatistics.GetStats(stat.Key));
+                statInfoController.Init(stat.Name, characterStatistics.GetStats(stat.Key), stat.ValueAppendix);
+            }
+
+            foreach (WeaponStatisticDescriptionSO stat in weaponStats)
+            {
+                GameObject statInfo = Instantiate(statInfoPrefab, transform);
+                StatInfoController statInfoController = statInfo.AddComponent<StatInfoController>();
+                statInfoController.Init(stat.Name, weaponStatistics.GetStats(stat.Key), stat.ValueAppendix);
             }
         }
     }
