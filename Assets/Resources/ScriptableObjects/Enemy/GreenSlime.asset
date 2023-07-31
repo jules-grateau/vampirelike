@@ -16,9 +16,10 @@ MonoBehaviour:
   _speed: 2
   _damageType: 0
   _collisionEvent: {fileID: 11400000, guid: 532e962d558155b458520d5ff1f64c1c, type: 2}
-  _damage: 1
-  _health: 20
+  _damage: 5
+  health: 20
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _dropType: 1
   _collectible: {fileID: 0}
+  _deathAudioClip: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}
   _prefab: {fileID: 881878062649732175, guid: 1744135bc55f3a64389fd93cbe8d1ae4, type: 3}

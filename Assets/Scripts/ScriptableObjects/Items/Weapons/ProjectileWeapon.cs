@@ -45,8 +45,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [DrawIf("destructionType", ProjectileDestruction.RandomAfterTime, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         private Vector2 _minMaxDelay;
-        [SerializeField]
-        private int _nbrOfHits;
 
         protected GameObject GetProjectile()
         {
@@ -121,11 +119,11 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     break;
                 case ProjectileDestruction.DestroyNbrOfHits:
                     SelfDestroyNbrOfHits selfDestroyNbrOfHits = projectile.AddComponent<SelfDestroyNbrOfHits>();
-                    selfDestroyNbrOfHits.numberOfHits = _nbrOfHits;
+                    selfDestroyNbrOfHits.numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit));
                     break;
                 case ProjectileDestruction.ComebackToPlayer:
                     ComebackToPlayer comebackToPlayer = projectile.AddComponent<ComebackToPlayer>();
-                    comebackToPlayer.numberOfHits = _nbrOfHits;
+                    comebackToPlayer.numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit));
                     break;
                 case ProjectileDestruction.None:
                 default:

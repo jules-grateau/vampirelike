@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Assets.Scripts.ScriptableObjects.Items.Weapons;
 using UnityEngine.Playables;
+using Assets.Scripts.Controller.Player;
 using Assets.Scripts.Controller.Inventory.Weapons;
 
 namespace Assets.Scripts.ScriptableObjects.Items
@@ -25,7 +26,6 @@ namespace Assets.Scripts.ScriptableObjects.Items
         public GameObject Prefab => _prefab;
         [SerializeField]
         GameObject _prefab;
-
 
         public WeaponStatisticsSO WeaponStatistics => _weaponStatistics; 
         [SerializeField]

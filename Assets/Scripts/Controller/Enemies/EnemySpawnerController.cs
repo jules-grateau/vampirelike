@@ -22,16 +22,15 @@ namespace Assets.Scripts.Controller.Enemies
         [SerializeField]
         private Tilemap floor;
 
-        [SerializeField]
-        private float _waveAmount;
-
         private GameObject _player;
-
-        private GameManager _gameManager;
 
         private float _delay = 0;
         private float _radius = 0;
-        private bool _forceSpawn;
+
+        private bool _forceSpawn = false;
+        private int _phaseNbr = 0;
+        private float _spawnedPowerValue = 0;
+        private float _currentWaveAmount = 0;
 
         private void Awake()
         {
@@ -53,8 +52,17 @@ namespace Assets.Scripts.Controller.Enemies
 
             if ((_delay >= _spawnCooldown || _forceSpawn) && triggerSpawn)
             {
-                int spawnedEnemy = 0;
-                while (spawnedEnemy < _waveAmount)
+                // If it's a "normal" round for spawning ennemies
+                if (!_forceSpawn)
+                {
+                    _phaseNbr++;
+                    _currentWaveAmount = GameManager.GameState.DifficultyCurve.Evaluate(_phaseNbr);
+                    _spawnedPowerValue = 0;
+                    Debug.Log("PHASE " + _phaseNbr + " STARTED -> need to generate " + _currentWaveAmount + " enemies");
+                }
+
+                // If there is still enemy missing to be spawned
+                if(_spawnedPowerValue < _currentWaveAmount)
                 {
                     // Get random position
                     Vector2 playerPos = _player.transform.position;
@@ -71,14 +79,17 @@ namespace Assets.Scripts.Controller.Enemies
                         enemyGo.transform.rotation = Quaternion.identity;
                         
                         enemyGo.SetActive(true);
-                        spawnedEnemy++;
+                        _spawnedPowerValue += _enemies[random].health;
                     }
+                    _forceSpawn = true;
                 }
-                
-                _delay = 0;
-                _forceSpawn = false;
+                else
+                {
+                    Debug.Log("PHASE " + _phaseNbr + " ENDED -> generated " + _spawnedPowerValue + " enemies");
+                    _delay = 0;
+                    _forceSpawn = false;
+                }
             }  
-
             _delay += Time.deltaTime;
         }
     }

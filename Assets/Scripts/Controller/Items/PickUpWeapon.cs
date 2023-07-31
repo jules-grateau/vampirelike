@@ -9,9 +9,11 @@ using UnityEngine;
 public class PickUpWeapon : MonoBehaviour
 {
     [SerializeField]
-    private GameEventWeapon gameEvent;
+    private GameEventWeapon _gameEvent;
     [SerializeField]
-    private WeaponSO weapon;
+    public WeaponSO weapon;
+    [SerializeField]
+    private AudioClip _defaultAudioClip;
 
     void Start()
     {
@@ -22,9 +24,10 @@ public class PickUpWeapon : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(_defaultAudioClip, transform.position, 1);
             weapon.parent = collision.gameObject;
             weapon.Init();
-            gameEvent.Raise(weapon);
+            _gameEvent.Raise(weapon);
             Destroy(gameObject);
         }
     }

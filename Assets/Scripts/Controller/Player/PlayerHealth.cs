@@ -17,6 +17,11 @@ namespace Assets.Scripts.Controller.Player
         private float _hp;
 
         [SerializeField]
+        private AudioClip _hitAudioClip;
+        [SerializeField]
+        private AudioClip _armorAudioClip;
+
+        [SerializeField]
         private GameEvent _onPlayerDeathEvent;
         private CharacterStatisticsSO _characterStatistics;
         private SpriteRenderer _spriteRenderer;
@@ -45,7 +50,11 @@ namespace Assets.Scripts.Controller.Player
                 float armor = _characterStatistics.GetStats(Types.StatisticEnum.Armor);
                 float computedDamage = damage - armor;
 
-                if (computedDamage < 1) return;
+                if (computedDamage < 1)
+                {
+                    AudioSource.PlayClipAtPoint(_armorAudioClip, transform.position, 1);
+                    return;
+                }
 
                 _hp -= computedDamage;
                 if (_hp <= 0)
@@ -54,6 +63,7 @@ namespace Assets.Scripts.Controller.Player
                 }
                 else
                 {
+                    AudioSource.PlayClipAtPoint(_hitAudioClip, transform.position, 1);
                     StartCoroutine(triggerInvincibility());
                 }
             }

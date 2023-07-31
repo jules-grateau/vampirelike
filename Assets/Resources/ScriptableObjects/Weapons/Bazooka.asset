@@ -14,16 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseStats:
   - _key: 2
-    _value: 10
+    _value: 25
   - _key: 4
     _value: 5
   - _key: 6
     _value: 50
   - _key: 9
-    _value: 8
+    _value: 10
   - _key: 11
     _value: 5
   - _key: 10
+    _value: 1
+  - _key: 12
     _value: 1
   _projectilPrefab: {fileID: 4389094783381097955, guid: 2b0f3d6f95c5e1044aed10ecfe4775ff, type: 3}
   _icon: {fileID: 293772792, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
@@ -38,6 +40,5 @@ MonoBehaviour:
   _bounceOnWall: 0
   destructionType: 1
   _minMaxDelay: {x: 0, y: 0}
-  _nbrOfHits: 1
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

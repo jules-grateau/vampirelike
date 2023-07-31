@@ -2,6 +2,7 @@
 using Assets.Scripts.Variables;
 using Assets.Scripts.Variables.Constants;
 using System.Collections;
+using Assets.Scripts.Controller.Game;
 using UnityEngine;
 using Assets.Scripts.ScriptableObjects.Items;
 
@@ -16,7 +17,9 @@ namespace Assets.Scripts.Controller.Player
         [SerializeField]
         private IntVariable _currentLevel;
         [SerializeField]
-        private AnimationCurve _xpCurve;
+        private GameObject _LevelUpEffectGO;
+        [SerializeField]
+        private AudioClip _LevelUpAudioClip;
 
         private ParticleSystem _LevelUpEffect;
 
@@ -25,10 +28,10 @@ namespace Assets.Scripts.Controller.Player
 
         void Awake()
         {
-            this._LevelUpEffect = Instantiate(Resources.Load<ParticleSystem>("Prefabs/Particles/glow_1"), gameObject.transform.position, Quaternion.identity, gameObject.transform);
+            _LevelUpEffect = Instantiate(_LevelUpEffectGO.GetComponent<ParticleSystem>(), gameObject.transform.position, Quaternion.identity, gameObject.transform);
         }
 
-        private void OnEnable()
+        private void Start()
         {
             _xp.value = 0;
             _maxXp.value = XpToReach(_currentLevel);
@@ -43,7 +46,8 @@ namespace Assets.Scripts.Controller.Player
 
             if (_xp.value >= xpToReach)
             {
-                this._LevelUpEffect.Play();
+                AudioSource.PlayClipAtPoint(_LevelUpAudioClip, transform.position, 1);
+                _LevelUpEffect.Play();
                 _xp.value = _xp.value - xpToReach;
                 _currentLevel.value += 1;
                 _maxXp.value = XpToReach(_currentLevel);
@@ -63,7 +67,7 @@ namespace Assets.Scripts.Controller.Player
 
         private int XpToReach(float level)
         {
-            return Mathf.RoundToInt(_xpCurve.Evaluate(level));
+            return Mathf.RoundToInt(GameManager.GameState.XpCurve.Evaluate(level));
         }
     }
 }

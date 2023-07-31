@@ -8,6 +8,7 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
 {
     public class WeaponInventoryManager : MonoBehaviour
     {
+        public List<WeaponController> Inventory => _inventory;
         private List<WeaponController> _inventory = new List<WeaponController>();
         private List<WeaponStatsUpgradeSO> _upgrades = new List<WeaponStatsUpgradeSO>();
         public WeaponStatisticsSO WeaponStats => _weaponStats;

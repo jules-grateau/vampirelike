@@ -25,6 +25,8 @@ MonoBehaviour:
     _value: 5
   - _key: 10
     _value: 1
+  - _key: 12
+    _value: 3
   _projectilPrefab: {fileID: 319311135818076577, guid: cb53d3b50fa3ea54897cebb323b2d8f2, type: 3}
   _icon: {fileID: -1795064521, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
   behaviourType: 0
@@ -38,6 +40,5 @@ MonoBehaviour:
   _bounceOnWall: 0
   destructionType: 1
   _minMaxDelay: {x: 0, y: 0}
-  _nbrOfHits: 3
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

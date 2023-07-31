@@ -12,14 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aeed8a0296f24f4fb1a9af66fb9ad61, type: 3}
   m_Name: MaximeWeaponStatistics 1
   m_EditorClassIdentifier: 
-  _baseStats:
-  - _key: 7
-    _value: 0
-  - _key: 8
-    _value: 50
-  - _key: 9
-    _value: 25
-  - _key: 4
-    _value: 1
-  - _key: 6
-    _value: 100
+  _baseStats: []
