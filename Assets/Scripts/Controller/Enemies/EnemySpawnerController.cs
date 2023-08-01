@@ -69,10 +69,11 @@ namespace Assets.Scripts.Controller.Enemies
                     Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * _radius + playerPos;
                     bool isCorrectSpawn = floor.HasTile(Vector3Int.FloorToInt(spawnPos));
 
-                    if (isCorrectSpawn)
+                    // Pick random enemy
+                    int random = UnityEngine.Random.Range(0, _enemies.Length);
+
+                    if (isCorrectSpawn && (_enemies[random].health + _spawnedPowerValue) < (_currentWaveAmount + 10))
                     {
-                        // Pick random enemy
-                        int random = UnityEngine.Random.Range(0, _enemies.Length);
                         Debug.DrawLine(_player.transform.position, spawnPos, Color.yellow, 2, false);
                         GameObject enemyGo = _enemies[random].GetEnemy();
                         enemyGo.transform.position = spawnPos;

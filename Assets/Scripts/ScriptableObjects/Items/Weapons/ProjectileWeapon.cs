@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Controller.Weapon.Projectiles;
-using Assets.Scripts.Controller.Weapon.Projectiles.Interface;
 using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.Types;
 using UnityEngine;
@@ -46,60 +45,82 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         private Vector2 _minMaxDelay;
 
+        [SerializeField]
+        private bool _comeBackToPlayer;
+
         protected GameObject GetProjectile()
         {
             var projectile = Instantiate(_projectilPrefab);
             projectile.SetActive(false);
 
+            OnEachFrameBehaviourOrchestrator onEachFrameBehaviourOrchestrator = projectile.AddComponent<OnEachFrameBehaviourOrchestrator>();
+            OnCollisionBehaviourOrchestrator onCollisionBehaviourOrchestrator = projectile.AddComponent<OnCollisionBehaviourOrchestrator>();
+
             switch (behaviourType)
             {
                 case ProjectileBehaviourEnum.Grow:
-                    GrowProjectile growProjectileScript = projectile.AddComponent<GrowProjectile>();
-                    growProjectileScript.growValue = _growValue;
+                    onEachFrameBehaviourOrchestrator.addBehaviour(new GrowProgressBehaviour()
+                    {
+                        growValue = _growValue
+                    });
                     break;
                 default: break;
             }
 
-            IDamageProjectile directDamageProjectileScript;
+            
             switch (damageType)
             {
                 case ProjectileDamages.PerSecond:
-                    directDamageProjectileScript = projectile.AddComponent<DamagePerSecondeProjectile>();
-                    ((DamagePerSecondeProjectile)directDamageProjectileScript).tickSpeed = _tickSpeed;
-                    ((DamagePerSecondeProjectile)directDamageProjectileScript).enemyHitEvent = _enemyHitEvent;
+                    onCollisionBehaviourOrchestrator.addBehaviour(new DoTBehaviour()
+                    {
+                        damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                        parent = parent,
+                        enemyHitEvent = _enemyHitEvent,
+                        tickSpeed = _tickSpeed
+                    });
                     break;
                 case ProjectileDamages.Explosion:
-                    directDamageProjectileScript = projectile.AddComponent<ExplodeDamageProjectile>();
-                    ((ExplodeDamageProjectile)directDamageProjectileScript).enemyHitEvent = _enemyHitEvent;
-                    ((ExplodeDamageProjectile)directDamageProjectileScript).explosionRadius = _explosionRadius;
-                    ((ExplodeDamageProjectile)directDamageProjectileScript).particles = _particles.GetComponent<ParticleSystem>();
+                    onCollisionBehaviourOrchestrator.addBehaviour(new ExplodeBehaviour()
+                    {
+                        damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                        parent = parent,
+                        enemyHitEvent = _enemyHitEvent,
+                        explosionRadius = _explosionRadius,
+                        particles = _particles.GetComponent<ParticleSystem>()
+                    });
                     break;
                 case ProjectileDamages.Direct:
                 default:
-                    directDamageProjectileScript = projectile.AddComponent<DirectDamageProjectile>();
-                    ((DirectDamageProjectile)directDamageProjectileScript).enemyHitEvent = _enemyHitEvent;
+                    onCollisionBehaviourOrchestrator.addBehaviour(new DirectDamageBehaviour()
+                    {
+                        damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                        parent = parent,
+                        enemyHitEvent = _enemyHitEvent
+                    });
                     break;
             }
-            directDamageProjectileScript.damage = GetStats(WeaponStatisticEnum.BaseDamage) * ( 1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100) );
-            directDamageProjectileScript.parent = parent;
-            directDamageProjectileScript.bounceOnWall = _bounceOnWall;
 
-            ProjectileMouvement mouvementScript;
             switch (directionType)
             {
                 case ProjectileDirection.Straight:
-                    mouvementScript = projectile.AddComponent<StraightFowardProjectile>();
-                    mouvementScript.speed = GetStats(WeaponStatisticEnum.BaseSpeed) * ( 1 + GetStats(WeaponStatisticEnum.SpeedPercentage)/100);
+                    onEachFrameBehaviourOrchestrator.addBehaviour(new StraightMovementBehaviour()
+                    {
+                        speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100)
+                    });
                     break;
                 case ProjectileDirection.AutoAimed:
-                    mouvementScript = projectile.AddComponent<TargetClosestEnemyProjectile>();
-                    mouvementScript.speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100);
-                    ((TargetClosestEnemyProjectile)mouvementScript).radius = GetStats(WeaponStatisticEnum.Radius);
+                    onEachFrameBehaviourOrchestrator.addBehaviour(new AimedMovementBehaviour()
+                    {
+                        speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100),
+                        radius = GetStats(WeaponStatisticEnum.Radius)
+                    });
                     break;
                 case ProjectileDirection.Ricochet:
-                    mouvementScript = projectile.AddComponent<RicochetProjectile>();
-                    mouvementScript.speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100);
-                    ((RicochetProjectile)mouvementScript).radius = GetStats(WeaponStatisticEnum.Radius);
+                    onEachFrameBehaviourOrchestrator.addBehaviour(new RicochetMovementBehaviour()
+                    {
+                        speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100),
+                        radius = GetStats(WeaponStatisticEnum.Radius)
+                    });
                     break;
                 case ProjectileDirection.None:
                 default:
@@ -109,25 +130,45 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             switch(destructionType)
             {
                 case ProjectileDestruction.RandomAfterTime:
-                    SelfDestroyRandomDelay selfDestroyRandomDelayScript = projectile.AddComponent<SelfDestroyRandomDelay>();
-                    selfDestroyRandomDelayScript.minDelay = _minMaxDelay.x * (1 + (GetStats(WeaponStatisticEnum.Range) / 100));
-                    selfDestroyRandomDelayScript.maxDelay = _minMaxDelay.y * (1 + (GetStats(WeaponStatisticEnum.Range) / 100));
+                    onEachFrameBehaviourOrchestrator.addBehaviour(new SelfDestroyRandomDelay()
+                    {
+                        minDelay = _minMaxDelay.x * (1 + (GetStats(WeaponStatisticEnum.Range) / 100)),
+                        maxDelay = _minMaxDelay.y * (1 + (GetStats(WeaponStatisticEnum.Range) / 100))
+                    });
                     break;
                 case ProjectileDestruction.DestroyOnRangeReach:
-                    SelfDestroyRange selfDestroyRangeSript = projectile.AddComponent<SelfDestroyRange>();
-                    selfDestroyRangeSript.Range = GetStats(WeaponStatisticEnum.Range);
+                    onEachFrameBehaviourOrchestrator.addBehaviour(new SelfDestroyRange()
+                    {
+                        Range = GetStats(WeaponStatisticEnum.Range)
+                    });
                     break;
                 case ProjectileDestruction.DestroyNbrOfHits:
-                    SelfDestroyNbrOfHits selfDestroyNbrOfHits = projectile.AddComponent<SelfDestroyNbrOfHits>();
-                    selfDestroyNbrOfHits.numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit));
-                    break;
-                case ProjectileDestruction.ComebackToPlayer:
-                    ComebackToPlayer comebackToPlayer = projectile.AddComponent<ComebackToPlayer>();
-                    comebackToPlayer.numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit));
+                    onCollisionBehaviourOrchestrator.addBehaviour(new SelfDestroyNbrOfHits()
+                    {
+                        parent = parent,
+                        numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit))
+                    });
                     break;
                 case ProjectileDestruction.None:
                 default:
                     break;
+            }
+
+            if (_comeBackToPlayer)
+            {
+                onCollisionBehaviourOrchestrator.addBehaviour(new ComebackToPlayerBehaviour()
+                {
+                    parent = parent,
+                    numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit))
+                });
+            }
+
+            if (!_bounceOnWall)
+            {
+                onCollisionBehaviourOrchestrator.addBehaviour(new EndOnWallHit()
+                {
+                    parent = parent,
+                });
             }
 
             projectile.transform.localScale = new Vector3(1f * (1 + (GetStats(WeaponStatisticEnum.Size)/100)), 1f * (1 + (GetStats(WeaponStatisticEnum.Size) / 100)), 1f);

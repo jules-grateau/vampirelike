@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Controller.Weapon.Projectiles;
-using Assets.Scripts.Controller.Weapon.Projectiles.Interface;
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Types;

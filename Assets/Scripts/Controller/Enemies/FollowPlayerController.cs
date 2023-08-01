@@ -11,6 +11,7 @@ public class FollowPlayerController : IEnemyMovement
     private GameObject _player;
     private Rigidbody2D _rigidbody;
 
+    private bool _isFlipped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +27,13 @@ public class FollowPlayerController : IEnemyMovement
 
         var direction = _player.transform.position - transform.position;
         _rigidbody.velocity = direction.normalized * Speed;
+
+        bool needToFlip = direction.normalized.x < 0;
+
+        if (needToFlip != _isFlipped)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            _isFlipped = needToFlip;
+        }
     }
 }
