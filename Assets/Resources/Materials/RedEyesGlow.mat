@@ -66,7 +66,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_66cd462feb874d1a94d1e6177c87188b: 0.15
+    - Vector1_66cd462feb874d1a94d1e6177c87188b: 0.21
     - _EnableExternalAlpha: 0
     m_Colors:
     - Color_3b5027ce238c4958b99d8dd2e811b3c2: {r: 0.2874409, g: 0.000303527, b: 0.001214108, a: 0}

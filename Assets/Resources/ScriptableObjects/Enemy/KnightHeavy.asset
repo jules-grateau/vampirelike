@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24bfb318cfa68a4090ce1f86c8eccdf, type: 3}
+  m_Name: KnightHeavy
+  m_EditorClassIdentifier: 
+  _behaviorType: 0
+  _speed: 0.75
+  _damageType: 0
+  _collisionEvent: {fileID: 11400000, guid: 532e962d558155b458520d5ff1f64c1c, type: 2}
+  _damage: 25
+  health: 50
+  _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
+  _dropType: 1
+  _collectible: {fileID: 0}
+  _xpCollectible: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+  _xpValue: 25
+  _deathAudioClip: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}
+  _prefab: {fileID: 881878062649732175, guid: f8e47fed82e90894988c3c1f3fea5f0a, type: 3}
