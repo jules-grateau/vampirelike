@@ -14,8 +14,8 @@ public class DropCollectible : MonoBehaviour
         for (int i = 0; i < _amount; i++)
         {
             Vector2 offset = UnityEngine.Random.insideUnitCircle * 0.5f;
-            GameObject s = Instantiate(this.Collectible);
-            s.transform.position = gameObject.transform.position + new Vector3(offset.x, offset.y, 0);
+            Collectible.transform.position = gameObject.transform.position + new Vector3(offset.x, offset.y, 0);
+            Collectible.SetActive(true);
         }
     }
 }

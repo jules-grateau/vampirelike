@@ -7,6 +7,9 @@ namespace Assets.Scripts.ScriptableObjects.Items
     {
         [SerializeField]
         protected AudioClip pickupAudio;
-        public abstract void Collect(Vector3 position);
+        [SerializeField]
+        protected GameObject _prefab;
+
+        public abstract GameObject GetCollectible();
     }
 }

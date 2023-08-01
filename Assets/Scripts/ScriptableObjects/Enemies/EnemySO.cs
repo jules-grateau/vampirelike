@@ -40,6 +40,14 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
         [SerializeField]
         [DrawIf("_dropType", EnemyDrop.Collecticle, ComparisonType.Equals, DisablingType.DontDraw)]
         GameObject _collectible;
+        [SerializeField]
+        [DrawIf("_dropType", EnemyDrop.Xp, ComparisonType.Equals, DisablingType.DontDraw)]
+        XpCollectibleSO _xpCollectible;
+        [SerializeField]
+        [DrawIf("_dropType", EnemyDrop.Xp, ComparisonType.Equals, DisablingType.DontDraw)]
+        float _xpValue;
+
+
 
         [SerializeField]
         AudioClip _deathAudioClip;
@@ -94,7 +102,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
                     break;
                 case EnemyDrop.Xp:
                     dropCollectible = enemy.AddComponent<DropCollectible>();
-                    dropCollectible.Collectible = Resources.Load<GameObject>("Prefabs/Collectibles/soul_1");
+                    dropCollectible.Collectible = _xpCollectible.GetCollectible(_xpValue);
                     break;
                 case EnemyDrop.None:
                 default:

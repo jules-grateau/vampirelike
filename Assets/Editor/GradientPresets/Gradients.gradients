@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12321, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: Gradients
+  m_EditorClassIdentifier: 
+  m_Presets:
+  - m_Name: SoulsColors
+    m_Gradient:
+      serializedVersion: 2
+      key0: {r: 0.066927694, g: 0.7088644, b: 0.754717, a: 1}
+      key1: {r: 0.28235295, g: 0.4509804, b: 0.19215687, a: 1}
+      key2: {r: 0.6886792, g: 0.6886792, b: 0.12604125, a: 0}
+      key3: {r: 0.6603774, g: 0.20168641, b: 0.095941596, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 6488
+      ctime1: 16318
+      ctime2: 49086
+      ctime3: 65535
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 1
+      m_ColorSpace: -1
+      m_NumColorKeys: 4
+      m_NumAlphaKeys: 2

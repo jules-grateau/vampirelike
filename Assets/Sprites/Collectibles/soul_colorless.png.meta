@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11ffae92e3ce07546966de09c16c138d
+guid: bcf054c285aeb814e8b72400dd4fd9f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soul_anim_strip_0
+      name: soul_colorless_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 747a22bbdc1f2c8419cc05f6560c3904
-      internalID: 950189542
+      spriteID: c9ce4832cb5647645ab140f12735fb7e
+      internalID: -347580221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soul_anim_strip_1
+      name: soul_colorless_1
       rect:
         serializedVersion: 2
         x: 8
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 844723af3416fc248b401071ce3ba826
-      internalID: -915397497
+      spriteID: ce0224a97c48fe54ab424698caf2dfde
+      internalID: 1289796141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soul_anim_strip_2
+      name: soul_colorless_2
       rect:
         serializedVersion: 2
         x: 16
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc2d30fd23ec97e41b4c073c58f87f7b
-      internalID: -316771763
+      spriteID: 187f9b4e216631e4eb3e095de1e59030
+      internalID: -166561705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soul_anim_strip_3
+      name: soul_colorless_3
       rect:
         serializedVersion: 2
         x: 24
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a66f863d9f19b042ba4a83905cf052b
-      internalID: 660946108
+      spriteID: 7348fdbe414f4d348b6b9c3892d726bd
+      internalID: 2131723078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soul_anim_strip_4
+      name: soul_colorless_4
       rect:
         serializedVersion: 2
         x: 32
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b036e8c9a97603b40924183971b168b0
-      internalID: 1745492762
+      spriteID: f3d11e8a4db4ea041a90cba22f2390d8
+      internalID: -132174944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soul_anim_strip_5
+      name: soul_colorless_5
       rect:
         serializedVersion: 2
         x: 40
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c44cfdb77d3f0374ca06d1aef414d064
-      internalID: -351706488
+      spriteID: abb4d82397f80044faf696dd4c3faed7
+      internalID: -1644327452
       vertices: []
       indices: 
       edges: []
@@ -259,12 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      soul_anim_strip_0: 950189542
-      soul_anim_strip_1: -915397497
-      soul_anim_strip_2: -316771763
-      soul_anim_strip_3: 660946108
-      soul_anim_strip_4: 1745492762
-      soul_anim_strip_5: -351706488
+      soul_colorless_0: -347580221
+      soul_colorless_1: 1289796141
+      soul_colorless_2: -166561705
+      soul_colorless_3: 2131723078
+      soul_colorless_4: -132174944
+      soul_colorless_5: -1644327452
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
