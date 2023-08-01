@@ -27,7 +27,6 @@ namespace Assets.Scripts.Types
         RandomAfterTime = 3,
         DestroyOnRangeReach = 2,
         DestroyNbrOfHits = 1,
-        ComebackToPlayer = 4,
         None = 0
     }
 }

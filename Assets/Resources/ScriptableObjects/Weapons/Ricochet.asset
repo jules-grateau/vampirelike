@@ -20,7 +20,7 @@ MonoBehaviour:
   - _key: 6
     _value: 50
   - _key: 9
-    _value: 8
+    _value: 4
   - _key: 11
     _value: 5
   - _key: 10
@@ -40,5 +40,6 @@ MonoBehaviour:
   _bounceOnWall: 0
   destructionType: 1
   _minMaxDelay: {x: 0, y: 0}
+  _comeBackToPlayer: 1
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Imp
   m_EditorClassIdentifier: 
   _behaviorType: 0
-  _speed: 1.25
+  _speed: 1.5
   _damageType: 0
   _collisionEvent: {fileID: 11400000, guid: 532e962d558155b458520d5ff1f64c1c, type: 2}
   _damage: 5
