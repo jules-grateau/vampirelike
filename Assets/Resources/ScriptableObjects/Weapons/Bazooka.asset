@@ -36,7 +36,7 @@ MonoBehaviour:
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _explosionRadius: 2
   _particles: {fileID: 5822821294587056223, guid: bb103fa15be3c2d49977c6431f980740, type: 3}
-  directionType: 2
+  directionType: 3
   _bounceOnWall: 0
   destructionType: 1
   _minMaxDelay: {x: 0, y: 0}

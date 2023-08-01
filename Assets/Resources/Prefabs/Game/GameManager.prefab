@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 9110955650624085769}
   - component: {fileID: 1284124363385911551}
   - component: {fileID: -6507167564589464170}
-  - component: {fileID: 2026384113088481915}
   - component: {fileID: 1676250163925351222}
   m_Layer: 0
   m_Name: GameManager
@@ -232,18 +231,6 @@ MonoBehaviour:
   _enemies: []
   _spawnCooldown: 5
   floor: {fileID: 0}
---- !u!114 &2026384113088481915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947944469904783977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d420a422fa937114488ef706ada534df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1676250163925351222
 MonoBehaviour:
   m_ObjectHideFlags: 0

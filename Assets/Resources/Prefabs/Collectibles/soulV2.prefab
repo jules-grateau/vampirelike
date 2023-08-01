@@ -202,7 +202,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.8
-  m_Color: {r: 0, g: 1, b: 0.854902, a: 1}
+  m_Color: {r: 0, g: 0.93333334, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 1
+  m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
@@ -249,10 +249,9 @@ GameObject:
   - component: {fileID: 6801104700241300843}
   - component: {fileID: 7128377981253900326}
   - component: {fileID: 3314434748862968801}
-  - component: {fileID: 287784953923354228}
-  - component: {fileID: 5177443497870124350}
+  - component: {fileID: 2028131547648666788}
   m_Layer: 11
-  m_Name: soul_1
+  m_Name: soulV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,12 +315,12 @@ SpriteRenderer:
   m_SortingLayerID: 435987093
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -1570866722, guid: 11ffae92e3ce07546966de09c16c138d, type: 3}
+  m_Sprite: {fileID: -347580221, guid: bcf054c285aeb814e8b72400dd4fd9f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -337,7 +336,7 @@ Animator:
   m_GameObject: {fileID: 6801104700241300836}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 174e43c7b86760c4bbe74cab12973062, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0222500c36930644aa2b685bd169cbd6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -410,7 +409,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &287784953923354228
+--- !u!114 &2028131547648666788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,22 +418,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 6801104700241300836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412f545d2104dbe418749fd8ddc83003, type: 3}
+  m_Script: {fileID: 11500000, guid: 71b332b9f8d36ee4a913c3994ddca9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: dd9d2cc37052c0d48b1d999896f9233d, type: 2}
-  collectible: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
---- !u!114 &5177443497870124350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801104700241300836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800a8d6ee0f948248b431ce2dcd92585, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 4
-  forceCollect: 0
+  _gradient:
+    serializedVersion: 2
+    key0: {r: 0.066927694, g: 0.7088644, b: 0.754717, a: 1}
+    key1: {r: 0.28235295, g: 0.4509804, b: 0.19215687, a: 1}
+    key2: {r: 0.6886792, g: 0.6886792, b: 0.12604125, a: 0}
+    key3: {r: 0.6603774, g: 0.20168641, b: 0.095941596, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 6488
+    ctime1: 16318
+    ctime2: 49086
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_ColorSpace: -1
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2

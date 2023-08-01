@@ -37,14 +37,12 @@ namespace Assets.Scripts.Controller.Player
             _maxXp.value = XpToReach(_currentLevel);
         }
 
-        public void Collect(CollectibleSO collect)
+        public void OnPlayerGainXp(float value)
         {
-            if (!(collect is XpCollectible)) return;
-
-            _xp.value += ((XpCollectible)collect)._xpValue;
+            _xp.value += value;
             int xpToReach = XpToReach(_currentLevel);
 
-            if (_xp.value >= xpToReach)
+            while(_xp.value >= xpToReach)
             {
                 AudioSource.PlayClipAtPoint(_LevelUpAudioClip, transform.position, 1);
                 _LevelUpEffect.Play();
@@ -52,6 +50,7 @@ namespace Assets.Scripts.Controller.Player
                 _currentLevel.value += 1;
                 _maxXp.value = XpToReach(_currentLevel);
                 _playerLevelUpEvent.Raise();
+                xpToReach = XpToReach(_currentLevel);
             }
         }
 
@@ -60,10 +59,6 @@ namespace Assets.Scripts.Controller.Player
             return XpToReach((float)level.value);
         }
 
-        private int XpToReach(int level)
-        {
-            return Mathf.RoundToInt((float)level);
-        }
 
         private int XpToReach(float level)
         {

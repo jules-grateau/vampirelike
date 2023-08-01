@@ -94,8 +94,6 @@ GameObject:
   - component: {fileID: 6801104700241300842}
   - component: {fileID: 7128377981253900326}
   - component: {fileID: 3314434748862968801}
-  - component: {fileID: 287784953923354228}
-  - component: {fileID: 5177443497870124350}
   m_Layer: 11
   m_Name: magnet
   m_TagString: Untagged
@@ -111,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6801104700241300836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.96, y: 11.77, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -233,31 +231,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &287784953923354228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801104700241300836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412f545d2104dbe418749fd8ddc83003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: dd9d2cc37052c0d48b1d999896f9233d, type: 2}
-  collectible: {fileID: 11400000, guid: f3b73dd96a783354a84019243f2c7b70, type: 2}
---- !u!114 &5177443497870124350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801104700241300836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800a8d6ee0f948248b431ce2dcd92585, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 4
-  forceCollect: 0
