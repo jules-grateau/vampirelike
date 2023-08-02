@@ -1,14 +1,16 @@
 using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.Types;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerStatsController : MonoBehaviour
 {
     public CharacterStatisticsSO CharacterStatistics => _characterStatistics;
-
     CharacterStatisticsSO _characterStatistics;
+    public List<CharacterStatsUpgradeSO> Upgrades => _upgrades;
+    List<CharacterStatsUpgradeSO> _upgrades = new List<CharacterStatsUpgradeSO>();
 
     public void Init(CharacterStatisticsSO characterStatistics) 
     {
@@ -19,12 +21,12 @@ public class PlayerStatsController : MonoBehaviour
     public (bool, float) ComputeDamage(float damage)
     {
         float rand = Random.value;
-        bool isCrit = rand <= _characterStatistics.GetStats(StatisticEnum.CritChance)/ 100f;
+        bool isCrit = rand <= _characterStatistics.GetStats(CharacterStatisticEnum.CritChance)/ 100f;
         float computedDamage = damage;
 
         if (isCrit)
         {
-            computedDamage = computedDamage * (_characterStatistics.GetStats(StatisticEnum.CritDamage) / 100f);
+            computedDamage = computedDamage * (_characterStatistics.GetStats(CharacterStatisticEnum.CritDamage) / 100f);
         }
 
         computedDamage = Mathf.FloorToInt(computedDamage);
@@ -43,5 +45,7 @@ public class PlayerStatsController : MonoBehaviour
     void HandleStatUpgrade(CharacterStatsUpgradeSO upgrade)
     {
         _characterStatistics.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd, upgrade.AdditionType, upgrade.MaxValue);
+        _upgrades.Add(upgrade);
+
     }
 }

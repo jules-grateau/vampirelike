@@ -16,6 +16,10 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         protected string _description;
 
+        public int MaxAmount => _maxAmout;
+        [SerializeField]
+        int _maxAmout;
+
         public abstract string getDescription();
     }
 }

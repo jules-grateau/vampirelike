@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aeed8a0296f24f4fb1a9af66fb9ad61, type: 3}
   m_Name: JulesWeaponStatistics
   m_EditorClassIdentifier: 
-  _baseStats:
-  - _key: 10
-    _value: 12
+  _baseStats: []

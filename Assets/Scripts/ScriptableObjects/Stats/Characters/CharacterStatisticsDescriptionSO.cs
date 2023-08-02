@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.Scripts.ScriptableObjects.Characters
 {
     [CreateAssetMenu(fileName = "CharacterStatisticsDescription", menuName = "Statistics/CharacterStatisticsDescription", order = 8)]
-    public class StatisticSO : BaseStatisticDescriptionSO<StatisticEnum>
+    public class CharacterStatisticsDescriptionSO : BaseStatisticDescriptionSO<CharacterStatisticEnum>
     {
     }
 }

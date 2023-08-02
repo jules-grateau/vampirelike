@@ -17,5 +17,9 @@ namespace Assets.Scripts.ScriptableObjects.Characters
         public string ValueAppendix => _valueAppendix;
         [SerializeField]
         string _valueAppendix;
+
+        public float MaxValue => _maxValue;
+        [SerializeField]
+        float _maxValue;
     }
 }

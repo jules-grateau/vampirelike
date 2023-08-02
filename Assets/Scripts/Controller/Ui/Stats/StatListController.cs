@@ -17,10 +17,10 @@ namespace Assets.Scripts.Controller.Ui
         public void Init(CharacterStatisticsSO characterStatistics, WeaponStatisticsSO weaponStatistics)
         {
             GameObject statInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/StatInfo");
-            StatisticSO[] stats = Resources.LoadAll<StatisticSO>("ScriptableObjects/PlayableCharacters/Statistics/");
+            CharacterStatisticsDescriptionSO[] stats = Resources.LoadAll<CharacterStatisticsDescriptionSO>("ScriptableObjects/PlayableCharacters/Statistics/");
             WeaponStatisticDescriptionSO[] weaponStats = Resources.LoadAll<WeaponStatisticDescriptionSO>("ScriptableObjects/Weapons/Statistics/");
 
-            foreach (StatisticSO stat in stats)
+            foreach (CharacterStatisticsDescriptionSO stat in stats)
             {
                 GameObject statInfo = Instantiate(statInfoPrefab, transform);
                 StatInfoController statInfoController = statInfo.GetComponent<StatInfoController>();

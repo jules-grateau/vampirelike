@@ -26,7 +26,7 @@ MonoBehaviour:
   - _key: 12
     _value: 1
   _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
-  _icon: {fileID: -5488431172643268487, guid: 301a7a9c157e69043af658332068bc0f, type: 3}
+  _icon: {fileID: 7482667652216324306, guid: 6d20405dc9e38d049a35f690cdcd7231, type: 3}
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0

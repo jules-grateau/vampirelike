@@ -23,7 +23,7 @@ namespace Assets.Scripts.Controller.Player
 
             if (!characterStatistics) return 0f;
 
-            return characterStatistics.GetStats(Types.StatisticEnum.PickUpRadius);
+            return characterStatistics.GetStats(Types.CharacterStatisticEnum.PickUpRadius);
         }
     }
 }

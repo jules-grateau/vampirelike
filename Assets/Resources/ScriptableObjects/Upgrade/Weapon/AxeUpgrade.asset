@@ -15,6 +15,7 @@ MonoBehaviour:
   _title: Boomerang
   _sprite: {fileID: -742948596, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
   _description: Reduce the cooldown value of Boomerang by {value}
+  _maxAmout: 2
   _statsToUpgrade: 9
   _valueToAdd: -1
   _additionType: 0

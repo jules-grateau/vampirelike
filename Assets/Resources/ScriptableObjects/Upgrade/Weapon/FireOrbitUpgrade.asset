@@ -15,8 +15,9 @@ MonoBehaviour:
   _title: FIre Orb
   _sprite: {fileID: 6631185964355660288, guid: f44fba3b6639fb34cb327fcd0d1033bf, type: 3}
   _description: Increase the number of projectile for Fire Orbs
+  _maxAmout: 2
   _statsToUpgrade: 10
-  _valueToAdd: 1
+  _valueToAdd: 2
   _additionType: 0
   _maxValue: 0
   _forWeapon: {fileID: 11400000, guid: 507e1741a62c2784db3e64195f7f3afc, type: 2}

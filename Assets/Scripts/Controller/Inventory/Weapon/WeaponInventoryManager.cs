@@ -10,6 +10,7 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
     {
         public List<WeaponController> Inventory => _inventory;
         private List<WeaponController> _inventory = new List<WeaponController>();
+        public List<WeaponStatsUpgradeSO> Upgrades => _upgrades;
         private List<WeaponStatsUpgradeSO> _upgrades = new List<WeaponStatsUpgradeSO>();
         public WeaponStatisticsSO WeaponStats => _weaponStats;
         private WeaponStatisticsSO _weaponStats;
@@ -23,6 +24,8 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
 
         public void EquipWeapon(WeaponSO weapon)
         {
+            Debug.Log($"Equipped weapon {weapon.name}");
+
             WeaponController wpController = gameObject.AddComponent<WeaponController>();
             weapon.Init(_weaponStats);
             wpController.weapon = weapon;
