@@ -159,8 +159,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 onCollisionBehaviourOrchestrator.addBehaviour(new ComebackToPlayerBehaviour()
                 {
                     parent = parent,
-                    numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit)),
-                    range = GetStats(WeaponStatisticEnum.Range)
+                    numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit))
                 });
             }
 
