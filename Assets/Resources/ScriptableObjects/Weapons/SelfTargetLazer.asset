@@ -34,9 +34,10 @@ MonoBehaviour:
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _explosionRadius: 0
   _particles: {fileID: 0}
-  directionType: 3
+  directionType: 2
   _bounceOnWall: 0
   destructionType: 1
   _minMaxDelay: {x: 0, y: 0}
+  _comeBackToPlayer: 0
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

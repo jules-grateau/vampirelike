@@ -38,7 +38,8 @@ MonoBehaviour:
   _particles: {fileID: 0}
   directionType: 2
   _bounceOnWall: 0
-  destructionType: 4
+  destructionType: 2
   _minMaxDelay: {x: 0, y: 0}
+  _comeBackToPlayer: 1
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0
