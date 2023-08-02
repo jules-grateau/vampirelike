@@ -36,5 +36,6 @@ MonoBehaviour:
   _particles: {fileID: 0}
   directionType: 2
   _bounceOnWall: 0
-  destructionType: 0
+  destructionType: 1
   _minMaxDelay: {x: 0, y: 0}
+  _comeBackToPlayer: 0

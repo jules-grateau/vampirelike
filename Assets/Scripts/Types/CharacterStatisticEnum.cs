@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Types
 {
-    public enum StatisticEnum
+    public enum CharacterStatisticEnum
     {
         CritChance,
         CritDamage,

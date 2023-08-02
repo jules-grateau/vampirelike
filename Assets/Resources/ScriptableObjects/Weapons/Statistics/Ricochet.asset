@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd72a9201f814df49a547ce3e7183c20, type: 3}
   m_Name: Ricochet
   m_EditorClassIdentifier: 
-  _key: 10
+  _key: 12
   _name: Ricochet number
   _valueAppendix: 
+  _maxValue: 0

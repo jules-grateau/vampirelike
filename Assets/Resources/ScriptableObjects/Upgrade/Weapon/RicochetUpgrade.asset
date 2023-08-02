@@ -15,6 +15,7 @@ MonoBehaviour:
   _title: Ricochet
   _sprite: {fileID: -1795064521, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
   _description: Increase the number of ricochet by {value}
+  _maxAmout: 3
   _statsToUpgrade: 12
   _valueToAdd: 1
   _additionType: 0

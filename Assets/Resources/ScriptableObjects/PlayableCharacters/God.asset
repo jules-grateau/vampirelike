@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c60608f5454609419e4baaa4e563121, type: 3}
+  m_Name: God
+  m_EditorClassIdentifier: 
+  _baseStats:
+  - _key: 0
+    _value: 100
+  - _key: 1
+    _value: 200
+  - _key: 2
+    _value: 100
+  - _key: 3
+    _value: 100
+  - _key: 4
+    _value: 100
+  - _key: 5
+    _value: 100
+  - _key: 6
+    _value: 100
+  _name: God
+  _sprite: {fileID: 1214987362, guid: 0e630338424d76d429618acfef22c454, type: 3}
+  _description: Le plus grand fan du garliguet du monde
+  _prefab: {fileID: 704638989827276549, guid: 589e25e8651f30d4fb091b69843fc079, type: 3}
+  _weaponStatistics: {fileID: 11400000, guid: b3b38cd46e4c1bd4a9c2557417c3de1a, type: 2}

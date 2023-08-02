@@ -34,7 +34,7 @@ namespace Assets.Scripts.Controller.Ui
             if (!_playerStatsController || !_playerHealth) return;
             CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
             if (!characterStatistics) return;
-            float maxHp = characterStatistics.GetStats(Types.StatisticEnum.MaxHp);
+            float maxHp = characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
             _image.fillAmount = Mathf.Clamp01(
                 Mathf.InverseLerp(_min, maxHp, _playerHealth.Hp));
 

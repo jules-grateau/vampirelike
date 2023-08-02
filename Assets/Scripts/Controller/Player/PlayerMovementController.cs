@@ -36,7 +36,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
         if (!characterStatistics) return 0f;
-        return characterStatistics.GetStats(Assets.Scripts.Types.StatisticEnum.MovementSpeed);
+        return characterStatistics.GetStats(Assets.Scripts.Types.CharacterStatisticEnum.MovementSpeed);
     }
 
     void Rotate(float horizontalInput)

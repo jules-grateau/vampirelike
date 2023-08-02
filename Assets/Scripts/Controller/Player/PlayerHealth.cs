@@ -40,14 +40,14 @@ namespace Assets.Scripts.Controller.Player
             _characterStatistics = playerStatsController.CharacterStatistics;
             if (!_characterStatistics) return;
 
-            if (_resetOnStart) _hp = _characterStatistics.GetStats(Types.StatisticEnum.MaxHp);
+            if (_resetOnStart) _hp = _characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
         }
 
         public void TakeDamage(float damage)
         {
             if (!isInvincible)
             {
-                float armor = _characterStatistics.GetStats(Types.StatisticEnum.Armor);
+                float armor = _characterStatistics.GetStats(Types.CharacterStatisticEnum.Armor);
                 float computedDamage = damage - armor;
 
                 if (computedDamage < 1)
@@ -73,7 +73,7 @@ namespace Assets.Scripts.Controller.Player
         {
             isInvincible = true;
             _spriteRenderer.material.SetInt("_Hit", 1);
-            yield return new WaitForSeconds(_characterStatistics.GetStats(Types.StatisticEnum.Invincibility));
+            yield return new WaitForSeconds(_characterStatistics.GetStats(Types.CharacterStatisticEnum.Invincibility));
             isInvincible = false;
             _spriteRenderer.material.SetInt("_Hit", 0);
         }
@@ -90,7 +90,7 @@ namespace Assets.Scripts.Controller.Player
 
             CharacterStatsUpgradeSO statsUpgrade = (CharacterStatsUpgradeSO) upgrade;
 
-            if (statsUpgrade.StatsToUpgrade != Types.StatisticEnum.MaxHp) return;
+            if (statsUpgrade.StatsToUpgrade != Types.CharacterStatisticEnum.MaxHp) return;
 
             _hp += statsUpgrade.ValueToAdd;  
         }
