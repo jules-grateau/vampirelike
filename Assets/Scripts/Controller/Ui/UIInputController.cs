@@ -1,12 +1,15 @@
 ﻿using Assets.Scripts.Events;
+using Assets.Types;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace Assets.Scripts.Controller.Ui
 {
     public class UIInputController : MonoBehaviour
     {
+        PlayerInputs _playerInput;
         bool _isPauseMenuOpen = false;
         [SerializeField]
         GameEvent _pauseEvent;
@@ -16,23 +19,29 @@ namespace Assets.Scripts.Controller.Ui
         bool _isPaused = false;
         bool _isPlayerDead = false;
 
-        void Update()
+        private void OnEnable()
         {
-          if (_isPlayerDead) return;
-
-          if(Input.GetKeyDown(KeyCode.Escape))
-            {
-                if(_isPauseMenuOpen && _isPaused)
-                {
-                    ClosePauseMenu();
-                    return;
-                }
-                if(!_isPauseMenuOpen && !_isPaused)
-                {
-                    OpenPauseMenu();
-                }
-            }  
+            _playerInput = InputManager.GetInstance();
+            _playerInput.Gameplay.Pause.performed += HandlePause;
         }
+
+        private void OnDisable()
+        {
+            _playerInput.Gameplay.Pause.performed -= HandlePause;
+        }
+
+        void HandlePause(CallbackContext context)
+        {
+            if (_isPauseMenuOpen && _isPaused)
+            {
+                ClosePauseMenu();
+                return;
+            }
+            if (!_isPauseMenuOpen && !_isPaused)
+            {
+                OpenPauseMenu();
+            }
+        } 
         void OpenPauseMenu()
         {
             _pauseEvent.Raise();

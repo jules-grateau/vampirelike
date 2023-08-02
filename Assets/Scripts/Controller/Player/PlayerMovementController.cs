@@ -1,5 +1,7 @@
 using UnityEngine;
 using Assets.Scripts.ScriptableObjects.Characters;
+using static UnityEngine.InputSystem.InputAction;
+using Assets.Types;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovementController : MonoBehaviour
@@ -8,6 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     private bool _lookRight = true;
     private Animator _animator;
     private PlayerStatsController _playerStatsController;
+    private PlayerInputs _inputActions;
 
     [SerializeField]
     private float _defaultSpeed = 2.5f;
@@ -19,17 +22,36 @@ public class PlayerMovementController : MonoBehaviour
         _playerStatsController = GetComponent<PlayerStatsController>();
     }
 
-    void FixedUpdate()
+    private void OnEnable()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
+        _inputActions = InputManager.GetInstance();
+        _inputActions.Enable();
+        _inputActions.Gameplay.Movement.performed += OnMovement;
+        _inputActions.Gameplay.Movement.canceled += StopMovement;
+    }
 
-        Rotate(horizontalInput);
-        Animate(horizontalInput, verticalInput);
+    private void OnDisable()
+    {
+        _inputActions.Disable();
+        _inputActions.Gameplay.Movement.performed -= OnMovement;
+        _inputActions.Gameplay.Movement.canceled -= StopMovement;
+    }
 
-        float speed = _defaultSpeed * (1 + getBonusSpeed()/100);
+    void OnMovement(CallbackContext context)
+    {
+        Vector2 movementValue = context.ReadValue<Vector2>();
+        Rotate(movementValue.x);
+        Animate(movementValue.x, movementValue.y);
 
-        _rigidbody.velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
+        float speed = _defaultSpeed * (1 + getBonusSpeed() / 100);
+
+        _rigidbody.velocity = new Vector2(movementValue.x, movementValue.y).normalized * speed;
+    }
+
+    void StopMovement(CallbackContext context)
+    {
+        _rigidbody.velocity = new Vector2(0, 0);
+        Animate(0,0);
     }
 
     private float getBonusSpeed()

@@ -76,10 +76,14 @@ namespace Assets.Scripts.Controller.Upgrades
                     if (upgrade is not CharacterStatsUpgradeSO) return true;
                     CharacterStatsUpgradeSO charactUpgrade = upgrade as CharacterStatsUpgradeSO;
                     CharacterStatisticsDescriptionSO statsDescription = _characterStatisticsDescriptions.GetValueOrDefault(charactUpgrade.StatsToUpgrade);
+                    if(charactUpgrade.StatsToUpgrade == CharacterStatisticEnum.CritChance)
+                    {
+                        var e = charactUpgrade;
+                    }
 
                     if (statsDescription.MaxValue <= 0) return true;
 
-                    if (playerStats.CharacterStatistics.GetStats(charactUpgrade.StatsToUpgrade) <= statsDescription.MaxValue) return true;
+                    if (playerStats.CharacterStatistics.GetStats(charactUpgrade.StatsToUpgrade) < statsDescription.MaxValue) return true;
 
                     return false;
 
@@ -93,7 +97,7 @@ namespace Assets.Scripts.Controller.Upgrades
 
                    if (statsDescription.MaxValue <= 0) return true;
 
-                   if (weaponManager.WeaponStats.GetStats(weaponUpgrade.StatsToUpgrade) <= statsDescription.MaxValue) return true;
+                   if (weaponManager.WeaponStats.GetStats(weaponUpgrade.StatsToUpgrade) < statsDescription.MaxValue) return true;
 
                    return false;
 
