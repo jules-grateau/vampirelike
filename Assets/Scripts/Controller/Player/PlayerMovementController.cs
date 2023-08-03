@@ -26,32 +26,22 @@ public class PlayerMovementController : MonoBehaviour
     {
         _inputActions = InputManager.GetInstance();
         _inputActions.Enable();
-        _inputActions.Gameplay.Movement.performed += OnMovement;
-        _inputActions.Gameplay.Movement.canceled += StopMovement;
     }
 
     private void OnDisable()
     {
         _inputActions.Disable();
-        _inputActions.Gameplay.Movement.performed -= OnMovement;
-        _inputActions.Gameplay.Movement.canceled -= StopMovement;
     }
 
-    void OnMovement(CallbackContext context)
+    private void FixedUpdate()
     {
-        Vector2 movementValue = context.ReadValue<Vector2>();
+        Vector2 movementValue = _inputActions.Gameplay.Movement.ReadValue<Vector2>();
         Rotate(movementValue.x);
         Animate(movementValue.x, movementValue.y);
 
         float speed = _defaultSpeed * (1 + getBonusSpeed() / 100);
 
         _rigidbody.velocity = new Vector2(movementValue.x, movementValue.y).normalized * speed;
-    }
-
-    void StopMovement(CallbackContext context)
-    {
-        _rigidbody.velocity = new Vector2(0, 0);
-        Animate(0,0);
     }
 
     private float getBonusSpeed()
