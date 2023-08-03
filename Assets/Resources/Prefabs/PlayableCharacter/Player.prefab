@@ -267,8 +267,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 466390313952093619}
         m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerXp, Assembly-CSharp
-        m_MethodName: Collect
-        m_Mode: 0
+        m_MethodName: OnPlayerGainXp
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -479,7 +479,7 @@ MonoBehaviour:
   - {x: 0.12721634, y: -0.43369007, z: 0}
   m_ShapePathHash: -1668275833
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1837964
+  m_InstanceId: 61102
   m_LocalBounds:
     m_Center: {x: -0.015996456, y: -0.008673757, z: 0}
     m_Extent: {x: 0.2818036, y: 0.4450659, z: 0}

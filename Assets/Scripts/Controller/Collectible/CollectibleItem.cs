@@ -20,7 +20,7 @@ namespace Assets.Scripts.Controller.Collectible
             AudioSource audio = GetComponent<AudioSource>();
             if(audio)
             {
-                audio.Play();
+                AudioSource.PlayClipAtPoint(audio.clip, this.gameObject.transform.position);
             }
         }
     }

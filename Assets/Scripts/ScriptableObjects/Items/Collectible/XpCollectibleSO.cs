@@ -12,10 +12,9 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         private float defaultXpValue;
 
-        public GameObject GetCollectible(float xpValue)
+        public GameObject GetCollectible(Vector3 position, float xpValue)
         {
-            GameObject xpInstance = Instantiate(_prefab);
-            xpInstance.SetActive(false);
+            GameObject xpInstance = Instantiate(_prefab, position, Quaternion.identity);
             XpCollectible xpCollectibleController = xpInstance.AddComponent<XpCollectible>();
             xpCollectibleController.XpValue = xpValue;
             xpCollectibleController.OnPlayerGainXp = _xpEvent;
@@ -26,9 +25,9 @@ namespace Assets.Scripts.ScriptableObjects.Items
             return xpInstance;
         }
 
-        public override GameObject GetCollectible()
+        public override GameObject GetCollectible(Vector3 position)
         {
-            return GetCollectible(defaultXpValue);
+            return GetCollectible(position, defaultXpValue);
         }
     }
 }
