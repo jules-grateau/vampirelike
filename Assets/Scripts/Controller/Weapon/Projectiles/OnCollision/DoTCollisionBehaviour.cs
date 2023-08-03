@@ -2,6 +2,7 @@
 using UnityEngine;
 using Assets.Scripts.Events.TypedEvents;
 using System.Collections.Generic;
+using Assets.Scripts.Types;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
@@ -10,10 +11,11 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         [SerializeField]
         public float tickSpeed;
         private float _cooloff;
-        public override void HandleStartBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
+            triggeringStates = new ProjectileState[] { ProjectileState.Start, ProjectileState.End };
         }
-        public override void HandleBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
             if (_cooloff >= tickSpeed)
             {
@@ -22,7 +24,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                     damage = damage,
                     instanceID = collision2D.gameObject.GetInstanceID(),
                     position = collision2D.transform.position,
-                    source = parent
+                    source = self.parent
                 });
                 _cooloff = 0f;
             }

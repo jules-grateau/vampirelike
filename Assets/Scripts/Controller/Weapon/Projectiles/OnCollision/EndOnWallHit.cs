@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using Assets.Scripts.Types;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
@@ -10,14 +11,15 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         [SerializeField]
         public int numberOfHits;
 
-        public override void HandleStartBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
+            triggeringStates = new ProjectileState[] { ProjectileState.Start };
         }
-        public override void HandleBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
             if (collision2D.gameObject.tag == "Wall")
             {
-                GameObject.Destroy(self.gameObject);
+                self.TriggerNewState(Types.ProjectileState.End);
             }
             return;
         }

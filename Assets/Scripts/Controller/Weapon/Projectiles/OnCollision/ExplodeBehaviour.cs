@@ -2,6 +2,7 @@
 using UnityEngine;
 using Assets.Scripts.Events.TypedEvents;
 using System.Collections.Generic;
+using Assets.Scripts.Types;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
@@ -12,12 +13,13 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         [SerializeField]
         public ParticleSystem particles;
 
-        public override void HandleStartBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
+            triggeringStates = new ProjectileState[] { ProjectileState.Start };
         }
-        public override void HandleBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
-            if (collision2D.gameObject.GetInstanceID() == parent.gameObject.GetInstanceID()) return;
+            if (collision2D.gameObject.GetInstanceID() == self.parent.gameObject.GetInstanceID()) return;
 
             ParticleSystem p = ParticleSystem.Instantiate(particles, self.transform.position, Quaternion.identity, self.transform);
             p.gameObject.transform.parent = null;
@@ -33,7 +35,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                     damage = damage,
                     instanceID = hit.gameObject.GetInstanceID(),
                     position = hit.transform.position,
-                    source = parent
+                    source = self.parent
                 });
             }
             return;

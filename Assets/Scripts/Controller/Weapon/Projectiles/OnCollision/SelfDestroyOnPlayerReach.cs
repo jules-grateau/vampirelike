@@ -9,12 +9,12 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         [SerializeField]
         public int numberOfHits;
 
-        public override void HandleStartBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
         }
-        public override void HandleBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
-            if (collision2D.gameObject.GetInstanceID() == parent.gameObject.GetInstanceID())
+            if (collision2D.gameObject.GetInstanceID() == self.parent.gameObject.GetInstanceID())
             {
                 GameObject.Destroy(self.gameObject);
             }

@@ -52,7 +52,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             if (hits.Length <= 0) return null;
 
             GameObject[] targets = hits.Select(hit => new {data = hit, distance = Vector2.Distance(shootFrom, hit.transform.position) })
-                //.Where(hit => Physics2D.Raycast(shootFrom, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
+                .Where(hit => Physics2D.Raycast(shootFrom, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
                 .OrderBy(hit => hit.distance)
                 .Select(hit => hit.data.gameObject)
                 .Take(numberOfTargets)

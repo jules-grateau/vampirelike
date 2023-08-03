@@ -10,7 +10,6 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         [SerializeField]
         public GameEventHitData enemyHitEvent;
 
-        public GameObject parent { get; set; }
         [SerializeField]
         public float damage { get; set; }
     }
