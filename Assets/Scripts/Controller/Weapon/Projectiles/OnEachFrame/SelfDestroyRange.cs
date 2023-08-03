@@ -6,8 +6,6 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     public class SelfDestroyRange : ProgressBehaviour
     {
         public float Range { get; set; }
-        [SerializeField]
-        private float _range;
 
         private Vector3 initPosition;
 
@@ -17,9 +15,9 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator<float> self, float time)
         {
-            if (Vector2.Distance(initPosition, self.transform.position) > _range)
+            if (Vector2.Distance(initPosition, self.transform.position) > Range)
             {
-                GameObject.Destroy(self);
+                GameObject.Destroy(self.gameObject);
                 return;
             }
         }

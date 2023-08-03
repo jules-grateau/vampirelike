@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Controller.Weapon.Projectiles;
+using Assets.Scripts.Controller.Weapon.Projectiles.OnEachFrame;
 using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.Types;
 using UnityEngine;
@@ -122,6 +123,17 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                         radius = GetStats(WeaponStatisticEnum.Radius)
                     });
                     break;
+                case ProjectileDirection.TurnBackTowardPlayer:
+                    onEachFrameBehaviourOrchestrator.addBehaviour(new TurnTowardPlayerOnRange()
+                    {
+                        Range = GetStats(WeaponStatisticEnum.Range),
+                        speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100)
+                    });
+                    onCollisionBehaviourOrchestrator.addBehaviour(new ComeBackToPlayerOnWallHit()
+                    {
+                        parent = parent
+                    });
+                    break;
                 case ProjectileDirection.None:
                 default:
                     break;
@@ -149,6 +161,12 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                         numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit))
                     });
                     break;
+                case ProjectileDestruction.ReachPlayer:
+                    onCollisionBehaviourOrchestrator.addBehaviour(new SelfDestroyOnPlayerReach()
+                    {
+                        parent = parent,
+                    });
+                    break;
                 case ProjectileDestruction.None:
                 default:
                     break;
@@ -156,10 +174,13 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
             if (_comeBackToPlayer)
             {
-                onCollisionBehaviourOrchestrator.addBehaviour(new ComebackToPlayerBehaviour()
+                onCollisionBehaviourOrchestrator.addBehaviour(new ComeBackToPlayerOnWallHit()
                 {
-                    parent = parent,
-                    numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit))
+                    parent = parent
+                });
+                onEachFrameBehaviourOrchestrator.addBehaviour(new ComeBackToPlayerOnRange()
+                {
+                    Range = GetStats(WeaponStatisticEnum.Range)
                 });
             }
 

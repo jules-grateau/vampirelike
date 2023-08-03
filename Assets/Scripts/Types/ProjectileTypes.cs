@@ -5,6 +5,7 @@ namespace Assets.Scripts.Types
 {
     public enum ProjectileDirection
     {
+        TurnBackTowardPlayer=4,
         AutoAimed = 3,
         Straight = 2,
         Ricochet = 1,
@@ -13,7 +14,7 @@ namespace Assets.Scripts.Types
     public enum ProjectileBehaviourEnum
     {
         Normal,
-        Grow
+        Grow,
     }
     public enum ProjectileDamages
     {
@@ -24,6 +25,7 @@ namespace Assets.Scripts.Types
 
     public enum ProjectileDestruction
     {
+        ReachPlayer = 4,
         RandomAfterTime = 3,
         DestroyOnRangeReach = 2,
         DestroyNbrOfHits = 1,

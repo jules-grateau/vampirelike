@@ -37,9 +37,9 @@ MonoBehaviour:
   _explosionRadius: 0
   _particles: {fileID: 0}
   directionType: 2
-  _bounceOnWall: 0
-  destructionType: 1
+  _bounceOnWall: 1
+  destructionType: 4
   _minMaxDelay: {x: 0, y: 0}
   _comeBackToPlayer: 1
-  _offset: {x: 0, y: 0}
+  _offset: {x: 1.5, y: 1.5}
   _shootFromBehind: 0
