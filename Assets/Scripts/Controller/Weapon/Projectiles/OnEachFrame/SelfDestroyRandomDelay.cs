@@ -15,7 +15,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
-            triggeringState = ProjectileState.Start;
+            triggeringStates = new ProjectileState[] { ProjectileState.Start };
             self.StartCoroutine(ExecuteRandomTime(self));
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)

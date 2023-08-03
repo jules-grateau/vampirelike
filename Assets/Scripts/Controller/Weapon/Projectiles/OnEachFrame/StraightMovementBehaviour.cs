@@ -6,7 +6,7 @@ public class StraightMovementBehaviour : MovementBehaviour
 {
     public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
     {
-        triggeringState = ProjectileState.Start;
+        triggeringStates = new ProjectileState[] { ProjectileState.Start };
     }
     public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)
     {

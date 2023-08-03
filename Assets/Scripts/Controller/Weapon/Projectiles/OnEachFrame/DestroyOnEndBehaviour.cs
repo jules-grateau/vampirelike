@@ -10,7 +10,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
-            triggeringState = ProjectileState.End;
+            triggeringStates = new ProjectileState[] { ProjectileState.End };
         }
 
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)

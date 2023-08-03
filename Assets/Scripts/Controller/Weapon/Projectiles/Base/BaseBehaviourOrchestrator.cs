@@ -3,6 +3,7 @@ using Assets.Scripts.Controller.Game;
 using UnityEngine;
 using System.Collections.Generic;
 using Assets.Scripts.Types;
+using System.Linq;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
@@ -45,7 +46,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
             if (GameManager.GameState.State == Types.GameStateEnum.PAUSE) return;
             foreach (BaseBehaviour<Collision2D> behaviour in onCollisionBehaviours)
             {
-                if (behaviour.triggeringState.Equals(currentState))
+                if (behaviour.triggeringStates != null && behaviour.triggeringStates.Contains(currentState))
                 {
                     behaviour.HandleBehaviour(this, onCollisionPayload);
                 }
@@ -57,7 +58,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
             if (GameManager.GameState.State == Types.GameStateEnum.PAUSE) return;
             foreach (BaseBehaviour<float> behaviour in onEachFrameBehaviours)
             {
-                if (behaviour.triggeringState.Equals(currentState))
+                if (behaviour.triggeringStates.Contains(currentState))
                 {
                     behaviour.HandleBehaviour(this, onEachFramePayload);
                 }

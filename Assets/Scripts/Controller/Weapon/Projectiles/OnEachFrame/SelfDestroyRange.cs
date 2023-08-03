@@ -12,7 +12,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
-            triggeringState = ProjectileState.Start;
+            triggeringStates = new ProjectileState[] { ProjectileState.Start };
             initPosition = self.transform.position;
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)

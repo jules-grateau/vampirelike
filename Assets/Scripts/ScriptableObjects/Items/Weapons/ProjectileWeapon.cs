@@ -121,14 +121,10 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     });
                     break;
                 case ProjectileDirection.TurnBackTowardPlayer:
-                    onEachFrameBehaviourOrchestrator.addBehaviour(new TurnTowardPlayerOnRange()
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new TurnTowardPlayerOnRange()
                     {
                         Range = GetStats(WeaponStatisticEnum.Range),
                         speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100)
-                    });
-                    onCollisionBehaviourOrchestrator.addBehaviour(new ComeBackToPlayerOnWallHit()
-                    {
-                        parent = parent
                     });
                     break;
                 case ProjectileDirection.None:
@@ -158,9 +154,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     });
                     break;
                 case ProjectileDestruction.ReachPlayer:
-                    onCollisionBehaviourOrchestrator.addBehaviour(new SelfDestroyOnPlayerReach()
+                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SelfDestroyOnPlayerReach()
                     {
-                        parent = parent,
                     });
                     break;
                 case ProjectileDestruction.None:
@@ -179,7 +174,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             {
                 onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new DestroyOnEndBehaviour()
                 {
-                    Range = GetStats(WeaponStatisticEnum.Range)
                 });
             }
 
