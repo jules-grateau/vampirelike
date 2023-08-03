@@ -1,6 +1,6 @@
-﻿using UnityEditor;
+﻿using Assets.Scripts.Types;
 using UnityEngine;
-using Assets.Scripts.Types;
+using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 {
@@ -12,7 +12,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePosition = Mouse.current.position.value;
             Vector2 aimDirection = (mousePosition - holderPosition);
             aimDirection.Normalize();
 

@@ -14,7 +14,10 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            alreadyTargeted.Add(collision.gameObject);
+            if (collision.gameObject.tag == "Enemy")
+            {
+                alreadyTargeted.Add(collision.gameObject);
+            }
             HandleAllOnCollisionBehaviour(collision);
         }
 

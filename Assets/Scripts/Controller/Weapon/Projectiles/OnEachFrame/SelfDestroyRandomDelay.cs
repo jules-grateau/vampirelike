@@ -11,6 +11,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         public float minDelay;
         [SerializeField]
         public float maxDelay;
+        public float Duration { get; set; }
 
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
@@ -22,7 +23,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         }
         IEnumerator ExecuteRandomTime(BaseBehaviourOrchestrator self)
         {
-            float time = Random.Range(minDelay, maxDelay);
+            float time = Random.Range(minDelay, maxDelay) * (1 + (Duration / 100));
             yield return new WaitForSeconds(time);
             self.TriggerNewState(Types.ProjectileState.End);
         }
