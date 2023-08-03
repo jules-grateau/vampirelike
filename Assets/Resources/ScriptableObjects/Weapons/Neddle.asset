@@ -10,23 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
-  m_Name: SelfTargetLazer
+  m_Name: Neddle
   m_EditorClassIdentifier: 
   _baseStats:
-  - _key: 2
-    _value: 10
-  - _key: 4
-    _value: 5
-  - _key: 9
-    _value: 5
-  - _key: 10
-    _value: 1
   - _key: 6
     _value: 5
-  - _key: 12
+  - _key: 2
     _value: 1
-  _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
-  _icon: {fileID: 7482667652216324306, guid: 6d20405dc9e38d049a35f690cdcd7231, type: 3}
+  - _key: 9
+    _value: 1
+  - _key: 10
+    _value: 2
+  - _key: 4
+    _value: 10
+  _projectilPrefab: {fileID: 319311135818076577, guid: 2cf4a64cfcc858343885d2d33e53beba, type: 3}
+  _icon: {fileID: -1668789006, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0
@@ -34,10 +32,10 @@ MonoBehaviour:
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _explosionRadius: 0
   _particles: {fileID: 0}
-  directionType: 2
-  _bounceOnWall: 0
-  destructionType: 1
-  _minMaxDelay: {x: 0, y: 0}
+  directionType: 4
+  _bounceOnWall: 1
+  destructionType: 3
+  _minMaxDelay: {x: 2, y: 2}
   _comeBackToPlayer: 0
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

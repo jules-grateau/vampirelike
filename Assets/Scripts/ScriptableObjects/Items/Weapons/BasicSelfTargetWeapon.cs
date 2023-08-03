@@ -18,7 +18,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         {
             int amount = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.ProjectileNumber));
 
-            Vector2 shootFrom = holderPosition + _offset;
+            Vector2 shootFrom = holderPosition;
             GameObject[] target = GetTargets(holderPosition, amount);
             if (target == null || target.Count() <= 0) return false;
 
@@ -32,7 +32,10 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 Vector2 newPos = (shootFrom);
                 if (_shootFromBehind)
                 {
-                    newPos -= aimDirection;
+                    newPos -= aimDirection * _offset;
+                }  else
+                {
+                    newPos += aimDirection * _offset;
                 }
 
                 projectile.transform.position = newPos;
