@@ -2,32 +2,65 @@
 using Assets.Scripts.Controller.Game;
 using UnityEngine;
 using System.Collections.Generic;
+using Assets.Scripts.Types;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
-    public abstract class BaseBehaviourOrchestrator<T> : MonoBehaviour
+    public abstract class BaseBehaviourOrchestrator : MonoBehaviour
     {
-        protected List<BaseBehaviour<T>> behaviours = new List<BaseBehaviour<T>>();
+        public GameObject parent { get; set; }
+        public ProjectileState currentState = ProjectileState.Start;
 
-        public void addBehaviour(BaseBehaviour<T> newBehaviour)
+        protected List<BaseBehaviour<Collision2D>> onCollisionBehaviours = new List<BaseBehaviour<Collision2D>>();
+        protected List<BaseBehaviour<float>> onEachFrameBehaviours = new List<BaseBehaviour<float>>();
+
+        public void addOnCollisionBehaviour(BaseBehaviour<Collision2D> newOnCollisionBehaviour)
         {
-            behaviours.Add(newBehaviour);
+            onCollisionBehaviours.Add(newOnCollisionBehaviour);
+        }
+        public void addOnEachFrameBehaviour(BaseBehaviour<float> newOnEachFrameBehaviour)
+        {
+            onEachFrameBehaviours.Add(newOnEachFrameBehaviour);
         }
 
-        protected void HandleAllStartBehaviour(T payload)
+        public void TriggerNewState(ProjectileState newState)
         {
-            foreach (BaseBehaviour<T> behaviour in behaviours)
+            currentState = newState;
+        }
+
+        protected void HandleAllStartBehaviour()
+        {
+            foreach (BaseBehaviour<Collision2D> behaviour in onCollisionBehaviours)
             {
-                behaviour.HandleStartBehaviour(this, payload);
+                behaviour.HandleStartBehaviour(this);
+            }
+            foreach (BaseBehaviour<float> behaviour in onEachFrameBehaviours)
+            {
+                behaviour.HandleStartBehaviour(this);
             }
         }
 
-        protected void HandleAllBehaviour(T payload)
+        protected void HandleAllOnCollisionBehaviour(Collision2D onCollisionPayload)
         {
             if (GameManager.GameState.State == Types.GameStateEnum.PAUSE) return;
-            foreach (BaseBehaviour<T> behaviour in behaviours)
+            foreach (BaseBehaviour<Collision2D> behaviour in onCollisionBehaviours)
             {
-                behaviour.HandleBehaviour(this, payload);
+                if (behaviour.triggeringState.Equals(currentState))
+                {
+                    behaviour.HandleBehaviour(this, onCollisionPayload);
+                }
+            }
+        }
+
+        protected void HandleAllOnEachFrameBehaviour(float onEachFramePayload)
+        {
+            if (GameManager.GameState.State == Types.GameStateEnum.PAUSE) return;
+            foreach (BaseBehaviour<float> behaviour in onEachFrameBehaviours)
+            {
+                if (behaviour.triggeringState.Equals(currentState))
+                {
+                    behaviour.HandleBehaviour(this, onEachFramePayload);
+                }
             }
         }
     }

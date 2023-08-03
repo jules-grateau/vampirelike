@@ -1,16 +1,18 @@
 using Assets.Scripts.Controller.Weapon.Projectiles;
 using UnityEngine;
 using System.Linq;
+using Assets.Scripts.Types;
 
 public class AimedMovementBehaviour : MovementBehaviour
 {
     [SerializeField]
     public float radius;
 
-    public override void HandleStartBehaviour(BaseBehaviourOrchestrator<float> self, float time)
+    public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
     {
+        triggeringState = ProjectileState.Start;
     }
-    public override void HandleBehaviour(BaseBehaviourOrchestrator<float> self, float time)
+    public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)
     {
         self.gameObject.GetComponent<Rigidbody2D>().velocity = self.transform.right * speed;
         GameObject target = GetTarget(self.transform.position);

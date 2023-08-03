@@ -2,22 +2,24 @@
 using UnityEngine;
 using Assets.Scripts.Events.TypedEvents;
 using System.Collections.Generic;
+using Assets.Scripts.Types;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
     public class DirectDamageBehaviour : OnCollisionDamageBehaviour
     {
-        public override void HandleStartBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
+            triggeringState = ProjectileState.Start;
         }
-        public override void HandleBehaviour(BaseBehaviourOrchestrator<Collision2D> self, Collision2D collision2D)
+        public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
             enemyHitEvent.Raise(new HitData
             {
                 damage = damage,
                 instanceID = collision2D.gameObject.GetInstanceID(),
                 position = collision2D.transform.position,
-                source = parent
+                source = self.parent
             });
             return;
         }

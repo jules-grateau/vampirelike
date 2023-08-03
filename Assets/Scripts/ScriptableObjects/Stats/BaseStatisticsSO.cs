@@ -19,7 +19,6 @@ namespace Assets.Scripts.ScriptableObjects.Characters
         {
             _stats = new Dictionary<T, float>();
 
-
             foreach(Statistic<T> val in _baseStats)
             {
                 float additionalValue = 0;
@@ -36,9 +35,7 @@ namespace Assets.Scripts.ScriptableObjects.Characters
 
                 _stats.Add(weaponStatsEnum, 0);
             }
-
-
-            }
+        }
 
         public float GetStats(T statisticEnum)
         {

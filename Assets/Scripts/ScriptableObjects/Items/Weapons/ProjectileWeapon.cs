@@ -53,13 +53,13 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             var projectile = Instantiate(_projectilPrefab);
             projectile.SetActive(false);
 
-            OnEachFrameBehaviourOrchestrator onEachFrameBehaviourOrchestrator = projectile.AddComponent<OnEachFrameBehaviourOrchestrator>();
-            OnCollisionBehaviourOrchestrator onCollisionBehaviourOrchestrator = projectile.AddComponent<OnCollisionBehaviourOrchestrator>();
+            OnAllBehaviourOrchestrator onAllBehaviourOrchestrator = projectile.AddComponent<OnAllBehaviourOrchestrator>();
+            onAllBehaviourOrchestrator.parent = parent;
 
             switch (behaviourType)
             {
                 case ProjectileBehaviourEnum.Grow:
-                    onEachFrameBehaviourOrchestrator.addBehaviour(new GrowProgressBehaviour()
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new GrowProgressBehaviour()
                     {
                         growValue = _growValue
                     });
@@ -71,19 +71,17 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             switch (damageType)
             {
                 case ProjectileDamages.PerSecond:
-                    onCollisionBehaviourOrchestrator.addBehaviour(new DoTBehaviour()
+                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new DoTBehaviour()
                     {
                         damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
-                        parent = parent,
                         enemyHitEvent = _enemyHitEvent,
                         tickSpeed = _tickSpeed
                     });
                     break;
                 case ProjectileDamages.Explosion:
-                    onCollisionBehaviourOrchestrator.addBehaviour(new ExplodeBehaviour()
+                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new ExplodeBehaviour()
                     {
                         damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
-                        parent = parent,
                         enemyHitEvent = _enemyHitEvent,
                         explosionRadius = _explosionRadius,
                         particles = _particles.GetComponent<ParticleSystem>()
@@ -91,10 +89,9 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     break;
                 case ProjectileDamages.Direct:
                 default:
-                    onCollisionBehaviourOrchestrator.addBehaviour(new DirectDamageBehaviour()
+                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new DirectDamageBehaviour()
                     {
                         damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
-                        parent = parent,
                         enemyHitEvent = _enemyHitEvent
                     });
                     break;
@@ -103,20 +100,20 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             switch (directionType)
             {
                 case ProjectileDirection.Straight:
-                    onEachFrameBehaviourOrchestrator.addBehaviour(new StraightMovementBehaviour()
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new StraightMovementBehaviour()
                     {
                         speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100)
                     });
                     break;
                 case ProjectileDirection.AutoAimed:
-                    onEachFrameBehaviourOrchestrator.addBehaviour(new AimedMovementBehaviour()
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new AimedMovementBehaviour()
                     {
                         speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100),
                         radius = GetStats(WeaponStatisticEnum.Radius)
                     });
                     break;
                 case ProjectileDirection.Ricochet:
-                    onEachFrameBehaviourOrchestrator.addBehaviour(new RicochetMovementBehaviour()
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new RicochetMovementBehaviour()
                     {
                         speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100),
                         radius = GetStats(WeaponStatisticEnum.Radius)
@@ -130,22 +127,21 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             switch(destructionType)
             {
                 case ProjectileDestruction.RandomAfterTime:
-                    onEachFrameBehaviourOrchestrator.addBehaviour(new SelfDestroyRandomDelay()
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new SelfDestroyRandomDelay()
                     {
                         minDelay = _minMaxDelay.x * (1 + (GetStats(WeaponStatisticEnum.Range) / 100)),
                         maxDelay = _minMaxDelay.y * (1 + (GetStats(WeaponStatisticEnum.Range) / 100))
                     });
                     break;
                 case ProjectileDestruction.DestroyOnRangeReach:
-                    onEachFrameBehaviourOrchestrator.addBehaviour(new SelfDestroyRange()
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new SelfDestroyRange()
                     {
                         Range = GetStats(WeaponStatisticEnum.Range)
                     });
                     break;
                 case ProjectileDestruction.DestroyNbrOfHits:
-                    onCollisionBehaviourOrchestrator.addBehaviour(new SelfDestroyNbrOfHits()
+                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SelfDestroyNbrOfHits()
                     {
-                        parent = parent,
                         numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit))
                     });
                     break;
@@ -156,18 +152,22 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
             if (_comeBackToPlayer)
             {
-                onCollisionBehaviourOrchestrator.addBehaviour(new ComebackToPlayerBehaviour()
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new ComebackToPlayerBehaviour()
                 {
-                    parent = parent,
-                    numberOfHits = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.NbrOfHit))
+                    speed = GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100),
+                });
+            }
+            else
+            {
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new DestroyOnEndBehaviour()
+                {
                 });
             }
 
             if (!_bounceOnWall)
             {
-                onCollisionBehaviourOrchestrator.addBehaviour(new EndOnWallHit()
+                onAllBehaviourOrchestrator.addOnCollisionBehaviour(new EndOnWallHit()
                 {
-                    parent = parent,
                 });
             }
 
