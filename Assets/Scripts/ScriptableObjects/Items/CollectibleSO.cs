@@ -10,6 +10,6 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         protected GameObject _prefab;
 
-        public abstract GameObject GetCollectible();
+        public abstract GameObject GetCollectible(Vector3 position);
     }
 }

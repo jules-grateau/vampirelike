@@ -39,7 +39,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
         EnemyDrop _dropType;
         [SerializeField]
         [DrawIf("_dropType", EnemyDrop.Collecticle, ComparisonType.Equals, DisablingType.DontDraw)]
-        GameObject _collectible;
+        CollectibleSO _collectible;
         [SerializeField]
         [DrawIf("_dropType", EnemyDrop.Xp, ComparisonType.Equals, DisablingType.DontDraw)]
         XpCollectibleSO _xpCollectible;
@@ -98,11 +98,11 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             {
                 case EnemyDrop.Collecticle:
                     dropCollectible = enemy.AddComponent<DropCollectible>();
-                    dropCollectible.Collectible = _collectible;
+                    dropCollectible.setCollectibleFunction((Vector3 pos) => _collectible.GetCollectible(pos));
                     break;
                 case EnemyDrop.Xp:
                     dropCollectible = enemy.AddComponent<DropCollectible>();
-                    dropCollectible.Collectible = _xpCollectible.GetCollectible(_xpValue);
+                    dropCollectible.setCollectibleFunction((Vector3 pos) => _xpCollectible.GetCollectible(pos, _xpValue));
                     break;
                 case EnemyDrop.None:
                 default:
@@ -116,6 +116,9 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             listenerHitData.GameEvent = _enemyHitEvent;
             listenerHitData.UnityEvent = new UnityEvent<HitData>();
             listenerHitData.UnityEvent.AddListener(enemyHealth.TakeDamage);
+
+            Animator animator = enemy.GetComponentInChildren<Animator>();
+            animator.speed = _speed / 2;
 
             return enemy;
 
