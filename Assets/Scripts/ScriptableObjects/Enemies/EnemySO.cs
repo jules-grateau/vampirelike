@@ -121,6 +121,9 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             listenerHitData.UnityEvent = new UnityEvent<HitData>();
             listenerHitData.UnityEvent.AddListener(enemyHealth.TakeDamage);
 
+            Animator animator = enemy.GetComponentInChildren<Animator>();
+            animator.speed = _speed / 2;
+
             return enemy;
 
         }
