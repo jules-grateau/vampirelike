@@ -6,6 +6,7 @@ using Assets.Scripts.Types;
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine;
+using Assets.Scripts.Controller.Collectible;
 
 namespace Assets.Scripts.ScriptableObjects.Enemies
 {
@@ -39,7 +40,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
         EnemyDrop _dropType;
         [SerializeField]
         [DrawIf("_dropType", EnemyDrop.Collecticle, ComparisonType.Equals, DisablingType.DontDraw)]
-        GameObject _collectible;
+        BaseCollectibleSO _collectible;
         [SerializeField]
         [DrawIf("_dropType", EnemyDrop.Xp, ComparisonType.Equals, DisablingType.DontDraw)]
         XpCollectibleSO _xpCollectible;
@@ -97,12 +98,15 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             switch (_dropType)
             {
                 case EnemyDrop.Collecticle:
-                    dropCollectible = enemy.AddComponent<DropCollectible>();
-                    dropCollectible.Collectible = _collectible;
+                    if (Random.value <= _collectible.dropChance)
+                    {
+                        dropCollectible = enemy.AddComponent<DropCollectible>();
+                        dropCollectible.setCollectibleFunction((Vector3 pos) => _collectible.GetGameObject(pos));
+                    }
                     break;
                 case EnemyDrop.Xp:
                     dropCollectible = enemy.AddComponent<DropCollectible>();
-                    dropCollectible.Collectible = _xpCollectible.GetCollectible(_xpValue);
+                    dropCollectible.setCollectibleFunction((Vector3 pos) => _xpCollectible.GetGameObject(pos, _xpValue));
                     break;
                 case EnemyDrop.None:
                 default:

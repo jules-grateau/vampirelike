@@ -20,7 +20,7 @@ TagManager:
   - Trail
   - Wall
   - Collectible
-  - 
+  - Effect
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Effect
+    uniqueID: 1832879583
     locked: 0

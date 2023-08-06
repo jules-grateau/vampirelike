@@ -19,8 +19,8 @@ MonoBehaviour:
   _damage: 10
   health: 10
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  _dropType: 1
-  _collectible: {fileID: 0}
+  _dropType: 0
+  _collectible: {fileID: 11400000, guid: 5465de5c9ed79e648a5d9158cd465306, type: 2}
   _xpCollectible: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
   _xpValue: 1
   _deathAudioClip: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}

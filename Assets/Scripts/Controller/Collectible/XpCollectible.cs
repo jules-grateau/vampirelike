@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Controller.Collectible.Soul;
-using Assets.Scripts.Events.TypedEvents;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +11,10 @@ namespace Assets.Scripts.Controller.Collectible
     {
         public float XpValue { get; set; }
 
-        public GameEventFloat OnPlayerGainXp { get; set; }
-
         protected override void Collect()
         {
             base.Collect();
-            OnPlayerGainXp.Raise(XpValue);
+            OnCollectEvent.Raise(XpValue);
         }
 
         void Start()

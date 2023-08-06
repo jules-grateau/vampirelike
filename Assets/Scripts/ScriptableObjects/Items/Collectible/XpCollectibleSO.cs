@@ -5,28 +5,25 @@ using UnityEngine;
 namespace Assets.Scripts.ScriptableObjects.Items
 {
     [CreateAssetMenu(fileName = "Collectible", menuName = "Collectible/Xp", order = 1)]
-    public class XpCollectibleSO : CollectibleSO
+    public class XpCollectibleSO : CollectibleSO<XpCollectible>
     {
-        [SerializeField]
-        private GameEventFloat _xpEvent;
         [SerializeField]
         private float defaultXpValue;
 
-        public GameObject GetCollectible(float xpValue)
+        public XpCollectible GetCollectible(Vector3 position, float xpValue)
         {
-            GameObject xpInstance = Instantiate(_prefab);
-            xpInstance.SetActive(false);
-            XpCollectible xpCollectibleController = xpInstance.AddComponent<XpCollectible>();
+            XpCollectible xpCollectibleController = base.GetCollectible(position);
             xpCollectibleController.XpValue = xpValue;
-            xpCollectibleController.OnPlayerGainXp = _xpEvent;
-            xpInstance.AddComponent<GetRadiusPlayerController>();
-            AudioSource audio = xpInstance.AddComponent<AudioSource>();
-            audio.clip = pickupAudio;
 
-            return xpInstance;
+            return xpCollectibleController;
         }
 
-        public override GameObject GetCollectible()
+        public GameObject GetGameObject(Vector3 position, float xpValue)
+        {
+            return GetCollectible(position, xpValue).gameObject;
+        }
+
+        public override XpCollectible GetCollectible(Vector3 position)
         {
             return GetCollectible(defaultXpValue);
         }

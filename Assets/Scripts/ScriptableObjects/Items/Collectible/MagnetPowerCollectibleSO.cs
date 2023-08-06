@@ -5,16 +5,13 @@ using UnityEngine;
 namespace Assets.Scripts.ScriptableObjects.Items
 {
     [CreateAssetMenu(fileName = "Collectible", menuName = "Collectible/MagnetPower", order = 1)]
-    public class MagnetPowerCollectibleSO : PowerCollectibleSO
+    public class MagnetPowerCollectibleSO : PowerCollectibleSO<MagnetPowerCollectible>
     {
-        public override GameObject GetCollectible()
+        public override MagnetPowerCollectible GetCollectible(Vector3 position)
         {
-            GameObject magnetInstance = Instantiate(_prefab);
-            magnetInstance.SetActive(false);
-            MagnetPowerCollectible magnetPowerCollectible =  magnetInstance.AddComponent<MagnetPowerCollectible>();
-            magnetPowerCollectible.Duration = _duration;
-            magnetInstance.AddComponent<GetRadiusPlayerController>();
-            return magnetInstance;
+            MagnetPowerCollectible magnetCollectibleController = base.GetCollectible(position);
+            magnetCollectibleController.gameObject.AddComponent<GetRadiusPlayerController>();
+            return magnetCollectibleController;
         }
     }
 
