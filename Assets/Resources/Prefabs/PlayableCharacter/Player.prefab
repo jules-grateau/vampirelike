@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 165095560889788552}
   - component: {fileID: -5837867781125322070}
   - component: {fileID: 722078623882966102}
+  - component: {fileID: 235036723466926854}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -479,10 +480,39 @@ MonoBehaviour:
   - {x: 0.12721634, y: -0.43369007, z: 0}
   m_ShapePathHash: -1668275833
   m_Mesh: {fileID: 0}
-  m_InstanceId: 61102
+  m_InstanceId: 35456
   m_LocalBounds:
     m_Center: {x: -0.015996456, y: -0.008673757, z: 0}
     m_Extent: {x: 0.2818036, y: 0.4450659, z: 0}
+--- !u!114 &235036723466926854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc7297102e5d0d439bf3f73f83b567b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: c48a15142b401b14b94be0a2b34a6af0, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4409285678151217457}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerHealth,
+          Assembly-CSharp
+        m_MethodName: OnPlayerHeal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5219585304589539954
 GameObject:
   m_ObjectHideFlags: 0

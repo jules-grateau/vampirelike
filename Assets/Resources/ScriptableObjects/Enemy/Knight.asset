@@ -19,9 +19,10 @@ MonoBehaviour:
   _damage: 15
   health: 25
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
-  _dropType: 1
-  _collectible: {fileID: 0}
+  _dropXp: 1
   _xpCollectible: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
   _xpValue: 15
+  _dropType: 1
+  _collectibles: []
   _deathAudioClip: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}
   _prefab: {fileID: 881878062649732175, guid: f21e7707937151143ba606755319eee7, type: 3}
