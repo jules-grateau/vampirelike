@@ -69,6 +69,11 @@ namespace Assets.Scripts.Controller.Player
             }
         }
 
+        public void OnPlayerHeal(float value)
+        {
+            _hp += value;
+        }
+
         private IEnumerator triggerInvincibility()
         {
             isInvincible = true;

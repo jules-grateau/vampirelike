@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11ffae92e3ce07546966de09c16c138d
+guid: 7f4211d5aec8aec4da46618ff400d172
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,30 +106,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soul_anim_strip_0
+      name: lock_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 8
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,41 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 747a22bbdc1f2c8419cc05f6560c3904
-      internalID: 950189542
+      spriteID: b5a09684260bcbc409da6ec7c72a3bdd
+      internalID: -1041574839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soul_anim_strip_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 844723af3416fc248b401071ce3ba826
-      internalID: -915397497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: soul_anim_strip_2
+      name: lock_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
-        width: 8
-        height: 8
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,41 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc2d30fd23ec97e41b4c073c58f87f7b
-      internalID: -316771763
+      spriteID: 6653bd3a936feba45971079a92b0f0df
+      internalID: -1406470129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soul_anim_strip_3
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a66f863d9f19b042ba4a83905cf052b
-      internalID: 660946108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: soul_anim_strip_4
+      name: lock_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 8
-        height: 8
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b036e8c9a97603b40924183971b168b0
-      internalID: 1745492762
+      spriteID: 207b0e8b6a1d29f489bcaf4af30f2bac
+      internalID: -1754888133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soul_anim_strip_5
+      name: lock_3
       rect:
         serializedVersion: 2
-        x: 40
+        x: 48
         y: 0
-        width: 8
-        height: 8
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +187,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c44cfdb77d3f0374ca06d1aef414d064
-      internalID: -351706488
+      spriteID: 7e21a9dfc13c35e4e8eb8dae72608e73
+      internalID: -343137578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lock_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1be6432ac03f064fa0d274aaa7bf2af
+      internalID: 574750717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lock_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb67a4a43658d14ab5d1b82809bf8c0
+      internalID: 943089791
       vertices: []
       indices: 
       edges: []
@@ -259,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      soul_anim_strip_0: 950189542
-      soul_anim_strip_1: -915397497
-      soul_anim_strip_2: -316771763
-      soul_anim_strip_3: 660946108
-      soul_anim_strip_4: 1745492762
-      soul_anim_strip_5: -351706488
+      lock_0: -1041574839
+      lock_1: -1406470129
+      lock_2: -1754888133
+      lock_3: -343137578
+      lock_4: 574750717
+      lock_5: 943089791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

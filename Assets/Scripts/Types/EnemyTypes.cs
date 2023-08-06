@@ -15,7 +15,6 @@ namespace Assets.Scripts.Types
     public enum EnemyDrop
     {
         Collecticle,
-        Xp,
         None
     }
 }

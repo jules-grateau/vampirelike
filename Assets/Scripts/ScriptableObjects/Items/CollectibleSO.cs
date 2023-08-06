@@ -1,15 +1,26 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using Assets.Scripts.Events.TypedEvents;
+using Assets.Scripts.Controller.Collectible;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
-    public abstract class CollectibleSO : ScriptableObject
+    public abstract class CollectibleSO<T> : BaseCollectibleSO where T : CollectibleItem
     {
-        [SerializeField]
-        protected AudioClip pickupAudio;
-        [SerializeField]
-        protected GameObject _prefab;
+        public virtual T GetCollectible(Vector3 position)
+        {
+            GameObject collectibleInstance = Instantiate(_prefab, position, Quaternion.identity);
+            T collectibleController = collectibleInstance.AddComponent<T>();
+            collectibleController.OnCollectEvent = _collectEvent;
+            collectibleController.pickupSound = pickupAudio;
+            collectibleInstance.AddComponent<GetRadiusPlayerController>();
 
-        public abstract GameObject GetCollectible(Vector3 position);
+            return collectibleController;
+        }
+
+        public override GameObject GetGameObject(Vector3 position)
+        {
+            return GetCollectible(position).gameObject;
+        }
     }
 }

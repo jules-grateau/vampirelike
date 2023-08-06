@@ -1,25 +1,31 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DropCollectible : MonoBehaviour
 {
     [SerializeField]
-    private Func<Vector3, GameObject> _buildCollectible { get; set; }
-    [SerializeField]
-    private int _amount = 1;
+    private Dictionary<Func<Vector3, GameObject>, int> _collectibles = new Dictionary<Func<Vector3, GameObject>, int>();
 
-    public void setCollectibleFunction(Func<Vector3, GameObject> buildFunction)
+    public void addCollectibleFunction(Func<Vector3, GameObject> buildFunction)
     {
-        _buildCollectible = buildFunction;
+        addCollectibleFunction(buildFunction, 1);
+    }
+    public void addCollectibleFunction(Func<Vector3, GameObject> buildFunction, int amount)
+    {
+        _collectibles.Add(buildFunction, amount);
     }
 
     public void onDestroy()
     {
-        for (int i = 0; i < _amount; i++)
+        foreach (var _collectible in _collectibles)
         {
-            Vector2 offset = UnityEngine.Random.insideUnitCircle * 0.5f;
-            _buildCollectible(gameObject.transform.position + new Vector3(offset.x, offset.y, 0));
+            for (int i = 0; i < _collectible.Value; i++)
+            {
+                Vector2 offset = UnityEngine.Random.insideUnitCircle * 0.5f;
+                _collectible.Key(gameObject.transform.position + new Vector3(offset.x, offset.y, 0));
+            }
         }
     }
 }

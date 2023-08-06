@@ -6,6 +6,7 @@ using Assets.Scripts.Types;
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine;
+using Assets.Scripts.Controller.Collectible;
 
 namespace Assets.Scripts.ScriptableObjects.Enemies
 {
@@ -34,19 +35,22 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
         [SerializeField]
         GameEventHitData _enemyHitEvent;
 
+        [Header("Xp")]
+        [SerializeField]
+        private bool _dropXp;
+        [SerializeField]
+        [DrawIf("_dropXp", true, ComparisonType.Equals, DisablingType.DontDraw)]
+        XpCollectibleSO _xpCollectible;
+        [SerializeField]
+        [DrawIf("_dropXp", true, ComparisonType.Equals, DisablingType.DontDraw)]
+        float _xpValue;
+
         [Header("Drop")]
         [SerializeField]
         EnemyDrop _dropType;
         [SerializeField]
         [DrawIf("_dropType", EnemyDrop.Collecticle, ComparisonType.Equals, DisablingType.DontDraw)]
-        CollectibleSO _collectible;
-        [SerializeField]
-        [DrawIf("_dropType", EnemyDrop.Xp, ComparisonType.Equals, DisablingType.DontDraw)]
-        XpCollectibleSO _xpCollectible;
-        [SerializeField]
-        [DrawIf("_dropType", EnemyDrop.Xp, ComparisonType.Equals, DisablingType.DontDraw)]
-        float _xpValue;
-
+        BaseCollectibleSO[] _collectibles;
 
 
         [SerializeField]
@@ -93,16 +97,22 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
                 damageScript.Damage = _damage;
             }
 
-            DropCollectible dropCollectible;
+            DropCollectible dropCollectible = enemy.AddComponent<DropCollectible>();
+            if (_dropXp && _xpValue > 0)
+            {
+                dropCollectible.addCollectibleFunction((Vector3 pos) => _xpCollectible.GetGameObject(pos, _xpValue));
+            }
+
             switch (_dropType)
             {
                 case EnemyDrop.Collecticle:
-                    dropCollectible = enemy.AddComponent<DropCollectible>();
-                    dropCollectible.setCollectibleFunction((Vector3 pos) => _collectible.GetCollectible(pos));
-                    break;
-                case EnemyDrop.Xp:
-                    dropCollectible = enemy.AddComponent<DropCollectible>();
-                    dropCollectible.setCollectibleFunction((Vector3 pos) => _xpCollectible.GetCollectible(pos, _xpValue));
+                    foreach (BaseCollectibleSO _collectible in _collectibles)
+                    {
+                        if (Random.value <= _collectible.dropChance)
+                        {
+                            dropCollectible.addCollectibleFunction((Vector3 pos) => _collectible.GetGameObject(pos));
+                        }
+                    }
                     break;
                 case EnemyDrop.None:
                 default:

@@ -1,11 +1,14 @@
 ﻿using Assets.Scripts.Events;
 using System.Collections;
 using UnityEngine;
+using Assets.Scripts.Events.TypedEvents;
 
 namespace Assets.Scripts.Controller.Collectible
 {
     public class CollectibleItem : MonoBehaviour
     {
+        public AudioClip pickupSound { get; set; }
+        public GameEventFloat OnCollectEvent { get; set; }
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.tag == "Player")
@@ -17,10 +20,9 @@ namespace Assets.Scripts.Controller.Collectible
 
         protected virtual void Collect()
         {
-            AudioSource audio = GetComponent<AudioSource>();
-            if(audio)
+            if(pickupSound)
             {
-                AudioSource.PlayClipAtPoint(audio.clip, this.gameObject.transform.position);
+                AudioSource.PlayClipAtPoint(pickupSound, this.gameObject.transform.position);
             }
         }
     }
