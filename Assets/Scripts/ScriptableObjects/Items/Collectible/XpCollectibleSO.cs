@@ -25,7 +25,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
 
         public override XpCollectible GetCollectible(Vector3 position)
         {
-            return GetCollectible(defaultXpValue);
+            return GetCollectible(position, defaultXpValue);
         }
     }
 }

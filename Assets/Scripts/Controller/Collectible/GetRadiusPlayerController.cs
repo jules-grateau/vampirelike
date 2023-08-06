@@ -10,7 +10,7 @@ public class GetRadiusPlayerController : MonoBehaviour
     private GameObject _player;
     private Rigidbody2D _rigidbody;
     [SerializeField]
-    private float _speed = 2f;
+    private float _speed = 4f;
 
     public bool forceCollect = false;
 
@@ -41,7 +41,7 @@ public class GetRadiusPlayerController : MonoBehaviour
 
         var direction = _player.transform.position - transform.position;
 
-        float flow = forceCollect ? distance * 0.5f : (1 - (distance / radius)) * 2f ;
-        _rigidbody.velocity = direction.normalized * _speed * Mathf.Max(flow, 1f);
+        float flow = forceCollect ? Mathf.Max(distance * 0.5f, 1f) : 1 - (distance / radius) ;
+        _rigidbody.velocity = direction.normalized * _speed * flow;
     }
 }

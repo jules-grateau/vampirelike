@@ -10,7 +10,6 @@ namespace Assets.Scripts.ScriptableObjects.Items
         public override MagnetPowerCollectible GetCollectible(Vector3 position)
         {
             MagnetPowerCollectible magnetCollectibleController = base.GetCollectible(position);
-            magnetCollectibleController.gameObject.AddComponent<GetRadiusPlayerController>();
             return magnetCollectibleController;
         }
     }

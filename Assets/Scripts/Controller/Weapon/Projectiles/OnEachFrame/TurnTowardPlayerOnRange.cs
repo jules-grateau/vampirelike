@@ -10,7 +10,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles.OnEachFrame
         public float Range;
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
-            triggeringStates = new ProjectileState[] { ProjectileState.End };
+            triggeringStates = new ProjectileState[] { ProjectileState.Start };
         }
 
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float payload)
