@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Controller.Upgrades
 {
@@ -16,6 +17,13 @@ namespace Assets.Scripts.Controller.Upgrades
     {
         //Singleton Part
         static Dictionary<string,UpgradeManager> _instances = new Dictionary<string, UpgradeManager>();
+        Dictionary<UpgradeQuality, float> _qualityDropChance = new Dictionary<UpgradeQuality, float>
+        {
+            {UpgradeQuality.Common, 1f},
+            {UpgradeQuality.Rare, 0.3f },
+            {UpgradeQuality.Epic, 0.1f },
+            {UpgradeQuality.Legendary, 0.01f}
+        };
         public static UpgradeManager GetInstance(string upgradeType)
         {
             if(_instances.GetValueOrDefault(upgradeType) == null)
@@ -75,36 +83,58 @@ namespace Assets.Scripts.Controller.Upgrades
                 {
                     if (upgrade is not CharacterStatsUpgradeSO) return true;
                     CharacterStatsUpgradeSO charactUpgrade = upgrade as CharacterStatsUpgradeSO;
-                    CharacterStatisticsDescriptionSO statsDescription = _characterStatisticsDescriptions.GetValueOrDefault(charactUpgrade.StatsToUpgrade);
-                    if(charactUpgrade.StatsToUpgrade == CharacterStatisticEnum.CritChance)
-                    {
-                        var e = charactUpgrade;
-                    }
-
-                    if (statsDescription.MaxValue <= 0) return true;
-
-                    if (playerStats.CharacterStatistics.GetStats(charactUpgrade.StatsToUpgrade) < statsDescription.MaxValue) return true;
-
-                    return false;
+                    return charactUpgrade.IsDropable(playerStats.CharacterStatistics.GetStats(charactUpgrade.StatsToUpgrade));
 
                 })
                .Where(upgrade =>
                {
                    if (upgrade is not WeaponStatsUpgradeSO) return true;
                    WeaponStatsUpgradeSO weaponUpgrade = upgrade as WeaponStatsUpgradeSO;
-                   WeaponStatisticDescriptionSO statsDescription = _weaponStatisticDescriptions.GetValueOrDefault(weaponUpgrade.StatsToUpgrade);
-                   if (!statsDescription) return true;
-
-                   if (statsDescription.MaxValue <= 0) return true;
-
-                   if (weaponManager.WeaponStats.GetStats(weaponUpgrade.StatsToUpgrade) < statsDescription.MaxValue) return true;
-
-                   return false;
+                   return weaponUpgrade.IsDropable(weaponManager.WeaponStats.GetStats(weaponUpgrade.StatsToUpgrade));
 
                });
 
 
             return filteredUpgrades.ToList();
+        }
+
+        public List<UpgradeSO> Draw(int nbToDraw)
+        {
+            List<UpgradeSO> upgrades = GetAvailableUpgrades();
+            List<UpgradeSO> upgradesToShow = new List<UpgradeSO>();
+            Dictionary<UpgradeQuality,List<UpgradeSO>> upgradesByQuality = upgrades.GroupBy(upg => upg.UpgradeQuality).ToDictionary(item => item.Key, item => item.ToList());
+
+            while (upgradesToShow.Count < nbToDraw)
+            {
+                float randomQualityNumber = Random.Range(0, 100) / 100f;
+                UpgradeQuality[] quality = _qualityDropChance.Where(item => randomQualityNumber <= item.Value)
+                    .OrderBy(item => item.Value)
+                    .Select(item => item.Key).ToArray();
+
+                int qualityIndex = 0;
+
+                List<UpgradeSO> qualityRelatedUpgrades = null;
+                while((qualityRelatedUpgrades  == null || qualityRelatedUpgrades.Count == 0) 
+                    && qualityIndex < quality.Length)
+                {
+                    qualityRelatedUpgrades = upgradesByQuality.GetValueOrDefault(quality[qualityIndex]);
+                    qualityIndex++;
+                }
+
+                if(qualityRelatedUpgrades == null || qualityRelatedUpgrades.Count == 0)
+                {
+                    //We found no upgrades
+                    continue;
+                }
+
+                int randomUpgradeIndex = Random.Range(0, qualityRelatedUpgrades.Count);
+                UpgradeSO upgrade = qualityRelatedUpgrades[randomUpgradeIndex];
+
+                upgradesToShow.Add(upgrade);
+                qualityRelatedUpgrades.RemoveAt(randomUpgradeIndex);
+            }
+
+            return upgradesToShow;
         }
     }
 }

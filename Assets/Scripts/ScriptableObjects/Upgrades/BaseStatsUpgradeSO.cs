@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
+using System;
+using System.ComponentModel;
 using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects
@@ -18,6 +20,16 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         public AdditionTypes _additionType;
 
+        public float DropFrom => _dropFrom;
+        public float DropUntil => _dropUntil;
+        [Header("Drop condition")]
+        [SerializeField]
+        [Description("The stats value from which the upgrade will show")]
+        float _dropFrom;
+        [SerializeField]
+        [Description("The stats value until which the upgrade will show")]
+        float _dropUntil;
+
 
         public float MaxValue => _maxValue;
 
@@ -25,9 +37,14 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         float _maxValue;
 
-        public override string getDescription()
+        public override string GetDescription()
         {
             return _description.Replace("{value}", _valueToAdd.ToString());
+        }
+
+        public bool IsDropable(float currValue)
+        {
+            return currValue >= _dropFrom && currValue  < _dropUntil || _dropFrom == _dropUntil;
         }
     }
 }
