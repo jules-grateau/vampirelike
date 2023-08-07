@@ -15,6 +15,8 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles.OnEachFrame
 
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float payload)
         {
+            if (!GameManager.GameState.Player) return;
+
             base.HandleBehaviour(self, payload);
             float distance = Vector2.Distance(self.transform.position, GameManager.GameState.Player.transform.position);
             if (distance < Range) return;

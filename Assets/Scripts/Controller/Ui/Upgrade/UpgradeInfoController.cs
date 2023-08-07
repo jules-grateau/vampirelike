@@ -28,9 +28,26 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
             _description = transform.Find("Text/Description").GetComponent<TextMeshProUGUI>();
             _upgrade = upgrade;
 
-            _title.text = upgrade.Title;
+            _title.text = upgrade.Title + $" ({upgrade.UpgradeQuality})";
             _image.sprite = upgrade.Sprite;
-            _description.text = upgrade.getDescription();
+            _description.text = upgrade.GetDescription();
+            Image upgradeImage = GetComponent<Image>();
+            switch (upgrade.UpgradeQuality)
+            {
+                case Types.UpgradeQuality.Rare:
+                    upgradeImage.color = Color.green;
+                    break;
+                case Types.UpgradeQuality.Epic:
+                    upgradeImage.color = Color.cyan;
+                    break;
+                case Types.UpgradeQuality.Legendary:
+                    upgradeImage.color = Color.yellow;
+                    break;
+                case Types.UpgradeQuality.Common:
+                default:
+                    break;
+            }
+
         }
 
         public void OnClick()

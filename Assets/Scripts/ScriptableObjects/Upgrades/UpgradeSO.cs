@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Types;
+using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects
 {
@@ -20,6 +21,10 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         int _maxAmout;
 
-        public abstract string getDescription();
+        public UpgradeQuality UpgradeQuality => _upgradeQuality;
+        [SerializeField]
+        UpgradeQuality _upgradeQuality;
+
+        public abstract string GetDescription();
     }
 }
