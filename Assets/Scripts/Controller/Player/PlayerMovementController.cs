@@ -2,6 +2,7 @@ using UnityEngine;
 using Assets.Scripts.ScriptableObjects.Characters;
 using static UnityEngine.InputSystem.InputAction;
 using Assets.Types;
+using Assets.Scripts.Types;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovementController : MonoBehaviour
@@ -46,8 +47,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private float getBonusSpeed()
     {
-        CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
-        if (!characterStatistics) return 0f;
+        BaseStatistics<CharacterStatisticEnum> characterStatistics = _playerStatsController.CharacterStatistics;
+        if (characterStatistics == null) return 0f;
         return characterStatistics.GetStats(Assets.Scripts.Types.CharacterStatisticEnum.MovementSpeed);
     }
 

@@ -12,21 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
   m_Name: LazerGun
   m_EditorClassIdentifier: 
-  _baseStats:
-  - _key: 2
-    _value: 10
-  - _key: 4
-    _value: 5
-  - _key: 9
-    _value: 5
-  - _key: 10
-    _value: 1
-  - _key: 6
-    _value: 5
-  - _key: 12
-    _value: 1
   _projectilPrefab: {fileID: 8865363525728305454, guid: f8906868b93ff0145b7d5b7735553333, type: 3}
   _icon: {fileID: 21300000, guid: d5b7c2e10a01fef41a5d849a0d526094, type: 3}
+  _weaponStats:
+    _baseStats:
+    - _key: 2
+      _value: 15
+    - _key: 9
+      _value: 5
+    - _key: 6
+      _value: 10
+    - _key: 4
+      _value: 5
+    - _key: 10
+      _value: 1
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0

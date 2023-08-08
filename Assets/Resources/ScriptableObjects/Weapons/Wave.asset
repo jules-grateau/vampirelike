@@ -12,19 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
   m_Name: Wave
   m_EditorClassIdentifier: 
-  _baseStats:
-  - _key: 2
-    _value: 3
-  - _key: 4
-    _value: 2
-  - _key: 6
-    _value: 10
-  - _key: 9
-    _value: 5
-  - _key: 10
-    _value: 1
   _projectilPrefab: {fileID: 2423956319905214540, guid: 3622115743b2c7e4bb975e1d16911672, type: 3}
   _icon: {fileID: -1148350245, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
+  _weaponStats:
+    _baseStats:
+    - _key: 13
+      _value: 5
+    - _key: 2
+      _value: 10
+    - _key: 6
+      _value: 3
+    - _key: 9
+      _value: 4
+    - _key: 4
+      _value: 3
+    - _key: 10
+      _value: 1
   behaviourType: 1
   _growValue: {x: 0.01, y: 0.025, z: 0}
   damageType: 0

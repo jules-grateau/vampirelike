@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Events;
 using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Characters;
+using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
 using Assets.Scripts.Variables.Constants;
 using System.Collections;
@@ -23,7 +24,7 @@ namespace Assets.Scripts.Controller.Player
 
         [SerializeField]
         private GameEvent _onPlayerDeathEvent;
-        private CharacterStatisticsSO _characterStatistics;
+        private BaseStatistics<CharacterStatisticEnum> _characterStatistics;
         private SpriteRenderer _spriteRenderer;
 
         private bool isInvincible;
@@ -38,7 +39,7 @@ namespace Assets.Scripts.Controller.Player
             if (!playerStatsController) return;
 
             _characterStatistics = playerStatsController.CharacterStatistics;
-            if (!_characterStatistics) return;
+            if (_characterStatistics == null) return;
 
             if (_resetOnStart) _hp = _characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
         }

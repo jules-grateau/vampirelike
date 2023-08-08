@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.ScriptableObjects;
+using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.ScriptableObjects.Items.Weapons;
+using Assets.Scripts.Types;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,13 +14,12 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
         private List<WeaponController> _inventory = new List<WeaponController>();
         public List<WeaponStatsUpgradeSO> Upgrades => _upgrades;
         private List<WeaponStatsUpgradeSO> _upgrades = new List<WeaponStatsUpgradeSO>();
-        public WeaponStatisticsSO WeaponStats => _weaponStats;
-        private WeaponStatisticsSO _weaponStats;
+        public BaseStatistics<WeaponStatisticEnum> WeaponStats => _weaponStats;
+        private BaseStatistics<WeaponStatisticEnum> _weaponStats;
 
-        public void Init(WeaponStatisticsSO weaponStatistics)
+        public void Init(BaseStatistics<WeaponStatisticEnum> weaponStatistics)
         {
-            if (!weaponStatistics) return;
-            weaponStatistics.Init();
+            if (weaponStatistics == null) return;
             _weaponStats = weaponStatistics;
         }
 

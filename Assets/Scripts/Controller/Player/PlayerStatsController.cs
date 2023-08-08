@@ -7,15 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerStatsController : MonoBehaviour
 {
-    public CharacterStatisticsSO CharacterStatistics => _characterStatistics;
-    CharacterStatisticsSO _characterStatistics;
+    public BaseStatistics<CharacterStatisticEnum> CharacterStatistics => _characterStatistics;
+    BaseStatistics<CharacterStatisticEnum> _characterStatistics;
     public List<CharacterStatsUpgradeSO> Upgrades => _upgrades;
     List<CharacterStatsUpgradeSO> _upgrades = new List<CharacterStatsUpgradeSO>();
 
-    public void Init(CharacterStatisticsSO characterStatistics) 
+    public void Init(BaseStatistics<CharacterStatisticEnum> characterStatistics) 
     {
         _characterStatistics = characterStatistics;
-        characterStatistics.Init();
     }
 
     public (bool, float) ComputeDamage(float damage)
