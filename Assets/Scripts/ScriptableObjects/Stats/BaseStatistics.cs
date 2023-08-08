@@ -1,40 +1,48 @@
 ﻿using Assets.Scripts.Types;
-using Assets.Scripts.Variables;
 using System.Collections.Generic;
-using UnityEditor;
 using System;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace Assets.Scripts.ScriptableObjects.Characters
 {
-    public abstract class BaseStatisticsSO<T> : ScriptableObject
+    [Serializable]
+    public class BaseStatistics<T>
     {
         [SerializeField]
         Statistic<T>[] _baseStats;
 
-        public Dictionary<T, float> _stats;
+        public Dictionary<T, float> Stats => _stats;
+        Dictionary<T, float> _stats;
 
-        public void Init(BaseStatisticsSO<T> additionalStats = null)
+        public BaseStatistics()
+        {
+ 
+        }
+
+        public void Init(BaseStatistics<T> additionalStats = null)
         {
             _stats = new Dictionary<T, float>();
 
-            foreach(Statistic<T> val in _baseStats)
+            foreach (T statsEnum in Enum.GetValues(typeof(T)))
             {
-                float additionalValue = 0;
-                if(additionalStats)
+                _stats.Add(statsEnum, 0);
+            }
+            if (_baseStats != null)
+            {
+                foreach (Statistic<T> val in _baseStats)
                 {
-                    additionalValue = additionalStats.GetStats(val.Key);
+                    _stats[val.Key] += val.Value;
                 }
-                _stats.Add(val.Key, val.Value + additionalValue);
             }
 
-            foreach (T weaponStatsEnum in Enum.GetValues(typeof(T)))
+            if(additionalStats != null)
             {
-                if (_stats.ContainsKey(weaponStatsEnum)) continue;
-
-                _stats.Add(weaponStatsEnum, 0);
+                foreach (KeyValuePair<T, float> stat in additionalStats.Stats)
+                {
+                    _stats[stat.Key] += stat.Value;
+                }
             }
+
         }
 
         public float GetStats(T statisticEnum)

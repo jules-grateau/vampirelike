@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Events;
 using Assets.Scripts.ScriptableObjects.Characters;
+using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
 using Assets.Scripts.Variables.Constants;
 using System.Collections;
@@ -19,9 +20,9 @@ namespace Assets.Scripts.Controller.Player
 
         public float getRadius()
         {
-            CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
+            BaseStatistics<CharacterStatisticEnum> characterStatistics = _playerStatsController.CharacterStatistics;
 
-            if (!characterStatistics) return 0f;
+            if (characterStatistics == null) return 0f;
 
             return characterStatistics.GetStats(Types.CharacterStatisticEnum.PickUpRadius);
         }

@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Controller.Player;
 using Assets.Scripts.ScriptableObjects.Characters;
+using Assets.Scripts.Types;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -32,8 +33,8 @@ namespace Assets.Scripts.Controller.Ui
         private void Update()
         {
             if (!_playerStatsController || !_playerHealth) return;
-            CharacterStatisticsSO characterStatistics = _playerStatsController.CharacterStatistics;
-            if (!characterStatistics) return;
+            BaseStatistics<CharacterStatisticEnum> characterStatistics = _playerStatsController.CharacterStatistics;
+            if (characterStatistics == null) return;
             float maxHp = characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
             _image.fillAmount = Mathf.Clamp01(
                 Mathf.InverseLerp(_min, maxHp, _playerHealth.Hp));

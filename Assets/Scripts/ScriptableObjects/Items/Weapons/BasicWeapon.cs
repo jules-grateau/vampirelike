@@ -12,7 +12,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
-            int amount = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.ProjectileNumber));
+            int amount = Mathf.FloorToInt(_weaponStats.GetStats(WeaponStatisticEnum.ProjectileNumber));
             for (int i = 0; i < amount; i++)
             {
                 var projectile = GetProjectile();

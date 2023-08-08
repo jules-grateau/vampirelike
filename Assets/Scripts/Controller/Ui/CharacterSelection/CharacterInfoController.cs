@@ -34,9 +34,9 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
             _description.text = playableCharacter.Description;
 
             StatListController statsListController= statInfoList.AddComponent<StatListController>();
-            playableCharacter.Init();
+            playableCharacter.CharacterStatistics.Init();
             playableCharacter.WeaponStatistics.Init();
-            statsListController.Init(playableCharacter, playableCharacter.WeaponStatistics);
+            statsListController.Init(playableCharacter.CharacterStatistics, playableCharacter.WeaponStatistics);
         }
 
         public void OnClick()
