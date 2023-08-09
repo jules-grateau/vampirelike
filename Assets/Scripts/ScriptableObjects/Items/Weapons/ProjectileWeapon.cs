@@ -127,6 +127,16 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                         speed = _weaponStats.GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + _weaponStats.GetStats(WeaponStatisticEnum.SpeedPercentage) / 100)
                     });
                     break;
+                case ProjectileDirection.TurnAroundSpawnPosition:
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new TurnAroundSpawnPointBehavior()
+                    {
+                        Radius = _weaponStats.GetStats(WeaponStatisticEnum.Radius),
+                        Duration = _weaponStats.GetStats(WeaponStatisticEnum.Duration),
+                        BaseDuration = _weaponStats.GetStats(WeaponStatisticEnum.BaseDuration),
+                        BaseSpeed= _weaponStats.GetStats(WeaponStatisticEnum.BaseSpeed),
+                        SpeedPercentage = _weaponStats.GetStats(WeaponStatisticEnum.SpeedPercentage)
+                    });
+                    break;
                 case ProjectileDirection.None:
                 default:
                     break;
@@ -138,7 +148,9 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new SelfDestroyRandomDelay()
                     {
                         minDelay = _minMaxDelay.x * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Range) / 100)),
-                        maxDelay = _minMaxDelay.y * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Range) / 100))
+                        maxDelay = _minMaxDelay.y * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Range) / 100)),
+                        Duration = _weaponStats.GetStats(WeaponStatisticEnum.Duration),
+                        BaseDuration = _weaponStats.GetStats(WeaponStatisticEnum.BaseDuration)
                     });
                     break;
                 case ProjectileDestruction.DestroyOnRangeReach:

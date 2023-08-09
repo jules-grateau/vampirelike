@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88395bdba2174e4fb6ff5e9afa5ff14, type: 3}
+  m_Name: AttackSpeedUpgrade
+  m_EditorClassIdentifier: 
+  _title: Attack Speed Upgrade
+  _sprite: {fileID: 3056640150986470829, guid: 198112b8ad4c09242aa09764cff6f8c8, type: 3}
+  _description: You shoot {value}% faster
+  _maxAmout: 0
+  _statsToUpgrade: 8
+  _valueToAdd:
+  - Quality: 0
+    Value: 5
+  _additionType: 1
+  _dropFrom: 0
+  _dropUntil: 0
+  _maxValue: 100

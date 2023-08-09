@@ -16,7 +16,7 @@ MonoBehaviour:
   _icon: {fileID: -1668789006, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
   _weaponStats:
     _baseStats:
-    - _key: 13
+    - _key: 14
       _value: 2
     - _key: 2
       _value: 1

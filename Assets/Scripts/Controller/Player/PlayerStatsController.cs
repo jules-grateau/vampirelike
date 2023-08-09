@@ -1,6 +1,7 @@
 using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.Types;
+using Assets.Scripts.Types.Upgrades;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ public class PlayerStatsController : MonoBehaviour
 {
     public BaseStatistics<CharacterStatisticEnum> CharacterStatistics => _characterStatistics;
     BaseStatistics<CharacterStatisticEnum> _characterStatistics;
-    public List<CharacterStatsUpgradeSO> Upgrades => _upgrades;
-    List<CharacterStatsUpgradeSO> _upgrades = new List<CharacterStatsUpgradeSO>();
+    public List<CharacterStatsUpgrade> Upgrades => _upgrades;
+    List<CharacterStatsUpgrade> _upgrades = new List<CharacterStatsUpgrade>();
 
     public void Init(BaseStatistics<CharacterStatisticEnum> characterStatistics) 
     {
@@ -33,17 +34,17 @@ public class PlayerStatsController : MonoBehaviour
         return (isCrit, computedDamage);
     }
 
-    public void OnSelectUpgrade(UpgradeSO upgrade)
+    public void OnSelectUpgrade(Upgrade<UpgradeSO> upgrade)
     {
-        if(upgrade is CharacterStatsUpgradeSO)
+        if(upgrade.UpgradeSO is CharacterStatsUpgradeSO)
         {
-            HandleStatUpgrade((CharacterStatsUpgradeSO)upgrade);
+            HandleStatUpgrade( new CharacterStatsUpgrade(upgrade.UpgradeQuality, (CharacterStatsUpgradeSO) upgrade.UpgradeSO));
         }
     }
 
-    void HandleStatUpgrade(CharacterStatsUpgradeSO upgrade)
+    void HandleStatUpgrade(CharacterStatsUpgrade upgrade)
     {
-        _characterStatistics.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd, upgrade.AdditionType, upgrade.MaxValue);
+        _characterStatistics.UpgradeStats(upgrade.UpgradeSO.StatsToUpgrade, upgrade.GetValue(), upgrade.UpgradeSO.AdditionType, upgrade.UpgradeSO.MaxValue);
         _upgrades.Add(upgrade);
 
     }

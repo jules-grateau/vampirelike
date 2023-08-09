@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7912062184720915575}
   - component: {fileID: 7252527183299159975}
-  - component: {fileID: 5037898958719120748}
   - component: {fileID: 4390985018524629882}
   - component: {fileID: 3996337782162105245}
   - component: {fileID: 6295482038780287285}
+  - component: {fileID: 1718136147286675156}
   m_Layer: 8
   m_Name: BlueSlime
   m_TagString: Enemy
@@ -88,41 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5037898958719120748
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553762906287039292}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 1591
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 1655
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0035489402, y: -0.005323033}
-  serializedVersion: 2
-  m_Radius: 0.1992321
 --- !u!114 &4390985018524629882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,10 +155,55 @@ MonoBehaviour:
   - {x: -0.090769194, y: -0.15197994, z: 0}
   m_ShapePathHash: -704626121
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1009548
+  m_InstanceId: 182886
   m_LocalBounds:
     m_Center: {x: 0.0038438886, y: 0.00071281195, z: 0}
     m_Extent: {x: 0.18641631, y: 0.15456621, z: 0}
+--- !u!61 &1718136147286675156
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553762906287039292}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.4375, y: 0.375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4375, y: 0.375}
+  m_EdgeRadius: 0
 --- !u!1 &881878062649732175
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,9 +301,23 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1718136147286675156}
+    m_ColliderPaths:
+    - - X: 2187500
+        Y: 1875000
+      - X: -2187500
+        Y: 1875000
+      - X: -2187500
+        Y: -1875000
+      - X: 2187500
+        Y: -1875000
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 0.2187207, y: -0.1875}
+      - {x: 0.2187207, y: 0.1875}
+      - {x: -0.21875, y: 0.1874707}
+      - {x: -0.2187207, y: -0.1875}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

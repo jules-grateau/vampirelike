@@ -5,6 +5,7 @@ namespace Assets.Scripts.Types
 {
     public enum ProjectileDirection
     {
+        TurnAroundSpawnPosition=5,
         TurnBackTowardPlayer=4,
         AutoAimed = 3,
         Straight = 2,
