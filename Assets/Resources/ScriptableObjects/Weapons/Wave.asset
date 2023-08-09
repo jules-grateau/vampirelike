@@ -28,6 +28,8 @@ MonoBehaviour:
       _value: 3
     - _key: 10
       _value: 1
+    - _key: 14
+      _value: 2
   behaviourType: 1
   _growValue: {x: 0.01, y: 0.025, z: 0}
   damageType: 0
@@ -38,7 +40,7 @@ MonoBehaviour:
   directionType: 2
   _bounceOnWall: 0
   destructionType: 3
-  _minMaxDelay: {x: 2, y: 2}
+  _minMaxDelay: {x: 1, y: 1}
   _comeBackToPlayer: 0
   _offset: {x: 0, y: 0}
   _shootFromBehind: 1

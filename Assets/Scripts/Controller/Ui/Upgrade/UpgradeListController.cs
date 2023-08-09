@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Controller.Ui.CharacterSelection;
 using Assets.Scripts.Controller.Upgrades;
 using Assets.Scripts.ScriptableObjects;
+using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,13 +21,13 @@ namespace Assets.Scripts.Controller.Ui
             UpgradeManager upgradeManager = UpgradeManager.GetInstance(_upgradeType);
             GameObject upgradeInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/UpgradeInfo");
 
-            List<UpgradeSO> upgrades = upgradeManager.Draw((int) _numberSelectableUpgrade.value);
+            List<Upgrade<UpgradeSO>> upgrades = upgradeManager.Draw((int) _numberSelectableUpgrade.value);
 
-            foreach (UpgradeSO upgrade in upgrades)
+            foreach (Upgrade<UpgradeSO> upgrade in upgrades)
             {
-                GameObject characterInfo = Instantiate(upgradeInfoPrefab, transform);
-                UpgradeInfoController stageInfoController = characterInfo.GetComponent<UpgradeInfoController>();
-                stageInfoController.Init(upgrade);
+                GameObject upgradeInfo = Instantiate(upgradeInfoPrefab, transform);
+                UpgradeInfoController upgradeInfoController = upgradeInfo.GetComponent<UpgradeInfoController>();
+                upgradeInfoController.Init(upgrade);
             }
         }
     }

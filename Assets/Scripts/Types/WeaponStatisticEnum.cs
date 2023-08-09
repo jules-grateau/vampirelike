@@ -18,6 +18,7 @@ namespace Assets.Scripts.Types
         ProjectileNumber,
         Radius,
         NbrOfHit,
-        Duration
+        Duration,
+        BaseDuration
     }
 }

@@ -3,6 +3,8 @@ using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.ScriptableObjects.Items.Weapons;
 using Assets.Scripts.Types;
+using Assets.Scripts.Types.Upgrades;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +14,8 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
     {
         public List<WeaponController> Inventory => _inventory;
         private List<WeaponController> _inventory = new List<WeaponController>();
-        public List<WeaponStatsUpgradeSO> Upgrades => _upgrades;
-        private List<WeaponStatsUpgradeSO> _upgrades = new List<WeaponStatsUpgradeSO>();
+        public List<WeaponStatsUpgrade> Upgrades => _upgrades;
+        private List<WeaponStatsUpgrade> _upgrades = new();
         public BaseStatistics<WeaponStatisticEnum> WeaponStats => _weaponStats;
         private BaseStatistics<WeaponStatisticEnum> _weaponStats;
 
@@ -33,30 +35,34 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
             _inventory.Add(wpController);
         }
 
-        public void OnSelectUpgrade(UpgradeSO upgrade)
+        public void OnSelectUpgrade(Upgrade<UpgradeSO> upgrade)
         {
-            if (upgrade is WeaponStatsUpgradeSO)
+            if (upgrade.UpgradeSO is WeaponStatsUpgradeSO)
             {
-                _upgrades.Add((WeaponStatsUpgradeSO)upgrade);
-                HandleStatUpgrade((WeaponStatsUpgradeSO)upgrade, _inventory);
+                WeaponStatsUpgrade weaponUpgrade = new WeaponStatsUpgrade(upgrade.UpgradeQuality,(WeaponStatsUpgradeSO) upgrade.UpgradeSO);
+                _upgrades.Add(weaponUpgrade);
+                HandleStatUpgrade(weaponUpgrade, _inventory);
             }
         }
 
-        void HandleStatUpgrade(WeaponStatsUpgradeSO upgrade, List<WeaponController> weapons)
+        void HandleStatUpgrade(WeaponStatsUpgrade upgrade, List<WeaponController> weapons)
         {
-            WeaponSO forWeapon = upgrade is SpecificWeaponStatsUpgradeSO ? ((SpecificWeaponStatsUpgradeSO)upgrade)._forWeapon : null;
+            WeaponSO forWeapon = upgrade.UpgradeSO is SpecificWeaponStatsUpgradeSO ? ((SpecificWeaponStatsUpgradeSO) upgrade.UpgradeSO)._forWeapon : null;
+
+            if (!forWeapon)
+            {
+                _weaponStats.UpgradeStats(upgrade.UpgradeSO.StatsToUpgrade, upgrade.GetValue(), upgrade.UpgradeSO.AdditionType, upgrade.UpgradeSO.MaxValue);
+                return;
+            }
+
             foreach (WeaponController weapon in weapons)
             {
                 if (!forWeapon || forWeapon.Equals(weapon.weapon))
                 {
-                    weapon.weapon.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd, upgrade.AdditionType, upgrade.MaxValue);
+                    weapon.weapon.UpgradeStats(upgrade.UpgradeSO.StatsToUpgrade, upgrade.GetValue(), upgrade.UpgradeSO.AdditionType, upgrade.UpgradeSO.MaxValue);
                 }
             }
 
-            if (!forWeapon)
-            {
-                _weaponStats.UpgradeStats(upgrade.StatsToUpgrade, upgrade.ValueToAdd, upgrade.AdditionType, upgrade.MaxValue);
-            }
         }
     }
 }

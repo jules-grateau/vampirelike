@@ -2,6 +2,7 @@
 using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.Types;
+using Assets.Scripts.Types.Upgrades;
 using Assets.Scripts.Variables;
 using Assets.Scripts.Variables.Constants;
 using System.Collections;
@@ -90,15 +91,15 @@ namespace Assets.Scripts.Controller.Player
             _onPlayerDeathEvent.Raise();
         }
 
-        public void OnSelectUpgrade(UpgradeSO upgrade)
+        public void OnSelectUpgrade(Upgrade<UpgradeSO> upgrade)
         {
-            if (upgrade is not CharacterStatsUpgradeSO) return;
+            if (upgrade.UpgradeSO is not CharacterStatsUpgradeSO) return;
 
-            CharacterStatsUpgradeSO statsUpgrade = (CharacterStatsUpgradeSO) upgrade;
+            CharacterStatsUpgrade statsUpgrade = new CharacterStatsUpgrade(upgrade.UpgradeQuality, (CharacterStatsUpgradeSO) upgrade.UpgradeSO);
 
-            if (statsUpgrade.StatsToUpgrade != Types.CharacterStatisticEnum.MaxHp) return;
+            if (statsUpgrade.UpgradeSO.StatsToUpgrade != Types.CharacterStatisticEnum.MaxHp) return;
 
-            _hp += statsUpgrade.ValueToAdd;  
+            _hp += statsUpgrade.GetValue();  
         }
     }
 }

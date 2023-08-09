@@ -2,6 +2,7 @@
 using Assets.Scripts.Variables;
 using System;
 using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects
@@ -12,9 +13,9 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         public T _statsToUpgrade;
 
-        public float ValueToAdd => _valueToAdd;
+        public UpgradeQualityBasedValue<float>[] ValueToAdd => _valueToAdd;
         [SerializeField]
-        public float _valueToAdd;
+        public UpgradeQualityBasedValue<float>[]  _valueToAdd;
 
         public AdditionTypes AdditionType => _additionType;
         [SerializeField]
@@ -22,6 +23,7 @@ namespace Assets.Scripts.ScriptableObjects
 
         public float DropFrom => _dropFrom;
         public float DropUntil => _dropUntil;
+
         [Header("Drop condition")]
         [SerializeField]
         [Description("The stats value from which the upgrade will show")]
@@ -37,14 +39,24 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         float _maxValue;
 
-        public override string GetDescription()
+        public override string GetDescription(UpgradeQuality upgradeQuality)
         {
-            return _description.Replace("{value}", _valueToAdd.ToString());
+            return _description.Replace("{value}", _valueToAdd.FirstOrDefault((value) => value.Quality == upgradeQuality).Value.ToString());
+        }
+
+        public float GetValue(UpgradeQuality upgradeQuality)
+        {
+            return _valueToAdd.FirstOrDefault((value) => value.Quality == upgradeQuality).Value;
         }
 
         public bool IsDropable(float currValue)
         {
             return currValue >= _dropFrom && currValue  < _dropUntil || _dropFrom == _dropUntil;
+        }
+
+        public override bool HasQuality(UpgradeQuality quality)
+        {
+            return _valueToAdd.Any((value) => value.Quality == quality);
         }
     }
 }

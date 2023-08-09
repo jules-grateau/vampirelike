@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3065247565e9d3b44ba8edcbffbf32ee, type: 3}
+  m_Name: AxeUpgrade
+  m_EditorClassIdentifier: 
+  _title: Boomerang
+  _sprite: {fileID: -742948596, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
+  _description: Reduce the cooldown value of Boomerang by {value}
+  _maxAmout: 2
+  _statsToUpgrade: 9
+  _valueToAdd:
+  - Quality: 2
+    Value: 1
+  _additionType: 0
+  _dropFrom: 0
+  _dropUntil: 0
+  _maxValue: 0
+  _forWeapon: {fileID: 11400000, guid: 65334bc06d53dcf4e8faf257a436c2fd, type: 2}
