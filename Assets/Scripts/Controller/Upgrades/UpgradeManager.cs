@@ -4,11 +4,10 @@ using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.Types;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Controller.Upgrades
 {
@@ -63,8 +62,8 @@ namespace Assets.Scripts.Controller.Upgrades
             WeaponInventoryManager weaponManager = GameManager.GameState.Player.GetComponent<WeaponInventoryManager>();
             PlayerStatsController playerStats = GameManager.GameState.Player.GetComponent<PlayerStatsController>();
 
-            List<UpgradeSO> previousUpgrades = playerStats.Upgrades.Select((upgrade) => (UpgradeSO)upgrade)
-                .Concat(weaponManager.Upgrades.Select((upgrade) => (UpgradeSO)upgrade)).ToList();
+            List<UpgradeSO> previousUpgrades = playerStats.Upgrades.Select((upgrade) => (UpgradeSO) upgrade.UpgradeSO)
+                .Concat(weaponManager.Upgrades.Select((upgrade) => (UpgradeSO) upgrade.UpgradeSO)).ToList();
 
             //Filter out MaxAmount upgrades
             Dictionary<UpgradeSO, int> previousUpgradesDictionnary =
@@ -98,26 +97,34 @@ namespace Assets.Scripts.Controller.Upgrades
             return filteredUpgrades.ToList();
         }
 
-        public List<UpgradeSO> Draw(int nbToDraw)
+        public List<Upgrade<UpgradeSO>> Draw(int nbToDraw)
         {
             List<UpgradeSO> upgrades = GetAvailableUpgrades();
-            List<UpgradeSO> upgradesToShow = new List<UpgradeSO>();
-            Dictionary<UpgradeQuality,List<UpgradeSO>> upgradesByQuality = upgrades.GroupBy(upg => upg.UpgradeQuality).ToDictionary(item => item.Key, item => item.ToList());
+            List<Upgrade<UpgradeSO>> upgradesToShow = new List<Upgrade<UpgradeSO>>();
+            Dictionary<UpgradeQuality, List<UpgradeSO>> upgradesByQuality = new Dictionary<UpgradeQuality, List<UpgradeSO>>();
+
+            foreach(UpgradeQuality quality in Enum.GetValues(typeof(UpgradeQuality)))
+            {
+                upgradesByQuality.Add(quality, upgrades.Where((upg) => upg.HasQuality(quality)).ToList());
+            }
+
 
             while (upgradesToShow.Count < nbToDraw)
             {
-                float randomQualityNumber = Random.Range(0, 100) / 100f;
-                UpgradeQuality[] quality = _qualityDropChance.Where(item => randomQualityNumber <= item.Value)
+                float randomQualityNumber = UnityEngine.Random.Range(0, 100) / 100f;
+                UpgradeQuality[] qualityList = _qualityDropChance.Where(item => randomQualityNumber <= item.Value)
                     .OrderBy(item => item.Value)
                     .Select(item => item.Key).ToArray();
 
                 int qualityIndex = 0;
-
                 List<UpgradeSO> qualityRelatedUpgrades = null;
+                UpgradeQuality quality = qualityList[0];
+
                 while((qualityRelatedUpgrades  == null || qualityRelatedUpgrades.Count == 0) 
-                    && qualityIndex < quality.Length)
+                    && qualityIndex < qualityList.Length)
                 {
-                    qualityRelatedUpgrades = upgradesByQuality.GetValueOrDefault(quality[qualityIndex]);
+                    quality = qualityList[qualityIndex];
+                    qualityRelatedUpgrades = upgradesByQuality.GetValueOrDefault(quality);
                     qualityIndex++;
                 }
 
@@ -127,10 +134,10 @@ namespace Assets.Scripts.Controller.Upgrades
                     continue;
                 }
 
-                int randomUpgradeIndex = Random.Range(0, qualityRelatedUpgrades.Count);
+                int randomUpgradeIndex = UnityEngine.Random.Range(0, qualityRelatedUpgrades.Count);
                 UpgradeSO upgrade = qualityRelatedUpgrades[randomUpgradeIndex];
 
-                upgradesToShow.Add(upgrade);
+                upgradesToShow.Add(new Upgrade<UpgradeSO>(quality, upgrade));
                 qualityRelatedUpgrades.RemoveAt(randomUpgradeIndex);
             }
 

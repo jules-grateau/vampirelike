@@ -16,7 +16,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
-            int amount = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.ProjectileNumber));
+            int amount = Mathf.FloorToInt(_weaponStats.GetStats(WeaponStatisticEnum.ProjectileNumber));
 
             Vector2 shootFrom = holderPosition;
             GameObject[] target = GetTargets(holderPosition, amount);
@@ -48,7 +48,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         private GameObject[] GetTargets(Vector2 shootFrom, int numberOfTargets)
         {
-            var hits = Physics2D.OverlapCircleAll(shootFrom, GetStats(Types.WeaponStatisticEnum.Range), 1 << LayerMask.NameToLayer("Enemy"));
+            var hits = Physics2D.OverlapCircleAll(shootFrom, _weaponStats.GetStats(Types.WeaponStatisticEnum.Range), 1 << LayerMask.NameToLayer("Enemy"));
             if (hits.Length <= 0) return null;
 
             GameObject[] targets = hits.Select(hit => new {data = hit, distance = Vector2.Distance(shootFrom, hit.transform.position) })

@@ -3,6 +3,7 @@ using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Game;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.ScriptableObjects.Stage;
+using Assets.Scripts.Types;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -16,22 +17,40 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
         TextMeshProUGUI _title;
         Image _image;
         TextMeshProUGUI _description;
-        UpgradeSO _upgrade;
+        Upgrade<UpgradeSO> _upgrade;
 
         [SerializeField]
         GameEventUpgrade _selectUpgradeEvent;
 
-        public void Init(UpgradeSO upgrade)
+        public void Init(Upgrade<UpgradeSO> upgrade)
         {
             _title = transform.Find("Text/Title").GetComponent<TextMeshProUGUI>();
             _image = transform.Find("Icon/Image").GetComponent<Image>();
             _description = transform.Find("Text/Description").GetComponent<TextMeshProUGUI>();
             _upgrade = upgrade;
+            string rangeText = "";
+            if(upgrade.UpgradeSO is WeaponStatsUpgradeSO)
+            {
+                WeaponStatsUpgradeSO weapUpgrade = (WeaponStatsUpgradeSO) upgrade.UpgradeSO;
+                if(weapUpgrade.DropFrom != weapUpgrade.DropUntil)
+                {
+                    rangeText = $"(Range :{weapUpgrade.DropFrom}-{weapUpgrade.DropUntil})";
+                }
+            }
+            if (upgrade.UpgradeSO is CharacterStatsUpgradeSO)
+            {
+                CharacterStatsUpgradeSO characUpgrade = (CharacterStatsUpgradeSO)upgrade.UpgradeSO;
+                if (characUpgrade.DropFrom != characUpgrade.DropUntil)
+                {
+                    rangeText = $"{characUpgrade.DropFrom} - {characUpgrade.DropUntil}";
+                }
+            }
 
-            _title.text = upgrade.Title + $" ({upgrade.UpgradeQuality})";
-            _image.sprite = upgrade.Sprite;
+            _title.text = upgrade.UpgradeSO.Title + (rangeText != "" ? $" {rangeText} " : "")+$" ({upgrade.UpgradeQuality})";
+            _image.sprite = upgrade.UpgradeSO.Sprite;
             _description.text = upgrade.GetDescription();
             Image upgradeImage = GetComponent<Image>();
+
             switch (upgrade.UpgradeQuality)
             {
                 case Types.UpgradeQuality.Rare:

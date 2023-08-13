@@ -14,7 +14,7 @@ namespace Assets.Scripts.Controller.Ui
 {
     public class StatListController : MonoBehaviour
     {
-        public void Init(CharacterStatisticsSO characterStatistics, WeaponStatisticsSO weaponStatistics)
+        public void Init(BaseStatistics<CharacterStatisticEnum> characterStatistics, BaseStatistics<WeaponStatisticEnum> weaponStatistics)
         {
             GameObject statInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/StatInfo");
             CharacterStatisticsDescriptionSO[] stats = Resources.LoadAll<CharacterStatisticsDescriptionSO>("ScriptableObjects/PlayableCharacters/Statistics/");

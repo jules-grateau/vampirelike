@@ -26,7 +26,6 @@ public class PickUpWeapon : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(_defaultAudioClip, transform.position, 1);
             weapon.parent = collision.gameObject;
-            weapon.Init();
             _gameEvent.Raise(weapon);
             Destroy(gameObject);
         }

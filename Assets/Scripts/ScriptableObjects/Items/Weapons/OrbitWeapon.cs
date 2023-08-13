@@ -18,8 +18,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         {
             SanitizeProjectiles();
             int count = _projectiles.Count;
-            int amount = Mathf.FloorToInt(GetStats(WeaponStatisticEnum.ProjectileNumber));
-            float radius = GetStats(WeaponStatisticEnum.Radius);
+            int amount = Mathf.FloorToInt(_weaponStats.GetStats(WeaponStatisticEnum.ProjectileNumber));
+            float radius = _weaponStats.GetStats(WeaponStatisticEnum.Radius);
             for (int i = 0; i < amount - count; i++)
             {
                 GameObject projectile = GetProjectile();
@@ -40,10 +40,10 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 );
                 _projectiles[i].transform.position = newPos;
                 _projectiles[i].transform.rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, -90) * (newPos - holderPosition));
-                _projectiles[i].transform.localScale = new Vector3(1f * (1 + (GetStats(WeaponStatisticEnum.Size) / 100)), 1f * (1 + (GetStats(WeaponStatisticEnum.Size) / 100)), 1f);
+                _projectiles[i].transform.localScale = new Vector3(1f * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Size) / 100)), 1f * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Size) / 100)), 1f);
                 _projectiles[i].SetActive(true);
             }
-            _localAngle += Time.deltaTime * (GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + GetStats(WeaponStatisticEnum.SpeedPercentage) / 100));
+            _localAngle += Time.deltaTime * (_weaponStats.GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + _weaponStats.GetStats(WeaponStatisticEnum.SpeedPercentage) / 100));
 
             if (_localAngle >= 360f)
                 _localAngle = 0f;

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
+  m_Name: MaxHpUpgrade
+  m_EditorClassIdentifier: 
+  _title: Maximum health
+  _sprite: {fileID: -1693488755, guid: 0e630338424d76d429618acfef22c454, type: 3}
+  _description: Get {value} more max hp
+  _maxAmout: 0
+  _statsToUpgrade: 3
+  _valueToAdd:
+  - Quality: 0
+    Value: 2
+  - Quality: 1
+    Value: 4
+  - Quality: 2
+    Value: 6
+  - Quality: 3
+    Value: 10
+  _additionType: 0
+  _dropFrom: 0
+  _dropUntil: 0
+  _maxValue: 0

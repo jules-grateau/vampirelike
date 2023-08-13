@@ -21,10 +21,8 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         int _maxAmout;
 
-        public UpgradeQuality UpgradeQuality => _upgradeQuality;
-        [SerializeField]
-        UpgradeQuality _upgradeQuality;
+        public abstract string GetDescription(UpgradeQuality quality);
 
-        public abstract string GetDescription();
+        public abstract bool HasQuality(UpgradeQuality quality);
     }
 }

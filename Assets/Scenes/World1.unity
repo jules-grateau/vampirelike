@@ -9749,7 +9749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf61a21be80e4c48a1bcb40e10d12ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: {fileID: 11400000, guid: f3b73dd96a783354a84019243f2c7b70, type: 2}
 --- !u!4 &639333063
 Transform:
   m_ObjectHideFlags: 0
@@ -12466,7 +12465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf61a21be80e4c48a1bcb40e10d12ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: {fileID: 11400000, guid: f3b73dd96a783354a84019243f2c7b70, type: 2}
 --- !u!4 &2095285944
 Transform:
   m_ObjectHideFlags: 0

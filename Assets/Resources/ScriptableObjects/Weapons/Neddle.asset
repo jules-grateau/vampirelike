@@ -12,21 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
   m_Name: Neddle
   m_EditorClassIdentifier: 
-  _baseStats:
-  - _key: 6
-    _value: 5
-  - _key: 2
-    _value: 1
-  - _key: 9
-    _value: 1
-  - _key: 10
-    _value: 2
-  - _key: 4
-    _value: 10
   _projectilPrefab: {fileID: 319311135818076577, guid: 2cf4a64cfcc858343885d2d33e53beba, type: 3}
   _icon: {fileID: -626371446, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _isAnimatedHit: 0
+  _weaponStats:
+    _baseStats:
+    - _key: 14
+      _value: 2
+    - _key: 2
+      _value: 1
+    - _key: 6
+      _value: 5
+    - _key: 9
+      _value: 1.5
+    - _key: 4
+      _value: 10
+    - _key: 10
+      _value: 2
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0
