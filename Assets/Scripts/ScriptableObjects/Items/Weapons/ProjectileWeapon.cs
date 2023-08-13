@@ -106,7 +106,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 case ProjectileDamages.Split:
                     onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SplitBehaviour()
                     {
-                        damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                        damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
                         enemyHitEvent = _enemyHitEvent,
                         splitNbr = _splitNbr,
                         splitTimes = splitTimes

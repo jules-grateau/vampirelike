@@ -20,13 +20,13 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         private Vector2 _bumpVector;
 
-        public override void Init(BaseStatisticsSO<WeaponStatisticEnum> additionalStats = null)
+        public override void Init(BaseStatistics<WeaponStatisticEnum> additionalStats = null)
         {
             base.Init(additionalStats);
 
             GameObject aura = Instantiate(_auraPrefab);
             aura.transform.position = parent.transform.position;
-            aura.transform.localScale = new Vector3(GetStats(Types.WeaponStatisticEnum.Range)*2, GetStats(Types.WeaponStatisticEnum.Range)*2, 1f);
+            aura.transform.localScale = new Vector3(_weaponStats.GetStats(Types.WeaponStatisticEnum.Range)*2, _weaponStats.GetStats(Types.WeaponStatisticEnum.Range)*2, 1f);
             aura.transform.parent = parent.transform;
 
             _currentAuraPrefab = aura;
@@ -45,7 +45,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
 
-            var hits = Physics2D.OverlapCircleAll(holderPosition, GetStats(Types.WeaponStatisticEnum.Range), 1 << LayerMask.NameToLayer("Enemy"));
+            var hits = Physics2D.OverlapCircleAll(holderPosition, _weaponStats.GetStats(Types.WeaponStatisticEnum.Range), 1 << LayerMask.NameToLayer("Enemy"));
             if (hits.Length <= 0) return false;
 
             _currentAuraPrefab.GetComponentInChildren<Animator>().SetBool("isUse", true);
@@ -54,7 +54,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 .Where(hit => Physics2D.Raycast(holderPosition, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
                 .OrderBy(hit => hit.distance)
                 .Select(hit => hit.data.gameObject)
-                .Take(Mathf.RoundToInt(GetStats(WeaponStatisticEnum.ProjectileNumber)))
+                .Take(Mathf.RoundToInt(_weaponStats.GetStats(WeaponStatisticEnum.ProjectileNumber)))
                 .ToArray();
 
             foreach (GameObject target in targets)
@@ -67,7 +67,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
                 _enemyHitEvent.Raise(new HitData
                 {
-                    damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                    damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
                     instanceID = target.GetInstanceID(),
                     position = target.transform.position,
                     source = parent,

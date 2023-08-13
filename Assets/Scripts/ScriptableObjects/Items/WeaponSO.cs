@@ -33,7 +33,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
             OnUpgradeStats();
         }
 
-        public void Init(BaseStatistics<WeaponStatisticEnum> additionalStats)
+        public virtual void Init(BaseStatistics<WeaponStatisticEnum> additionalStats)
         {
             _weaponStats.Init(additionalStats);
         }

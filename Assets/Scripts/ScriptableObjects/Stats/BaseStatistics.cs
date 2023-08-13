@@ -14,9 +14,9 @@ namespace Assets.Scripts.ScriptableObjects.Characters
         public Dictionary<T, float> Stats => _stats;
         Dictionary<T, float> _stats;
 
-        public virtual void Init(BaseStatisticsSO<T> additionalStats = null)
+        public BaseStatistics()
         {
- 
+
         }
 
         public void Init(BaseStatistics<T> additionalStats = null)
