@@ -28,14 +28,17 @@ MonoBehaviour:
   - _key: 12
     _value: 3
   _projectilPrefab: {fileID: 319311135818076577, guid: cb53d3b50fa3ea54897cebb323b2d8f2, type: 3}
-  _icon: {fileID: -1795064521, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
+  _icon: {fileID: -275888322, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
+  _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
+  _isAnimatedHit: 0
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0
-  _tickSpeed: 0
-  _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
+  _duration: 0
   _explosionRadius: 0
   _particles: {fileID: 0}
+  _splitNbr: 0
+  splitTimes: 0
   directionType: 1
   _bounceOnWall: 0
   destructionType: 1

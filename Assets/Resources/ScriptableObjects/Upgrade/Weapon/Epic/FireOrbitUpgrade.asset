@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireOrbitUpgrade
   m_EditorClassIdentifier: 
   _title: FIre Orb
-  _sprite: {fileID: 6631185964355660288, guid: f44fba3b6639fb34cb327fcd0d1033bf, type: 3}
+  _sprite: {fileID: 1875462916, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _description: Increase the number of projectile for Fire Orbs
   _maxAmout: 2
   _upgradeQuality: 2

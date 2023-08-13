@@ -5,7 +5,7 @@ namespace Assets.Scripts.Types
 {
     public enum ProjectileDirection
     {
-        TurnBackTowardPlayer=4,
+        TurnBackTowardPlayer = 4,
         AutoAimed = 3,
         Straight = 2,
         Ricochet = 1,
@@ -20,7 +20,8 @@ namespace Assets.Scripts.Types
     {
         Direct,
         PerSecond,
-        Explosion
+        Explosion,
+        Split,
     }
 
     public enum ProjectileDestruction

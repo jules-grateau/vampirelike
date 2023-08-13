@@ -21,7 +21,6 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                 position = collision2D.transform.position,
                 source = self.parent
             });
-            return;
         }
     }
 }

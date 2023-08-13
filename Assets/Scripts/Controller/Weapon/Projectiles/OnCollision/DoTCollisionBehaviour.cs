@@ -9,7 +9,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     public class DoTBehaviour : OnCollisionDamageBehaviour
     {
         [SerializeField]
-        public float tickSpeed;
+        public float duration;
         private float _cooloff;
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
@@ -17,18 +17,15 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
-            if (_cooloff >= tickSpeed)
+            enemyHitEvent.Raise(new HitData
             {
-                enemyHitEvent.Raise(new HitData
-                {
-                    damage = damage,
-                    instanceID = collision2D.gameObject.GetInstanceID(),
-                    position = collision2D.transform.position,
-                    source = self.parent
-                });
-                _cooloff = 0f;
-            }
-            _cooloff += Time.deltaTime;
+                damage = damage,
+                instanceID = collision2D.gameObject.GetInstanceID(),
+                position = collision2D.transform.position,
+                source = self.parent,
+                time = duration,
+                status = HitStatusEnum.Poison
+            });
         }
     }
 }

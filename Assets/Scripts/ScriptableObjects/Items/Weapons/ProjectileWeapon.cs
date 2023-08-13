@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Controller.Weapon.Projectiles;
 using Assets.Scripts.Controller.Weapon.Projectiles.OnEachFrame;
-using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.Types;
 using UnityEngine;
 
@@ -8,6 +7,10 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 {
     public abstract class ProjectileWeapon : WeaponSO
     {
+
+        [Header("Animation")]
+        [SerializeField]
+        private bool _isAnimatedHit;
 
         [Header("Behaviour")]
         [SerializeField]
@@ -21,15 +24,19 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         public ProjectileDamages damageType;
         [SerializeField]
         [DrawIf("damageType", ProjectileDamages.PerSecond, ComparisonType.Equals, DisablingType.DontDraw)]
-        private float _tickSpeed;
-        [SerializeField]
-        public GameEventHitData _enemyHitEvent;
+        private float _duration;
         [DrawIf("damageType", ProjectileDamages.Explosion, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         private float _explosionRadius;
         [DrawIf("damageType", ProjectileDamages.Explosion, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         private GameObject _particles;
+        [DrawIf("damageType", ProjectileDamages.Split, ComparisonType.Equals, DisablingType.DontDraw)]
+        [SerializeField]
+        private int _splitNbr;
+        [DrawIf("damageType", ProjectileDamages.Split, ComparisonType.Equals, DisablingType.DontDraw)]
+        [SerializeField]
+        public int splitTimes;
 
         [Header("Direction")]
         [SerializeField]
@@ -57,6 +64,15 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             OnAllBehaviourOrchestrator onAllBehaviourOrchestrator = projectile.AddComponent<OnAllBehaviourOrchestrator>();
             onAllBehaviourOrchestrator.parent = parent;
 
+            if (_isAnimatedHit)
+            {
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new AnimateOnHitBehaviour());
+            }
+            else
+            {
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new NoAnimateOnHitBehaviour());
+            }
+
             switch (behaviourType)
             {
                 case ProjectileBehaviourEnum.Grow:
@@ -67,7 +83,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     break;
                 default: break;
             }
-
             
             switch (damageType)
             {
@@ -76,7 +91,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     {
                         damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
                         enemyHitEvent = _enemyHitEvent,
-                        tickSpeed = _tickSpeed
+                        duration = _duration
                     });
                     break;
                 case ProjectileDamages.Explosion:
@@ -86,6 +101,15 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                         enemyHitEvent = _enemyHitEvent,
                         explosionRadius = _explosionRadius,
                         particles = _particles.GetComponent<ParticleSystem>()
+                    });
+                    break;
+                case ProjectileDamages.Split:
+                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SplitBehaviour()
+                    {
+                        damage = GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                        enemyHitEvent = _enemyHitEvent,
+                        splitNbr = _splitNbr,
+                        splitTimes = splitTimes
                     });
                     break;
                 case ProjectileDamages.Direct:

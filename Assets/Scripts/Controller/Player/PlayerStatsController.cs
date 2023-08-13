@@ -18,10 +18,10 @@ public class PlayerStatsController : MonoBehaviour
         characterStatistics.Init();
     }
 
-    public (bool, float) ComputeDamage(float damage)
+    public (bool, float) ComputeDamage(float damage, bool cannotBeCrit = false)
     {
         float rand = Random.value;
-        bool isCrit = rand <= _characterStatistics.GetStats(CharacterStatisticEnum.CritChance)/ 100f;
+        bool isCrit = !cannotBeCrit && rand <= _characterStatistics.GetStats(CharacterStatisticEnum.CritChance)/ 100f;
         float computedDamage = damage;
 
         if (isCrit)
