@@ -15,9 +15,9 @@ public class UIWeaponInventoryController : MonoBehaviour
 
     public void AddWeapon(WeaponSO weapon)
     {
-        GameObject inventorySlot = Instantiate(_inventorySlotPrefab,gameObject.transform);
+        GameObject inventorySlot = Instantiate(_inventorySlotPrefab, gameObject.transform);
+        inventorySlot.GetComponent<UIWeaponCooldownController>().SetWeaponSO(weapon);
         Image image = inventorySlot.transform.Find("Icon").GetComponent<Image>();
         image.overrideSprite = weapon.icon;
-
     }
 }

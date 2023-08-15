@@ -13,7 +13,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         private float _cooloff;
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
-            triggeringStates = new ProjectileState[] { ProjectileState.Start, ProjectileState.End };
+            triggeringStates = new ProjectileState[] { ProjectileState.Start, ProjectileState.End, ProjectileState.Destroy };
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {

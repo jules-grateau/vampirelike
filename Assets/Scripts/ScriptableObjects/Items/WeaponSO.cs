@@ -21,6 +21,10 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         protected BaseStatistics<WeaponStatisticEnum> _weaponStats;
 
+
+        [System.NonSerialized]
+        public float cooloff = 0f;
+
         public Sprite icon { get { return _icon; } }
         public abstract bool Use(Vector2 holderPosition, Vector2 holderDirection);
         public GameObject parent { get; set; }

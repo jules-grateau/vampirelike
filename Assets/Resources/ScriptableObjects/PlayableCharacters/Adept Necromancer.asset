@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c60608f5454609419e4baaa4e563121, type: 3}
+  m_Name: Adept Necromancer
+  m_EditorClassIdentifier: 
+  _name: Adept Necromancer
+  _sprite: {fileID: 1651512880, guid: cb9caac5d8c517d4fa7e098fac77bc83, type: 3}
+  _description: The Adept Necromancer wields mastery over death's power, summoning
+    undead minions to execute their dark bidding while manipulating the very essence
+    of life to strike fear into their foes. With an arsenal of curses and unholy
+    spells, they command the battlefield with an eerie and commanding presence.
+  _prefab: {fileID: 704638989827276549, guid: ee948b91f4248d24c8523af681b45a44, type: 3}
+  _weaponStatistics:
+    _baseStats: []
+  _characterStatistics:
+    _baseStats:
+    - _key: 0
+      _value: 5
+    - _key: 1
+      _value: 200
+    - _key: 2
+      _value: 4
+    - _key: 3
+      _value: 20
+    - _key: 4
+      _value: 4
+    - _key: 6
+      _value: 0.5

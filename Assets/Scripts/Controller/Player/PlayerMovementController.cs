@@ -19,7 +19,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
         _playerStatsController = GetComponent<PlayerStatsController>();
     }
 
@@ -43,6 +43,7 @@ public class PlayerMovementController : MonoBehaviour
         float speed = _defaultSpeed * (1 + getBonusSpeed() / 100);
 
         _rigidbody.velocity = new Vector2(movementValue.x, movementValue.y).normalized * speed;
+        _animator.speed = speed / 2;
     }
 
     private float getBonusSpeed()

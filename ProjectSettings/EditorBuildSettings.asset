@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/World2.unity
     guid: 731e3fc8e81940e4fba54416cd7a878d
   - enabled: 1
+    path: Assets/Scenes/World3.unity
+    guid: 65e3c9dfdb97b284a9e4688c0f712274
+  - enabled: 1
     path: Assets/Scenes/Menus/PauseMenu.unity
     guid: ae4998584a8b5bb429e10f0178bb1d32
   - enabled: 1

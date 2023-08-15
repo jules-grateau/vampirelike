@@ -15,7 +15,11 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)
         {
-            self.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            Rigidbody2D body = self.gameObject.GetComponent<Rigidbody2D>();
+            if (body)
+            {
+                body.velocity = Vector2.zero;
+            }
             GameObject.Destroy(self.gameObject);
         }
     }
