@@ -15,4 +15,5 @@ MonoBehaviour:
   pickupAudio: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}
   _prefab: {fileID: 6801104700241300836, guid: a5f128154c8111d46b6f89edbc2b722c, type: 3}
   _collectEvent: {fileID: 11400000, guid: 3cc90bfc3ec67934aa12576c37985fab, type: 2}
+  dropChance: 0.05
   _duration: 10

@@ -22,7 +22,10 @@ MonoBehaviour:
   _dropXp: 1
   _xpCollectible: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
   _xpValue: 1
-  _dropType: 1
-  _collectibles: []
+  _dropType: 0
+  _collectibles:
+  - {fileID: 11400000, guid: f3b73dd96a783354a84019243f2c7b70, type: 2}
+  - {fileID: 11400000, guid: 5465de5c9ed79e648a5d9158cd465306, type: 2}
+  - {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
   _deathAudioClip: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}
   _prefab: {fileID: 881878062649732175, guid: bfd5a759865eb7647acda64210e5479b, type: 3}
