@@ -73,6 +73,13 @@ namespace Assets.Scripts.Controller.Player
 
         public void OnPlayerHeal(float value)
         {
+            float maxHp = _characterStatistics.GetStats(CharacterStatisticEnum.MaxHp);
+            if (_hp + value > maxHp)
+            {
+                _hp = maxHp;
+                return;
+            }
+
             _hp += value;
         }
 

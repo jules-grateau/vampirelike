@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 7241768347325068628}
   - component: {fileID: 8663408860301830518}
   - component: {fileID: 2930062219622115911}
-  - component: {fileID: -3658710910007143552}
   - component: {fileID: 132519036493021569}
   - component: {fileID: 3229203563632729664}
   - component: {fileID: 165095560889788552}
@@ -202,34 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befeed3b7ab39e64e86507e556eeaf1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3658710910007143552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704638989827276549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595b542e79fccad468762a762d214e8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 1f6685dba6f763f46938d2aa18b4d420, type: 2}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2930062219622115911}
-        m_TargetAssemblyTypeName: PlayerStatsController, Assembly-CSharp
-        m_MethodName: OnSelectUpgrade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &132519036493021569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +260,31 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132519036493021569}
         m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
+          Assembly-CSharp
+        m_MethodName: OnSelectUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2930062219622115911}
+        m_TargetAssemblyTypeName: PlayerStatsController, Assembly-CSharp
+        m_MethodName: OnSelectUpgrade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4409285678151217457}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerHealth,
           Assembly-CSharp
         m_MethodName: OnSelectUpgrade
         m_Mode: 0
