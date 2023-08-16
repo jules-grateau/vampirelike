@@ -49,18 +49,17 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
         {
             WeaponSO forWeapon = upgrade.UpgradeSO is SpecificWeaponStatsUpgradeSO ? ((SpecificWeaponStatsUpgradeSO) upgrade.UpgradeSO)._forWeapon : null;
 
-            if (!forWeapon)
-            {
-                _weaponStats.UpgradeStats(upgrade.UpgradeSO.StatsToUpgrade, upgrade.GetValue(), upgrade.UpgradeSO.AdditionType, upgrade.UpgradeSO.MaxValue);
-                return;
-            }
-
             foreach (WeaponController weapon in weapons)
             {
                 if (!forWeapon || forWeapon.Equals(weapon.weapon))
                 {
                     weapon.weapon.UpgradeStats(upgrade.UpgradeSO.StatsToUpgrade, upgrade.GetValue(), upgrade.UpgradeSO.AdditionType, upgrade.UpgradeSO.MaxValue);
                 }
+            }
+
+            if (!forWeapon)
+            {
+                _weaponStats.UpgradeStats(upgrade.UpgradeSO.StatsToUpgrade, upgrade.GetValue(), upgrade.UpgradeSO.AdditionType, upgrade.UpgradeSO.MaxValue);
             }
 
         }
