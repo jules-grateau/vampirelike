@@ -16,7 +16,7 @@ MonoBehaviour:
   _speed: 3.5
   _damageType: 0
   _collisionEvent: {fileID: 11400000, guid: 532e962d558155b458520d5ff1f64c1c, type: 2}
-  _damage: 2.5
+  _damage: 3
   health: 5
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _dropXp: 1
