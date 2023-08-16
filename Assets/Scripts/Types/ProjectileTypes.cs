@@ -20,7 +20,6 @@ namespace Assets.Scripts.Types
     public enum ProjectileDamages
     {
         Direct,
-        PerSecond,
         Explosion,
         Split,
     }

@@ -2,6 +2,7 @@
 using UnityEngine;
 using Assets.Scripts.Events.TypedEvents;
 using System.Collections.Generic;
+using Assets.Scripts.ScriptableObjects.Status;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
@@ -9,7 +10,8 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     {
         [SerializeField]
         public GameEventHitData enemyHitEvent;
-
+        [SerializeField]
+        public StatusSO status;
         [SerializeField]
         public float damage { get; set; }
     }

@@ -22,9 +22,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [Header("Damage")]
         [SerializeField]
         public ProjectileDamages damageType;
-        [SerializeField]
-        [DrawIf("damageType", ProjectileDamages.PerSecond, ComparisonType.Equals, DisablingType.DontDraw)]
-        private float _duration;
         [DrawIf("damageType", ProjectileDamages.Explosion, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         private float _explosionRadius;
@@ -86,18 +83,11 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             
             switch (damageType)
             {
-                case ProjectileDamages.PerSecond:
-                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new DoTBehaviour()
-                    {
-                        damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
-                        enemyHitEvent = _enemyHitEvent,
-                        duration = _duration
-                    });
-                    break;
                 case ProjectileDamages.Explosion:
                     onAllBehaviourOrchestrator.addOnCollisionBehaviour(new ExplodeBehaviour()
                     {
                         damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                        status = _weaponStatus,
                         enemyHitEvent = _enemyHitEvent,
                         explosionRadius = _explosionRadius,
                         particles = _particles.GetComponent<ParticleSystem>()
@@ -107,6 +97,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SplitBehaviour()
                     {
                         damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                        status = _weaponStatus,
                         enemyHitEvent = _enemyHitEvent,
                         splitNbr = _splitNbr,
                         splitTimes = splitTimes
@@ -117,6 +108,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     onAllBehaviourOrchestrator.addOnCollisionBehaviour(new DirectDamageBehaviour()
                     {
                         damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
+                        status = _weaponStatus,
                         enemyHitEvent = _enemyHitEvent
                     });
                     break;

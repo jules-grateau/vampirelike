@@ -37,11 +37,11 @@ namespace Assets.Scripts.Controller.Ui
             if (characterStatistics == null) return;
             float maxHp = characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
             _image.fillAmount = Mathf.Clamp01(
-                Mathf.InverseLerp(_min, maxHp, _playerHealth.Hp));
+                Mathf.InverseLerp(_min, maxHp, _playerHealth.Health));
 
             if (!_displayText) return;
 
-            _displayText.SetText(_playerHealth.Hp.ToString() + " / " + maxHp.ToString());
+            _displayText.SetText(_playerHealth.Health.ToString() + " / " + maxHp.ToString());
         }
     }
 }
