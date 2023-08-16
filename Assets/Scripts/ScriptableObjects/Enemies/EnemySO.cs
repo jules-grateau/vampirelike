@@ -6,6 +6,7 @@ using Assets.Scripts.Types;
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine;
+using Assets.Scripts.ScriptableObjects.Status;
 using Assets.Scripts.Controller.Collectible;
 
 namespace Assets.Scripts.ScriptableObjects.Enemies
@@ -24,10 +25,12 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
         EnemyDamage _damageType;
         [SerializeField]
         [DrawIf("_damageType", EnemyDamage.Collision, ComparisonType.Equals, DisablingType.DontDraw)]
-        GameEventFloat _collisionEvent;
+        GameEventHitData _collisionEvent;
 
         [SerializeField]
         float _damage;
+        [SerializeField]
+        StatusSO _statusDamages;
 
         [Header("Health")]
         [SerializeField]
@@ -95,6 +98,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             if(damageScript)
             {
                 damageScript.Damage = _damage;
+                damageScript.Status = _statusDamages;
             }
 
             DropCollectible dropCollectible = enemy.AddComponent<DropCollectible>();
