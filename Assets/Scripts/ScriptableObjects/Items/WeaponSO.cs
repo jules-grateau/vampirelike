@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Assets.Scripts.ScriptableObjects.Items.Weapons;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.Events.TypedEvents;
+using Assets.Scripts.ScriptableObjects.Status;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
@@ -20,6 +21,12 @@ namespace Assets.Scripts.ScriptableObjects.Items
         public GameEventHitData _enemyHitEvent;
         [SerializeField]
         protected BaseStatistics<WeaponStatisticEnum> _weaponStats;
+        [SerializeField]
+        protected StatusSO _weaponStatus;
+        [SerializeField]
+        protected Vector2 _bumpVector;
+        [SerializeField]
+        protected float _duration;
 
 
         [System.NonSerialized]

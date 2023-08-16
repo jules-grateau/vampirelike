@@ -25,5 +25,7 @@ MonoBehaviour:
       _value: 1
     - _key: 6
       _value: 2
-  _auraPrefab: {fileID: 8157977609179841696, guid: b2801d307fe496f4cbbffc990cc326ef, type: 3}
+  _weaponStatus: {fileID: 11400000, guid: 8ceeb802628d2fd41b9e5b5127f9d08b, type: 2}
   _bumpVector: {x: 2.5, y: 2.5}
+  _duration: 0
+  _auraPrefab: {fileID: 8157977609179841696, guid: b2801d307fe496f4cbbffc990cc326ef, type: 3}

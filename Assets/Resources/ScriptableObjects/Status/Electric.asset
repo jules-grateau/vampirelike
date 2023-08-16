@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c35409a61f02de498c7c53ce1f92a83, type: 3}
+  m_Name: Electric
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -2017386985, guid: 9030d8e5d3ed0bf449dcf92ef5501231, type: 3}
+  color: {r: 0.990566, g: 0.98986703, b: 0.4812656, a: 1}
+  isDoT: 0
+  doTTime: 0
+  canBump: 0
+  bumpForce: {x: 0, y: 0}
+  isStun: 1
+  stunTime: 0.5
+  isSlow: 0
+  slowTime: 0

@@ -123,6 +123,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             EnemyHealth enemyHealth = enemy.AddComponent<EnemyHealth>();
             enemyHealth.Health = health;
             enemyHealth.deathAudioClip = _deathAudioClip;
+
             GameEventListenerHitData listenerHitData = enemy.AddComponent<GameEventListenerHitData>();
             listenerHitData.GameEvent = _enemyHitEvent;
             listenerHitData.UnityEvent = new UnityEvent<HitData>();
