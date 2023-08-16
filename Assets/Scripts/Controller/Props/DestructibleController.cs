@@ -10,24 +10,25 @@ public class DestructibleController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        this.m_GibEffect = Instantiate(Resources.Load<ParticleSystem>("Prefabs/Particles/destructible_gibs"), gameObject.transform.position, Quaternion.identity, gameObject.transform);
+        this.m_GibEffect = Instantiate(
+            Resources.Load<ParticleSystem>("Prefabs/Particles/destructible_gibs"),
+            gameObject.transform
+        );
 
         this.buildMaterial();
     }
 
     public void onDestroy()
     {
-        gameObject.GetComponent<Renderer>().enabled = false;
-        //AudioSource.PlayClipAtPoint(this.m_PuffSound, transform.position, 1);
         this.m_GibEffect.transform.parent = null;
         this.m_GibEffect.transform.localScale = Vector3.one;
         this.m_GibEffect.Play();
-        Destroy(this.m_GibEffect, this.m_GibEffect.main.startLifetime.constant);
     }
 
     private void buildMaterial()
     {
-        Sprite s = this.gameObject.GetComponent<SpriteRenderer>().sprite;
+        SpriteRenderer renderer = this.gameObject.GetComponentInChildren<SpriteRenderer>();
+        Sprite s = renderer.sprite;
         Vector2 size = s.rect.size;
         int maxX = (int)(size.x / k_splitPixelSize);
         int maxY = (int)(size.y / k_splitPixelSize);
@@ -38,7 +39,7 @@ public class DestructibleController : MonoBehaviour
         croppedTexture.SetPixels(pixels);
         croppedTexture.Apply();
 
-        Material mat = this.gameObject.GetComponent<SpriteRenderer>().material;
+        Material mat = renderer.material;
         mat.mainTexture = croppedTexture;
         this.gameObject.GetComponentInChildren<ParticleSystemRenderer>().material = mat;
 
@@ -50,7 +51,7 @@ public class DestructibleController : MonoBehaviour
         ts.startFrame = new ParticleSystem.MinMaxCurve(0, maxX + maxY);
 
         this.m_GibEffect.startSize = 0.25f;
-        this.m_GibEffect.startColor = this.gameObject.GetComponent<SpriteRenderer>().color;
+        this.m_GibEffect.startColor = renderer.color;
 
         ParticleSystem.SizeOverLifetimeModule solm = this.m_GibEffect.sizeOverLifetime;
         AnimationCurve curve = new AnimationCurve();
@@ -61,7 +62,7 @@ public class DestructibleController : MonoBehaviour
         // Change the number of particles emmited
         ParticleSystem.EmissionModule em = this.m_GibEffect.emission;
         ParticleSystem.Burst b = em.GetBurst(0);
-        b.count = maxX + maxY;
+        b.count = (maxX + maxY) * 2;
         em.SetBurst(0, b);
 
         // Change the size of the emmiter shape

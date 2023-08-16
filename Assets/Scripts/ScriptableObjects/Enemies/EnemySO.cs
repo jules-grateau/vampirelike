@@ -119,6 +119,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
                     break;
             }
 
+            DestructibleController destructibleController = enemy.AddComponent<DestructibleController>();
             EnemyHealth enemyHealth = enemy.AddComponent<EnemyHealth>();
             enemyHealth.Health = health;
             enemyHealth.deathAudioClip = _deathAudioClip;
