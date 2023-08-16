@@ -577,7 +577,7 @@ Animator:
   m_GameObject: {fileID: 2841142874941075787}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 68f4773a86e61ff4f99504dc7088c072, type: 2}
+  m_Controller: {fileID: 9100000, guid: 030285ff1ad3de04f94b355d081e34d4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -621,11 +621,11 @@ MonoBehaviour:
   - {x: 0.30369157, y: 0.037867844, z: 0}
   - {x: 0.30463767, y: -0.32782844, z: 0}
   - {x: 0.16106619, y: -0.33801752, z: 0}
-  - {x: -0.018191978, y: -0.28941873, z: 0}
-  - {x: 0.002414398, y: -0.4909395, z: 0}
-  m_ShapePathHash: 906204786
+  - {x: -0.009429455, y: -0.29160938, z: 0}
+  - {x: -0.019491933, y: -0.4909395, z: 0}
+  m_ShapePathHash: 402908942
   m_Mesh: {fileID: 0}
-  m_InstanceId: 69948
+  m_InstanceId: 47026
   m_LocalBounds:
     m_Center: {x: -0.034057915, y: -0.12057042, z: 0}
     m_Extent: {x: 0.3386956, y: 0.37248492, z: 0}
