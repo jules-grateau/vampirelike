@@ -29,9 +29,17 @@ public class FollowPlayerController : IEnemyMovement
         if (!_player) return;
         if (_enemyHealth.hasImpairment()) return;
 
-        var direction = _player.transform.position - transform.position;
-        _rigidbody.velocity = direction.normalized * Speed;
+        Vector3 direction = _player.transform.position - transform.position;
+        direction -= direction.normalized * 0.5f;
 
+        if (Mathf.Abs(direction.magnitude) < 0.1)
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
+        else
+        {
+            _rigidbody.velocity = direction.normalized * Speed;
+        }
         bool needToFlip = direction.normalized.x < 0;
 
         if (needToFlip != _isFlipped)
