@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
   m_Name: Bazooka
   m_EditorClassIdentifier: 
-  _projectilPrefab: {fileID: 4389094783381097955, guid: 2b0f3d6f95c5e1044aed10ecfe4775ff, type: 3}
-  _icon: {fileID: -1821874958, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
+  _projectilPrefab: {fileID: 4389094783381097955, guid: 3537fd31ff515e34a99347260e57d4f7, type: 3}
+  _icon: {fileID: 289614366, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
+  _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
+  _isAnimatedHit: 1
   _weaponStats:
     _baseStats:
     - _key: 2
@@ -29,10 +31,11 @@ MonoBehaviour:
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 2
-  _tickSpeed: 0
-  _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
+  _duration: 0
   _explosionRadius: 2
   _particles: {fileID: 5822821294587056223, guid: bb103fa15be3c2d49977c6431f980740, type: 3}
+  _splitNbr: 0
+  splitTimes: 0
   directionType: 3
   _bounceOnWall: 0
   destructionType: 1

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c60608f5454609419e4baaa4e563121, type: 3}
+  m_Name: Elf Lord
+  m_EditorClassIdentifier: 
+  _name: Elf Lord
+  _sprite: {fileID: -448886036, guid: 0cf6e3d137343aa41a1d2f1a61a7bd3f, type: 3}
+  _description: The Elf Lord, adorned in gleaming armor and wielding an unyielding
+    shield, embodies both elegance and martial prowess. With the grace of the forest
+    coursing through their veins, they stand as a stalwart guardian, deflecting attacks
+    with precision and counterattacking with a blade that dances as swiftly as the
+    wind.
+  _prefab: {fileID: 704638989827276549, guid: 23e8e4aeb57c34442b2f8837d0a0b428, type: 3}
+  _weaponStatistics:
+    _baseStats: []
+  _characterStatistics:
+    _baseStats:
+    - _key: 0
+      _value: 5
+    - _key: 1
+      _value: 200
+    - _key: 2
+      _value: 2
+    - _key: 3
+      _value: 50
+    - _key: 4
+      _value: 2.5
+    - _key: 6
+      _value: 1

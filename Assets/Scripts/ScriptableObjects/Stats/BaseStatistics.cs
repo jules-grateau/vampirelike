@@ -16,7 +16,7 @@ namespace Assets.Scripts.ScriptableObjects.Characters
 
         public BaseStatistics()
         {
- 
+
         }
 
         public void Init(BaseStatistics<T> additionalStats = null)

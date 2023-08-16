@@ -12,8 +12,15 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         public GameObject parent { get; set; }
         public ProjectileState currentState = ProjectileState.Start;
 
-        protected List<BaseBehaviour<Collision2D>> onCollisionBehaviours = new List<BaseBehaviour<Collision2D>>();
-        protected List<BaseBehaviour<float>> onEachFrameBehaviours = new List<BaseBehaviour<float>>();
+        public List<BaseBehaviour<Collision2D>> onCollisionBehaviours = new List<BaseBehaviour<Collision2D>>();
+        public List<BaseBehaviour<float>> onEachFrameBehaviours = new List<BaseBehaviour<float>>();
+
+        public void copyAllBehaviours(BaseBehaviourOrchestrator copy)
+        {
+            parent = copy.parent;
+            onCollisionBehaviours.AddRange(copy.onCollisionBehaviours);
+            onEachFrameBehaviours.AddRange(copy.onEachFrameBehaviours);
+        }
 
         public void addOnCollisionBehaviour(BaseBehaviour<Collision2D> newOnCollisionBehaviour)
         {
@@ -22,6 +29,18 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         public void addOnEachFrameBehaviour(BaseBehaviour<float> newOnEachFrameBehaviour)
         {
             onEachFrameBehaviours.Add(newOnEachFrameBehaviour);
+        }
+
+        public T getBehaviourByType<T>() where T : BaseBehaviour<Collision2D>
+        {
+            foreach (BaseBehaviour<Collision2D> behaviour in onCollisionBehaviours)
+            {
+                if(behaviour is T)
+                {
+                    return (T)behaviour;
+                }
+            }
+            return null;
         }
 
         public void TriggerNewState(ProjectileState newState)

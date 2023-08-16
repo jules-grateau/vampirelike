@@ -3,6 +3,7 @@ using Assets.Scripts.Controller.Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Types;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class FollowPlayerController : IEnemyMovement
@@ -10,6 +11,7 @@ public class FollowPlayerController : IEnemyMovement
     [SerializeField]
     private GameObject _player;
     private Rigidbody2D _rigidbody;
+    private EnemyHealth _enemyHealth;
 
     private bool _isFlipped = false;
 
@@ -18,12 +20,14 @@ public class FollowPlayerController : IEnemyMovement
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _rigidbody = GetComponent<Rigidbody2D>();
+        _enemyHealth = GetComponent<EnemyHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!_player) return;
+        if (_enemyHealth.hasImpairment()) return;
 
         var direction = _player.transform.position - transform.position;
         _rigidbody.velocity = direction.normalized * Speed;

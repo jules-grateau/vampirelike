@@ -34,7 +34,7 @@ namespace Assets.Scripts.Controller.Player
         {
             isInvincible = false;
 
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
             PlayerStatsController playerStatsController = GetComponent<PlayerStatsController>();
             if (!playerStatsController) return;

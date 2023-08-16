@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Arrow around
   m_EditorClassIdentifier: 
   _projectilPrefab: {fileID: 319311135818076577, guid: 628282353657a5342841555f4e916013, type: 3}
-  _icon: {fileID: 21300000, guid: 0dbe74b571b9e584faa3849d7806a970, type: 3}
+  _icon: {fileID: 1980252828, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
+  _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _weaponStats:
     _baseStats:
     - _key: 2
@@ -24,15 +25,15 @@ MonoBehaviour:
       _value: 5
     - _key: 9
       _value: 7
-    - _key: 9
-      _value: 7
+  _isAnimatedHit: 0
   behaviourType: 0
   _growValue: {x: 0.001, y: 0.001, z: 0}
   damageType: 0
-  _tickSpeed: 0
-  _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
+  _duration: 0
   _explosionRadius: 0
   _particles: {fileID: 0}
+  _splitNbr: 0
+  splitTimes: 0
   directionType: 2
   _bounceOnWall: 0
   destructionType: 1

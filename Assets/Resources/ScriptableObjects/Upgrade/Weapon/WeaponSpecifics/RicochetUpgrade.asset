@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RicochetUpgrade
   m_EditorClassIdentifier: 
   _title: Ricochet
-  _sprite: {fileID: -1795064521, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
+  _sprite: {fileID: -275888322, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _description: Increase the number of ricochet by {value}
   _maxAmout: 3
   _statsToUpgrade: 12

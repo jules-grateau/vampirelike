@@ -9,14 +9,16 @@ namespace Assets.Scripts.Controller.Ui
     {
         GameObject _characterInfoPrefab;
         PlayableCharacterSO[] _playableCharacters;
+        GridLayout _gridLayoutGroup;
 
         // Use this for initialization
         void Awake()
         {
             _characterInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/CharacterInfo");
             _playableCharacters = Resources.LoadAll<PlayableCharacterSO>("ScriptableObjects/PlayableCharacters/");
+            _gridLayoutGroup = gameObject.GetComponent<GridLayout>();
 
-            foreach(PlayableCharacterSO playbleCharacter in _playableCharacters)
+            foreach (PlayableCharacterSO playbleCharacter in _playableCharacters)
             {
                 GameObject characterInfo = Instantiate(_characterInfoPrefab, transform);
                 CharacterInfoController characterInfoController = characterInfo.GetComponent<CharacterInfoController>();

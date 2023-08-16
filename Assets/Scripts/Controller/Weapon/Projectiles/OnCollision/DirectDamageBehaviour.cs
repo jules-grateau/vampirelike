@@ -10,7 +10,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     {
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
-            triggeringStates = new ProjectileState[] { ProjectileState.Start, ProjectileState.End };
+            triggeringStates = new ProjectileState[] { ProjectileState.Start, ProjectileState.End, ProjectileState.Destroy };
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
@@ -21,7 +21,6 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                 position = collision2D.transform.position,
                 source = self.parent
             });
-            return;
         }
     }
 }

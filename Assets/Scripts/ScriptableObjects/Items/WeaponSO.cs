@@ -5,6 +5,7 @@ using Assets.Scripts.Controller.Weapon.Projectiles;
 using System.Collections.Generic;
 using Assets.Scripts.ScriptableObjects.Items.Weapons;
 using Assets.Scripts.ScriptableObjects.Characters;
+using Assets.Scripts.Events.TypedEvents;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
@@ -16,7 +17,13 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         protected Sprite _icon;
         [SerializeField]
+        public GameEventHitData _enemyHitEvent;
+        [SerializeField]
         protected BaseStatistics<WeaponStatisticEnum> _weaponStats;
+
+
+        [System.NonSerialized]
+        public float cooloff = 0f;
 
         public Sprite icon { get { return _icon; } }
         public abstract bool Use(Vector2 holderPosition, Vector2 holderDirection);
@@ -30,7 +37,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
             OnUpgradeStats();
         }
 
-        public void Init(BaseStatistics<WeaponStatisticEnum> additionalStats)
+        public virtual void Init(BaseStatistics<WeaponStatisticEnum> additionalStats)
         {
             _weaponStats.Init(additionalStats);
         }

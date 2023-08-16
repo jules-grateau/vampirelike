@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AxeUpgrade
   m_EditorClassIdentifier: 
   _title: Boomerang
-  _sprite: {fileID: -742948596, guid: 24c6ce71419562545ac1c75dbab6bb4c, type: 3}
+  _sprite: {fileID: -1829270791, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _description: Reduce the cooldown value of Boomerang by {value}
   _maxAmout: 2
   _statsToUpgrade: 9

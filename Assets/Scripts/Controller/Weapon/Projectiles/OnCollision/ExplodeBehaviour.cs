@@ -19,8 +19,6 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
-            if (collision2D.gameObject.GetInstanceID() == self.parent.gameObject.GetInstanceID()) return;
-
             ParticleSystem p = ParticleSystem.Instantiate(particles, self.transform.position, Quaternion.identity, self.transform);
             p.gameObject.transform.parent = null;
             p.Play();

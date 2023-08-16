@@ -21,7 +21,8 @@ namespace Assets.Scripts.Types
     {
         Direct,
         PerSecond,
-        Explosion
+        Explosion,
+        Split,
     }
 
     public enum ProjectileDestruction

@@ -4,7 +4,6 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public WeaponSO weapon;
-    private float cooloff = 0f;
     private Vector2 _lastDirection = Vector2.right;
     private Rigidbody2D _parentRigidBody;
 
@@ -14,7 +13,7 @@ public class WeaponController : MonoBehaviour
         setLastDirection();
 
         //First shoot;
-        cooloff = weapon.GetCooldown();
+        weapon.cooloff = weapon.GetCooldown();
     }
 
     // Update is called once per frame
@@ -25,12 +24,12 @@ public class WeaponController : MonoBehaviour
         setLastDirection();
         float weapCooldown = weapon.GetCooldown();
 
-        if (cooloff >= weapCooldown)
+        if (weapon.cooloff >= weapCooldown)
         {
             bool didUse = weapon.Use(gameObject.transform.position, _lastDirection);
-            if(didUse) cooloff = 0;
+            if(didUse) weapon.cooloff = 0;
         }
-        cooloff += Time.fixedDeltaTime;
+        weapon.cooloff += Time.fixedDeltaTime;
     }
 
     void setLastDirection()
