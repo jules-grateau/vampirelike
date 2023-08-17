@@ -1,10 +1,8 @@
 using UnityEngine;
 public class MobileUIVisibilityController : MonoBehaviour
 {
-
-    private void Awake()
+    private void OnEnable()
     {
         gameObject.SetActive(UnityEngine.Device.Application.isMobilePlatform);
-
     }
 }
