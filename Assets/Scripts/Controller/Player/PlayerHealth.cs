@@ -76,7 +76,7 @@ namespace Assets.Scripts.Controller.Player
                 Health -= computedDamage;
                 if (Health <= 0)
                 {
-                    Destroy(gameObject);
+                    HandlePlayerDeath();
                 }
                 else
                 {
@@ -116,6 +116,12 @@ namespace Assets.Scripts.Controller.Player
             if (statsUpgrade.UpgradeSO.StatsToUpgrade != Types.CharacterStatisticEnum.MaxHp) return;
 
             Health += statsUpgrade.GetValue();  
+        }
+
+        void HandlePlayerDeath()
+        {
+            triggerBeforeDestroy();
+            Destroy(gameObject);
         }
 
         protected override void triggerBeforeDestroy()

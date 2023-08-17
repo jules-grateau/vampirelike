@@ -16,7 +16,7 @@ public class DropCollectible : MonoBehaviour
         _collectibles.Add(buildFunction, amount);
     }
 
-    public void onDestroy()
+    public void OnDropCollectible()
     {
         foreach (var _collectible in _collectibles)
         {

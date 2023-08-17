@@ -32,6 +32,8 @@ namespace Assets.Scripts.Controller.Ui
 
         void HandlePause(CallbackContext context)
         {
+            if (_isPlayerDead) return;
+
             if (_isPauseMenuOpen && _isPaused)
             {
                 ClosePauseMenu();
@@ -69,7 +71,6 @@ namespace Assets.Scripts.Controller.Ui
         public void OnPlayerDeath()
         {
             _isPlayerDead = true;
-            Debug.Log(_isPlayerDead);
         }
 
 
