@@ -7,14 +7,13 @@ using UnityEngine.InputSystem.OnScreen;
 
 namespace Assets.Scripts.Controller.Ui
 {
-    public class InputActionOnScreenButton : OnScreenControl, IPointerDownHandler
+    public class InputActionOnScreenButton : OnScreenButton, IPointerClickHandler
     {
-        public void OnPointerDown(PointerEventData eventData)
+        public void OnPointerClick(PointerEventData eventData)
         {
             SendValueToControl(1.0f);
         }
 
-        [InputControl(layout = "Button")]
         private string m_ControlPath;
 
         [SerializeField]
@@ -28,7 +27,7 @@ namespace Assets.Scripts.Controller.Ui
 
         private void Awake()
         {
-            this.controlPath = _action.action.bindings[0].effectivePath;
+            m_ControlPath = _action.action.bindings[0].effectivePath;
         }
     }
 }
