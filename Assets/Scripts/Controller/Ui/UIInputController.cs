@@ -66,6 +66,10 @@ namespace Assets.Scripts.Controller.Ui
         public void OnUnpause()
         {
             _isPaused = false;
+            if(_isPauseMenuOpen)
+            {
+                ClosePauseMenu();
+            }
         }
 
         public void OnPlayerDeath()
