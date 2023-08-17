@@ -419,7 +419,6 @@ GameObject:
   - component: {fileID: 255999298}
   - component: {fileID: 255999297}
   - component: {fileID: 255999296}
-  - component: {fileID: 255999295}
   - component: {fileID: 255999294}
   m_Layer: 5
   m_Name: RetryButton
@@ -461,20 +460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b95f5e4f7556bd47acd6666e2408cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &255999295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255999292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b26dba5ddbbee364198d6f7be6da81cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneName: MainMenu
-  loadSceneMode: 0
 --- !u!114 &255999296
 MonoBehaviour:
   m_ObjectHideFlags: 0

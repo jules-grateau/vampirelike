@@ -119,23 +119,8 @@ namespace Assets.Scripts.Controller
 
             if (Health <= 0)
             {
-                Destroy(gameObject);
+                onDeath();
             }
-        }
-
-        private void OnDestroy()
-        {
-            DestructibleController destructible = gameObject.GetComponent<DestructibleController>();
-            if (destructible)
-            {
-                destructible.onDestroy();
-            }
-            DropCollectible drop = gameObject.GetComponent<DropCollectible>();
-            if (drop)
-            {
-                drop.onDestroy();
-            }
-            triggerBeforeDestroy();
         }
 
         public void TakeDamage(HitData hit)
@@ -162,6 +147,22 @@ namespace Assets.Scripts.Controller
         {
             StatusSO slowStatus = hits.Select(h => h.status).Where(s => s.isSlow).OrderBy(s => s.slowValue).FirstOrDefault();
             return !slowStatus ? 1f : slowStatus.slowValue;
+        }
+
+        protected virtual void onDeath()
+        {
+            DestructibleController destructible = gameObject.GetComponent<DestructibleController>();
+            if (destructible)
+            {
+                destructible.OnDestruction();
+            }
+            DropCollectible drop = gameObject.GetComponent<DropCollectible>();
+            if (drop)
+            {
+                drop.OnDropCollectible();
+            }
+            triggerBeforeDestroy();
+            Destroy(gameObject);
         }
     }
 }

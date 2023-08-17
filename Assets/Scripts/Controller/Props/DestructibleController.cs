@@ -18,7 +18,7 @@ public class DestructibleController : MonoBehaviour
         this.buildMaterial();
     }
 
-    public void onDestroy()
+    public void OnDestruction()
     {
         this.m_GibEffect.transform.parent = null;
         this.m_GibEffect.transform.localScale = Vector3.one;
