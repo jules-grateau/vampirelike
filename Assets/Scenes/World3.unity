@@ -11673,10 +11673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
-    - target: {fileID: 4746496858864773311, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 5296060442782663353, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 519420031}
     - target: {fileID: 7394020412865262951, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11761,13 +11761,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8055219984392258771, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: animatedSoulPrefab
-      value: 
-      objectReference: {fileID: 6801104700241300836, guid: a1191ef8bc904674e8b1cefb2317748e, type: 3}
-    m_RemovedComponents:
-    - {fileID: 8055219984392258771, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-    - {fileID: 4746496858864773311, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12174,86 +12168,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &666931093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 666931095}
-  - component: {fileID: 666931097}
-  - component: {fileID: 666931096}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &666931095
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666931093}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &666931096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666931093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fc7297102e5d0d439bf3f73f83b567b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: d97784683ead3914ea6d02583f8142db, type: 2}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 666931097}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Ui.XpBarCollector, Assembly-CSharp
-        m_MethodName: AddCoins
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &666931097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666931093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd150fc462d19d141b3aab0de0578fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animatedSoulPrefab: {fileID: 6801104700241300836, guid: a1191ef8bc904674e8b1cefb2317748e, type: 3}
-  target: {fileID: 1567974214}
-  maxSouls: 3
-  minAnimDuration: 0.9
-  maxAnimDuration: 1.8
-  easeType: 17
-  spread: 2
 --- !u!1 &918241778
 GameObject:
   m_ObjectHideFlags: 0
@@ -24847,7 +24761,7 @@ MonoBehaviour:
   m_Intensity: 0.2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000df853f6d
+  m_ApplyToSortingLayers: 00000000df853f6dcde1d173
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -24938,11 +24852,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1567974214 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1809346992161943625, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-  m_PrefabInstance: {fileID: 283666188}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1700289663
 GameObject:
   m_ObjectHideFlags: 0

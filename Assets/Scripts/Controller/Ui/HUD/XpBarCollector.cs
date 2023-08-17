@@ -8,21 +8,24 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections.Generic;
 using Assets.Scripts.Controller.Collectible;
+using Assets.Scripts.Events.TypedEvents;
 
 namespace Assets.Scripts.Controller.Ui
 {
     public class XpBarCollector : MonoBehaviour
     {
+        [SerializeField]
+        GameEventFloat OnXpEvent;
         [SerializeField] 
         GameObject animatedSoulPrefab;
         [SerializeField] 
-        Transform target;
+        GameObject target;
         [SerializeField] int maxSouls;
         Queue<GameObject> soulsQueue = new Queue<GameObject>();
         [SerializeField]
-        [Range(0.5f, 0.9f)] float minAnimDuration;
+        float minAnimDuration;
         [SerializeField]
-        [Range(0.9f, 2f)] float maxAnimDuration;
+        float maxAnimDuration;
         [SerializeField]
         Ease easeType;
         [SerializeField]
@@ -38,47 +41,58 @@ namespace Assets.Scripts.Controller.Ui
 
         void PrepareSouls()
         {
-            GameObject coin;
+            GameObject xp;
             for (int i = 0; i < maxSouls; i++)
             {
-                coin = Instantiate(animatedSoulPrefab);
-                coin.transform.parent = transform;
-                coin.SetActive(false);
-                soulsQueue.Enqueue(coin);
+                xp = Instantiate(animatedSoulPrefab);
+                xp.transform.SetParent(transform);
+                xp.SetActive(false);
+                soulsQueue.Enqueue(xp);
             }
         }
 
-        void Animate(Vector3 collectedCoinPosition, int amount)
+        void Animate(Vector3 collectedXpPosition, int amount)
         {
-            targetPosition = Camera.main.ScreenToWorldPoint(target.position);
+            targetPosition = target.transform.position;
             for (int i = 0; i < amount; i++)
             {
                 if (soulsQueue.Count > 0)
                 {
-                    GameObject coin = soulsQueue.Dequeue();
-                    coin.SetActive(true);
-                    coin.transform.position = collectedCoinPosition + new Vector3(Random.Range(-spread, spread), 0f, 0f);
-                    var orgDistance = Vector3.Distance(coin.transform.position, targetPosition);
+                    GameObject xp = soulsQueue.Dequeue();
+                    xp.transform.position = collectedXpPosition + new Vector3(Random.Range(-spread, spread), 0f, 0f);
+                    xp.SetActive(true);
+                    var orgDistance = Vector3.Distance(xp.transform.position, targetPosition);
 
-                    //animate coin to target position
                     float duration = Random.Range(minAnimDuration, maxAnimDuration);
-                    Tweener tweener = coin.transform.DOMove(targetPosition, duration)
-                    .SetEase(easeType)
-                    .OnComplete(() => {
-                        coin.SetActive(false);
-                            soulsQueue.Enqueue(coin);
-                        }
-                    );
+                    Tweener tweener = xp.transform.DOMove(targetPosition, duration)
+                    .SetEase(easeType);
 
-                    tweener.OnUpdate(() => { 
-                        targetPosition = Camera.main.ScreenToWorldPoint(target.position);
-                        tweener.ChangeEndValue(targetPosition);
+                    tweener.OnUpdate(() =>
+                    {
+                        var newDistance = Vector3.Distance(xp.transform.position, target.transform.position);
+                        if (newDistance > 0.1)
+                        {
+                            tweener.ChangeValues(xp.transform.position, target.transform.position, (newDistance / orgDistance) * duration);
+                        }
+                        else
+                        {
+                            tweener.Kill();
+                            End(xp, amount);
+                        }
                     });
                 }
             }
         }
 
-        public void AddCoins(float xpAmount)
+        private void End(GameObject xp, int amount)
+        {
+            target.GetComponent<ParticleSystem>().Play();
+            xp.SetActive(false);
+            soulsQueue.Enqueue(xp);
+            OnXpEvent.Raise(amount);
+        }
+
+        public void AddXp(float xpAmount)
         {
             if (!_player)
             {

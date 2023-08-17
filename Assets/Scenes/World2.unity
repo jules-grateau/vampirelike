@@ -8635,6 +8635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5296060442782663353, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 7394020412865262951, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
       propertyPath: m_Pivot.x
       value: 0
