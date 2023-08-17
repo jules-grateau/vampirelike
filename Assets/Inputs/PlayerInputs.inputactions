@@ -42,7 +42,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -53,7 +53,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -64,7 +64,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -75,7 +75,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -97,7 +97,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -108,7 +108,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -119,7 +119,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -130,18 +130,95 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Main",
+                    "id": "f1d617ff-c6ac-4922-abc6-984082253466",
+                    "path": "2DVector(mode=2)",
+                    "interactions": "",
+                    "processors": "",
                     "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "86399b9d-8246-4c43-b8f8-3249af4832bf",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "72d4ff1b-56a1-47d6-85d5-c81113c12c91",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "f70fe760-d4e8-4b91-9ea2-589c3bd1541b",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "8c0063d9-8749-4a4e-84da-2e9c33ea0aa3",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ee6b1e72-6237-4c04-ad12-71d4a030b496",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "9950f7dd-ca11-4da4-9785-d0bb4ddfb63c",
+                    "id": "319866f0-cfee-4a24-87d7-7372b6afa39c",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c12a43d6-49b6-4dd6-a1e7-cdd0bd031b3f",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -149,5 +226,28 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
