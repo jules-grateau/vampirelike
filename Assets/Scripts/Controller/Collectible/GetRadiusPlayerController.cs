@@ -10,7 +10,7 @@ public class GetRadiusPlayerController : MonoBehaviour
     private GameObject _player;
     private Rigidbody2D _rigidbody;
     [SerializeField]
-    private float _speed = 4f;
+    private float _speed = 6f;
 
     public bool forceCollect = false;
 
@@ -37,6 +37,10 @@ public class GetRadiusPlayerController : MonoBehaviour
         {
             _rigidbody.velocity = Vector2.zero;
             return;
+        }
+        else
+        {
+            forceCollect = true;
         }
 
         var direction = _player.transform.position - transform.position;
