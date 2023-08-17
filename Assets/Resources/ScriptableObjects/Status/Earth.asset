@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c35409a61f02de498c7c53ce1f92a83, type: 3}
+  m_Name: Earth
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  color: {r: 0.5, g: 0.25679752, b: 0, a: 1}
+  isDoT: 0
+  doTTime: 0
+  doTRatio: 0
+  canBump: 1
+  bumpForce: {x: 1.5, y: 1.5}
+  isStun: 1
+  stunTime: 0.5
+  isSlow: 0
+  slowValue: 0
+  slowTime: 0

@@ -7,7 +7,7 @@ using Assets.Scripts.ScriptableObjects.Items.Weapons;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
-    public class SplitBehaviour : OnCollisionDamageBehaviour
+    public class SplitBehaviour : DirectDamageBehaviour
     {
         [SerializeField]
         public int splitNbr;
@@ -20,14 +20,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, Collision2D collision2D)
         {
-            if (collision2D.gameObject.GetInstanceID() == self.parent.gameObject.GetInstanceID()) return;
-            enemyHitEvent.Raise(new HitData
-            {
-                damage = damage,
-                instanceID = collision2D.gameObject.GetInstanceID(),
-                position = collision2D.transform.position,
-                source = self.parent
-            });
+            base.HandleBehaviour(self, collision2D);
             if (splitTimes > 0)
             {
                 for (int i = 0; i < splitNbr; i++)

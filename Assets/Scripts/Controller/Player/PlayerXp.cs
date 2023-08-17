@@ -33,6 +33,7 @@ namespace Assets.Scripts.Controller.Player
 
         private void Start()
         {
+            _currentLevel.value = 1;
             _xp.value = 0;
             _maxXp.value = XpToReach(_currentLevel);
         }

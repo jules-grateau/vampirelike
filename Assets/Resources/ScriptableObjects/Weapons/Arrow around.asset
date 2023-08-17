@@ -25,11 +25,13 @@ MonoBehaviour:
       _value: 5
     - _key: 9
       _value: 7
+  _weaponStatus: {fileID: 11400000, guid: 330e216b977f9af4384a82318ead3f3c, type: 2}
+  _bumpVector: {x: 0, y: 0}
+  _duration: 0
   _isAnimatedHit: 0
   behaviourType: 0
   _growValue: {x: 0.001, y: 0.001, z: 0}
   damageType: 0
-  _duration: 0
   _explosionRadius: 0
   _particles: {fileID: 0}
   _splitNbr: 0

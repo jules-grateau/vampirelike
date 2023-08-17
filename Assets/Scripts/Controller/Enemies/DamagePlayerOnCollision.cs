@@ -8,13 +8,20 @@ namespace Assets.Scripts.Controller.Enemies
     public class DamagePlayerOnCollision : IEnemyDamage
     {
         [SerializeField]
-        public GameEventFloat PlayerColisionEvent { get; set; }
+        public GameEventHitData PlayerColisionEvent { get; set; }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnCollisionEnter2D(Collision2D collision2D)
         {
-            if(collision.gameObject.CompareTag("Player"))
+            if(collision2D.gameObject.CompareTag("Player"))
             {
-                PlayerColisionEvent.Raise(Damage);
+                PlayerColisionEvent.Raise(new HitData
+                {
+                    status = Status,
+                    damage = Damage,
+                    instanceID = collision2D.gameObject.GetInstanceID(),
+                    position = collision2D.transform.position,
+                    source = gameObject
+                });
             }
         }
     }
