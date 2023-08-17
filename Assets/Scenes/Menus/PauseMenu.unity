@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 937845512}
   - component: {fileID: 937845511}
   - component: {fileID: 937845510}
-  - component: {fileID: 937845513}
+  - component: {fileID: 937845514}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -1344,7 +1344,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 937845511}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 937845514}
+        m_TargetAssemblyTypeName: GameEventController, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &937845511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,7 +1395,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937845507}
   m_CullTransparentMesh: 1
---- !u!114 &937845513
+--- !u!114 &937845514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1392,10 +1404,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 937845507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d627e09359c7e4d85897d707550c12, type: 3}
+  m_Script: {fileID: 11500000, guid: 31258be0b57dca74eb96d94cf1c675e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _action: {fileID: -2453724142163116632, guid: 8ac3e91abf5687e479c2889fd133fa8a, type: 3}
+  _gameEvent: {fileID: 11400000, guid: b827ffad78d891f45a281ede40f087a9, type: 2}
 --- !u!1 &947289675
 GameObject:
   m_ObjectHideFlags: 0
