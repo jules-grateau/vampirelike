@@ -7,13 +7,8 @@ using UnityEngine.InputSystem.OnScreen;
 
 namespace Assets.Scripts.Controller.Ui
 {
-    public class InputActionOnScreenButton : OnScreenControl, IPointerDownHandler, IPointerUpHandler
+    public class InputActionOnScreenButton : OnScreenControl, IPointerDownHandler
     {
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            SendValueToControl(0.0f);
-        }
-
         public void OnPointerDown(PointerEventData eventData)
         {
             SendValueToControl(1.0f);
