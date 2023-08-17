@@ -28,11 +28,20 @@ public class FollowPlayerController : IEnemyMovement
     {
         if (!_player) return;
         if (_enemyHealth.hasStun()) return;
+        
+         float modifiedSpeed = Speed * _enemyHealth.getSlowValue();
 
-        float modifiedSpeed = Speed * _enemyHealth.getSlowValue();
-        var direction = _player.transform.position - transform.position;
-        _rigidbody.velocity = direction.normalized * modifiedSpeed;
+        Vector3 direction = _player.transform.position - transform.position;
+        direction -= direction.normalized * 0.5f;
 
+        if (Mathf.Abs(direction.magnitude) < 0.1)
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
+        else
+        {
+            _rigidbody.velocity = direction.normalized * modifiedSpeed;
+        }
         bool needToFlip = direction.normalized.x < 0;
 
         if (needToFlip != _isFlipped)
