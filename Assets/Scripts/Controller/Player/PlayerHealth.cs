@@ -11,26 +11,27 @@ using UnityEngine;
 namespace Assets.Scripts.Controller.Player
 {
     [RequireComponent(typeof(PlayerStatsController))]
-    public class PlayerHealth : MonoBehaviour
+    public class PlayerHealth : BaseHealth
     {
         [SerializeField]
         private bool _resetOnStart;
-        public float Hp => _hp;
-        private float _hp;
 
         [SerializeField]
         private AudioClip _hitAudioClip;
         [SerializeField]
         private AudioClip _armorAudioClip;
+        [SerializeField]
+        private Sprite _armorSprite;
 
         [SerializeField]
         private GameEvent _onPlayerDeathEvent;
         private BaseStatistics<CharacterStatisticEnum> _characterStatistics;
         private SpriteRenderer _spriteRenderer;
+        private Coroutine _currentBlockCoroutine;
 
         private bool isInvincible;
 
-        private void Start()
+        public void Start()
         {
             isInvincible = false;
 
@@ -42,26 +43,40 @@ namespace Assets.Scripts.Controller.Player
             _characterStatistics = playerStatsController.CharacterStatistics;
             if (_characterStatistics == null) return;
 
-            if (_resetOnStart) _hp = _characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
+            if (_resetOnStart) Health = _characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
         }
 
-        public void TakeDamage(float damage)
+        private IEnumerator triggerBlock(float timer)
+        {
+            SpriteRenderer sp = _anchor.GetComponent<SpriteRenderer>();
+            sp.sprite = _armorSprite;
+            yield return new WaitForSeconds(timer);
+            sp.sprite = null;
+        }
+
+        protected override void TakeDamageEffect(HitData hit, bool isDoTTick = false)
         {
             if (!isInvincible)
             {
                 float armor = _characterStatistics.GetStats(Types.CharacterStatisticEnum.Armor);
-                float computedDamage = damage - armor;
+                float computedDamage = hit.damage - armor;
 
                 if (computedDamage < 1)
                 {
                     AudioSource.PlayClipAtPoint(_armorAudioClip, transform.position, 1);
+                    if(_currentBlockCoroutine != null)
+                    {
+                        StopCoroutine(_currentBlockCoroutine);
+                    }
+                    _currentBlockCoroutine = StartCoroutine(triggerBlock(_armorAudioClip.length * 0.5f));
                     return;
                 }
 
-                _hp -= computedDamage;
-                if (_hp <= 0)
+                DisplayDamage(computedDamage, false, hit.status);
+                Health -= computedDamage;
+                if (Health <= 0)
                 {
-                    Die();
+                    Destroy(gameObject);
                 }
                 else
                 {
@@ -74,13 +89,13 @@ namespace Assets.Scripts.Controller.Player
         public void OnPlayerHeal(float value)
         {
             float maxHp = _characterStatistics.GetStats(CharacterStatisticEnum.MaxHp);
-            if (_hp + value > maxHp)
+            if (Health + value > maxHp)
             {
-                _hp = maxHp;
+                Health = maxHp;
                 return;
             }
 
-            _hp += value;
+            Health += value;
         }
 
         private IEnumerator triggerInvincibility()
@@ -92,12 +107,6 @@ namespace Assets.Scripts.Controller.Player
             _spriteRenderer.material.SetInt("_Hit", 0);
         }
 
-        void Die()
-        {
-            Destroy(gameObject);
-            _onPlayerDeathEvent.Raise();
-        }
-
         public void OnSelectUpgrade(Upgrade<UpgradeSO> upgrade)
         {
             if (upgrade.UpgradeSO is not CharacterStatsUpgradeSO) return;
@@ -106,7 +115,12 @@ namespace Assets.Scripts.Controller.Player
 
             if (statsUpgrade.UpgradeSO.StatsToUpgrade != Types.CharacterStatisticEnum.MaxHp) return;
 
-            _hp += statsUpgrade.GetValue();  
+            Health += statsUpgrade.GetValue();  
+        }
+
+        protected override void triggerBeforeDestroy()
+        {
+            _onPlayerDeathEvent.Raise();
         }
     }
 }

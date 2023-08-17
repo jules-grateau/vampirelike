@@ -17,9 +17,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [System.NonSerialized]
         private GameObject _currentAuraPrefab;
 
-        [SerializeField]
-        private Vector2 _bumpVector;
-
         public override void Init(BaseStatistics<WeaponStatisticEnum> additionalStats = null)
         {
             base.Init(additionalStats);
@@ -71,9 +68,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     instanceID = target.GetInstanceID(),
                     position = target.transform.position,
                     source = parent,
-                    status = _bumpVector.Equals(Vector2.zero) ? HitStatusEnum.Normal : HitStatusEnum.Bump,
-                    payload = _bumpVector,
-                    time = 0.5f
+                    status = _weaponStatus,
                 });
             }
 

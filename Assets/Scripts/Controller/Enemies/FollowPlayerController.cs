@@ -27,7 +27,9 @@ public class FollowPlayerController : IEnemyMovement
     void Update()
     {
         if (!_player) return;
-        if (_enemyHealth.hasImpairment()) return;
+        if (_enemyHealth.hasStun()) return;
+        
+         float modifiedSpeed = Speed * _enemyHealth.getSlowValue();
 
         Vector3 direction = _player.transform.position - transform.position;
         direction -= direction.normalized * 0.5f;
@@ -38,7 +40,7 @@ public class FollowPlayerController : IEnemyMovement
         }
         else
         {
-            _rigidbody.velocity = direction.normalized * Speed;
+            _rigidbody.velocity = direction.normalized * modifiedSpeed;
         }
         bool needToFlip = direction.normalized.x < 0;
 
