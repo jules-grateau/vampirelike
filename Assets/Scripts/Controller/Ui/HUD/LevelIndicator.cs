@@ -16,7 +16,6 @@ namespace Assets.Scripts.Controller.Ui
         private TextMeshProUGUI _levelText;
         private void Start()
         {
-            _currentLevel.value = 1;
             _levelText = gameObject.GetComponent<TextMeshProUGUI>();
         }
         private void Update()
