@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UIMenu_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 01d5f3522ec62c94fa6bad59509733fb, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 519739867136
+    m_Localized: Continuer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 930576138240
+    m_Localized: Jouer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1104895606784
+    m_Localized: "Param\xE8tre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4088098521088
+    m_Localized: Selectionnez un personnage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4473295011840
+    m_Localized: Selectionnez un niveau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28658507513856
+    m_Localized: "Selectionnez une am\xE9lioration"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29238516842496
+    m_Localized: Raccourci clavier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29713853120512
+    m_Localized: "Vous \xEAtes mort"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29843637469184
+    m_Localized: Quitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29913338413056
+    m_Localized: "R\xE9essayer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30172668035072
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30724487446528
+    m_Localized: Statistiques
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

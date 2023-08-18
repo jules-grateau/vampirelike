@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
   m_Name: MovementSpeedUpgrade
   m_EditorClassIdentifier: 
-  _title: Movement Speed
+  _title:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 3097970147328
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: -768473915, guid: 0e630338424d76d429618acfef22c454, type: 3}
-  _description: You walk {value}% quickly
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 3182380515328
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _maxAmout: 0
   _statsToUpgrade: 4
   _valueToAdd:
@@ -30,3 +46,6 @@ MonoBehaviour:
   _dropFrom: 0
   _dropUntil: 100
   _maxValue: 0
+  references:
+    version: 2
+    RefIds: []

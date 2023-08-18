@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Upgrades_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: bfe33151eb2939b469dac22668146365, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 91388182528
+    m_Localized: Armure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 321483505664
+    m_Localized: "Vous subissez {value} d\xE9gats en moins par attaque."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1086637801472
+    m_Localized: Chance de coup critique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1320851931136
+    m_Localized: Vous gagnez {value}% de chance de faire un coup critique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2774455091200
+    m_Localized: Vie maximale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2457915162624
+    m_Localized: "D\xE9gats critiques"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2493801627648
+    m_Localized: "Vos coups critiques infligent {value}% plus de d\xE9gats"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2818700804096
+    m_Localized: Vous gagnez {value} points de vie maximum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3097970147328
+    m_Localized: "Vitesse de d\xE9placement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3182380515328
+    m_Localized: "Vous vous d\xE9placez {value}% plus vite"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3319488118784
+    m_Localized: "Port\xE9e de ramassage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3386156580864
+    m_Localized: "Augmente la port\xE9e de ramassage des objets de {value}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4085405777920
+    m_Localized: Vitesse d'attaque
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154196557824
+    m_Localized: Vous attaquez {value}% plus vite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4322539143168
+    m_Localized: "D\xE9gats suppl\xE9mentaires"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4598784393216
+    m_Localized: "Vos attaques infligent {value} d\xE9gats suppl\xE9mentaires"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4855446437888
+    m_Localized: "Vos attaques infligent {value}% de d\xE9gats suppl\xE9mentaires"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4796642295808
+    m_Localized: "D\xE9gats"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5096711192576
+    m_Localized: "Dur\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5142399746048
+    m_Localized: Vos projectiles durent {value}% plus longtemps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5399212785664
+    m_Localized: "Port\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5470897635328
+    m_Localized: "Augmente votre port\xE9e de {value}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5650598395904
+    m_Localized: 'La taille compte '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5835781111808
+    m_Localized: Vos projectiles sont {value}% plus gros
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6011430174720
+    m_Localized: Vitesse de projectiles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6232721653760
+    m_Localized: "Fr\xE9n\xE9zie de la hache"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6363495858176
+    m_Localized: "R\xE9duit le temps entre deux lancement de hache de {value}s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6642077335552
+    m_Localized: Aura gourmande
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6748218392576
+    m_Localized: "Votre Sombre Aura inflige des d\xE9gats \xE0 {value} ennemi suppl\xE9mentaire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7173302714368
+    m_Localized: Plus de flammes !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7315103744000
+    m_Localized: Vous ajoutez {value} flammes a votre anneau de feu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7514219937792
+    m_Localized: Ricochet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7608554029056
+    m_Localized: "Votre avion en papier ricochera sur {value} ennemis suppl\xE9mentaires"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9922568323072
+    m_Localized: Vos projectiles sont {value}% plus rapides
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

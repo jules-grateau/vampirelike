@@ -12,12 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c60608f5454609419e4baaa4e563121, type: 3}
   m_Name: Halfling Rogue
   m_EditorClassIdentifier: 
-  _name: Halfling Rogue
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:252ab7d107c035249b10a824b687dd2f
+    m_TableEntryReference:
+      m_KeyId: 440165531648
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: 1404302777, guid: 1c50a4a90e9a33e44a272f22b5e50183, type: 3}
-  _description: The Halfling Rogue, a master of stealth shrouded in shadows, wields
-    twin daggers with lethal finesse. With a diminutive stature that belies their
-    prowess, they navigate the battlefield unseen, striking enemies swiftly and fading
-    back into obscurity before retribution can find them.
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:252ab7d107c035249b10a824b687dd2f
+    m_TableEntryReference:
+      m_KeyId: 485719867392
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _prefab: {fileID: 704638989827276549, guid: b2c061efd7d4eae4581baec3ce78820b, type: 3}
   _weaponStatistics:
     _baseStats: []
@@ -35,3 +48,6 @@ MonoBehaviour:
       _value: 3.5
     - _key: 6
       _value: 0.5
+  references:
+    version: 2
+    RefIds: []

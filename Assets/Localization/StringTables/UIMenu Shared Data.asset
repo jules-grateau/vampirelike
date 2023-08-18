@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UIMenu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UIMenu
+  m_TableCollectionNameGuidString: 01d5f3522ec62c94fa6bad59509733fb
+  m_Entries:
+  - m_Id: 519739867136
+    m_Key: Button.Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 930576138240
+    m_Key: Button.Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1104895606784
+    m_Key: Button.Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4088098521088
+    m_Key: Title.SelectCharacter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4473295011840
+    m_Key: Title.SelectLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28658507513856
+    m_Key: Title.SelectUpgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29238516842496
+    m_Key: Title.KeyBindings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29713853120512
+    m_Key: Title.Death
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29843637469184
+    m_Key: Button.Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29913338413056
+    m_Key: Button.Retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30172668035072
+    m_Key: Title.Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30724487446528
+    m_Key: Title.Statistics
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1860283921806131224
+  references:
+    version: 2
+    RefIds:
+    - rid: 1860283921806131224
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1692316727505

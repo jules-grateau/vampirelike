@@ -12,13 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c60608f5454609419e4baaa4e563121, type: 3}
   m_Name: Gnome Tinkerer
   m_EditorClassIdentifier: 
-  _name: Gnome Tinkerer
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:252ab7d107c035249b10a824b687dd2f
+    m_TableEntryReference:
+      m_KeyId: 328953561088
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: 431978464, guid: f7653db1e6830954cb1c2846412dd4c5, type: 3}
-  _description: ' The Gnome Tinkerer, a visionary of mechanized warfare, marches
-    onto the field armed with a trusty wrench and an arsenal of ingenious mechanical
-    turrets. Standing tall despite their stature, they deploy these ingenious creations
-    to control the battlefield, turning the chaos into a symphony of precision engineering
-    that repels foes and fortifies their allies.'
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:252ab7d107c035249b10a824b687dd2f
+    m_TableEntryReference:
+      m_KeyId: 395487805440
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _prefab: {fileID: 704638989827276549, guid: cc3c6a043e25ec84b9a40a544cd3e126, type: 3}
   _weaponStatistics:
     _baseStats:
@@ -38,3 +50,6 @@ MonoBehaviour:
       _value: 3
     - _key: 6
       _value: 0.5
+  references:
+    version: 2
+    RefIds: []

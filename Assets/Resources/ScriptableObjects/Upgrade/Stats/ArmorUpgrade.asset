@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
   m_Name: ArmorUpgrade
   m_EditorClassIdentifier: 
-  _title: Armor Up
+  _title:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 91388182528
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: 1220957953, guid: 04bfa7befce0cfd4ba93bb9b70c48bf2, type: 3}
-  _description: You take {value} less damage from enemy
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 321483505664
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _maxAmout: 0
   _statsToUpgrade: 5
   _valueToAdd:
@@ -30,3 +46,6 @@ MonoBehaviour:
   _dropFrom: 0
   _dropUntil: 0
   _maxValue: 0
+  references:
+    version: 2
+    RefIds: []

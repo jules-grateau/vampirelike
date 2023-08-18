@@ -12,10 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88395bdba2174e4fb6ff5e9afa5ff14, type: 3}
   m_Name: AttackSpeedUpgrade
   m_EditorClassIdentifier: 
-  _title: Attack Speed Upgrade
-  _sprite: {fileID: 3056640150986470829, guid: 198112b8ad4c09242aa09764cff6f8c8, type: 3}
-  _description: You shoot {value}% faster
+  _title:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 4085405777920
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 4154196557824
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _maxAmout: 0
+  _sprite: {fileID: 3056640150986470829, guid: 198112b8ad4c09242aa09764cff6f8c8, type: 3}
   _statsToUpgrade: 8
   _valueToAdd:
   - Quality: 0
@@ -24,3 +40,6 @@ MonoBehaviour:
   _dropFrom: 0
   _dropUntil: 0
   _maxValue: 100
+  references:
+    version: 2
+    RefIds: []

@@ -1,25 +1,26 @@
 ﻿using Assets.Scripts.Types;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Assets.Scripts.ScriptableObjects
 {
     public abstract class UpgradeSO : ScriptableObject
     {
-        public string Title => _title;
+        public string Title => _title.GetLocalizedString();
         [SerializeField]
-        string _title;
+        LocalizedString _title;
 
-        public Sprite Sprite => _sprite;
+        public string Description => _description.GetLocalizedString();
         [SerializeField]
-        Sprite _sprite;
-
-        public string Description => _description;
-        [SerializeField]
-        protected string _description;
+        protected LocalizedString _description;
 
         public int MaxAmount => _maxAmout;
         [SerializeField]
         int _maxAmout;
+
+        public Sprite Sprite => _sprite;
+        [SerializeField]
+        Sprite _sprite;
 
         public abstract string GetDescription(UpgradeQuality quality);
 

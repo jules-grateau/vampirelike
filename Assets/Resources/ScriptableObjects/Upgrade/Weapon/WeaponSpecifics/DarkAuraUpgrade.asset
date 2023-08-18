@@ -12,10 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3065247565e9d3b44ba8edcbffbf32ee, type: 3}
   m_Name: DarkAuraUpgrade
   m_EditorClassIdentifier: 
-  _title: DarkAura
-  _sprite: {fileID: -1467532058, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
-  _description: Increase the number of targets by {value}
+  _title:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 6642077335552
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 6748218392576
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _maxAmout: 15
+  _sprite: {fileID: -1467532058, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _statsToUpgrade: 12
   _valueToAdd:
   - Quality: 2
@@ -25,3 +41,6 @@ MonoBehaviour:
   _dropUntil: 15
   _maxValue: 0
   _forWeapon: {fileID: 11400000, guid: 904a3be9bbfbd604794460f7e0244445, type: 2}
+  references:
+    version: 2
+    RefIds: []

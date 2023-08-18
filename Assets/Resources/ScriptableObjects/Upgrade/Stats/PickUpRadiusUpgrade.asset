@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
   m_Name: PickUpRadiusUpgrade
   m_EditorClassIdentifier: 
-  _title: Pickup Radius
+  _title:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 3319488118784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: -317881635, guid: 0e630338424d76d429618acfef22c454, type: 3}
-  _description: You pick up souls {value} units further
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 3386156580864
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _maxAmout: 0
   _statsToUpgrade: 2
   _valueToAdd:
@@ -30,3 +46,6 @@ MonoBehaviour:
   _dropFrom: 0
   _dropUntil: 0
   _maxValue: 0
+  references:
+    version: 2
+    RefIds: []

@@ -12,10 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88395bdba2174e4fb6ff5e9afa5ff14, type: 3}
   m_Name: RangeUpgrade
   m_EditorClassIdentifier: 
-  _title: Range upgrade
-  _sprite: {fileID: 2086238819, guid: 3846e1a06511034409055317b4421918, type: 3}
-  _description: Add {value} range to weapons
+  _title:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 5399212785664
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 5470897635328
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _maxAmout: 0
+  _sprite: {fileID: 2086238819, guid: 3846e1a06511034409055317b4421918, type: 3}
   _statsToUpgrade: 6
   _valueToAdd:
   - Quality: 0
@@ -24,3 +40,6 @@ MonoBehaviour:
   _dropFrom: 0
   _dropUntil: 10
   _maxValue: 0
+  references:
+    version: 2
+    RefIds: []

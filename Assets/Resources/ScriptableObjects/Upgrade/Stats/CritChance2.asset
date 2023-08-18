@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
   m_Name: CritChance2
   m_EditorClassIdentifier: 
-  _title: ' Crit chance'
+  _title:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 1086637801472
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: -891775503, guid: 3846e1a06511034409055317b4421918, type: 3}
-  _description: Gain {value}% critical hit chance
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 1320851931136
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _maxAmout: 0
   _statsToUpgrade: 0
   _valueToAdd:
@@ -28,3 +44,6 @@ MonoBehaviour:
   _dropFrom: 50
   _dropUntil: 75
   _maxValue: 0
+  references:
+    version: 2
+    RefIds: []
