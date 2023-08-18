@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: StatsDescription Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: StatsDescription
+  m_TableCollectionNameGuidString: 29f4c677c163bb1479e17d509ca2e9f7
+  m_Entries:
+  - m_Id: 5111349248
+    m_Key: Armor.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 187169308672
+    m_Key: CritChance.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 305159274496
+    m_Key: CritDamage.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376365973504
+    m_Key: MaxHp.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 448289898496
+    m_Key: MovementSpeed.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 509392519168
+    m_Key: PickUpRadius.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 745234038784
+    m_Key: AttackSpeed.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 803312566272
+    m_Key: BaseDamage.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896900071424
+    m_Key: Damage.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1044451491840
+    m_Key: Duration.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1077783625728
+    m_Key: ProjectileNumber.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1234117918720
+    m_Key: Radius.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1288731951104
+    m_Key: Range.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1339713716224
+    m_Key: Ricochet.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413571215360
+    m_Key: Size.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469070245888
+    m_Key: Speed.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1525781430272
+    m_Key: AttackCooldown
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1860283921806131251
+  references:
+    version: 2
+    RefIds:
+    - rid: 1860283921806131251
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1692325452419

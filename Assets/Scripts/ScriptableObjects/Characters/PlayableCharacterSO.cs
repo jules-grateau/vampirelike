@@ -6,23 +6,24 @@ using UnityEngine.Playables;
 using Assets.Scripts.Controller.Player;
 using Assets.Scripts.Controller.Inventory.Weapons;
 using Assets.Scripts.Types;
+using UnityEngine.Localization;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
     [CreateAssetMenu(fileName = "PlayableCharacter", menuName = "PlayableCharacter", order = 1)]
     public class PlayableCharacterSO : ScriptableObject
     {
-        public string Name => _name;
+        public string Name => _name.GetLocalizedString();
         [SerializeField]
-        string _name;
+        LocalizedString _name;
 
         public Sprite Sprite => _sprite;
         [SerializeField]
         Sprite _sprite;
 
-        public string Description => _description;
+        public string Description => _description.GetLocalizedString();
         [SerializeField]
-        string _description;
+        LocalizedString _description;
 
         public GameObject Prefab => _prefab;
         [SerializeField]

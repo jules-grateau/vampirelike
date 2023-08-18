@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Types;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Assets.Scripts.ScriptableObjects.Characters
 {
@@ -10,9 +11,9 @@ namespace Assets.Scripts.ScriptableObjects.Characters
         [SerializeField]
         T _key;
 
-        public string Name => _name;
+        public string Name => _name.GetLocalizedString();
         [SerializeField]
-        string _name;
+        LocalizedString _name;
 
         public string ValueAppendix => _valueAppendix;
         [SerializeField]

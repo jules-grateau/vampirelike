@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
   m_Name: MaxHpUpgrade
   m_EditorClassIdentifier: 
-  _title: Maximum health
+  _title:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 2774455091200
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: -1693488755, guid: 0e630338424d76d429618acfef22c454, type: 3}
-  _description: Get {value} more max hp
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
+    m_TableEntryReference:
+      m_KeyId: 2818700804096
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _maxAmout: 0
   _statsToUpgrade: 3
   _valueToAdd:
@@ -30,3 +46,6 @@ MonoBehaviour:
   _dropFrom: 0
   _dropUntil: 0
   _maxValue: 0
+  references:
+    version: 2
+    RefIds: []

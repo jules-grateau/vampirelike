@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Upgrades Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Upgrades
+  m_TableCollectionNameGuidString: bfe33151eb2939b469dac22668146365
+  m_Entries:
+  - m_Id: 91388182528
+    m_Key: Armor.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 321483505664
+    m_Key: Armor.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1086637801472
+    m_Key: CritChance.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1320851931136
+    m_Key: CritChance.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2457915162624
+    m_Key: CritDamage.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2493801627648
+    m_Key: CritDamage.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2774455091200
+    m_Key: MaxHp.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2818700804096
+    m_Key: MaxHp.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3097970147328
+    m_Key: MouvSpeed.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3182380515328
+    m_Key: MouvSpeed.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3319488118784
+    m_Key: PickUpRadius.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3386156580864
+    m_Key: PickUpRadius.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4085405777920
+    m_Key: AttackSpeed.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154196557824
+    m_Key: AttackSpeed.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4322539143168
+    m_Key: BaseDamage.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4598784393216
+    m_Key: BaseDamage.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4796642295808
+    m_Key: Damage.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4855446437888
+    m_Key: Damage.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5096711192576
+    m_Key: Duration.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5142399746048
+    m_Key: "Duration.Description\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5399212785664
+    m_Key: Range.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5470897635328
+    m_Key: Range.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5650598395904
+    m_Key: Size.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5835781111808
+    m_Key: Size.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6011430174720
+    m_Key: SpeedUpgrade.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6232721653760
+    m_Key: Axe.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6363495858176
+    m_Key: Axe.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6642077335552
+    m_Key: DarkAura.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6748218392576
+    m_Key: DarkAura.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7173302714368
+    m_Key: FireOrbit.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7315103744000
+    m_Key: FireOrbit.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7514219937792
+    m_Key: Ricochet.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7608554029056
+    m_Key: Ricochet.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9922568323072
+    m_Key: SpeedUpgrade.Description
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1860283921806131237
+  references:
+    version: 2
+    RefIds:
+    - rid: 1860283921806131237
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1692320835321

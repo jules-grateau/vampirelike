@@ -41,7 +41,7 @@ namespace Assets.Scripts.ScriptableObjects
 
         public override string GetDescription(UpgradeQuality upgradeQuality)
         {
-            return _description.Replace("{value}", _valueToAdd.FirstOrDefault((value) => value.Quality == upgradeQuality).Value.ToString());
+            return _description.GetLocalizedString().Replace("{value}", _valueToAdd.FirstOrDefault((value) => value.Quality == upgradeQuality).Value.ToString());
         }
 
         public float GetValue(UpgradeQuality upgradeQuality)

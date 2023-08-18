@@ -1,22 +1,23 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Assets.Scripts.ScriptableObjects.Stage
 {
     [CreateAssetMenu(fileName = "Stage", menuName = "Stage", order = 1)]
     public class StageSO : ScriptableObject
     {
-        public string Name => _name;
+        public string Name => _name.GetLocalizedString();
         [SerializeField]
-        string _name;
+        LocalizedString _name;
 
         public Sprite Sprite => _sprite;
         [SerializeField]
         Sprite _sprite;
 
-        public string Description => _description;
+        public string Description => _description.GetLocalizedString();
         [SerializeField]
-        string _description;
+        LocalizedString _description;
 
         public string SceneName => _sceneName;
         [SerializeField]

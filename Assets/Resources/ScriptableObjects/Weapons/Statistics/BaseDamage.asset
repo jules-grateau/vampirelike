@@ -13,5 +13,17 @@ MonoBehaviour:
   m_Name: BaseDamage
   m_EditorClassIdentifier: 
   _key: 2
-  _name: Base Damage
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:29f4c677c163bb1479e17d509ca2e9f7
+    m_TableEntryReference:
+      m_KeyId: 803312566272
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _valueAppendix: 
+  _maxValue: 0
+  references:
+    version: 2
+    RefIds: []

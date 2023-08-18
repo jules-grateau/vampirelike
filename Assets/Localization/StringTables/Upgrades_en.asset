@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Upgrades_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: bfe33151eb2939b469dac22668146365, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 91388182528
+    m_Localized: Armor Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 321483505664
+    m_Localized: You take {value} less damage per hit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1086637801472
+    m_Localized: Critical Hit Chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1320851931136
+    m_Localized: You gain {value}% chance of dealing critical hit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2457915162624
+    m_Localized: Critical Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2493801627648
+    m_Localized: Your critical hit deal {value}% more damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2774455091200
+    m_Localized: Max Hp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2818700804096
+    m_Localized: You gain {value} max HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3097970147328
+    m_Localized: Movement Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3182380515328
+    m_Localized: You move {value}% faster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3319488118784
+    m_Localized: Pick up Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3386156580864
+    m_Localized: Increase your pick up radius by {value}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4085405777920
+    m_Localized: Attack speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154196557824
+    m_Localized: You attack {value}% faster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4322539143168
+    m_Localized: Base damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4598784393216
+    m_Localized: Your attack deal {value} additional damages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4796642295808
+    m_Localized: Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4855446437888
+    m_Localized: Your attack deal {value}% more damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5096711192576
+    m_Localized: Duration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5142399746048
+    m_Localized: Your projectiles last {value}% longer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5399212785664
+    m_Localized: Range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5470897635328
+    m_Localized: Increase your range by {value}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5650598395904
+    m_Localized: Size up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5835781111808
+    m_Localized: Your projectiles are {value}% bigger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6011430174720
+    m_Localized: Projectile Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6232721653760
+    m_Localized: Axe Frenzy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6363495858176
+    m_Localized: Reduce the time between two axe throw by {value}s
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6642077335552
+    m_Localized: Hungry aura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6748218392576
+    m_Localized: Your Dark Aura hit {value} additional target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7173302714368
+    m_Localized: More flammes !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7315103744000
+    m_Localized: You add {value} flammes to your fire ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7514219937792
+    m_Localized: Bounce
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7608554029056
+    m_Localized: Your paper plane will bounce on {value} additional target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9922568323072
+    m_Localized: Your projectiles are {value}% faster
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

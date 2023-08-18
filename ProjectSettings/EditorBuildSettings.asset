@@ -29,4 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/KeyBindMenu.unity
     guid: e8e065c7dcc9593429856bdd4cd7a8c4
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 3195b9e2b495ded40b18242f8f808fa8, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 71678931f53e0bd488c6e717ca7df916, type: 2}

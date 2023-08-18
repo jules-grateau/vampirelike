@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f460faa811e3e654b84c432d3ca57ac5, type: 3}
+  m_Name: Place
+  m_EditorClassIdentifier: 
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:9f662509106496245817ac991d135460
+    m_TableEntryReference:
+      m_KeyId: 62691648012288
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _sprite: {fileID: 7048034131002237089, guid: 198112b8ad4c09242aa09764cff6f8c8, type: 3}
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:9f662509106496245817ac991d135460
+    m_TableEntryReference:
+      m_KeyId: 62935181885440
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _sceneName: World2
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Character_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 252ab7d107c035249b10a824b687dd2f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 8500346880
+    m_Localized: "Adepte N\xE9cromancien"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84236894208
+    m_Localized: "L'Adepte N\xE9cromancien ma\xEEtrise le pouvoir de la mort, invoque
+      des serviteurs morts-vivants pour ex\xE9cuter ses sombres ordres tout en manipulant
+      l'essence m\xEAme de la vie afin d'effrayer ses ennemis. Avec un arsenal de
+      mal\xE9dictions et de sorts impies, il domine le champ de bataille d'une pr\xE9sence
+      sinistre et imposante."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164578787328
+    m_Localized: Seigneur Elf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 200926625792
+    m_Localized: "Le seigneur elfe, par\xE9 d'une armure \xE9tincelante et brandissant
+      un bouclier inflexible, incarne \xE0 la fois l'\xE9l\xE9gance et la prouesse
+      martiale.Avec la gr\xE2ce de la for\xEAt qui coule dans leurs veines, ils sont
+      de solides gardiens, d\xE9viant les attaques avec pr\xE9cision et contre-attaquant
+      avec une lame qui danse aussi vite que le vent."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 252088745984
+    m_Localized: "Tireur d'\xE9lite elfe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 292375035904
+    m_Localized: "Le tireur d'\xE9lite elfe, incarnation de la pr\xE9cision au milieu
+      du chaos de la bataille, commande un arc magique et un carquois de fl\xE8ches
+      enchant\xE9es. Avec leurs yeux aff\xFBt\xE9s par l'h\xE9ritage elfique, ils
+      frappent infailliblement les cibles \xE9loign\xE9es, chaque fl\xE8che portant
+      le poids de la magie de la nature pour d\xE9clencher des effets d\xE9vastateurs
+      \xE0 l'impact, garantissant la chute des ennemis avant m\xEAme qu'ils ne s'approchent."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 328953561088
+    m_Localized: Gnome bricoleur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395487805440
+    m_Localized: " Le bricoleur gnome, visionnaire de la guerre m\xE9canis\xE9e,
+      s'avance sur le champ de bataille arm\xE9 d'une fid\xE8le cl\xE9 \xE0 molette
+      et d'un arsenal de tourelles m\xE9caniques ing\xE9nieuses. Malgr\xE9 sa stature,
+      il d\xE9ploie ces cr\xE9ations ing\xE9nieuses pour contr\xF4ler le champ de
+      bataille, transformant le chaos en une symphonie d'ing\xE9nierie de pr\xE9cision
+      qui repousse les ennemis et fortifie les alli\xE9s."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 440165531648
+    m_Localized: Voleur Halfling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485719867392
+    m_Localized: "Le voleur halfling, un ma\xEEtre de la furtivit\xE9 envelopp\xE9
+      dans l'ombre, manie deux dagues jumelles avec une finesse mortelle. Avec une
+      taille r\xE9duite qui d\xE9ment ses prouesses, il navigue sur le champ de bataille
+      sans \xEAtre vu, frappant rapidement ses ennemis et s'effa\xE7ant dans l'obscurit\xE9
+      avant que le ch\xE2timent ne puisse le trouver."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

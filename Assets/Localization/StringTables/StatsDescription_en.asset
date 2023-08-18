@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: StatsDescription_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 29f4c677c163bb1479e17d509ca2e9f7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5111349248
+    m_Localized: Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 187169308672
+    m_Localized: Critical Hit Chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 305159274496
+    m_Localized: Critical Hit Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376365973504
+    m_Localized: Maximum HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 448289898496
+    m_Localized: Movement Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 509392519168
+    m_Localized: Pick Up Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 745234038784
+    m_Localized: Attack Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 803312566272
+    m_Localized: Base Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896900071424
+    m_Localized: Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1044451491840
+    m_Localized: Duration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1077783625728
+    m_Localized: Projectile Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1234117918720
+    m_Localized: Weapon radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1288731951104
+    m_Localized: Projectile range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1339713716224
+    m_Localized: Ricochet number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413571215360
+    m_Localized: Projectile size
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469070245888
+    m_Localized: Projectile speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1525781430272
+    m_Localized: Cooldown between two attacks
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

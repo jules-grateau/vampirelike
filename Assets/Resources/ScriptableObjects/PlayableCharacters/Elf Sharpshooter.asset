@@ -12,13 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c60608f5454609419e4baaa4e563121, type: 3}
   m_Name: Elf Sharpshooter
   m_EditorClassIdentifier: 
-  _name: Elf Sharpshooter
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:252ab7d107c035249b10a824b687dd2f
+    m_TableEntryReference:
+      m_KeyId: 252088745984
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: -1257702714, guid: 711d321f3e60fff48b70cd3a06c4f004, type: 3}
-  _description: The Elf Sharpshooter, an embodiment of precision amidst the chaos
-    of battle, commands a magical bow and a quiver of enchanted arrows. With eyes
-    honed by elven heritage, they strike distant targets unerringly, each arrow carrying
-    the weight of nature's magic to unleash devastating effects upon impact, ensuring
-    enemies fall before they even draw near.
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:252ab7d107c035249b10a824b687dd2f
+    m_TableEntryReference:
+      m_KeyId: 292375035904
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _prefab: {fileID: 704638989827276549, guid: 8719aa2b272d2954880b927a2b2a69af, type: 3}
   _weaponStatistics:
     _baseStats:
@@ -38,3 +50,6 @@ MonoBehaviour:
       _value: 4.5
     - _key: 6
       _value: 0.5
+  references:
+    version: 2
+    RefIds: []

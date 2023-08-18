@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: StatsDescription_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 29f4c677c163bb1479e17d509ca2e9f7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5111349248
+    m_Localized: Armure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 187169308672
+    m_Localized: Chance de coup critique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 305159274496
+    m_Localized: "D\xE9gats critiques"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376365973504
+    m_Localized: Point de vie maximum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 448289898496
+    m_Localized: "Vitesse de d\xE9placement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 509392519168
+    m_Localized: Rayon de ramassage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 745234038784
+    m_Localized: Vitesse d'attaque
+    m_Metadata:
+      m_Items: []
+  - m_Id: 803312566272
+    m_Localized: "D\xE9gats suppl\xE9mentaires"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896900071424
+    m_Localized: "D\xE9gats"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1044451491840
+    m_Localized: "Dur\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1077783625728
+    m_Localized: Nombre de projectile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1234117918720
+    m_Localized: Rayon d'arme
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1288731951104
+    m_Localized: "Port\xE9e des projectiles"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1339713716224
+    m_Localized: Nombre de ricochet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413571215360
+    m_Localized: Taille des projectiles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469070245888
+    m_Localized: Vitesse des projectiles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1525781430272
+    m_Localized: Temps entre deux attaques
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
