@@ -27,6 +27,24 @@ MonoBehaviour:
       Arriverez-vous \xE0 vous \xE9chapper ?"
     m_Metadata:
       m_Items: []
+  - m_Id: 62491411939328
+    m_Localized: La cave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62561834303488
+    m_Localized: "Pi\xE9g\xE9 dans une cave, et submerg\xE9 par des vagues d'ennemis.
+      Arriverez-vous \xE0 vous \xE9chapper ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62691648012288
+    m_Localized: L'endroit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62935181885440
+    m_Localized: "Pi\xE9g\xE9 dans un endroit, et submerg\xE9 par des vagues d'ennemis.
+      Arriverez-vous \xE0 vous \xE9chapper ?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

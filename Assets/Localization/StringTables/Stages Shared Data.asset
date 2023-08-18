@@ -23,6 +23,22 @@ MonoBehaviour:
     m_Key: Dungeon.Description
     m_Metadata:
       m_Items: []
+  - m_Id: 62491411939328
+    m_Key: Basement.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62561834303488
+    m_Key: Basement.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62691648012288
+    m_Key: Place.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62935181885440
+    m_Key: Place.Description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
