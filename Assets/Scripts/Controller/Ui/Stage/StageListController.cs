@@ -2,26 +2,38 @@
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.ScriptableObjects.Stage;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Controller.Ui
 {
     public class StageListController : MonoBehaviour
     {
-        GameObject _characterInfoPrefab;
-        StageSO[] __stages;
+        GameObject _stageInfoPrefab;
+        StageSO[] _stages;
+        List<GameObject> _stageInfo;
         // Use this for initialization
         void Awake()
         {
-            _characterInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/StageInfo");
-            __stages = Resources.LoadAll<StageSO>("ScriptableObjects/Stage/");
+            _stageInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/StageInfo");
+            _stages = Resources.LoadAll<StageSO>("ScriptableObjects/Stage/");
+            _stageInfo = new List<GameObject>();
 
-            foreach(StageSO stage in __stages)
+            foreach(StageSO stage in _stages)
             {
-                GameObject characterInfo = Instantiate(_characterInfoPrefab, transform);
-                StageInfoController stageInfoController = characterInfo.GetComponent<StageInfoController>();
+                GameObject stageInfo = Instantiate(_stageInfoPrefab, transform);
+                StageInfoController stageInfoController = stageInfo.GetComponent<StageInfoController>();
                 stageInfoController.Init(stage);
+                _stageInfo.Add(stageInfo);
             }
+        }
+
+        private void OnEnable()
+        {
+            if (_stageInfo.Count <= 0) return;
+
+            EventSystem.current.SetSelectedGameObject(_stageInfo[0]);
         }
     }
 }

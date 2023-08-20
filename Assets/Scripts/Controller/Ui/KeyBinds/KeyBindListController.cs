@@ -10,20 +10,20 @@ namespace Assets.Scripts.Controller.Ui.KeyBinds
 {
     public class KeyBindListController : MonoBehaviour
     {
-
-        PlayerInputs _playerInputs;
+        [SerializeField]
+        InputActionReference[] _bindableActions;
 
         GameObject _keybindActionPrefab;
 
         // Use this for initialization
         void Start()
         {
-            _playerInputs = InputManager.GetInstance();
-            _playerInputs.Disable();
+            InputManager.GetInstance().Disable();
+
             _keybindActionPrefab = Resources.Load<GameObject>("Prefabs/UI/KeyBindAction");
 
 
-            foreach (InputAction action in _playerInputs)
+            foreach (InputAction action in _bindableActions)
             {
                 GameObject instance = Instantiate(_keybindActionPrefab, transform.Find("View/Viewport/Content"));
                 KeyBindActionController infoController = instance.AddComponent<KeyBindActionController>();
@@ -33,7 +33,7 @@ namespace Assets.Scripts.Controller.Ui.KeyBinds
 
         private void OnDestroy()
         {
-            _playerInputs.Enable();
+            InputManager.GetInstance().Enable();
         }
     }
 }

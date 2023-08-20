@@ -1,6 +1,10 @@
-﻿using Assets.Scripts.Types;
+﻿using Assets.Scripts.Events.TypedEvents;
+using Assets.Scripts.Types;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace Assets.Scripts.Controller.Ui
 {
@@ -8,17 +12,34 @@ namespace Assets.Scripts.Controller.Ui
     {
         [SerializeField]
         InterfaceElement _interfaceElement;
+        bool _isActive = false;
 
-        public void OnOpenInterfaceElement(InterfaceElement interfaceElement)
+        InterfaceElement _currActiveElement = InterfaceElement.Menu;
+        InterfaceElement _prevElement = InterfaceElement.Menu;
+
+        [SerializeField]
+        GameEventInterfaceElement _openInterfaceElementEvent;
+
+        [SerializeField]
+        GameObject _firstSelected;
+
+        public void OnOpenInterfaceElement(InterfaceElement interfaceElement, bool isCloseAction)
         {
-            if (interfaceElement != _interfaceElement)
+            _isActive = interfaceElement == _interfaceElement;
+            transform.GetChild(0).gameObject.SetActive(_isActive);
+
+            if (_isActive)
             {
-                transform.GetChild(0).gameObject.SetActive(false);
-                return;
-            };
+                if(_firstSelected) EventSystem.current.SetSelectedGameObject(_firstSelected);
+                if(!isCloseAction) _prevElement = _currActiveElement;
+            }
 
+            _currActiveElement = interfaceElement;
+        }
 
-            transform.GetChild(0).gameObject.SetActive(true);
+        public void Close()
+        {
+            _openInterfaceElementEvent.Raise(_prevElement, true);
         }
     }
 }
