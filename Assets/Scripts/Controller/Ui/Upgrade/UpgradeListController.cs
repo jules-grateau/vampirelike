@@ -5,6 +5,7 @@ using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Controller.Ui
 {
@@ -15,6 +16,8 @@ namespace Assets.Scripts.Controller.Ui
 
         [SerializeField]
         FloatVariable _numberSelectableUpgrade;
+
+        List<GameObject> _upgrades;
         // Use this for initialization
         void Awake()
         {
@@ -22,13 +25,22 @@ namespace Assets.Scripts.Controller.Ui
             GameObject upgradeInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/UpgradeInfo");
 
             List<Upgrade<UpgradeSO>> upgrades = upgradeManager.Draw((int) _numberSelectableUpgrade.value);
+            _upgrades = new List<GameObject>();
 
             foreach (Upgrade<UpgradeSO> upgrade in upgrades)
             {
                 GameObject upgradeInfo = Instantiate(upgradeInfoPrefab, transform);
                 UpgradeInfoController upgradeInfoController = upgradeInfo.GetComponent<UpgradeInfoController>();
                 upgradeInfoController.Init(upgrade);
+                _upgrades.Add(upgradeInfo);
             }
+        }
+
+        private void OnEnable()
+        {
+            if (_upgrades.Count <= 0) return;
+
+            EventSystem.current.SetSelectedGameObject(_upgrades[0]);
         }
     }
 }
