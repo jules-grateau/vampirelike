@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c375ac6f35145545ad6e621f384b4b3, type: 3}
-  m_Name: onPlayerHeal
+  m_Name: onPlayerUseKey
   m_EditorClassIdentifier: 

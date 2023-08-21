@@ -7,9 +7,8 @@ namespace Assets.Scripts.Controller.Collectible
     {
         public float Duration {get;set;}
 
-        protected override void Collect()
+        protected override void CustomCollectEvent()
         {
-            base.Collect();
             StartCoroutine(TriggerCollect());
         }
 

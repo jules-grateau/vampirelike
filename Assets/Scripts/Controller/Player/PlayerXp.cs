@@ -5,6 +5,7 @@ using System.Collections;
 using Assets.Scripts.Controller.Game;
 using UnityEngine;
 using Assets.Scripts.ScriptableObjects.Items;
+using Assets.Scripts.Controller.Collectible;
 
 namespace Assets.Scripts.Controller.Player
 {
@@ -38,9 +39,10 @@ namespace Assets.Scripts.Controller.Player
             _maxXp.value = XpToReach(_currentLevel);
         }
 
-        public void OnPlayerGainXp(float value)
+        public void OnPlayerGainXp(CollectibleItem collectible)
         {
-            _xp.value += value;
+            XpCollectible xpCollectible = (XpCollectible)collectible;
+            _xp.value += xpCollectible.XpValue;
             int xpToReach = XpToReach(_currentLevel);
 
             while(_xp.value >= xpToReach)

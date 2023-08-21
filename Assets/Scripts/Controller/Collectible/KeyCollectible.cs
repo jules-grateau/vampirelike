@@ -9,17 +9,7 @@ namespace Assets.Scripts.Controller.Collectible
 {
     public class KeyCollectible : CollectibleItem
     {
-        public float KeyId { get; set; }
-
-        protected override void Collect()
-        {
-            base.Collect();
-            OnCollectEvent.Raise(KeyId);
-        }
-
-        void Start()
-        {
-
-        }
+        public InteractibleController Interactible { get; set; }
+        public Color Color { get; set; }
     }
 }

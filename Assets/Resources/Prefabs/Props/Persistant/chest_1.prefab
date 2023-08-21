@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4415601635382988673}
   - component: {fileID: 4942508482086498065}
   - component: {fileID: 2060335429641236438}
+  - component: {fileID: 2925415655702849935}
   m_Layer: 13
   m_Name: chest_1
   m_TagString: Untagged
@@ -28,12 +29,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3093150243329320438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.24, y: 10.49, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3093150243329320432
 SpriteRenderer:
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: e3c81ee3021584f4099b407bd596c2d5, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 435987093
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2723989452440442212, guid: 2dd259fe5ee39464a8c8d29cca396bc5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -180,3 +181,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2925415655702849935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3093150243329320438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a92e1911f93862468cb3b25be959c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isLocked: 1
+  OnUseKeyEvent: {fileID: 11400000, guid: 72ccd643d8118b444b637dc6837ac8ee, type: 2}
+  Key: {fileID: 0}
+  _loots:
+  - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+    Amount: 25
+  - Item: {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
+    Amount: 2
+  easeType: 3
+  dropTime: 1

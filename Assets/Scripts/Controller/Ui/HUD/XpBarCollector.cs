@@ -15,7 +15,7 @@ namespace Assets.Scripts.Controller.Ui
     public class XpBarCollector : MonoBehaviour
     {
         [SerializeField]
-        GameEventFloat OnXpEvent;
+        GameEventCollectible OnXpEvent;
         [SerializeField] 
         GameObject animatedSoulPrefab;
         [SerializeField] 
@@ -51,54 +51,51 @@ namespace Assets.Scripts.Controller.Ui
             }
         }
 
-        void Animate(Vector3 collectedXpPosition, int amount)
+        void Animate(Vector3 collectedXpPosition, XpCollectible xpCollectible)
         {
             targetPosition = target.transform.position;
-            for (int i = 0; i < amount; i++)
+            if (soulsQueue.Count > 0)
             {
-                if (soulsQueue.Count > 0)
+                GameObject xp = soulsQueue.Dequeue();
+                xp.transform.position = collectedXpPosition + new Vector3(Random.Range(-spread, spread), 0f, 0f);
+                xp.SetActive(true);
+                var orgDistance = Vector3.Distance(xp.transform.position, targetPosition);
+
+                float duration = Random.Range(minAnimDuration, maxAnimDuration);
+                Tweener tweener = xp.transform.DOMove(targetPosition, duration)
+                .SetEase(easeType);
+
+                tweener.OnUpdate(() =>
                 {
-                    GameObject xp = soulsQueue.Dequeue();
-                    xp.transform.position = collectedXpPosition + new Vector3(Random.Range(-spread, spread), 0f, 0f);
-                    xp.SetActive(true);
-                    var orgDistance = Vector3.Distance(xp.transform.position, targetPosition);
-
-                    float duration = Random.Range(minAnimDuration, maxAnimDuration);
-                    Tweener tweener = xp.transform.DOMove(targetPosition, duration)
-                    .SetEase(easeType);
-
-                    tweener.OnUpdate(() =>
+                    var newDistance = Vector3.Distance(xp.transform.position, target.transform.position);
+                    if (newDistance > 0.1)
                     {
-                        var newDistance = Vector3.Distance(xp.transform.position, target.transform.position);
-                        if (newDistance > 0.1)
-                        {
-                            tweener.ChangeValues(xp.transform.position, target.transform.position, (newDistance / orgDistance) * duration);
-                        }
-                        else
-                        {
-                            tweener.Kill();
-                            End(xp, amount);
-                        }
-                    });
-                }
+                        tweener.ChangeValues(xp.transform.position, target.transform.position, (newDistance / orgDistance) * duration);
+                    }
+                    else
+                    {
+                        tweener.Kill();
+                        End(xp, xpCollectible);
+                    }
+                });
             }
         }
 
-        private void End(GameObject xp, int amount)
+        private void End(GameObject xp, XpCollectible xpCollectible)
         {
             target.GetComponent<ParticleSystem>().Play();
             xp.SetActive(false);
             soulsQueue.Enqueue(xp);
-            OnXpEvent.Raise(amount);
+            OnXpEvent.Raise(xpCollectible);
         }
 
-        public void AddXp(float xpAmount)
+        public void AddXp(CollectibleItem xpCollectible)
         {
             if (!_player)
             {
                 _player = GameObject.FindGameObjectWithTag("Player");
             }
-            Animate(_player.transform.position, Mathf.FloorToInt(xpAmount));
+            Animate(_player.transform.position, (XpCollectible)xpCollectible);
         }
     }
 }

@@ -10,11 +10,5 @@ namespace Assets.Scripts.Controller.Collectible
     public class HealthCollectible : CollectibleItem
     {
         public float HealthValue { get; set; }
-
-        protected override void Collect()
-        {
-            base.Collect();
-            OnCollectEvent.Raise(HealthValue);
-        }
     }
 }

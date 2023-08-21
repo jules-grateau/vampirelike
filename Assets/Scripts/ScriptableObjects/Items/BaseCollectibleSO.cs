@@ -12,7 +12,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         protected GameObject _prefab;
         [SerializeField]
-        protected GameEventFloat _collectEvent;
+        protected GameEventCollectible _collectEvent;
         [Range(0.0F, 1.0F)]
         [SerializeField]
         public float dropChance;
