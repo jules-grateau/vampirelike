@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.Scripts.Controller.Collectible;
 
 public class UIWeaponInventoryController : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class UIWeaponInventoryController : MonoBehaviour
         _inventorySlotPrefab = (GameObject) Resources.Load("Prefabs/UI/WeaponSlot");
     }
 
-    public void AddWeapon(WeaponSO weapon)
+    public void AddWeapon(CollectibleItem collectible)
     {
+        WeaponCollectible weaponCollectible = (WeaponCollectible)collectible;
+        WeaponSO weapon = weaponCollectible.Weapon;
         GameObject inventorySlot = Instantiate(_inventorySlotPrefab, gameObject.transform);
         inventorySlot.GetComponent<UIWeaponCooldownController>().SetWeaponSO(weapon);
         Image image = inventorySlot.transform.Find("Icon").GetComponent<Image>();

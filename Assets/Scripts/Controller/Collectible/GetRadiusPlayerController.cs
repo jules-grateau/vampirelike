@@ -12,6 +12,7 @@ public class GetRadiusPlayerController : MonoBehaviour
     [SerializeField]
     private float _speed = 6f;
 
+    public bool CanBePulled;
     public bool forceCollect = false;
 
 
@@ -26,6 +27,7 @@ public class GetRadiusPlayerController : MonoBehaviour
     void Update()
     {
         if (!_player) return;
+        if (!CanBePulled) return;
 
         float radius = _player.GetComponent<PlayerCollect>().getRadius();
         var hit = Physics2D.OverlapCircle(transform.position, radius, 1 << LayerMask.NameToLayer("Player"));

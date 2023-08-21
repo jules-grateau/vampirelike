@@ -7,7 +7,7 @@ namespace Assets.Scripts.Controller.Collectible
     {
         public float Duration {get;set;}
 
-        protected override void CustomCollectEvent()
+        protected override void CustomCollectEvent(Collider2D collision)
         {
             StartCoroutine(TriggerCollect());
         }

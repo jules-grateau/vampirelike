@@ -16,6 +16,8 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [Range(0.0F, 1.0F)]
         [SerializeField]
         public float dropChance;
+        [SerializeField]
+        public bool CanBePulled = true;
 
         public abstract GameObject GetGameObject(Vector3 position);
     }

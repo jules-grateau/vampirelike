@@ -15,22 +15,22 @@ namespace Assets.Scripts.Controller.Collectible
         {
             if (collision.gameObject.tag == "Player")
             {
-                Collect();
+                Collect(collision);
                 Destroy(gameObject);
             }
         }
 
-        protected void Collect()
+        protected void Collect(Collider2D collision)
         {
             if(pickupSound)
             {
                 AudioSource.PlayClipAtPoint(pickupSound, this.gameObject.transform.position);
             }
-            CustomCollectEvent();
+            CustomCollectEvent(collision);
             OnCollectEvent.Raise(this);
         }
 
-        protected virtual void CustomCollectEvent() {
+        protected virtual void CustomCollectEvent(Collider2D collision) {
 
         }
     }

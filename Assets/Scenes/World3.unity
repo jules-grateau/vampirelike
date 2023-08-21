@@ -24660,6 +24660,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: _weaponSpawnPosition.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: _weaponSpawnPosition.Array.data[0]
       value: 
       objectReference: {fileID: 609498686}

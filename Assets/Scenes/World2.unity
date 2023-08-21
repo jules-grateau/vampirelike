@@ -11840,6 +11840,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 49772181}
     - target: {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: weaponCollectible
+      value: 
+      objectReference: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
+    - target: {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: _weaponSpawnPosition.Array.size
       value: 3
       objectReference: {fileID: 0}

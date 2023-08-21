@@ -1040,7 +1040,7 @@ RectTransform:
   - {fileID: 925423005952979346}
   - {fileID: 7919732410973836989}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7472,8 +7472,8 @@ GameObject:
   - component: {fileID: 5027740309516954204}
   - component: {fileID: 8420712709376123919}
   - component: {fileID: 8768971457026207089}
-  - component: {fileID: 6844331620260544677}
   - component: {fileID: 8284103677270973165}
+  - component: {fileID: 5039613909257066863}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -7521,34 +7521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527a68c30bff1474aa0c746e8533c68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6844331620260544677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8312685682935702945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b67d16ffad14946bbbf8fc0e3af535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 79b1cc068be8ede48986af784f93498c, type: 2}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8768971457026207089}
-        m_TargetAssemblyTypeName: UIWeaponInventoryController, Assembly-CSharp
-        m_MethodName: AddWeapon
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &8284103677270973165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7576,6 +7548,34 @@ MonoBehaviour:
   fitX: 1
   fitY: 1
   NudgeLastItemsOver: 0
+--- !u!114 &5039613909257066863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8312685682935702945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4329ac34f97f0ef44a5a25ec75c6a864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 09e0b6654953a6c49b169723e6a8649a, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8768971457026207089}
+        m_TargetAssemblyTypeName: UIWeaponInventoryController, Assembly-CSharp
+        m_MethodName: AddWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8489481343133778222
 GameObject:
   m_ObjectHideFlags: 0
