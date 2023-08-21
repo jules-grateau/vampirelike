@@ -14,28 +14,52 @@ namespace Assets.Scripts.Controller.Ui.LanguageSelection
     {
         TMP_Dropdown _dropdown;
         List<Locale> _currLocalList;
-        Dictionary<Locale, Sprite> _localSpriteDictionnary = new Dictionary<Locale, Sprite>();
 
-        IEnumerator Start()
+        static Dictionary<Locale, Sprite> _localSpriteDictionnary = new Dictionary<Locale, Sprite>();
+        static List<Locale> _locale;
+
+        void Awake()
         {
             _dropdown = GetComponent<TMP_Dropdown>();
             // Wait for the localization system to initialize
+            if (_locale != null && _localSpriteDictionnary != null) return;
+
+            StartCoroutine(LoadLocalization());
+        }
+
+        private void OnEnable()
+        {
+            _dropdown.onValueChanged.AddListener(LocaleSelected);
+
+            if (_locale == null) return;
+
+            PopulateDropdown();
+        }
+
+        private void OnDisable()
+        {
+            _dropdown.onValueChanged.RemoveListener(LocaleSelected);
+        }
+
+
+        IEnumerator LoadLocalization()
+        {
             yield return LocalizationSettings.InitializationOperation;
 
-            foreach (Locale locale in LocalizationSettings.AvailableLocales.Locales)
+            _locale = LocalizationSettings.AvailableLocales.Locales;
+
+            foreach (Locale locale in _locale)
             {
                 Sprite sprite = LocalizationSettings.AssetDatabase.GetLocalizedAsset<Sprite>("Images", "Flag", locale);
                 _localSpriteDictionnary.Add(locale, sprite);
             }
+
             PopulateDropdown();
-
-            // Generate list of available Locales
-
-            _dropdown.onValueChanged.AddListener(LocaleSelected);
         }
 
         void PopulateDropdown()
         {
+
             var options = new List<TMP_Dropdown.OptionData>();
             _currLocalList = new List<Locale>();
 

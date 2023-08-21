@@ -1,7 +1,8 @@
 ﻿using Assets.Scripts.Controller.Ui.CharacterSelection;
 using Assets.Scripts.ScriptableObjects.Items;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Controller.Ui
 {
@@ -9,21 +10,30 @@ namespace Assets.Scripts.Controller.Ui
     {
         GameObject _characterInfoPrefab;
         PlayableCharacterSO[] _playableCharacters;
-        GridLayout _gridLayoutGroup;
+        List<GameObject> _characterInfo;
 
         // Use this for initialization
         void Awake()
         {
             _characterInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/CharacterInfo");
             _playableCharacters = Resources.LoadAll<PlayableCharacterSO>("ScriptableObjects/PlayableCharacters/");
-            _gridLayoutGroup = gameObject.GetComponent<GridLayout>();
+            _characterInfo = new List<GameObject>();
 
-            foreach (PlayableCharacterSO playbleCharacter in _playableCharacters)
+            for (int i = 0; i < _playableCharacters.Length; i++)
             {
+                PlayableCharacterSO playbleCharacter = _playableCharacters[i];
                 GameObject characterInfo = Instantiate(_characterInfoPrefab, transform);
                 CharacterInfoController characterInfoController = characterInfo.GetComponent<CharacterInfoController>();
                 characterInfoController.Init(playbleCharacter);
+                _characterInfo.Add(characterInfo);
             }
+        }
+
+        private void OnEnable()
+        {
+            if (_characterInfo.Count <= 0) return;
+
+            EventSystem.current.SetSelectedGameObject(_characterInfo[0]);
         }
 
 

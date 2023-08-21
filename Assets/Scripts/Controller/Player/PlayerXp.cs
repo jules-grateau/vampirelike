@@ -1,8 +1,6 @@
-﻿using Assets.Scripts.Events;
+﻿using Assets.Scripts.Controller.Game;
+using Assets.Scripts.Events;
 using Assets.Scripts.Variables;
-using Assets.Scripts.Variables.Constants;
-using System.Collections;
-using Assets.Scripts.Controller.Game;
 using UnityEngine;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.Controller.Collectible;

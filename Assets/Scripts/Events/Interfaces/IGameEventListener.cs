@@ -7,4 +7,9 @@ namespace Assets.Scripts.Events
     {
         void RaiseEvent(T param);
     }
+
+    public interface IGameEventListener<T, U>
+    {
+        void RaiseEvent(T param, U param2);
+    }
 }

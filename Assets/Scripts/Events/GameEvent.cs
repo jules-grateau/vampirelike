@@ -54,4 +54,29 @@ namespace Assets.Scripts.Events
                 gameEventListeners.Remove(gameEventListener);
         }
     }
+
+    public abstract class GameEvent<T,U> : ScriptableObject
+    {
+        private List<IGameEventListener<T,U>> gameEventListeners = new List<IGameEventListener<T,U>>();
+
+        public void Raise(T param, U param2)
+        {
+            for (int i = gameEventListeners.Count - 1; i >= 0; i--)
+            {
+                gameEventListeners[i].RaiseEvent(param, param2);
+            }
+        }
+
+        public void RegisterListener(IGameEventListener<T,U> gameEventListener)
+        {
+            if (!gameEventListeners.Contains(gameEventListener))
+                gameEventListeners.Add(gameEventListener);
+        }
+
+        public void UnregisterListener(IGameEventListener<T,U> gameEventListener)
+        {
+            if (gameEventListeners.Contains(gameEventListener))
+                gameEventListeners.Remove(gameEventListener);
+        }
+    }
 }

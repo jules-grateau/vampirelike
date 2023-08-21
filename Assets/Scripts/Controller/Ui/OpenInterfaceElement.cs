@@ -14,7 +14,7 @@ namespace Assets.Scripts.Controller.Ui
 
         public void OnOpenInterface()
         {
-            _gameEventInterfaceElement.Raise(_interfaceElementToOpen);
+            _gameEventInterfaceElement.Raise(_interfaceElementToOpen, false);
         }
 
     }
