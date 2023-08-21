@@ -17,13 +17,13 @@ GameObject:
   - component: {fileID: 8663408860301830518}
   - component: {fileID: 2930062219622115911}
   - component: {fileID: 132519036493021569}
-  - component: {fileID: 3229203563632729664}
   - component: {fileID: 165095560889788552}
   - component: {fileID: 774599773935333219}
   - component: {fileID: 2298111754257009617}
   - component: {fileID: -4493400802375127496}
   - component: {fileID: 195299733415217774}
   - component: {fileID: 8324934447402227277}
+  - component: {fileID: 4277225457406944935}
   m_Layer: 7
   m_Name: Elf Sharpshooter
   m_TagString: Player
@@ -172,35 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3e0f6bff39e62429ff65daee7d63ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3229203563632729664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704638989827276549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b67d16ffad14946bbbf8fc0e3af535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 79b1cc068be8ede48986af784f93498c, type: 2}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 132519036493021569}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
-          Assembly-CSharp
-        m_MethodName: EquipWeapon
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &165095560889788552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +375,35 @@ MonoBehaviour:
       - m_Target: {fileID: 7851758709933123181}
         m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerKey, Assembly-CSharp
         m_MethodName: OnPlayerCollectKey
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4277225457406944935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4329ac34f97f0ef44a5a25ec75c6a864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 09e0b6654953a6c49b169723e6a8649a, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 132519036493021569}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
+          Assembly-CSharp
+        m_MethodName: EquipWeapon
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -640,7 +640,7 @@ MonoBehaviour:
   - {x: 0.031735793, y: -0.49120903, z: 0}
   m_ShapePathHash: -1642085550
   m_Mesh: {fileID: 0}
-  m_InstanceId: 62722
+  m_InstanceId: 43860
   m_LocalBounds:
     m_Center: {x: -0.016652763, y: -0.032806158, z: 0}
     m_Extent: {x: 0.40627903, y: 0.45840287, z: 0}
