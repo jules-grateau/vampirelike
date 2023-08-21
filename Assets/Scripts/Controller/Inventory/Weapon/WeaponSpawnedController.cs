@@ -33,7 +33,7 @@ public class WeaponSpawnedController : MonoBehaviour
 
     public WeaponSO getRandomWeaponSO()
     {
-        int random = UnityEngine.Random.Range(0, Weapons.Count);
+        int random = UnityEngine.Random.Range(0, Weapons.Count - 1);
         WeaponSO w = Weapons[random];
         Weapons.RemoveAt(random);
         return w;

@@ -23,7 +23,6 @@ public abstract class InteractibleController : MonoBehaviour
     {
         _lockRef = Resources.Load<GameObject>("Prefabs/Particles/lock_1");
         _animator = gameObject.GetComponent<Animator>();
-        PrepareLoot();
     }
 
     private void Start()
@@ -45,7 +44,7 @@ public abstract class InteractibleController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (_isLocked)
+            if (_isLocked && _lockAnimator)
             {
                 PlayerKey playerKey = collision.gameObject.GetComponent<PlayerKey>();
                 if (playerKey && playerKey.canUnlock(this))
@@ -65,7 +64,5 @@ public abstract class InteractibleController : MonoBehaviour
             }
         }
     }
-
-    protected abstract void PrepareLoot();
     protected abstract void TriggerAnimation();
 }

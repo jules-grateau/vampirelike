@@ -9293,10 +9293,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: torch_1
       objectReference: {fileID: 0}
-    - target: {fileID: 1933977507789927664, guid: b8063ae8813c13f48a7130c6a2ace285, type: 3}
-      propertyPath: m_PointLightInnerRadius
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9728,30 +9724,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 925423005952979346, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 925423005952979346, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 925423005952979346, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 925423005952979346, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 925423005952979346, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 925423005952979346, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2560782690997402137, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
       propertyPath: m_Name
       value: GameUI
@@ -9843,10 +9815,6 @@ PrefabInstance:
     - target: {fileID: 7394020412865262951, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8483773733719083456, guid: f2a5bd09093ed43489055e5d21b59327, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11937,6 +11905,8 @@ MonoBehaviour:
   - {fileID: 1845864126}
   - {fileID: 1904144308}
   - {fileID: 323314666}
+  weaponCollectible: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
+  Weapons: []
 --- !u!1 &1220070121
 GameObject:
   m_ObjectHideFlags: 0
@@ -12466,6 +12436,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6507167564589464170, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: floor
+      value: 
+      objectReference: {fileID: 49772181}
+    - target: {fileID: 2074779649004140502, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: floor
       value: 
       objectReference: {fileID: 49772181}

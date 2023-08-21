@@ -197,6 +197,6 @@ MonoBehaviour:
   OnUseKeyEvent: {fileID: 11400000, guid: 72ccd643d8118b444b637dc6837ac8ee, type: 2}
   _loots:
   - Item: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
-    Amount: 2
+    Amount: 1
   easeType: 3
   dropTime: 1

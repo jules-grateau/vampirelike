@@ -8,9 +8,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Controller.Collectible;
 using UnityEngine.Tilemaps;
+using System.Linq;
 
 namespace Assets.Scripts.Controller.Game
 {
+    [Serializable]
+    public class LootTable
+    {
+        public List<Loot> loots;
+        [Range(0.0F, 1.0F)]
+        public float probability;
+    }
+
     public class KeyController : MonoBehaviour
     {
 
@@ -24,6 +33,9 @@ namespace Assets.Scripts.Controller.Game
         GameObject _chestRef;
 
         private Queue<GameObject> chestQueue = new Queue<GameObject>();
+
+        [SerializeField]
+        public List<LootTable> LootTables;
 
         void Awake()
         {
@@ -54,6 +66,18 @@ namespace Assets.Scripts.Controller.Game
             }
         }
 
+        private List<Loot> getRandomDrop()
+        {
+            float rand = UnityEngine.Random.value;
+            List<LootTable> canDrop = LootTables
+                .OrderBy(lt => lt.probability)
+                .Where(lt => lt.probability <= rand)
+                .ToList();
+
+            int random = UnityEngine.Random.Range(0, canDrop.Count);
+            return canDrop[random].loots;
+        }
+
         public InteractibleController queuChestGen(KeyCollectible key)
         {
             // Define a random color for the key
@@ -70,6 +94,9 @@ namespace Assets.Scripts.Controller.Game
             chest.SetActive(false);
             InteractibleController interactable = chest.GetComponent<InteractibleController>();
             interactable.SetKey(key);
+
+            ChestInteractibleController chestInteractible = chest.GetComponent<ChestInteractibleController>();
+            chestInteractible.SetLoots(getRandomDrop());
             chestQueue.Enqueue(chest);
 
             return interactable;

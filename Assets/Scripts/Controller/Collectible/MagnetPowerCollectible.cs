@@ -12,7 +12,10 @@ namespace Assets.Scripts.Controller.Collectible
             {
                 foreach (Collider2D hit in hits)
                 {
-                    hit.gameObject.GetComponent<GetRadiusPlayerController>().forceCollect = true;
+                    GetRadiusPlayerController radiusPlayerController = hit.gameObject.GetComponent<GetRadiusPlayerController>();
+                    if (radiusPlayerController != null) {
+                        radiusPlayerController.forceCollect = true;
+                    }
                 }
             }
         }

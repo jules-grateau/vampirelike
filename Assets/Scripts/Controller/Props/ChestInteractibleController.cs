@@ -15,7 +15,7 @@ public class Loot
 public class ChestInteractibleController : InteractibleController
 {
     [SerializeField]
-    private List<Loot> _loots;
+    public List<Loot> Loots;
     [SerializeField]
     Ease easeType;
     [SerializeField]
@@ -23,9 +23,10 @@ public class ChestInteractibleController : InteractibleController
 
     private Queue<GameObject> queue = new Queue<GameObject>();
 
-    protected override void PrepareLoot()
+    public void SetLoots(List<Loot> loots)
     {
-        foreach (Loot loot in _loots)
+        Loots = loots;
+        foreach (Loot loot in Loots)
         {
             for (int i = 0; i < loot.Amount; i++)
             {
@@ -44,6 +45,8 @@ public class ChestInteractibleController : InteractibleController
 
     private void DropAnimation()
     {
+        if (queue.Count <= 0) return;
+
         GameObject lootGO = queue.Dequeue();
         Collider2D lootColider = lootGO.GetComponent<Collider2D>();
         lootColider.enabled = false;

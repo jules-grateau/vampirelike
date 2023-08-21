@@ -8,21 +8,21 @@ using Assets.Scripts.Controller.Collectible;
 
 public class UIArrowIndicatorController : MonoBehaviour
 {
-    private float _radius = 0;
     private InteractibleController _interactible;
     private GameObject _player;
+    private Image _image;
 
     public void Awake()
     {
-        _radius = Mathf.Abs((Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height) / 1.75f);
         gameObject.SetActive(false); 
         _player = GameManager.GameState.Player;
+        _image = gameObject.GetComponent<Image>();
     }
 
     public void setCollectible(KeyCollectible keyCollectible)
     {
         _interactible = keyCollectible.Interactible;
-        gameObject.GetComponent<Image>().color = keyCollectible.Color;
+        _image.color = keyCollectible.Color;
         gameObject.SetActive(true);
     }
 
@@ -30,11 +30,11 @@ public class UIArrowIndicatorController : MonoBehaviour
     {
         if (!_player) return;
         if (!_interactible) return;
-        bool isTooClose = Vector2.Distance(_player.transform.position, _interactible.gameObject.transform.position) < _radius;
+        float ratio = Vector2.Distance(_player.transform.position, _interactible.gameObject.transform.position) / 10f;
 
-        gameObject.SetActive(!isTooClose);
+        _image.color = new Color(_image.color.r, _image.color.g, _image.color.b, ratio);
         Vector3 direction = _interactible.gameObject.transform.position - _player.transform.position;
-        gameObject.transform.position = _player.transform.position + direction.normalized * _radius;
+        gameObject.transform.position = _player.transform.position + direction.normalized * 2f;
         gameObject.transform.rotation = Quaternion.FromToRotation(-Vector3.right, direction);
     }
 }
