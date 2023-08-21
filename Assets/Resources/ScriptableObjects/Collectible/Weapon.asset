@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632a353ba9d3054468332a86f31dd0e3, type: 3}
+  m_Name: Weapon
+  m_EditorClassIdentifier: 
+  pickupAudio: {fileID: 8300000, guid: 2d683b1691de61647a4c7f45223f6287, type: 3}
+  _prefab: {fileID: 6801104700241300836, guid: 2f2e8fafb6f3d7641b3d67a3a90a3897, type: 3}
+  _collectEvent: {fileID: 11400000, guid: 09e0b6654953a6c49b169723e6a8649a, type: 2}
+  dropChance: 0
+  CanBePulled: 0

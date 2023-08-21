@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Controller.Collectible;
 using Assets.Scripts.Events.TypedEvents;
 using UnityEngine;
+using Assets.Scripts.Controller.Game;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
@@ -10,9 +11,8 @@ namespace Assets.Scripts.ScriptableObjects.Items
         public override KeyCollectible GetCollectible(Vector3 position)
         {
             KeyCollectible keyCollectibleController = base.GetCollectible(position);
-            // TODO : add service to increment KeyId number
-            keyCollectibleController.KeyId = 0;
-
+            keyCollectibleController.Interactible = KeyController.Instance.queuChestGen(keyCollectibleController);
+            
             return keyCollectibleController;
         }
     }

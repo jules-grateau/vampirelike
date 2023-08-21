@@ -6,6 +6,7 @@ using Assets.Scripts.Types;
 using Assets.Scripts.Types.Upgrades;
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Controller.Collectible;
 using UnityEngine;
 
 namespace Assets.Scripts.Controller.Inventory.Weapons
@@ -25,8 +26,10 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
             _weaponStats = weaponStatistics;
         }
 
-        public void EquipWeapon(WeaponSO weapon)
+        public void EquipWeapon(CollectibleItem collectible)
         {
+            WeaponCollectible weaponCollectible = (WeaponCollectible)collectible;
+            WeaponSO weapon = weaponCollectible.Weapon;
             Debug.Log($"Equipped weapon {weapon.name}");
 
             WeaponController wpController = gameObject.AddComponent<WeaponController>();

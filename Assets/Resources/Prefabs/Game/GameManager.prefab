@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1284124363385911551}
   - component: {fileID: -6507167564589464170}
   - component: {fileID: 1676250163925351222}
+  - component: {fileID: 2074779649004140502}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -243,4 +244,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93074182681da144958355d19ddcfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponSpawnPosition: []
+  _weaponSpawnPosition:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponCollectible: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
+  Weapons: []
+--- !u!114 &2074779649004140502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f76f7cb2dfa09b4ba6d83f0f82b9f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor: {fileID: 0}
+  LootTables:
+  - loots:
+    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+      Amount: 5
+    - Item: {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
+      Amount: 1
+    probability: 0.25
+  - loots:
+    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+      Amount: 15
+    probability: 0.25
+  - loots:
+    - Item: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
+      Amount: 1
+    probability: 0.1
+  - loots:
+    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+      Amount: 5
+    probability: 0.5
+  - loots:
+    - Item: {fileID: 11400000, guid: 5465de5c9ed79e648a5d9158cd465306, type: 2}
+      Amount: 2
+    probability: 0.1
+  - loots:
+    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+      Amount: 5
+    probability: 0.75
+  - loots:
+    - Item: {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
+      Amount: 2
+    probability: 0.5
+  - loots:
+    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+      Amount: 25
+    probability: 0

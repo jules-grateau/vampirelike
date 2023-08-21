@@ -6,6 +6,6 @@ using Assets.Scripts.Controller.Collectible;
 
 namespace Assets.Scripts.Events.TypedEvents
 {
-    public class GameEventListenerCollectible : GameEventListener<CollectibleSO<CollectibleItem>, GameEventCollectible, UnityEvent<CollectibleSO<CollectibleItem>>> {
+    public class GameEventListenerCollectible : GameEventListener<CollectibleItem, GameEventCollectible, UnityEvent<CollectibleItem>> {
     }
 }

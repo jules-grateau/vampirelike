@@ -11,12 +11,6 @@ namespace Assets.Scripts.Controller.Collectible
     {
         public float XpValue { get; set; }
 
-        protected override void Collect()
-        {
-            base.Collect();
-            OnCollectEvent.Raise(XpValue);
-        }
-
         void Start()
         {
             SoulColorController soulColorController = GetComponent<SoulColorController>();

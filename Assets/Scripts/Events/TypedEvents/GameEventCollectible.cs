@@ -6,5 +6,5 @@ using Assets.Scripts.Controller.Collectible;
 namespace Assets.Scripts.Events.TypedEvents
 {
     [CreateAssetMenu(fileName = "GameEvent with Collectible Param", menuName = "GameEvent/Collectible", order = 3)]
-    public class GameEventCollectible : GameEvent<CollectibleSO<CollectibleItem>> { }
+    public class GameEventCollectible : GameEvent<CollectibleItem> { }
 }

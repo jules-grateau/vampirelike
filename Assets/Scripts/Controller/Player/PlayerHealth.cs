@@ -7,6 +7,7 @@ using Assets.Scripts.Variables;
 using Assets.Scripts.Variables.Constants;
 using System.Collections;
 using UnityEngine;
+using Assets.Scripts.Controller.Collectible;
 
 namespace Assets.Scripts.Controller.Player
 {
@@ -86,16 +87,17 @@ namespace Assets.Scripts.Controller.Player
             }
         }
 
-        public void OnPlayerHeal(float value)
+        public void OnPlayerHeal(CollectibleItem collectible)
         {
+            HealthCollectible healthCollectible = (HealthCollectible)collectible;
             float maxHp = _characterStatistics.GetStats(CharacterStatisticEnum.MaxHp);
-            if (Health + value > maxHp)
+            if (Health + healthCollectible.HealthValue > maxHp)
             {
                 Health = maxHp;
                 return;
             }
 
-            Health += value;
+            Health += healthCollectible.HealthValue;
         }
 
         private IEnumerator triggerInvincibility()
