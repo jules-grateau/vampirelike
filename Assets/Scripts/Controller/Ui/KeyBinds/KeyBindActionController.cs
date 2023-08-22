@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.Controller.Ui.KeyBinds
@@ -10,7 +11,7 @@ namespace Assets.Scripts.Controller.Ui.KeyBinds
     {
         GameObject _keybindInfoPrefab;
 
-        public void Init(InputAction action)
+        public void Init(InputAction action, string bindingGroups, bool isFirst)
         {
             _keybindInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/KeyBindInfo");
             GameObject mainSection = transform.Find("SectionContainer/Main").gameObject;
@@ -30,19 +31,30 @@ namespace Assets.Scripts.Controller.Ui.KeyBinds
                 Destroy(secondarySection.transform.Find("Title").gameObject);
             }
 
+            bool isFirstButtonSelected = false;
 
-            foreach (InputBinding binding in action.bindings)
+            for(int i = 0; i < action.bindings.Count; i++)
             {
+                InputBinding binding = action.bindings[i];
+
                 if (isActionCompite && binding.isComposite && binding.name == "Secondary") parentSection = secondarySection;
-                if (binding.isComposite) {
+                if (binding.isComposite)
+                {
                     TextMeshProUGUI title = parentSection.transform.Find("Title").GetComponent<TextMeshProUGUI>();
                     title.SetText(binding.name);
                     continue;
                 };
+                if (binding.groups != bindingGroups) continue;
 
                 GameObject instance = Instantiate(_keybindInfoPrefab, parentSection.transform);
                 KeyBindInfoController infoController = instance.AddComponent<KeyBindInfoController>();
                 infoController.Init(binding, action, isActionCompite);
+
+                if (isFirst && !isFirstButtonSelected)
+                {
+                    infoController.SetSelected();
+                    isFirstButtonSelected = true;
+                }
             }
         }
     }

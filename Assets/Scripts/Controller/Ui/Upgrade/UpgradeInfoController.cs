@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Events.TypedEvents;
+﻿using Assets.Scripts.Controller.Upgrades;
+using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Game;
 using Assets.Scripts.ScriptableObjects.Items;
@@ -22,7 +23,7 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
         [SerializeField]
         GameEventUpgrade _selectUpgradeEvent;
 
-        public void Init(Upgrade<UpgradeSO> upgrade)
+        public void Init(Upgrade<UpgradeSO> upgrade, UpgradeManager upgradeManager)
         {
             _title = transform.Find("Text/Title").GetComponent<TextMeshProUGUI>();
             _image = transform.Find("Icon/Image").GetComponent<Image>();
@@ -50,22 +51,7 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
             _image.sprite = upgrade.UpgradeSO.Sprite;
             _description.text = upgrade.GetDescription();
             Image upgradeImage = GetComponent<Image>();
-
-            switch (upgrade.UpgradeQuality)
-            {
-                case Types.UpgradeQuality.Rare:
-                    upgradeImage.color = Color.green;
-                    break;
-                case Types.UpgradeQuality.Epic:
-                    upgradeImage.color = Color.cyan;
-                    break;
-                case Types.UpgradeQuality.Legendary:
-                    upgradeImage.color = Color.yellow;
-                    break;
-                case Types.UpgradeQuality.Common:
-                default:
-                    break;
-            }
+            upgradeImage.color = upgradeManager.GetUpgradeColor(upgrade.UpgradeQuality);
 
         }
 

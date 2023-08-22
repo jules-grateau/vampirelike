@@ -31,7 +31,7 @@ namespace Assets.Scripts.Controller.Ui
             {
                 GameObject upgradeInfo = Instantiate(upgradeInfoPrefab, transform);
                 UpgradeInfoController upgradeInfoController = upgradeInfo.GetComponent<UpgradeInfoController>();
-                upgradeInfoController.Init(upgrade);
+                upgradeInfoController.Init(upgrade, upgradeManager);
                 _upgrades.Add(upgradeInfo);
             }
         }
