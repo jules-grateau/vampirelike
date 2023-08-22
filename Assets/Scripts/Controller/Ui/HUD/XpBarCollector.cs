@@ -63,21 +63,38 @@ namespace Assets.Scripts.Controller.Ui
 
                 float duration = Random.Range(minAnimDuration, maxAnimDuration);
                 Tweener tweener = xp.transform.DOMove(targetPosition, duration)
-                .SetEase(easeType);
+                .SetEase(easeType)
+                .OnKill(() =>
+                {
+                    End(xp, xpCollectible);
+                });
 
                 tweener.OnUpdate(() =>
                 {
+                    if (!tweener.IsActive()) return;
+
                     var newDistance = Vector3.Distance(xp.transform.position, target.transform.position);
-                    if (newDistance > 0.1)
+                    if (newDistance > 1)
                     {
                         tweener.ChangeValues(xp.transform.position, target.transform.position, (newDistance / orgDistance) * duration);
-                    }
-                    else
+                    } else
                     {
                         tweener.Kill();
-                        End(xp, xpCollectible);
                     }
                 });
+
+               //Fallback in case for some reason the tweener never reached the destination
+               StartCoroutine(EndAfterTime(tweener, duration));
+                
+            }
+        }
+
+        IEnumerator EndAfterTime(Tweener tweener,float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            if (tweener.IsActive())
+            {
+                tweener.Kill(true);
             }
         }
 
