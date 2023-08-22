@@ -1,10 +1,7 @@
 ﻿using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.Types;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
 
 namespace Assets.Scripts.Controller.Ui
 {
@@ -22,24 +19,55 @@ namespace Assets.Scripts.Controller.Ui
 
         [SerializeField]
         GameObject _firstSelected;
+        GameObject _lastSelected;
+
+        bool _isOpened = false;
+        bool _isProcessing = false;
+        private void Update()
+        {
+            if (!_isProcessing && _isOpened) _lastSelected = EventSystem.current.currentSelectedGameObject;
+        }
 
         public void OnOpenInterfaceElement(InterfaceElement interfaceElement, bool isCloseAction)
         {
+            _isProcessing = true;
             _isActive = interfaceElement == _interfaceElement;
-            transform.GetChild(0).gameObject.SetActive(_isActive);
 
             if (_isActive)
             {
-                if(_firstSelected) EventSystem.current.SetSelectedGameObject(_firstSelected);
-                if(!isCloseAction) _prevElement = _currActiveElement;
+                Open(isCloseAction);
+            } else
+            {
+                Close();
             }
 
             _currActiveElement = interfaceElement;
+            _isProcessing = false;
+        }
+
+        public void Open(bool isCloseAction)
+        {
+            if (_isOpened) return;
+
+            transform.GetChild(0).gameObject.SetActive(true);
+            if (_firstSelected) EventSystem.current.SetSelectedGameObject(_firstSelected);
+            if (_lastSelected) EventSystem.current.SetSelectedGameObject(_lastSelected);
+            if (!isCloseAction) _prevElement = _currActiveElement;
+            _isOpened = true;
+        }
+
+        public void OpenPrevious()
+        {
+            _openInterfaceElementEvent.Raise(_prevElement, true);
         }
 
         public void Close()
         {
-            _openInterfaceElementEvent.Raise(_prevElement, true);
+            if (!_isOpened) return;
+
+            transform.GetChild(0).gameObject.SetActive(false);
+
+            _isOpened = false;
         }
     }
 }

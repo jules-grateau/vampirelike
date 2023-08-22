@@ -3,6 +3,7 @@ using Assets.Scripts.Controller.Inventory.Weapons;
 using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.ScriptableObjects.Items;
+using Assets.Scripts.ScriptableObjects.Settings;
 using Assets.Scripts.Types;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace Assets.Scripts.Controller.Upgrades
             {UpgradeQuality.Epic, 0.1f },
             {UpgradeQuality.Legendary, 0.01f}
         };
+        UpgradeQualityColorSettingsSO upgradeQualityColorSettingsSO;
+
         public static UpgradeManager GetInstance(string upgradeType)
         {
             if(_instances.GetValueOrDefault(upgradeType) == null)
@@ -36,8 +39,7 @@ namespace Assets.Scripts.Controller.Upgrades
         }
 
         List<UpgradeSO> _upgradeList;
-        Dictionary<WeaponStatisticEnum,WeaponStatisticDescriptionSO> _weaponStatisticDescriptions;
-        Dictionary<CharacterStatisticEnum,CharacterStatisticsDescriptionSO> _characterStatisticsDescriptions;
+
 
         private UpgradeManager(string upgradeType)
         {
@@ -46,14 +48,17 @@ namespace Assets.Scripts.Controller.Upgrades
             {
                 _upgradeList.AddRange(Resources.LoadAll<UpgradeSO>($"ScriptableObjects/Upgrade/{upgrade}"));
             }
-            _weaponStatisticDescriptions = Resources.LoadAll<WeaponStatisticDescriptionSO>("ScriptableObjects/Weapons/Statistics")
-                .ToDictionary(stat => stat.Key, stat => stat);
-            _characterStatisticsDescriptions = Resources.LoadAll<CharacterStatisticsDescriptionSO>("ScriptableObjects/PlayableCharacters/Statistics").ToDictionary(stat => stat.Key, stat => stat);
+            upgradeQualityColorSettingsSO = Resources.Load<UpgradeQualityColorSettingsSO>("ScriptableObjects/Settings/Upgrades/UpgradesColor");
         }
 
         public List<UpgradeSO> GetAvailableUpgrades()
         {
             return FilterUpgrades(_upgradeList);
+        }
+
+        public Color GetUpgradeColor(UpgradeQuality quality)
+        {
+            return upgradeQualityColorSettingsSO.GetColor(quality);
         }
 
         List<UpgradeSO> FilterUpgrades(List<UpgradeSO> upgrades)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static UnityEngine.InputSystem.InputControlPath;
@@ -37,10 +38,16 @@ namespace Assets.Scripts.Controller.Ui.KeyBinds
                 .OnComplete((callback) => {
                     _buttonText.SetText(InputControlPath.ToHumanReadableString(callback.action.bindings[_bindingIndex].effectivePath, HumanReadableStringOptions.OmitDevice));
                     _button.interactable = true;
+                    SetSelected();
                     callback.Dispose();
                     });
             _buttonText.SetText("Waiting for input ...");
             _button.interactable = false;
+        }
+
+        public void SetSelected()
+        {
+            EventSystem.current.SetSelectedGameObject(_button.gameObject);
         }
 
 

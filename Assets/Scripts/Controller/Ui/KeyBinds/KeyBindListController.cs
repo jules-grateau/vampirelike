@@ -13,27 +13,37 @@ namespace Assets.Scripts.Controller.Ui.KeyBinds
         [SerializeField]
         InputActionReference[] _bindableActions;
 
+        [SerializeField]
+        string _bindingGroups;
+
         GameObject _keybindActionPrefab;
+
+        PlayerInputs _playerInput;
 
         // Use this for initialization
         void Start()
         {
-            InputManager.GetInstance().Disable();
+            _playerInput = InputManager.GetInstance();
+            _playerInput.Disable();
 
             _keybindActionPrefab = Resources.Load<GameObject>("Prefabs/UI/KeyBindAction");
 
+            //We match the InputActionReference with the actual input references
+            InputAction[] _playerActions = _playerInput.Where(action => _bindableActions.FirstOrDefault(bindableAction => bindableAction.action.id == action.id) != null).ToArray();
 
-            foreach (InputAction action in _bindableActions)
+            for(int i = 0; i < _playerActions.Length; i++)
             {
+                InputAction action = _playerActions[i];
+                _playerInput.FindAction(action.name);
                 GameObject instance = Instantiate(_keybindActionPrefab, transform.Find("View/Viewport/Content"));
                 KeyBindActionController infoController = instance.AddComponent<KeyBindActionController>();
-                infoController.Init(action);
+                infoController.Init(action, _bindingGroups, i==0);
             }
         }
 
         private void OnDestroy()
         {
-            InputManager.GetInstance().Enable();
+            _playerInput.Enable();
         }
     }
 }

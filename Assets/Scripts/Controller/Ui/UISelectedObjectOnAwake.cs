@@ -8,10 +8,18 @@ namespace Assets.Scripts.Controller.Ui
     {
         [SerializeField]
         GameObject _firstSelect;
+        GameObject _previouslySelected;
 
         private void Awake()
         {
-            if(_firstSelect) EventSystem.current.SetSelectedGameObject(_firstSelect);
+            _previouslySelected = EventSystem.current.currentSelectedGameObject;
+
+            if (_firstSelect) EventSystem.current.SetSelectedGameObject(_firstSelect);
+        }
+
+        private void OnDestroy()
+        {
+            if(_previouslySelected) EventSystem.current.SetSelectedGameObject(_previouslySelected);
         }
     }
 }
