@@ -63,7 +63,11 @@ namespace Assets.Scripts.Controller.Ui
 
                 float duration = Random.Range(minAnimDuration, maxAnimDuration);
                 Tweener tweener = xp.transform.DOMove(targetPosition, duration)
-                .SetEase(easeType);
+                .SetEase(easeType)
+                .OnComplete(() =>
+                {
+                    End(xp, xpCollectible);
+                });
 
                 tweener.OnUpdate(() =>
                 {
@@ -74,8 +78,7 @@ namespace Assets.Scripts.Controller.Ui
                     }
                     else
                     {
-                        tweener.Kill();
-                        End(xp, xpCollectible);
+                        tweener.Complete();
                     }
                 });
             }
