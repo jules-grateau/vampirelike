@@ -9,31 +9,31 @@ namespace Assets.Scripts.Controller.Ui
     {
         PlayerGold _goldController;
         TextMeshProUGUI _text;
+        int _currValue = 0;
 
-        private void Awake()
-        {
-            _text = GetComponentInChildren<TextMeshProUGUI>();
-        }
-
-        private void OnEnable()
+        private void Start()
         {
             GameObject player = GameManager.GameState.Player;
             if (!player) return;
 
             _goldController = player.GetComponent<PlayerGold>();
-            _goldController.OnGoldChange += OnGoldChange;
+
+            _text = GetComponentInChildren<TextMeshProUGUI>();
             _text.SetText(_goldController.Value.ToString());
         }
 
-        private void OnDisable()
+        private void Update()
         {
-            if (!_goldController) return;
-            _goldController.OnGoldChange -= OnGoldChange;
+            int newValue = _goldController.Value;
+            if (newValue == _currValue) return;
+
+            UpdateText(newValue);
         }
 
-        void OnGoldChange(int newValue)
+        void UpdateText(int value)
         {
-            _text.SetText(newValue.ToString());
-        }
+            _text.SetText(value.ToString());
+            _currValue = value;
+        } 
     }
 }

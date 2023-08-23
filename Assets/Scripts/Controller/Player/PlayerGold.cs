@@ -6,21 +6,9 @@ namespace Assets.Scripts.Controller.Player
 {
     public class PlayerGold : MonoBehaviour
     {
-        public int Value
-        {
-            get
-            {
-                return _value;
-            }
-            private set
-            {
-                _value = value;
-                OnGoldChange?.Invoke(_value);
-            }
-        }
-        public Action<int> OnGoldChange;
-
+        public int Value => _value;
         private int _value;
+
         public bool UseGold(int amount)
         {
             if (amount > _value) return false;
@@ -34,7 +22,7 @@ namespace Assets.Scripts.Controller.Player
             if (collectible is not ValueCollectible) return;
             ValueCollectible valueCollectible = (ValueCollectible)collectible;
 
-            Value += (int) valueCollectible.Value;
+            _value += (int) valueCollectible.Value;
         }
     }
 }
