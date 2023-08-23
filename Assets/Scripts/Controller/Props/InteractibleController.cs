@@ -23,21 +23,26 @@ public abstract class InteractibleController : MonoBehaviour
     {
         _lockRef = Resources.Load<GameObject>("Prefabs/Particles/lock_1");
         _animator = gameObject.GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
         if (_isLocked && _key)
         {
-            _lock = Instantiate(_lockRef, gameObject.transform);
-            _lock.GetComponent<SpriteRenderer>().color = _key.Color;
-            _lockAnimator = _lock.GetComponent<Animator>();
+            InitLock();
         }
     }
 
     public void SetKey(KeyCollectible key)
     {
+        InitLock();
         _key = key;
+        _lock.GetComponent<SpriteRenderer>().color = _key.Color;
+    }
+
+    private void InitLock()
+    {
+        if (!_lock)
+        {
+            _lock = Instantiate(_lockRef, gameObject.transform);
+            _lockAnimator = _lock.GetComponent<Animator>();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

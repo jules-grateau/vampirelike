@@ -284,10 +284,6 @@ MonoBehaviour:
       Amount: 5
     probability: 0.5
   - loots:
-    - Item: {fileID: 11400000, guid: 5465de5c9ed79e648a5d9158cd465306, type: 2}
-      Amount: 2
-    probability: 0.1
-  - loots:
     - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
       Amount: 5
     probability: 0.75
