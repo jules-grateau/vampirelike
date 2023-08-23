@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Events;
+﻿using Assets.Scripts.Controller.Player;
+using Assets.Scripts.Events;
 using Assets.Scripts.ScriptableObjects.Game;
 using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,6 +28,13 @@ namespace Assets.Scripts.Controller.Game
         [SerializeField]
         private AnimationCurve _difficultyCurve;
 
+        [SerializeField]
+        private IntVariable _globalGold;
+
+        private PlayerGold _playerGoldController;
+
+        private int _currGold;
+
         public static GameState GameState => _gameState;
 
         private static GameState _gameState;
@@ -52,6 +58,7 @@ namespace Assets.Scripts.Controller.Game
             GameState.Player = _gameData.PlayableCharacter.Init(playerSpawnPosition);
             GameState.XpCurve = _gameData.XpCurve;
             GameState.DifficultyCurve = _gameData.DifficultyCurve;
+            _playerGoldController = GameState.Player.GetComponent<PlayerGold>();
 
             OnUnpause();
         }
@@ -59,6 +66,7 @@ namespace Assets.Scripts.Controller.Game
         private void Update()
         {
             _gameTime.value += Time.deltaTime;
+            _currGold = _playerGoldController.Value;
         }
         public void OnPause()
         {
@@ -81,6 +89,12 @@ namespace Assets.Scripts.Controller.Game
         {
             _pauseEvent.Raise();
             SceneManager.LoadScene(_upgradeMenuSceneName,LoadSceneMode.Additive);
+        }
+
+        private void OnDestroy()
+        {
+
+            _globalGold.value += _currGold;
         }
     }
 
