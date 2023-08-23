@@ -131,9 +131,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1696835160609255616, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696835160609255616, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3654420807738799672, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: cellSize.x
       value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341402782835180145, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 124.99997
       objectReference: {fileID: 0}
     - target: {fileID: 5112288440864814511, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: m_Camera
@@ -142,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 8410896865003989617, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8804949496212995798, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9099957636678581615, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: m_RootOrder

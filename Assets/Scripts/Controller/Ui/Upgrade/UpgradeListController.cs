@@ -18,25 +18,56 @@ namespace Assets.Scripts.Controller.Ui
         FloatVariable _numberSelectableUpgrade;
 
         List<GameObject> _upgrades;
+        
+        GameObject _upgradeInfoPrefab;
+
+        public UpgradeManager UpgradeManager => _upgradeManager;
+        UpgradeManager _upgradeManager;
+
         // Use this for initialization
         void Awake()
         {
-            UpgradeManager upgradeManager = UpgradeManager.GetInstance(_upgradeType);
-            GameObject upgradeInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/UpgradeInfo");
+            _upgradeManager = UpgradeManager.GetInstance(_upgradeType);
+            _upgradeInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/UpgradeInfo");
+            Draw((int)_numberSelectableUpgrade.value);
+        }
 
-            List<Upgrade<UpgradeSO>> upgrades = upgradeManager.Draw((int) _numberSelectableUpgrade.value);
+        public void Redraw()
+        {
+            Draw((int)_numberSelectableUpgrade.value);
+        }
+
+        void Draw(int amount)
+        {
+            Clean();
+            List<Upgrade<UpgradeSO>> upgrades = _upgradeManager.Draw(amount);
             _upgrades = new List<GameObject>();
 
             foreach (Upgrade<UpgradeSO> upgrade in upgrades)
             {
-                GameObject upgradeInfo = Instantiate(upgradeInfoPrefab, transform);
+                GameObject upgradeInfo = Instantiate(_upgradeInfoPrefab, transform);
                 UpgradeInfoController upgradeInfoController = upgradeInfo.GetComponent<UpgradeInfoController>();
-                upgradeInfoController.Init(upgrade, upgradeManager);
+                upgradeInfoController.Init(upgrade, _upgradeManager);
                 _upgrades.Add(upgradeInfo);
+            }
+
+        }
+
+        void Clean()
+        {
+            //Remove all child
+            foreach (Transform child in gameObject.transform)
+            {
+                Destroy(child.gameObject);
             }
         }
 
         private void OnEnable()
+        {
+            SetFirstUpgradeSelected();
+        }
+
+        public void SetFirstUpgradeSelected()
         {
             if (_upgrades.Count <= 0) return;
 

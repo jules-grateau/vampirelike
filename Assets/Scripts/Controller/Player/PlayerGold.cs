@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Controller.Collectible;
 using System;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace Assets.Scripts.Controller.Player
@@ -11,10 +12,16 @@ namespace Assets.Scripts.Controller.Player
 
         public bool UseGold(int amount)
         {
-            if (amount > _value) return false;
+            bool canUse = CanUse(amount);
 
-            _value -= amount;
-            return true;
+            if(canUse) _value -= amount;
+
+            return canUse;
+        }
+
+        public bool CanUse(int amount)
+        {
+            return amount <= _value;
         }
 
         public void OnGoldCollect(CollectibleItem collectible)
