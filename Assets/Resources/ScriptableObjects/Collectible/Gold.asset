@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd614076785a06489de4712257a0770, type: 3}
+  m_Name: Gold
+  m_EditorClassIdentifier: 
+  pickupAudio: {fileID: 8300000, guid: aec2722df2d91a34fba33ec72eb6f9b2, type: 3}
+  _prefab: {fileID: 6801104700241300836, guid: b29dd63cd7b772f4a8c9ddd325347591, type: 3}
+  _collectEvent: {fileID: 11400000, guid: 25bf77012992ab8419ad5ef6e8325729, type: 2}
+  dropChance: 0.2
+  CanBePulled: 1
+  defaultValue: 1

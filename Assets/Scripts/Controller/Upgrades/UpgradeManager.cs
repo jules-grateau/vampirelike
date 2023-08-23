@@ -24,7 +24,8 @@ namespace Assets.Scripts.Controller.Upgrades
             {UpgradeQuality.Epic, 0.1f },
             {UpgradeQuality.Legendary, 0.01f}
         };
-        UpgradeQualityColorSettingsSO upgradeQualityColorSettingsSO;
+
+        UpgradeSettings Settings;
 
         public static UpgradeManager GetInstance(string upgradeType)
         {
@@ -48,7 +49,7 @@ namespace Assets.Scripts.Controller.Upgrades
             {
                 _upgradeList.AddRange(Resources.LoadAll<UpgradeSO>($"ScriptableObjects/Upgrade/{upgrade}"));
             }
-            upgradeQualityColorSettingsSO = Resources.Load<UpgradeQualityColorSettingsSO>("ScriptableObjects/Settings/Upgrades/UpgradesColor");
+            Settings = Resources.Load<UpgradeSettings>("ScriptableObjects/Settings/UpgradesSetting");
         }
 
         public List<UpgradeSO> GetAvailableUpgrades()
@@ -58,7 +59,7 @@ namespace Assets.Scripts.Controller.Upgrades
 
         public Color GetUpgradeColor(UpgradeQuality quality)
         {
-            return upgradeQualityColorSettingsSO.GetColor(quality);
+            return Settings.Color.GetColor(quality);
         }
 
         List<UpgradeSO> FilterUpgrades(List<UpgradeSO> upgrades)
@@ -148,5 +149,17 @@ namespace Assets.Scripts.Controller.Upgrades
 
             return upgradesToShow;
         }
+
+        public int GetRedrawInitialCost()
+        {
+            return Settings.RedrawCost.InitialCost;
+        }
+
+        public int GetNextCost(int currCost)
+        {
+            return Settings.RedrawCost.GetNextCost(currCost);
+        }
+
+
     }
 }

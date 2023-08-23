@@ -1,12 +1,13 @@
-﻿using Assets.Scripts.Types;
+﻿using Assets.Scripts.ScriptableObjects.Settings;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Scripts.ScriptableObjects.Settings
+namespace Assets.Scripts.Types.Settings.Upgrades
 {
-    public class UpgradeQualityColorSettingsSO : ScriptableObject
+    [Serializable]
+    public class UpgradeColorSettings
     {
         [SerializeField]
         UpgradeColor[] _qualityColor;
@@ -25,7 +26,7 @@ namespace Assets.Scripts.ScriptableObjects.Settings
 
             _qualityColorDictionnary = new Dictionary<UpgradeQuality, Color>();
 
-            foreach(UpgradeColor upgradeColor in _qualityColor)
+            foreach (UpgradeColor upgradeColor in _qualityColor)
             {
                 _qualityColorDictionnary.Add(upgradeColor.Quality, upgradeColor.Color);
             }

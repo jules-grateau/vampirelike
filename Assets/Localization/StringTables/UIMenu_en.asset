@@ -66,6 +66,10 @@ MonoBehaviour:
     m_Localized: Statistics
     m_Metadata:
       m_Items: []
+  - m_Id: 1855558204850176
+    m_Localized: Redraw
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

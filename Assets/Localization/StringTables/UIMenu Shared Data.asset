@@ -63,6 +63,10 @@ MonoBehaviour:
     m_Key: Title.Statistics
     m_Metadata:
       m_Items: []
+  - m_Id: 1855558204850176
+    m_Key: Button.Redraw
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

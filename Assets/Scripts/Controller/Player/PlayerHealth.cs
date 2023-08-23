@@ -89,15 +89,15 @@ namespace Assets.Scripts.Controller.Player
 
         public void OnPlayerHeal(CollectibleItem collectible)
         {
-            HealthCollectible healthCollectible = (HealthCollectible)collectible;
+            ValueCollectible healthCollectible = (ValueCollectible)collectible;
             float maxHp = _characterStatistics.GetStats(CharacterStatisticEnum.MaxHp);
-            if (Health + healthCollectible.HealthValue > maxHp)
+            if (Health + healthCollectible.Value > maxHp)
             {
                 Health = maxHp;
                 return;
             }
 
-            Health += healthCollectible.HealthValue;
+            Health += healthCollectible.Value;
         }
 
         private IEnumerator triggerInvincibility()

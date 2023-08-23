@@ -16,4 +16,5 @@ MonoBehaviour:
   _prefab: {fileID: 6801104700241300836, guid: a43096a3e2394894cb3410cf0826cce0, type: 3}
   _collectEvent: {fileID: 11400000, guid: ae748ae9b3883144d9cf9ece6b07e334, type: 2}
   dropChance: 0.05
-  defaultHealthValue: 10
+  CanBePulled: 1
+  defaultValue: 5
