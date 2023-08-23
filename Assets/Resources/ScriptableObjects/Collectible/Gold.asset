@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fd614076785a06489de4712257a0770, type: 3}
-  m_Name: Health
+  m_Name: Gold
   m_EditorClassIdentifier: 
-  pickupAudio: {fileID: 8300000, guid: 1cc1acef06bbd2642b7e8c226d6b9f8a, type: 3}
-  _prefab: {fileID: 6801104700241300836, guid: a43096a3e2394894cb3410cf0826cce0, type: 3}
-  _collectEvent: {fileID: 11400000, guid: ae748ae9b3883144d9cf9ece6b07e334, type: 2}
-  dropChance: 0.05
+  pickupAudio: {fileID: 8300000, guid: aec2722df2d91a34fba33ec72eb6f9b2, type: 3}
+  _prefab: {fileID: 6801104700241300836, guid: b29dd63cd7b772f4a8c9ddd325347591, type: 3}
+  _collectEvent: {fileID: 11400000, guid: 25bf77012992ab8419ad5ef6e8325729, type: 2}
+  dropChance: 1
   CanBePulled: 1
-  defaultValue: 5
+  defaultValue: 1

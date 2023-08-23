@@ -10,6 +10,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         private float defaultXpValue;
 
+
         public XpCollectible GetCollectible(Vector3 position, float xpValue)
         {
             XpCollectible xpCollectibleController = base.GetCollectible(position);

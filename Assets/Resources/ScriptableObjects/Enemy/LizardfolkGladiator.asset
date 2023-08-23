@@ -28,5 +28,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f3b73dd96a783354a84019243f2c7b70, type: 2}
   - {fileID: 11400000, guid: 5465de5c9ed79e648a5d9158cd465306, type: 2}
   - {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
+  - {fileID: 11400000, guid: a526b9eacd736d946b8dc214dbd5d285, type: 2}
   _deathAudioClip: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}
   _prefab: {fileID: 881878062649732175, guid: 14792af67e1c9c1439cc61ca057fe1b9, type: 3}

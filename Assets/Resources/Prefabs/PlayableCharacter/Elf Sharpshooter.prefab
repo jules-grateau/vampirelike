@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 466390313952093619}
   - component: {fileID: 7851758709933123181}
   - component: {fileID: 8663408860301830518}
+  - component: {fileID: 5953448158325139250}
   - component: {fileID: 2930062219622115911}
   - component: {fileID: 132519036493021569}
   - component: {fileID: 165095560889788552}
@@ -24,6 +25,7 @@ GameObject:
   - component: {fileID: 195299733415217774}
   - component: {fileID: 8324934447402227277}
   - component: {fileID: 4277225457406944935}
+  - component: {fileID: 304139646988145906}
   m_Layer: 7
   m_Name: Elf Sharpshooter
   m_TagString: Player
@@ -146,6 +148,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e87d5280b2a97642b2e49611a60bba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5953448158325139250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad06ee1ee2d34548a507a9acce7bf5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2930062219622115911
@@ -404,6 +418,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
           Assembly-CSharp
         m_MethodName: EquipWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &304139646988145906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4329ac34f97f0ef44a5a25ec75c6a864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 25bf77012992ab8419ad5ef6e8325729, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5953448158325139250}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerGold, Assembly-CSharp
+        m_MethodName: OnGoldCollect
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

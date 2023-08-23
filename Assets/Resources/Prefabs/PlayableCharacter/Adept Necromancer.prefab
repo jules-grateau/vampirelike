@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 466390313952093619}
   - component: {fileID: 3977255282678115937}
   - component: {fileID: 8663408860301830518}
+  - component: {fileID: -2834017317181525164}
   - component: {fileID: 2930062219622115911}
   - component: {fileID: -3658710910007143552}
   - component: {fileID: 132519036493021569}
@@ -24,6 +25,7 @@ GameObject:
   - component: {fileID: -621769044791664782}
   - component: {fileID: -6143787977606055522}
   - component: {fileID: -8359896792598555053}
+  - component: {fileID: 3595444501925937248}
   m_Layer: 7
   m_Name: Adept Necromancer
   m_TagString: Player
@@ -86,7 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294af4184e684f428ad6869f276c780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovementAction: {fileID: -8070035187235189539, guid: 8ac3e91abf5687e479c2889fd133fa8a, type: 3}
   _defaultSpeed: 3.5
 --- !u!114 &4409285678151217457
 MonoBehaviour:
@@ -147,6 +148,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e87d5280b2a97642b2e49611a60bba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2834017317181525164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad06ee1ee2d34548a507a9acce7bf5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2930062219622115911
@@ -405,6 +418,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
           Assembly-CSharp
         m_MethodName: EquipWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3595444501925937248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4329ac34f97f0ef44a5a25ec75c6a864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 25bf77012992ab8419ad5ef6e8325729, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2834017317181525164}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerGold, Assembly-CSharp
+        m_MethodName: OnGoldCollect
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
