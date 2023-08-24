@@ -76,6 +76,18 @@ MonoBehaviour:
       fading back into obscurity before retribution can find them.
     m_Metadata:
       m_Items: []
+  - m_Id: 2292630313041920
+    m_Localized: Fire Elemental
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2292632473108480
+    m_Localized: "\rThe Fire Elemental, a living embodiment of incandescent rage,
+      harnesses its blazing body and searing fire spells to consume all that stands
+      before it. As a relentless force of elemental fury, it immolates enemies with
+      fiery wrath, turning the very ground it touches into a scorched battlefield
+      where searing heat and scalding flames are its unyielding allies."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
