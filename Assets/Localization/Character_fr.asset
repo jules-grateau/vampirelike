@@ -80,6 +80,19 @@ MonoBehaviour:
       avant que le ch\xE2timent ne puisse le trouver."
     m_Metadata:
       m_Items: []
+  - m_Id: 2292632473108480
+    m_Localized: "L'\xE9l\xE9mentaire de feu, incarnation vivante de la rage incandescente,
+      utilise son corps enflamm\xE9 et ses sorts de feu br\xFBlant pour consumer
+      tout ce qui se dresse devant lui. Force implacable de la fureur \xE9l\xE9mentaire,
+      il immole ses ennemis avec une col\xE8re ardente, transformant le sol qu'il
+      touche en un champ de bataille br\xFBlant o\xF9 la chaleur torride et les flammes
+      br\xFBlantes sont ses alli\xE9s inflexibles."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2292630313041920
+    m_Localized: "\xC9l\xE9mentaire de feu"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -55,6 +55,14 @@ MonoBehaviour:
     m_Key: HalfRogue.Description
     m_Metadata:
       m_Items: []
+  - m_Id: 2292630313041920
+    m_Key: FireElemental.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2292632473108480
+    m_Key: FireElemental.Description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
