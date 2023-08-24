@@ -20,6 +20,8 @@ public class DestructibleController : MonoBehaviour
 
     public void OnDestruction()
     {
+        if (!m_GibEffect) return;
+
         this.m_GibEffect.transform.parent = null;
         this.m_GibEffect.transform.localScale = Vector3.one;
         this.m_GibEffect.Play();

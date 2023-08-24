@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 2028131547648666788}
   m_Layer: 11
   m_Name: soul
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

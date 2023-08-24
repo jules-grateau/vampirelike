@@ -47,6 +47,7 @@ namespace Assets.Scripts.ScriptableObjects.Characters
 
         public float GetStats(T statisticEnum)
         {
+            if (_stats == null) return 0f;
             return _stats.GetValueOrDefault(statisticEnum);
         }
 

@@ -13,8 +13,8 @@ namespace Assets.Scripts.ScriptableObjects.Items
             T collectibleController = collectibleInstance.AddComponent<T>();
             collectibleController.OnCollectEvent = _collectEvent;
             collectibleController.pickupSound = pickupAudio;
-            GetRadiusPlayerController radiusController = collectibleInstance.AddComponent<GetRadiusPlayerController>();
-            radiusController.CanBePulled = CanBePulled;
+            collectibleController.IsAttractable = CanBePulled;
+            collectibleInstance.tag = "Collectible";
 
             return collectibleController;
         }

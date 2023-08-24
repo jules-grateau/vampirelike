@@ -102,11 +102,16 @@ namespace Assets.Scripts.Controller
         {
             float modifiedDamage = hit.damage * (isDoTTick ? hit.status.doTRatio : 1f);
             bool isCrit = false;
-            PlayerStatsController stats = hit.source.GetComponent<PlayerStatsController>();
-            if (stats)
+
+            if(hit.source != null)
             {
-                (isCrit, modifiedDamage) = stats.ComputeDamage(modifiedDamage, isDoTTick);
+                PlayerStatsController stats = hit.source.GetComponent<PlayerStatsController>();
+                if (stats)
+                {
+                    (isCrit, modifiedDamage) = stats.ComputeDamage(modifiedDamage, isDoTTick);
+                }
             }
+
 
             DisplayDamage(modifiedDamage, isCrit, hit.status);
             Health -= modifiedDamage;
