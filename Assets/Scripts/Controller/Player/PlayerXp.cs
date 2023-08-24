@@ -10,47 +10,41 @@ namespace Assets.Scripts.Controller.Player
     public class PlayerXp : MonoBehaviour
     {
         [SerializeField]
-        private FloatVariable _xp;
+        public FloatVariable Xp;
         [SerializeField]
-        private FloatVariable _maxXp;
+        public FloatVariable MaxXP;
         [SerializeField]
-        private IntVariable _currentLevel;
+        public IntVariable CurrentLevel;
         [SerializeField]
-        private GameObject _LevelUpEffectGO;
+        public GameObject LevelUpEffectGO;
         [SerializeField]
-        private AudioClip _LevelUpAudioClip;
+        public AudioClip LevelUpAudioClip;
+        [SerializeField]
+        public GameEvent PlayerLevelUpEvent;
 
         private ParticleSystem _LevelUpEffect;
-
-        [SerializeField]
-        private GameEvent _playerLevelUpEvent;
-
-        void Awake()
-        {
-            _LevelUpEffect = Instantiate(_LevelUpEffectGO.GetComponent<ParticleSystem>(), gameObject.transform.position, Quaternion.identity, gameObject.transform);
-        }
-
         private void Start()
         {
-            _currentLevel.value = 1;
-            _xp.value = 0;
-            _maxXp.value = XpToReach(_currentLevel);
+            _LevelUpEffect = Instantiate(LevelUpEffectGO.GetComponent<ParticleSystem>(), gameObject.transform.position, Quaternion.identity, gameObject.transform);
+            CurrentLevel.value = 1;
+            Xp.value = 0;
+            MaxXP.value = XpToReach(CurrentLevel);
         }
 
         public void OnPlayerGainXp(float value) 
         {
-            _xp.value += value;
-            int xpToReach = XpToReach(_currentLevel);
+            Xp.value += value;
+            int xpToReach = XpToReach(CurrentLevel);
 
-            while(_xp.value >= xpToReach)
+            while(Xp.value >= xpToReach)
             {
-                AudioSource.PlayClipAtPoint(_LevelUpAudioClip, transform.position, 1);
+                AudioSource.PlayClipAtPoint(LevelUpAudioClip, transform.position, 1);
                 _LevelUpEffect.Play();
-                _xp.value = _xp.value - xpToReach;
-                _currentLevel.value += 1;
-                _maxXp.value = XpToReach(_currentLevel);
-                _playerLevelUpEvent.Raise();
-                xpToReach = XpToReach(_currentLevel);
+                Xp.value = Xp.value - xpToReach;
+                CurrentLevel.value += 1;
+                MaxXP.value = XpToReach(CurrentLevel);
+                PlayerLevelUpEvent.Raise();
+                xpToReach = XpToReach(CurrentLevel);
             }
         }
 
