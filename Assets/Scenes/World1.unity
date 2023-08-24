@@ -151,6 +151,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6623272017170029548, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623272017170029548, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623272017170029548, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_verticalMapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623272017170029548, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8410896865003989617, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: m_Name
       value: UI
@@ -9649,7 +9665,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 10
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

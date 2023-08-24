@@ -647,7 +647,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1257702714, guid: 711d321f3e60fff48b70cd3a06c4f004, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -717,7 +717,7 @@ MonoBehaviour:
   - {x: 0.031735793, y: -0.49120903, z: 0}
   m_ShapePathHash: -1642085550
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43860
+  m_InstanceId: 124818
   m_LocalBounds:
     m_Center: {x: -0.016652763, y: -0.032806158, z: 0}
     m_Extent: {x: 0.40627903, y: 0.45840287, z: 0}
