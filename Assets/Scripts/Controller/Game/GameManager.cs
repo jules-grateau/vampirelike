@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.Controller.Player;
 using Assets.Scripts.Events;
+using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.ScriptableObjects.Game;
+using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
 using UnityEngine;
@@ -58,15 +60,28 @@ namespace Assets.Scripts.Controller.Game
             GameState.Player = _gameData.PlayableCharacter.Init(playerSpawnPosition);
             GameState.XpCurve = _gameData.XpCurve;
             GameState.DifficultyCurve = _gameData.DifficultyCurve;
-            _playerGoldController = GameState.Player.GetComponent<PlayerGold>();
-
-            OnUnpause();
         }
 
         private void Update()
         {
             _gameTime.value += Time.deltaTime;
             _currGold = _playerGoldController.Value;
+        }
+
+        private void Start()
+        {
+            if (_gameData.PlayableCharacter && _gameData.PlayableCharacter.StartWeapons?.Length > 0)
+            {
+                PlayerCollect collectScript = GameState.Player.GetComponent<PlayerCollect>();
+
+                foreach (WeaponSO weapon in _gameData.PlayableCharacter.StartWeapons)
+                {
+                    collectScript.PlayerGetWeaponEvent.Raise(weapon);
+                }
+            }
+            _playerGoldController = GameState.Player.GetComponent<PlayerGold>();
+
+            OnUnpause();
         }
         public void OnPause()
         {

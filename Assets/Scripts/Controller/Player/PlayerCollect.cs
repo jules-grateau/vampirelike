@@ -24,10 +24,12 @@ namespace Assets.Scripts.Controller.Player
         private GameEventFloat _playerGetGoldEvent;
         [SerializeField]
         private GameEventCollectible _playerGetXpEvent;
+
+        public GameEventWeapon PlayerGetWeaponEvent => _playerGetWeaponEvent;
         [SerializeField]
-        private GameEventWeapon _playerGetWeapon;
+        private GameEventWeapon _playerGetWeaponEvent;
         [SerializeField]
-        private GameEventCollectible _playerGetKey;
+        private GameEventCollectible _playerGetKeyEvent;
 
 
         private void Start()
@@ -59,13 +61,13 @@ namespace Assets.Scripts.Controller.Player
             if(collectibleItem is WeaponCollectible)
             {
                 WeaponCollectible weaponCollectible = (WeaponCollectible)collectibleItem;
-                _playerGetWeapon.Raise(weaponCollectible.Weapon);
+                _playerGetWeaponEvent.Raise(weaponCollectible.Weapon);
                 return;
             }
 
             if(collectibleItem is KeyCollectible)
             {
-                _playerGetKey.Raise(collectibleItem);
+                _playerGetKeyEvent.Raise(collectibleItem);
             }
 
             if(IsSameOrSubclass(collectibleItem, typeof(ValueCollectible)))

@@ -50,6 +50,8 @@ MonoBehaviour:
       _value: 3
     - _key: 6
       _value: 0.5
+  _startWeapons:
+  - {fileID: 11400000, guid: 0b6b8eac69b270e49b40d1cd6dbaac0b, type: 2}
   references:
     version: 2
     RefIds: []

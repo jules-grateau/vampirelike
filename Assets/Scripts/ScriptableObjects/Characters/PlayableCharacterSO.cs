@@ -37,6 +37,10 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         private BaseStatistics<CharacterStatisticEnum> _characterStatistics;
 
+        public WeaponSO[] StartWeapons => _startWeapons;
+        [SerializeField]
+        WeaponSO[] _startWeapons;
+
         public GameObject Init(Vector3 spawnPosition)
         {
             GameObject playableCharacterInstance = Instantiate(_prefab, spawnPosition, _prefab.transform.rotation);

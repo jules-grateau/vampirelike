@@ -154,8 +154,8 @@ MonoBehaviour:
   _playerHealEvent: {fileID: 11400000, guid: b09b69745e7a4bd4c9f2e923c9b90842, type: 2}
   _playerGetGoldEvent: {fileID: 11400000, guid: 4d0c9d7a5bde0994a80cfc44b5da0275, type: 2}
   _playerGetXpEvent: {fileID: 11400000, guid: 01a481ab93ae3054d9643336853d3b78, type: 2}
-  _playerGetWeapon: {fileID: 11400000, guid: 444cfead85b73d64097b0cd4c2f48425, type: 2}
-  _playerGetKey: {fileID: 11400000, guid: d6879345162f7b44c905682a94a3f6bc, type: 2}
+  _playerGetWeaponEvent: {fileID: 11400000, guid: 444cfead85b73d64097b0cd4c2f48425, type: 2}
+  _playerGetKeyEvent: {fileID: 11400000, guid: d6879345162f7b44c905682a94a3f6bc, type: 2}
 --- !u!114 &5953448158325139250
 MonoBehaviour:
   m_ObjectHideFlags: 0
