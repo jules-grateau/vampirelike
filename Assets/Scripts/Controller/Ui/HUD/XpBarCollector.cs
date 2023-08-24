@@ -15,7 +15,7 @@ namespace Assets.Scripts.Controller.Ui
     public class XpBarCollector : MonoBehaviour
     {
         [SerializeField]
-        GameEventCollectible OnXpEvent;
+        GameEventFloat OnXpEvent;
         [SerializeField] 
         GameObject animatedSoulPrefab;
         [SerializeField] 
@@ -103,7 +103,7 @@ namespace Assets.Scripts.Controller.Ui
             target.GetComponent<ParticleSystem>().Play();
             xp.SetActive(false);
             soulsQueue.Enqueue(xp);
-            OnXpEvent.Raise(xpCollectible);
+            OnXpEvent.Raise(xpCollectible.Value);
         }
 
         public void AddXp(CollectibleItem xpCollectible)

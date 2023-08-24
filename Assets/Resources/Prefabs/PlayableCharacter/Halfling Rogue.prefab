@@ -22,10 +22,11 @@ GameObject:
   - component: {fileID: 8833234740128170349}
   - component: {fileID: 2298111754257009617}
   - component: {fileID: 1171603050303075928}
-  - component: {fileID: 8575922366648840055}
-  - component: {fileID: 4743660766799827067}
-  - component: {fileID: 6052395608436905865}
-  - component: {fileID: -5344841471283680708}
+  - component: {fileID: 3195202728184729054}
+  - component: {fileID: 2164266092636099884}
+  - component: {fileID: 9029518668705364763}
+  - component: {fileID: -4841347983996129614}
+  - component: {fileID: 6430595016200337072}
   m_Layer: 7
   m_Name: Halfling Rogue
   m_TagString: Player
@@ -150,6 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e87d5280b2a97642b2e49611a60bba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerHealEvent: {fileID: 11400000, guid: b09b69745e7a4bd4c9f2e923c9b90842, type: 2}
+  _playerGetGoldEvent: {fileID: 11400000, guid: 4d0c9d7a5bde0994a80cfc44b5da0275, type: 2}
+  _playerGetXpEvent: {fileID: 11400000, guid: 01a481ab93ae3054d9643336853d3b78, type: 2}
+  _playerGetWeapon: {fileID: 11400000, guid: 444cfead85b73d64097b0cd4c2f48425, type: 2}
+  _playerGetKey: {fileID: 11400000, guid: d6879345162f7b44c905682a94a3f6bc, type: 2}
 --- !u!114 &2908970318284612375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,14 +331,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4329ac34f97f0ef44a5a25ec75c6a864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: ae748ae9b3883144d9cf9ece6b07e334, type: 2}
+  gameEvent: {fileID: 11400000, guid: dd9d2cc37052c0d48b1d999896f9233d, type: 2}
   unityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4409285678151217457}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerHealth,
+      - m_Target: {fileID: 8663408860301830518}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerCollect,
           Assembly-CSharp
-        m_MethodName: OnPlayerHeal
+        m_MethodName: OnGetCollectible
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -342,35 +348,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8575922366648840055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704638989827276549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4329ac34f97f0ef44a5a25ec75c6a864, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 19f26a5f0a4c23d49a62e2f821de0d98, type: 2}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 466390313952093619}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerXp, Assembly-CSharp
-        m_MethodName: OnPlayerGainXp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4743660766799827067
+--- !u!114 &3195202728184729054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -398,7 +376,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6052395608436905865
+--- !u!114 &2164266092636099884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -407,17 +385,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 704638989827276549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4329ac34f97f0ef44a5a25ec75c6a864, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fc7297102e5d0d439bf3f73f83b567b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 09e0b6654953a6c49b169723e6a8649a, type: 2}
+  gameEvent: {fileID: 11400000, guid: 4d0c9d7a5bde0994a80cfc44b5da0275, type: 2}
   unityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132519036493021569}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
-          Assembly-CSharp
-        m_MethodName: EquipWeapon
+      - m_Target: {fileID: 2908970318284612375}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerGold, Assembly-CSharp
+        m_MethodName: OnGoldCollect
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -427,7 +404,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-5344841471283680708
+--- !u!114 &9029518668705364763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,16 +413,74 @@ MonoBehaviour:
   m_GameObject: {fileID: 704638989827276549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4329ac34f97f0ef44a5a25ec75c6a864, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fc7297102e5d0d439bf3f73f83b567b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 25bf77012992ab8419ad5ef6e8325729, type: 2}
+  gameEvent: {fileID: 11400000, guid: b09b69745e7a4bd4c9f2e923c9b90842, type: 2}
   unityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2908970318284612375}
-        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerGold, Assembly-CSharp
-        m_MethodName: OnGoldCollect
+      - m_Target: {fileID: 4409285678151217457}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerHealth,
+          Assembly-CSharp
+        m_MethodName: OnPlayerHeal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-4841347983996129614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc7297102e5d0d439bf3f73f83b567b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 277fa7f125bcb544281196e866eb024f, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 466390313952093619}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Player.PlayerXp, Assembly-CSharp
+        m_MethodName: OnPlayerGainXp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6430595016200337072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704638989827276549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c395dd3e86324904288a20d9124df6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 444cfead85b73d64097b0cd4c2f48425, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 132519036493021569}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Inventory.Weapons.WeaponInventoryManager,
+          Assembly-CSharp
+        m_MethodName: EquipWeapon
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

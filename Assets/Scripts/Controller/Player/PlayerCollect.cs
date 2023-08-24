@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Controller.Collectible;
 using Assets.Scripts.Events;
+using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.Types;
@@ -16,6 +17,18 @@ namespace Assets.Scripts.Controller.Player
     public class PlayerCollect : MonoBehaviour
     {
         private PlayerStatsController _playerStatsController;
+
+        [SerializeField]
+        private GameEventFloat _playerHealEvent;
+        [SerializeField]
+        private GameEventFloat _playerGetGoldEvent;
+        [SerializeField]
+        private GameEventCollectible _playerGetXpEvent;
+        [SerializeField]
+        private GameEventWeapon _playerGetWeapon;
+        [SerializeField]
+        private GameEventCollectible _playerGetKey;
+
 
         private void Start()
         {
@@ -39,7 +52,52 @@ namespace Assets.Scripts.Controller.Player
 
                 collectible.Attract(transform);
             }
+        }
 
+        public void OnGetCollectible(CollectibleItem collectibleItem)
+        {
+            if(collectibleItem is WeaponCollectible)
+            {
+                WeaponCollectible weaponCollectible = (WeaponCollectible)collectibleItem;
+                _playerGetWeapon.Raise(weaponCollectible.Weapon);
+                return;
+            }
+
+            if(collectibleItem is KeyCollectible)
+            {
+                _playerGetKey.Raise(collectibleItem);
+            }
+
+            if(IsSameOrSubclass(collectibleItem, typeof(ValueCollectible)))
+            {
+                ValueCollectible valueCollectible = (ValueCollectible)collectibleItem;
+                switch(valueCollectible.Type)
+                {
+                    case ValueCollectibleTypes.Health:
+                        _playerHealEvent.Raise(valueCollectible.Value);
+                        break;
+                    case ValueCollectibleTypes.Gold:
+                        _playerGetGoldEvent.Raise(valueCollectible.Value);
+                        break;
+                    case ValueCollectibleTypes.Xp:
+                        _playerGetXpEvent.Raise(collectibleItem);
+                        break;
+                }
+                return;
+            }
+
+            if(IsSameOrSubclass(collectibleItem, typeof(PowerCollectible)))
+            {
+                PowerCollectible powerCollectible = (PowerCollectible)collectibleItem;
+                powerCollectible.TriggerEffect(gameObject);
+                return;
+            }
+        }
+
+        public bool IsSameOrSubclass(object obj, Type type)
+        {
+            return obj.GetType().IsSubclassOf(type)
+                   || obj.GetType() == type;
         }
     }
 }

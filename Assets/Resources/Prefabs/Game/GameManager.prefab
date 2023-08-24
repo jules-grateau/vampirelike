@@ -266,13 +266,13 @@ MonoBehaviour:
   floor: {fileID: 0}
   LootTables:
   - loots:
-    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
       Amount: 5
     - Item: {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
       Amount: 1
     probability: 0.25
   - loots:
-    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
       Amount: 15
     probability: 0.25
   - loots:
@@ -280,7 +280,7 @@ MonoBehaviour:
       Amount: 1
     probability: 0.1
   - loots:
-    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
       Amount: 5
     probability: 0.5
   - loots:
@@ -292,7 +292,7 @@ MonoBehaviour:
       Amount: 2
     probability: 0.5
   - loots:
-    - Item: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
       Amount: 25
     probability: 0
   - loots:

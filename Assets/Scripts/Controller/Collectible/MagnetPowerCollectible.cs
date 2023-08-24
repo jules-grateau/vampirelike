@@ -5,7 +5,7 @@ namespace Assets.Scripts.Controller.Collectible
 {
     public class MagnetPowerCollectible : PowerCollectible
     {
-        public override void CollectON(Collider2D collision)
+        protected override void CollectON(GameObject parent)
         {
             var hits = Physics2D.OverlapCircleAll(gameObject.transform.position, Mathf.Infinity, 1 << LayerMask.NameToLayer("Collectible"));
             hits = hits.Where((hit) => hit.gameObject.CompareTag("Collectible")).ToArray();
@@ -17,13 +17,13 @@ namespace Assets.Scripts.Controller.Collectible
 
                     CollectibleItem collectibleItem = hit.gameObject.GetComponent<CollectibleItem>();
                     if (collectibleItem != null) {
-                        collectibleItem.Attract(collision.transform);
+                        collectibleItem.Attract(parent.transform);
                     }
                 }
             }
         }
 
-        public override void CollectOFF(Collider2D collision)
+        protected override void CollectOFF(GameObject parent)
         {
         }
     }

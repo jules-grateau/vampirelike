@@ -20,7 +20,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             projectile.SetActive(false);
 
             OnAllBehaviourOrchestrator onAllBehaviourOrchestrator = projectile.AddComponent<OnAllBehaviourOrchestrator>();
-            onAllBehaviourOrchestrator.parent = parent;
+            onAllBehaviourOrchestrator.parent = Parent;
 
             return projectile;
         }
@@ -51,7 +51,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
                     instanceID = target.GetInstanceID(),
                     position = target.transform.position,
-                    source = parent
+                    source = Parent
                 });
             }
 

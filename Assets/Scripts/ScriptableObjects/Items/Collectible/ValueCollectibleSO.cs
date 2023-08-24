@@ -1,19 +1,23 @@
 ﻿using Assets.Scripts.Controller.Collectible;
 using Assets.Scripts.Events.TypedEvents;
+using Assets.Scripts.Types;
 using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
-    [CreateAssetMenu(fileName = "Collectible", menuName = "Collectible/Health", order = 1)]
+    [CreateAssetMenu(fileName = "Collectible", menuName = "Collectible/Value", order = 1)]
     public class ValueCollectibleSO : CollectibleSO<ValueCollectible>
     {
         [SerializeField]
-        private float defaultValue;
+        private float _defaultValue;
+        [SerializeField]
+        private ValueCollectibleTypes _type;
 
-        public ValueCollectible GetCollectible(Vector3 position, float healthValue)
+        public ValueCollectible GetCollectible(Vector3 position, float value)
         {
             ValueCollectible valueCollectibleController = base.GetCollectible(position);
-            valueCollectibleController.Value = healthValue;
+            valueCollectibleController.Value = value;
+            valueCollectibleController.Type = _type;
 
             return valueCollectibleController;
         }
@@ -25,7 +29,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
 
         public override ValueCollectible GetCollectible(Vector3 position)
         {
-            return GetCollectible(position, defaultValue);
+            return GetCollectible(position, _defaultValue);
         }
     }
 }

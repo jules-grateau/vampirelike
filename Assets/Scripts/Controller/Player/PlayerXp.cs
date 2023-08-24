@@ -37,10 +37,9 @@ namespace Assets.Scripts.Controller.Player
             _maxXp.value = XpToReach(_currentLevel);
         }
 
-        public void OnPlayerGainXp(CollectibleItem collectible)
+        public void OnPlayerGainXp(float value) 
         {
-            XpCollectible xpCollectible = (XpCollectible)collectible;
-            _xp.value += xpCollectible.XpValue;
+            _xp.value += value;
             int xpToReach = XpToReach(_currentLevel);
 
             while(_xp.value >= xpToReach)

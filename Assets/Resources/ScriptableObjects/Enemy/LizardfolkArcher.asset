@@ -21,7 +21,7 @@ MonoBehaviour:
   health: 5
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _dropXp: 1
-  _xpCollectible: {fileID: 11400000, guid: 9428c16514c35404ab1da50a610394a7, type: 2}
+  _xpCollectible: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
   _xpValue: 1
   _dropType: 0
   _collectibles:

@@ -14,10 +14,8 @@ public class UIWeaponInventoryController : MonoBehaviour
         _inventorySlotPrefab = (GameObject) Resources.Load("Prefabs/UI/WeaponSlot");
     }
 
-    public void AddWeapon(CollectibleItem collectible)
+    public void AddWeapon(WeaponSO weapon)
     {
-        WeaponCollectible weaponCollectible = (WeaponCollectible)collectible;
-        WeaponSO weapon = weaponCollectible.Weapon;
         GameObject inventorySlot = Instantiate(_inventorySlotPrefab, gameObject.transform);
         inventorySlot.GetComponent<UIWeaponCooldownController>().SetWeaponSO(weapon);
         Image image = inventorySlot.transform.Find("Icon").GetComponent<Image>();

@@ -1,22 +1,15 @@
 ﻿using Assets.Scripts.Controller.Collectible.Soul;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 namespace Assets.Scripts.Controller.Collectible
 {
-    public class XpCollectible : CollectibleItem
+    public class XpCollectible : ValueCollectible
     {
-        public float XpValue { get; set; }
-
         void Start()
         {
             SoulColorController soulColorController = GetComponent<SoulColorController>();
             if (!soulColorController) return;
 
-            soulColorController.Init(XpValue / 100);
+            soulColorController.Init(Value / 100);
         }
     }
 }

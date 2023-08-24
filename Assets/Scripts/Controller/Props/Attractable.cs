@@ -15,6 +15,8 @@ namespace Assets.Scripts.Controller.Props
 
         public void Attract(Transform attactorTransform)
         {
+            if (_attractorTranform) return;
+
             _attractorTranform = attactorTransform;
             _rigidbody = GetComponent<Rigidbody2D>();
         }

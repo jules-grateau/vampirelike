@@ -8,15 +8,15 @@ namespace Assets.Scripts.ScriptableObjects.Items
     public class XpCollectibleSO : CollectibleSO<XpCollectible>
     {
         [SerializeField]
-        private float defaultXpValue;
+        private float defaultValue;
 
-
-        public XpCollectible GetCollectible(Vector3 position, float xpValue)
+        public XpCollectible GetCollectible(Vector3 position, float healthValue)
         {
-            XpCollectible xpCollectibleController = base.GetCollectible(position);
-            xpCollectibleController.XpValue = xpValue;
+            XpCollectible valueCollectibleController = base.GetCollectible(position);
+            valueCollectibleController.Value = healthValue;
+            valueCollectibleController.Type = Types.ValueCollectibleTypes.Xp;
 
-            return xpCollectibleController;
+            return valueCollectibleController;
         }
 
         public GameObject GetGameObject(Vector3 position, float xpValue)
@@ -26,7 +26,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
 
         public override XpCollectible GetCollectible(Vector3 position)
         {
-            return GetCollectible(position, defaultXpValue);
+            return GetCollectible(position, defaultValue);
         }
     }
 }

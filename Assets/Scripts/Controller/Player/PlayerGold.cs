@@ -22,12 +22,9 @@ namespace Assets.Scripts.Controller.Player
             return amount <= _value;
         }
 
-        public void OnGoldCollect(CollectibleItem collectible)
+        public void OnGoldCollect(float value)
         {
-            if (collectible is not ValueCollectible) return;
-            ValueCollectible valueCollectible = (ValueCollectible)collectible;
-
-            _value += (int) valueCollectible.Value;
+            _value += (int) value;
         }
     }
 }
