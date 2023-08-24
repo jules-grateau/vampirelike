@@ -16,10 +16,5 @@ namespace Assets.Scripts.Controller.Collectible
         {
             GetComponent<SpriteRenderer>().sprite = Weapon.icon;
         }
-
-        protected override void CustomCollectEvent(Collider2D collision)
-        {
-            Weapon.parent = collision.gameObject;
-        }
     }
 }

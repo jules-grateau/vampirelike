@@ -59,7 +59,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             projectile.SetActive(false);
 
             OnAllBehaviourOrchestrator onAllBehaviourOrchestrator = projectile.AddComponent<OnAllBehaviourOrchestrator>();
-            onAllBehaviourOrchestrator.parent = parent;
+            onAllBehaviourOrchestrator.parent = Parent;
 
             if (_isAnimatedHit)
             {

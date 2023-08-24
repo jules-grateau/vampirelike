@@ -16,6 +16,8 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)
         {
             base.HandleBehaviour(self, time);
+            if (!self.transform) return;
+
             self.gameObject.GetComponent<Rigidbody2D>().velocity = self.transform.right * speed;
             self.transform.rotation = Quaternion.Slerp(self.transform.rotation, Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0, 0, 90) * (self.parent.transform.position - self.transform.position)), 0.8f);
             

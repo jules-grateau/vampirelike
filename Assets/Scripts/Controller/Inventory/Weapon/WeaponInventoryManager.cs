@@ -26,14 +26,12 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
             _weaponStats = weaponStatistics;
         }
 
-        public void EquipWeapon(CollectibleItem collectible)
+        public void EquipWeapon(WeaponSO weapon)
         {
-            WeaponCollectible weaponCollectible = (WeaponCollectible)collectible;
-            WeaponSO weapon = weaponCollectible.Weapon;
             Debug.Log($"Equipped weapon {weapon.name}");
 
             WeaponController wpController = gameObject.AddComponent<WeaponController>();
-            weapon.Init(_weaponStats);
+            weapon.Init(gameObject, _weaponStats);
             wpController.weapon = weapon;
             _inventory.Add(wpController);
         }

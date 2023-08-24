@@ -7,20 +7,20 @@ namespace Assets.Scripts.Controller.Collectible
     {
         public float Duration {get;set;}
 
-        protected override void CustomCollectEvent(Collider2D collision)
+        public void TriggerEffect(GameObject parent)
         {
-            StartCoroutine(TriggerCollect());
+            StartCoroutine(TriggerCollect(parent));
         }
 
-        public abstract void CollectON();
+        protected abstract void CollectON(GameObject parent);
 
-        public abstract void CollectOFF();
+        protected abstract void CollectOFF(GameObject parent);
 
-        private IEnumerator TriggerCollect()
+        private IEnumerator TriggerCollect(GameObject parent)
         {
-            CollectON();
+            CollectON(parent);
             yield return new WaitForSeconds(Duration);
-            CollectOFF();
+            CollectOFF(parent);
         }
     }
 }

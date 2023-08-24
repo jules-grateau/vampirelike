@@ -1,26 +1,29 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Assets.Scripts.Controller.Collectible
 {
     public class MagnetPowerCollectible : PowerCollectible
     {
-        public override void CollectON()
+        protected override void CollectON(GameObject parent)
         {
             var hits = Physics2D.OverlapCircleAll(gameObject.transform.position, Mathf.Infinity, 1 << LayerMask.NameToLayer("Collectible"));
-
+            hits = hits.Where((hit) => hit.gameObject.CompareTag("Collectible")).ToArray();
             if (hits.Length > 0)
             {
                 foreach (Collider2D hit in hits)
                 {
-                    GetRadiusPlayerController radiusPlayerController = hit.gameObject.GetComponent<GetRadiusPlayerController>();
-                    if (radiusPlayerController != null) {
-                        radiusPlayerController.forceCollect = true;
+                    if (!hit.gameObject) return;
+
+                    CollectibleItem collectibleItem = hit.gameObject.GetComponent<CollectibleItem>();
+                    if (collectibleItem != null) {
+                        collectibleItem.Attract(parent.transform);
                     }
                 }
             }
         }
 
-        public override void CollectOFF()
+        protected override void CollectOFF(GameObject parent)
         {
         }
     }

@@ -34,7 +34,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
 
         public Sprite icon { get { return _icon; } }
         public abstract bool Use(Vector2 holderPosition, Vector2 holderDirection);
-        public GameObject parent { get; set; }
+        public GameObject Parent { get; set; }
 
         public void UpgradeStats(WeaponStatisticEnum statisticEnum, float value, AdditionTypes additionType, float maxValue)
         {
@@ -44,9 +44,10 @@ namespace Assets.Scripts.ScriptableObjects.Items
             OnUpgradeStats();
         }
 
-        public virtual void Init(BaseStatistics<WeaponStatisticEnum> additionalStats)
+        public virtual void Init(GameObject parent, BaseStatistics<WeaponStatisticEnum> additionalStats = null)
         {
             _weaponStats.Init(additionalStats);
+            Parent = parent;
         }
 
         public virtual float GetCooldown()

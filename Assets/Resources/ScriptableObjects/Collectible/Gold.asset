@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupAudio: {fileID: 8300000, guid: aec2722df2d91a34fba33ec72eb6f9b2, type: 3}
   _prefab: {fileID: 6801104700241300836, guid: b29dd63cd7b772f4a8c9ddd325347591, type: 3}
-  _collectEvent: {fileID: 11400000, guid: 25bf77012992ab8419ad5ef6e8325729, type: 2}
+  _collectEvent: {fileID: 11400000, guid: dd9d2cc37052c0d48b1d999896f9233d, type: 2}
   dropChance: 0.2
   CanBePulled: 1
-  defaultValue: 1
+  _defaultValue: 1
+  _type: 1

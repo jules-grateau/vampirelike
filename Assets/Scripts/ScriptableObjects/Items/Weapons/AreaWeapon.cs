@@ -17,14 +17,14 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [System.NonSerialized]
         private GameObject _currentAuraPrefab;
 
-        public override void Init(BaseStatistics<WeaponStatisticEnum> additionalStats = null)
+        public override void Init(GameObject parent, BaseStatistics<WeaponStatisticEnum> additionalStats = null)
         {
-            base.Init(additionalStats);
+            base.Init(parent, additionalStats);
 
             GameObject aura = Instantiate(_auraPrefab);
-            aura.transform.position = parent.transform.position;
+            aura.transform.position = Parent.transform.position;
             aura.transform.localScale = new Vector3(_weaponStats.GetStats(Types.WeaponStatisticEnum.Range)*2, _weaponStats.GetStats(Types.WeaponStatisticEnum.Range)*2, 1f);
-            aura.transform.parent = parent.transform;
+            aura.transform.parent = Parent.transform;
 
             _currentAuraPrefab = aura;
         }
@@ -34,7 +34,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             projectile.SetActive(false);
 
             OnAllBehaviourOrchestrator onAllBehaviourOrchestrator = projectile.AddComponent<OnAllBehaviourOrchestrator>();
-            onAllBehaviourOrchestrator.parent = parent;
+            onAllBehaviourOrchestrator.parent = Parent;
 
             return projectile;
         }
@@ -58,7 +58,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             {
                 GameObject projectile = GetProjectile();
                 projectile.transform.position = target.transform.position;
-                bool orientation = parent.transform.position.x < target.transform.position.x;
+                bool orientation = Parent.transform.position.x < target.transform.position.x;
                 projectile.transform.localScale = new Vector3((orientation ? 1 : -1) * projectile.transform.localScale.x, projectile.transform.localScale.y, projectile.transform.localScale.z);
                 projectile.SetActive(true);
 
@@ -67,7 +67,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
                     instanceID = target.GetInstanceID(),
                     position = target.transform.position,
-                    source = parent,
+                    source = Parent,
                     status = _weaponStatus,
                 });
             }

@@ -31,6 +31,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
             onEachFrameBehaviours.Add(newOnEachFrameBehaviour);
         }
 
+
         public T getBehaviourByType<T>() where T : BaseBehaviour<Collision2D>
         {
             foreach (BaseBehaviour<Collision2D> behaviour in onCollisionBehaviours)
