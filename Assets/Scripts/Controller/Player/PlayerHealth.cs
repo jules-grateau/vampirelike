@@ -15,17 +15,14 @@ namespace Assets.Scripts.Controller.Player
     public class PlayerHealth : BaseHealth
     {
         [SerializeField]
-        private bool _resetOnStart;
+        public AudioClip HitAudioClip;
+        [SerializeField]
+        public AudioClip ArmorAudioClip;
+        [SerializeField]
+        public Sprite ArmorSprite;
+        [SerializeField]
+        public GameEvent OnPlayerDeathEvent;
 
-        [SerializeField]
-        private AudioClip _hitAudioClip;
-        [SerializeField]
-        private AudioClip _armorAudioClip;
-        [SerializeField]
-        private Sprite _armorSprite;
-
-        [SerializeField]
-        private GameEvent _onPlayerDeathEvent;
         private BaseStatistics<CharacterStatisticEnum> _characterStatistics;
         private SpriteRenderer _spriteRenderer;
         private Coroutine _currentBlockCoroutine;
@@ -44,13 +41,13 @@ namespace Assets.Scripts.Controller.Player
             _characterStatistics = playerStatsController.CharacterStatistics;
             if (_characterStatistics == null) return;
 
-            if (_resetOnStart) Health = _characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
+            Health = _characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
         }
 
         private IEnumerator triggerBlock(float timer)
         {
             SpriteRenderer sp = _anchor.GetComponent<SpriteRenderer>();
-            sp.sprite = _armorSprite;
+            sp.sprite = ArmorSprite;
             yield return new WaitForSeconds(timer);
             sp.sprite = null;
         }
@@ -64,12 +61,12 @@ namespace Assets.Scripts.Controller.Player
 
                 if (computedDamage < 1)
                 {
-                    AudioSource.PlayClipAtPoint(_armorAudioClip, transform.position, 1);
+                    AudioSource.PlayClipAtPoint(ArmorAudioClip, transform.position, 1);
                     if(_currentBlockCoroutine != null)
                     {
                         StopCoroutine(_currentBlockCoroutine);
                     }
-                    _currentBlockCoroutine = StartCoroutine(triggerBlock(_armorAudioClip.length * 0.5f));
+                    _currentBlockCoroutine = StartCoroutine(triggerBlock(ArmorAudioClip.length * 0.5f));
                     return;
                 }
 
@@ -81,7 +78,7 @@ namespace Assets.Scripts.Controller.Player
                 }
                 else
                 {
-                    AudioSource.PlayClipAtPoint(_hitAudioClip, transform.position, 1);
+                    AudioSource.PlayClipAtPoint(HitAudioClip, transform.position, 1);
                     StartCoroutine(triggerInvincibility());
                 }
             }
@@ -127,7 +124,7 @@ namespace Assets.Scripts.Controller.Player
 
         protected override void triggerBeforeDestroy()
         {
-            _onPlayerDeathEvent.Raise();
+            OnPlayerDeathEvent.Raise();
         }
     }
 }

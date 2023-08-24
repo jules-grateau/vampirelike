@@ -19,17 +19,15 @@ namespace Assets.Scripts.Controller.Player
         private PlayerStatsController _playerStatsController;
 
         [SerializeField]
-        private GameEventFloat _playerHealEvent;
+        public GameEventFloat PlayerHealEvent;
         [SerializeField]
-        private GameEventFloat _playerGetGoldEvent;
+        public GameEventFloat PlayerGetGoldEvent;
         [SerializeField]
-        private GameEventCollectible _playerGetXpEvent;
-
-        public GameEventWeapon PlayerGetWeaponEvent => _playerGetWeaponEvent;
+        public GameEventCollectible PlayerGetXpEvent;
         [SerializeField]
-        private GameEventWeapon _playerGetWeaponEvent;
+        public GameEventWeapon PlayerGetWeaponEvent;
         [SerializeField]
-        private GameEventCollectible _playerGetKeyEvent;
+        public GameEventCollectible PlayerGetKeyEvent;
 
 
         private void Start()
@@ -61,13 +59,13 @@ namespace Assets.Scripts.Controller.Player
             if(collectibleItem is WeaponCollectible)
             {
                 WeaponCollectible weaponCollectible = (WeaponCollectible)collectibleItem;
-                _playerGetWeaponEvent.Raise(weaponCollectible.Weapon);
+                PlayerGetWeaponEvent.Raise(weaponCollectible.Weapon);
                 return;
             }
 
             if(collectibleItem is KeyCollectible)
             {
-                _playerGetKeyEvent.Raise(collectibleItem);
+                PlayerGetKeyEvent.Raise(collectibleItem);
             }
 
             if(IsSameOrSubclass(collectibleItem, typeof(ValueCollectible)))
@@ -76,13 +74,13 @@ namespace Assets.Scripts.Controller.Player
                 switch(valueCollectible.Type)
                 {
                     case ValueCollectibleTypes.Health:
-                        _playerHealEvent.Raise(valueCollectible.Value);
+                        PlayerHealEvent.Raise(valueCollectible.Value);
                         break;
                     case ValueCollectibleTypes.Gold:
-                        _playerGetGoldEvent.Raise(valueCollectible.Value);
+                        PlayerGetGoldEvent.Raise(valueCollectible.Value);
                         break;
                     case ValueCollectibleTypes.Xp:
-                        _playerGetXpEvent.Raise(collectibleItem);
+                        PlayerGetXpEvent.Raise(collectibleItem);
                         break;
                 }
                 return;
