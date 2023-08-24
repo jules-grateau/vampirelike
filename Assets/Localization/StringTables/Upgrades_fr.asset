@@ -154,6 +154,22 @@ MonoBehaviour:
     m_Localized: Vos projectiles sont {value}% plus rapides
     m_Metadata:
       m_Items: []
+  - m_Id: 2478438241697792
+    m_Localized: Eclats de glace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2478678868918272
+    m_Localized: "L'\xE9clat de glace se divise {value} fois de plus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2479454680940544
+    m_Localized: Eclat de glace se divise en {value} projectile de plus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2479400708636672
+    m_Localized: Plus de glace !
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

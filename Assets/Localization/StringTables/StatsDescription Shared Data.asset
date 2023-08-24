@@ -83,6 +83,14 @@ MonoBehaviour:
     m_Key: AttackCooldown
     m_Metadata:
       m_Items: []
+  - m_Id: 2457857555333120
+    m_Key: SplitNumber.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2458089286434816
+    m_Key: SplitTimes.Name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

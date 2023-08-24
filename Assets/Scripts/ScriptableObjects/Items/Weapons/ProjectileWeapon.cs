@@ -29,11 +29,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         private GameObject _particles;
         [DrawIf("damageType", ProjectileDamages.Split, ComparisonType.Equals, DisablingType.DontDraw)]
-        [SerializeField]
-        private int _splitNbr;
-        [DrawIf("damageType", ProjectileDamages.Split, ComparisonType.Equals, DisablingType.DontDraw)]
-        [SerializeField]
-        public int splitTimes;
 
         [Header("Direction")]
         [SerializeField]
@@ -99,8 +94,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                         damage = _weaponStats.GetStats(WeaponStatisticEnum.BaseDamage) * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.DamagePercentage) / 100)),
                         status = _weaponStatus,
                         enemyHitEvent = _enemyHitEvent,
-                        splitNbr = _splitNbr,
-                        splitTimes = splitTimes
+                        splitNbr = Mathf.FloorToInt(_weaponStats.GetStats(WeaponStatisticEnum.SplitNumber)),
+                        splitTimes = Mathf.FloorToInt(_weaponStats.GetStats(WeaponStatisticEnum.SplitTimes))
                     });
                     break;
                 case ProjectileDamages.Direct:
