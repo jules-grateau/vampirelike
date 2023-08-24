@@ -30,14 +30,5 @@ namespace Assets.Scripts.ScriptableObjects.Game
 
         [SerializeField]
         AnimationCurve _difficultyCurve;
-
-        public WeaponSO StartWeapon
-        {
-            get { return _startWeapon; }
-            set { _startWeapon = value; }
-        }
-
-        [SerializeField]
-        WeaponSO _startWeapon;
     }
 }

@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Controller.Inventory.Weapons;
-using Assets.Scripts.Controller.Player;
+﻿using Assets.Scripts.Controller.Player;
 using Assets.Scripts.Events;
 using Assets.Scripts.ScriptableObjects.Game;
 using Assets.Scripts.Types;
@@ -60,13 +59,6 @@ namespace Assets.Scripts.Controller.Game
             GameState.XpCurve = _gameData.XpCurve;
             GameState.DifficultyCurve = _gameData.DifficultyCurve;
             _playerGoldController = GameState.Player.GetComponent<PlayerGold>();
-
-            //For test purposes
-            if(Application.isEditor)
-            {
-                WeaponInventoryManager weaponInventoryManager = GameState.Player.GetComponent<WeaponInventoryManager>();
-                weaponInventoryManager.EquipWeapon(_gameData.StartWeapon);
-            }
 
             OnUnpause();
         }
