@@ -30,6 +30,12 @@ namespace Assets.Scripts.Controller.Inventory.Weapons
         {
             WeaponCollectible weaponCollectible = (WeaponCollectible)collectible;
             WeaponSO weapon = weaponCollectible.Weapon;
+            EquipWeapon(weapon);
+
+        }
+
+        public void EquipWeapon(WeaponSO weapon)
+        {
             Debug.Log($"Equipped weapon {weapon.name}");
 
             WeaponController wpController = gameObject.AddComponent<WeaponController>();

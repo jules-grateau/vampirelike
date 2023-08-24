@@ -38,7 +38,11 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [Header("Direction")]
         [SerializeField]
         public ProjectileDirection directionType;
+        [DrawIf("directionType", ProjectileDirection.TurnAroundSpawnPosition, ComparisonType.Equals, DisablingType.DontDraw)]
+        [SerializeField]
+        private float _radiusPerSecond;
 
+        [DrawIf("directionType", ProjectileDirection.Ricochet, ComparisonType.NotEqual, DisablingType.DontDraw)]
         [SerializeField]
         private bool _bounceOnWall;
         [DrawIf("directionType", ProjectileDirection.Ricochet, ComparisonType.NotEqual, DisablingType.DontDraw)]
@@ -146,7 +150,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 case ProjectileDirection.TurnAroundSpawnPosition:
                     onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new TurnAroundSpawnPointBehavior()
                     {
-                        Radius = _weaponStats.GetStats(WeaponStatisticEnum.Radius),
+                        RadiusPerSecond = _radiusPerSecond,
                         Duration = _weaponStats.GetStats(WeaponStatisticEnum.Duration),
                         BaseDuration = _weaponStats.GetStats(WeaponStatisticEnum.BaseDuration),
                         BaseSpeed= _weaponStats.GetStats(WeaponStatisticEnum.BaseSpeed),
