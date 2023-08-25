@@ -22,6 +22,11 @@ namespace Assets.Scripts.Controller.Player
         public Sprite ArmorSprite;
         [SerializeField]
         public GameEvent OnPlayerDeathEvent;
+        public float Armor { get; private set; }
+
+
+        private float _timeSinceLastHit = 0;
+        private float _timeSinceLastArmorRicovery = 0;
 
         private BaseStatistics<CharacterStatisticEnum> _characterStatistics;
         private SpriteRenderer _spriteRenderer;
@@ -42,6 +47,27 @@ namespace Assets.Scripts.Controller.Player
             if (_characterStatistics == null) return;
 
             Health = _characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
+            Armor = _characterStatistics.GetStats(CharacterStatisticEnum.Armor);
+        }
+
+        private void Update()
+        {
+            _timeSinceLastHit += Time.deltaTime;
+            float armorRecoveryDelay = _characterStatistics.GetStats(CharacterStatisticEnum.ArmorRecoveryDelay);
+            if (_timeSinceLastHit < armorRecoveryDelay) return;
+            
+            _timeSinceLastArmorRicovery += Time.deltaTime;
+            float maxArmor = _characterStatistics.GetStats(CharacterStatisticEnum.Armor);
+            if (Armor >= maxArmor) return;
+
+            float armorRecoveryTickRate = _characterStatistics.GetStats(CharacterStatisticEnum.ArmorRecoveryTickRate);
+            if (_timeSinceLastArmorRicovery < armorRecoveryTickRate) return;
+
+            float armorPerTick = _characterStatistics.GetStats(CharacterStatisticEnum.ArmorPerTick);
+
+            Armor += armorPerTick;
+            if (Armor > maxArmor) Armor = maxArmor;
+            _timeSinceLastArmorRicovery = 0;
         }
 
         private IEnumerator triggerBlock(float timer)
@@ -54,11 +80,9 @@ namespace Assets.Scripts.Controller.Player
 
         protected override void TakeDamageEffect(HitData hit, bool isDoTTick = false)
         {
-            if (!isInvincible)
-            {
-                float armor = _characterStatistics.GetStats(Types.CharacterStatisticEnum.Armor);
-                float computedDamage = hit.damage - armor;
-
+            if (!isInvincible) { 
+            
+                float computedDamage = hit.damage - Armor;
                 if (computedDamage < 1)
                 {
                     AudioSource.PlayClipAtPoint(ArmorAudioClip, transform.position, 1);
@@ -67,9 +91,13 @@ namespace Assets.Scripts.Controller.Player
                         StopCoroutine(_currentBlockCoroutine);
                     }
                     _currentBlockCoroutine = StartCoroutine(triggerBlock(ArmorAudioClip.length * 0.5f));
+                    Armor -= hit.damage;
+                    _timeSinceLastHit = 0;
+                    _timeSinceLastArmorRicovery = 0;
                     return;
                 }
 
+                Armor = 0;
                 DisplayDamage(computedDamage, false, hit.status);
                 Health -= computedDamage;
                 if (Health <= 0)
@@ -81,6 +109,9 @@ namespace Assets.Scripts.Controller.Player
                     AudioSource.PlayClipAtPoint(HitAudioClip, transform.position, 1);
                     StartCoroutine(triggerInvincibility());
                 }
+
+                _timeSinceLastHit = 0;
+                _timeSinceLastArmorRicovery = 0;
             }
         }
 

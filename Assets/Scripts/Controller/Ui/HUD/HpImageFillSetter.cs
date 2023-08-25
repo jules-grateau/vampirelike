@@ -14,6 +14,8 @@ namespace Assets.Scripts.Controller.Ui
         PlayerHealth _playerHealth;
         private Image _image;
         [SerializeField]
+        private Image _armorImage;
+        [SerializeField]
         private float _min = 0;
 
         [SerializeField]
@@ -36,8 +38,11 @@ namespace Assets.Scripts.Controller.Ui
             BaseStatistics<CharacterStatisticEnum> characterStatistics = _playerStatsController.CharacterStatistics;
             if (characterStatistics == null) return;
             float maxHp = characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
+
             _image.fillAmount = Mathf.Clamp01(
                 Mathf.InverseLerp(_min, maxHp, _playerHealth.Health));
+            _armorImage.fillAmount = Mathf.Clamp01(
+                    Mathf.InverseLerp(_min, maxHp, _playerHealth.Armor));
 
             if (!_displayText) return;
 

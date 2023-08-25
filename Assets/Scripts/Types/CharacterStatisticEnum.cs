@@ -11,6 +11,9 @@ namespace Assets.Scripts.Types
         MaxHp,
         MovementSpeed,
         Armor,
-        Invincibility
+        Invincibility,
+        ArmorRecoveryDelay,
+        ArmorRecoveryTickRate,
+        ArmorPerTick
     }
 }

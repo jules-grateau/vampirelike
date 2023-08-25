@@ -50,10 +50,14 @@ MonoBehaviour:
       _value: 3
     - _key: 6
       _value: 0.5
+    - _key: 7
+      _value: 10
+    - _key: 8
+      _value: 0.5
+    - _key: 9
+      _value: 1
   _startWeapons:
   - {fileID: 11400000, guid: 0b6b8eac69b270e49b40d1cd6dbaac0b, type: 2}
-  _speed: 3
-  _health: 35
   _hitAudioClip: {fileID: 8300000, guid: 281dc59a06f5bdb42a28ad3f59532891, type: 3}
   _armorAudioClip: {fileID: 8300000, guid: 51a3f7c7491b09d48adeff0b2c4ef7e6, type: 3}
   _armorSprite: {fileID: -1987710477, guid: 9030d8e5d3ed0bf449dcf92ef5501231, type: 3}
