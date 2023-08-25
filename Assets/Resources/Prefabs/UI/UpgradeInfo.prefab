@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: 0}
-  m_SizeDelta: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 25, y: 0}
+  m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4098772925752786099
 CanvasRenderer:
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4711590398786244684, guid: f44fba3b6639fb34cb327fcd0d1033bf, type: 3}
+  m_Sprite: {fileID: 1858005374, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -254,8 +254,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 27dbaa0cccbdb9748a5e14dceea5cd8d, type: 3}
-  m_Type: 2
+  m_Sprite: {fileID: 21300000, guid: 357e5d00293a3d64ebe00a151ad269ed, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -428,8 +428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6}
   m_AnchorMax: {x: 0.9, y: 0.9}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -7.5}
+  m_SizeDelta: {x: 0, y: -15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1926873013727869517
 CanvasRenderer:
@@ -461,8 +461,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Stat Update
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1b8c2bf5b2410ea4596fc57b3d491272, type: 2}
-  m_sharedMaterial: {fileID: 6201322154814315768, guid: 1b8c2bf5b2410ea4596fc57b3d491272, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6841ab068a690914aa8ef633d72231e3, type: 2}
+  m_sharedMaterial: {fileID: 4594104721643704134, guid: 6841ab068a690914aa8ef633d72231e3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -486,10 +486,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.1
-  m_fontSizeBase: 50
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 42
   m_fontStyle: 1
@@ -563,8 +563,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.1}
   m_AnchorMax: {x: 0.9, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 7.5}
+  m_SizeDelta: {x: 0, y: -15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &979054870526684951
 CanvasRenderer:
@@ -596,8 +596,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Une super upgrade qui devrait vous rendre super fort !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1b8c2bf5b2410ea4596fc57b3d491272, type: 2}
-  m_sharedMaterial: {fileID: 6201322154814315768, guid: 1b8c2bf5b2410ea4596fc57b3d491272, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6841ab068a690914aa8ef633d72231e3, type: 2}
+  m_sharedMaterial: {fileID: 4594104721643704134, guid: 6841ab068a690914aa8ef633d72231e3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.55
+  m_fontSize: 20.45
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
