@@ -50,8 +50,33 @@ MonoBehaviour:
       _value: 4.5
     - _key: 6
       _value: 0.5
+    - _key: 7
+      _value: 10
+    - _key: 8
+      _value: 0.5
+    - _key: 9
+      _value: 1
   _startWeapons:
   - {fileID: 11400000, guid: 2e0c900d27141494d8c7db6de2f50440, type: 2}
+  _hitAudioClip: {fileID: 8300000, guid: 281dc59a06f5bdb42a28ad3f59532891, type: 3}
+  _armorAudioClip: {fileID: 8300000, guid: 51a3f7c7491b09d48adeff0b2c4ef7e6, type: 3}
+  _armorSprite: {fileID: -1987710477, guid: 9030d8e5d3ed0bf449dcf92ef5501231, type: 3}
+  _xp: {fileID: 11400000, guid: c678101c49edafa498744f1ae7df8f49, type: 2}
+  _maxXP: {fileID: 11400000, guid: 86990462fda9503438982221eb449b5a, type: 2}
+  _currentLevel: {fileID: 11400000, guid: 89937cfc28117db48a84b0622dcdd94a, type: 2}
+  _levelUpEffectGO: {fileID: 5822821294587056223, guid: d51a89497c2380a40a1a2c8798adbfa3, type: 3}
+  _levelUpAudioClip: {fileID: 8300000, guid: 0e566a8701662924eb677419db5d35f9, type: 3}
+  _playerDeathEvent: {fileID: 11400000, guid: e52a29c257b87af4499524eee03d0667, type: 2}
+  _playerLevelUpEvent: {fileID: 11400000, guid: 9fdb7426a996d4d4d99b3c5b345ec99a, type: 2}
+  _playerHealEvent: {fileID: 11400000, guid: b09b69745e7a4bd4c9f2e923c9b90842, type: 2}
+  _playerGetGoldEvent: {fileID: 11400000, guid: 4d0c9d7a5bde0994a80cfc44b5da0275, type: 2}
+  _playerAddXp: {fileID: 11400000, guid: 277fa7f125bcb544281196e866eb024f, type: 2}
+  _playerGetXpEvent: {fileID: 11400000, guid: 01a481ab93ae3054d9643336853d3b78, type: 2}
+  _playerGetWeaponEvent: {fileID: 11400000, guid: 444cfead85b73d64097b0cd4c2f48425, type: 2}
+  _playerGetKeyEvent: {fileID: 11400000, guid: d6879345162f7b44c905682a94a3f6bc, type: 2}
+  _dealDamageToPlayer: {fileID: 11400000, guid: c3494f9e28b23974f9f9bf4ae624ecef, type: 2}
+  _selectUpgrade: {fileID: 11400000, guid: 1f6685dba6f763f46938d2aa18b4d420, type: 2}
+  _collectiblePickup: {fileID: 11400000, guid: dd9d2cc37052c0d48b1d999896f9233d, type: 2}
   references:
     version: 2
     RefIds: []

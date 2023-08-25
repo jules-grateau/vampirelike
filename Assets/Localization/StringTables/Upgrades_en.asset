@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 321483505664
-    m_Localized: You take {value} less damage per hit
+    m_Localized: Your armor is raised by {value}
     m_Metadata:
       m_Items: []
   - m_Id: 1086637801472
@@ -152,6 +152,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 9922568323072
     m_Localized: Your projectiles are {value}% faster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2478438241697792
+    m_Localized: Ice Shard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2478678868918272
+    m_Localized: The Ice Shard now split {value} more times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2479454680940544
+    m_Localized: IceShard now split into {value} more projectile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2479400708636672
+    m_Localized: More Ice !
     m_Metadata:
       m_Items: []
   references:

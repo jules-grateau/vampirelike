@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a290fd4ac108b648b2c62af1acfd884, type: 3}
-  m_Name: ArmorUpgrade
+  m_Script: {fileID: 11500000, guid: 3065247565e9d3b44ba8edcbffbf32ee, type: 3}
+  m_Name: IceShardUpgrade
   m_EditorClassIdentifier: 
   _title:
     m_TableReference:
       m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
     m_TableEntryReference:
-      m_KeyId: 91388182528
+      m_KeyId: 2478438241697792
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -25,29 +25,24 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
     m_TableEntryReference:
-      m_KeyId: 321483505664
+      m_KeyId: 2478678868918272
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  _maxAmout: 0
-  _sprite: {fileID: 1220957953, guid: 04bfa7befce0cfd4ba93bb9b70c48bf2, type: 3}
-  _statsToUpgrade: 5
+  _maxAmout: 5
+  _sprite: {fileID: 1187925646, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
+  _statsToUpgrade: 14
   _valueToAdd:
-  - Quality: 0
-    Value: 1
-  - Quality: 1
-    Value: 2
   - Quality: 2
-    Value: 3
+    Value: 1
   - Quality: 3
-    Value: 5
+    Value: 2
   _additionType: 0
-  dropConditionTypes: 2
   _dropFrom: 0
-  _dropUntil: 0
-  _otherStats: 3
+  _dropUntil: 5
   _maxValue: 0
+  _forWeapon: {fileID: 11400000, guid: 74ff2579da37d4b409243db4405ce516, type: 2}
   references:
     version: 2
     RefIds: []

@@ -25,7 +25,7 @@ MonoBehaviour:
       _value: 5
     - _key: 10
       _value: 1
-    - _key: 14
+    - _key: 16
       _value: 5
     - _key: 9
       _value: 5
@@ -38,8 +38,6 @@ MonoBehaviour:
   damageType: 0
   _explosionRadius: 0
   _particles: {fileID: 0}
-  _splitNbr: 0
-  splitTimes: 0
   directionType: 5
   _bounceOnWall: 0
   destructionType: 3

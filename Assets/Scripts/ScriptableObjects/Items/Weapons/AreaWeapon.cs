@@ -41,6 +41,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         public override bool Use(Vector2 holderPosition, Vector2 holderDirection)
         {
+            _currentAuraPrefab.transform.localScale = new Vector3(_weaponStats.GetStats(Types.WeaponStatisticEnum.Range) * 2, _weaponStats.GetStats(Types.WeaponStatisticEnum.Range) * 2, 1f);
 
             var hits = Physics2D.OverlapCircleAll(holderPosition, _weaponStats.GetStats(Types.WeaponStatisticEnum.Range), 1 << LayerMask.NameToLayer("Enemy"));
             if (hits.Length <= 0) return false;

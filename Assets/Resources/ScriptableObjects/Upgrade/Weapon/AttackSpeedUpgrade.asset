@@ -35,7 +35,7 @@ MonoBehaviour:
   _statsToUpgrade: 8
   _valueToAdd:
   - Quality: 0
-    Value: 5
+    Value: 1.05
   _additionType: 1
   _dropFrom: 0
   _dropUntil: 0

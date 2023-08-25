@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 014fb932893e0904f92abca6ee74a118, type: 3}
-  m_Name: Ice
+  m_Name: IceShard
   m_EditorClassIdentifier: 
   _projectilPrefab: {fileID: 319311135818076577, guid: 9fb55bad1d1ce604386778274c4ff85a, type: 3}
   _icon: {fileID: 1187925646, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
@@ -29,6 +29,10 @@ MonoBehaviour:
       _value: 5
     - _key: 4
       _value: 5
+    - _key: 14
+      _value: 0
+    - _key: 15
+      _value: 2
   _weaponStatus: {fileID: 11400000, guid: 293a6f5672fa37740ab8a714075d48b4, type: 2}
   _bumpVector: {x: 0, y: 0}
   _duration: 0
@@ -38,8 +42,6 @@ MonoBehaviour:
   damageType: 2
   _explosionRadius: 0
   _particles: {fileID: 0}
-  _splitNbr: 2
-  splitTimes: 1
   directionType: 2
   _bounceOnWall: 0
   destructionType: 1
