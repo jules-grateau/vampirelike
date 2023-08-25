@@ -38,4 +38,9 @@ public class WeaponSpawnedController : MonoBehaviour
         Weapons.RemoveAt(random);
         return w;
     }
+
+    public void RemoveWeaponFromPool(WeaponSO weapon)
+    {
+        Weapons.Remove(weapon);
+    }
 }
