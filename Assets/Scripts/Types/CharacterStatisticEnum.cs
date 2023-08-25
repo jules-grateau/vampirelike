@@ -10,10 +10,14 @@ namespace Assets.Scripts.Types
         PickUpRadius,
         MaxHp,
         MovementSpeed,
-        Armor,
+        Shield,
         Invincibility,
-        ArmorRecoveryDelay,
-        ArmorRecoveryTickRate,
-        ArmorPerTick
+        ShieldRecoveryDelay,
+        ShieldRecoveryTickRate,
+        ShieldPerTick,
+        Armor,
+        HealthRecoveryDelay,
+        HealthRecoveryTickRate,
+        HealthPerTick,
     }
 }

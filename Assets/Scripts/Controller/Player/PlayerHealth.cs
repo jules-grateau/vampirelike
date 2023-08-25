@@ -22,11 +22,12 @@ namespace Assets.Scripts.Controller.Player
         public Sprite ArmorSprite;
         [SerializeField]
         public GameEvent OnPlayerDeathEvent;
-        public float Armor { get; private set; }
+        public float Shield { get; private set; }
+        private float _timeSinceLastShieldHit = 0;
+        private float _timeSinceLastShieldRicovery = 0;
 
-
-        private float _timeSinceLastHit = 0;
-        private float _timeSinceLastArmorRicovery = 0;
+        private float _timeSinceLastHealthHit = 0;
+        private float _timeSinceLastHealthRicovery = 0;
 
         private BaseStatistics<CharacterStatisticEnum> _characterStatistics;
         private SpriteRenderer _spriteRenderer;
@@ -47,27 +48,53 @@ namespace Assets.Scripts.Controller.Player
             if (_characterStatistics == null) return;
 
             Health = _characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
-            Armor = _characterStatistics.GetStats(CharacterStatisticEnum.Armor);
+            Shield = _characterStatistics.GetStats(CharacterStatisticEnum.Shield);
         }
 
         private void Update()
         {
-            _timeSinceLastHit += Time.deltaTime;
-            float armorRecoveryDelay = _characterStatistics.GetStats(CharacterStatisticEnum.ArmorRecoveryDelay);
-            if (_timeSinceLastHit < armorRecoveryDelay) return;
-            
-            _timeSinceLastArmorRicovery += Time.deltaTime;
-            float maxArmor = _characterStatistics.GetStats(CharacterStatisticEnum.Armor);
-            if (Armor >= maxArmor) return;
+            checkRefreshShield();
+            checkRefreshHealth();
+        }
 
-            float armorRecoveryTickRate = _characterStatistics.GetStats(CharacterStatisticEnum.ArmorRecoveryTickRate);
-            if (_timeSinceLastArmorRicovery < armorRecoveryTickRate) return;
+        private void checkRefreshHealth()
+        {
+            _timeSinceLastHealthHit += Time.deltaTime;
+            float healthRecoveryDelay = _characterStatistics.GetStats(CharacterStatisticEnum.HealthRecoveryDelay);
+            if (_timeSinceLastHealthHit < healthRecoveryDelay) return;
 
-            float armorPerTick = _characterStatistics.GetStats(CharacterStatisticEnum.ArmorPerTick);
+            _timeSinceLastHealthRicovery += Time.deltaTime;
+            float maxHealth = _characterStatistics.GetStats(CharacterStatisticEnum.MaxHp);
+            if (Health >= maxHealth) return;
 
-            Armor += armorPerTick;
-            if (Armor > maxArmor) Armor = maxArmor;
-            _timeSinceLastArmorRicovery = 0;
+            float HealthRecoveryTickRate = _characterStatistics.GetStats(CharacterStatisticEnum.HealthRecoveryTickRate);
+            if (_timeSinceLastHealthRicovery < HealthRecoveryTickRate) return;
+
+            float healthPerTick = _characterStatistics.GetStats(CharacterStatisticEnum.HealthPerTick);
+
+            Health += healthPerTick;
+            if (Health > maxHealth) Health = maxHealth;
+            _timeSinceLastHealthRicovery = 0;
+        }
+
+        private void checkRefreshShield()
+        {
+            _timeSinceLastShieldHit += Time.deltaTime;
+            float shieldRecoveryDelay = _characterStatistics.GetStats(CharacterStatisticEnum.ShieldRecoveryDelay);
+            if (_timeSinceLastShieldHit < shieldRecoveryDelay) return;
+
+            _timeSinceLastShieldRicovery += Time.deltaTime;
+            float maxShield = _characterStatistics.GetStats(CharacterStatisticEnum.Shield);
+            if (Shield >= maxShield) return;
+
+            float shieldRecoveryTickRate = _characterStatistics.GetStats(CharacterStatisticEnum.ShieldRecoveryTickRate);
+            if (_timeSinceLastShieldRicovery < shieldRecoveryTickRate) return;
+
+            float armorPerTick = _characterStatistics.GetStats(CharacterStatisticEnum.ShieldPerTick);
+
+            Shield += armorPerTick;
+            if (Shield > maxShield) Shield = maxShield;
+            _timeSinceLastShieldRicovery = 0;
         }
 
         private IEnumerator triggerBlock(float timer)
@@ -80,9 +107,10 @@ namespace Assets.Scripts.Controller.Player
 
         protected override void TakeDamageEffect(HitData hit, bool isDoTTick = false)
         {
-            if (!isInvincible) { 
-            
-                float computedDamage = hit.damage - Armor;
+            if (!isInvincible) {
+
+                float reducedDamage = hit.damage * ( 1 - (_characterStatistics.GetStats(CharacterStatisticEnum.Armor) / 100));
+                float computedDamage = reducedDamage - Shield;
                 if (computedDamage < 1)
                 {
                     AudioSource.PlayClipAtPoint(ArmorAudioClip, transform.position, 1);
@@ -91,15 +119,17 @@ namespace Assets.Scripts.Controller.Player
                         StopCoroutine(_currentBlockCoroutine);
                     }
                     _currentBlockCoroutine = StartCoroutine(triggerBlock(ArmorAudioClip.length * 0.5f));
-                    Armor -= hit.damage;
-                    _timeSinceLastHit = 0;
-                    _timeSinceLastArmorRicovery = 0;
+                    Shield -= reducedDamage;
+                    _timeSinceLastShieldHit = 0;
+                    _timeSinceLastShieldRicovery = 0;
                     return;
                 }
 
-                Armor = 0;
+                Shield = 0;
                 DisplayDamage(computedDamage, false, hit.status);
                 Health -= computedDamage;
+                _timeSinceLastHealthHit = 0;
+                _timeSinceLastHealthRicovery = 0;
                 if (Health <= 0)
                 {
                     HandlePlayerDeath();
@@ -110,8 +140,8 @@ namespace Assets.Scripts.Controller.Player
                     StartCoroutine(triggerInvincibility());
                 }
 
-                _timeSinceLastHit = 0;
-                _timeSinceLastArmorRicovery = 0;
+                _timeSinceLastShieldHit = 0;
+                _timeSinceLastShieldRicovery = 0;
             }
         }
 
