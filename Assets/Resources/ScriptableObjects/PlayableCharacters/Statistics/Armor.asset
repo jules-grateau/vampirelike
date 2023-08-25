@@ -23,7 +23,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _valueAppendix: 
-  _maxValue: 10
+  _maxValue: 0
   references:
     version: 2
     RefIds: []

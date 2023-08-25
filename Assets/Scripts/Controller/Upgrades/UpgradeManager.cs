@@ -1,10 +1,10 @@
 ﻿using Assets.Scripts.Controller.Game;
 using Assets.Scripts.Controller.Inventory.Weapons;
 using Assets.Scripts.ScriptableObjects;
-using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.ScriptableObjects.Settings;
 using Assets.Scripts.Types;
+using Assets.Scripts.Types.Upgrades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +52,7 @@ namespace Assets.Scripts.Controller.Upgrades
             Settings = Resources.Load<UpgradeSettings>("ScriptableObjects/Settings/UpgradesSetting");
         }
 
-        public List<UpgradeSO> GetAvailableUpgrades()
+        public List<Upgrade<UpgradeSO>> GetAvailableUpgrades()
         {
             return FilterUpgrades(_upgradeList);
         }
@@ -62,14 +62,14 @@ namespace Assets.Scripts.Controller.Upgrades
             return Settings.Color.GetColor(quality);
         }
 
-        List<UpgradeSO> FilterUpgrades(List<UpgradeSO> upgrades)
+        List<Upgrade<UpgradeSO>> FilterUpgrades(List<UpgradeSO> upgrades)
         {
             IEnumerable<UpgradeSO> filteredUpgrades = upgrades;
             WeaponInventoryManager weaponManager = GameManager.GameState.Player.GetComponent<WeaponInventoryManager>();
             PlayerStatsController playerStats = GameManager.GameState.Player.GetComponent<PlayerStatsController>();
-
             List<UpgradeSO> previousUpgrades = playerStats.Upgrades.Select((upgrade) => (UpgradeSO) upgrade.UpgradeSO)
                 .Concat(weaponManager.Upgrades.Select((upgrade) => (UpgradeSO) upgrade.UpgradeSO)).ToList();
+            List<Upgrade<UpgradeSO>> _availableUpgrades = new List<Upgrade<UpgradeSO>>();
 
             //Filter out MaxAmount upgrades
             Dictionary<UpgradeSO, int> previousUpgradesDictionnary =
@@ -82,36 +82,41 @@ namespace Assets.Scripts.Controller.Upgrades
             List<WeaponSO> weapons = weaponManager.Inventory.Select(weaponController => weaponController.weapon).ToList();
             filteredUpgrades = filteredUpgrades.Where(upgrade => upgrade is not SpecificWeaponStatsUpgradeSO || weapons.Contains((upgrade as SpecificWeaponStatsUpgradeSO).ForWeapon));
 
-            //Filter stats when reaching max value
-            filteredUpgrades = filteredUpgrades
-                .Where(upgrade =>
+
+            _availableUpgrades = filteredUpgrades.Where((upgradeSO) => upgradeSO is CharacterStatsUpgradeSO)
+            .SelectMany((upgradeSO) =>
+            {
+                
+
+                CharacterStatsUpgradeSO charactUpgrade = upgradeSO as CharacterStatsUpgradeSO;
+                return charactUpgrade.GetDropableUpgrades(playerStats.CharacterStatistics);
+
+            }).ToList();
+
+            _availableUpgrades.AddRange(filteredUpgrades.Where((upgradeSO) => upgradeSO is WeaponStatsUpgradeSO)
+                .SelectMany((upgradeSO) =>
                 {
-                    if (upgrade is not CharacterStatsUpgradeSO) return true;
-                    CharacterStatsUpgradeSO charactUpgrade = upgrade as CharacterStatsUpgradeSO;
-                    return charactUpgrade.IsDropable(playerStats.CharacterStatistics.GetStats(charactUpgrade.StatsToUpgrade));
+                    WeaponStatsUpgradeSO weaponUpgrade = upgradeSO as WeaponStatsUpgradeSO;
+                    return weaponUpgrade.GetDropableUpgrades(weaponManager.WeaponStats);
 
                 })
-               .Where(upgrade =>
-               {
-                   if (upgrade is not WeaponStatsUpgradeSO) return true;
-                   WeaponStatsUpgradeSO weaponUpgrade = upgrade as WeaponStatsUpgradeSO;
-                   return weaponUpgrade.IsDropable(weaponManager.WeaponStats.GetStats(weaponUpgrade.StatsToUpgrade));
-
-               });
+            );
 
 
-            return filteredUpgrades.ToList();
+
+
+            return _availableUpgrades;
         }
 
         public List<Upgrade<UpgradeSO>> Draw(int nbToDraw)
         {
-            List<UpgradeSO> upgrades = GetAvailableUpgrades();
+            List <Upgrade<UpgradeSO>> upgrades = GetAvailableUpgrades();
             List<Upgrade<UpgradeSO>> upgradesToShow = new List<Upgrade<UpgradeSO>>();
-            Dictionary<UpgradeQuality, List<UpgradeSO>> upgradesByQuality = new Dictionary<UpgradeQuality, List<UpgradeSO>>();
+            Dictionary<UpgradeQuality, List<Upgrade<UpgradeSO>>> upgradesByQuality = new Dictionary<UpgradeQuality, List<Upgrade<UpgradeSO>>>();
 
             foreach(UpgradeQuality quality in Enum.GetValues(typeof(UpgradeQuality)))
             {
-                upgradesByQuality.Add(quality, upgrades.Where((upg) => upg.HasQuality(quality)).ToList());
+                upgradesByQuality.Add(quality, upgrades.Where((upg) => upg.UpgradeQuality == quality).ToList());
             }
 
 
@@ -123,7 +128,7 @@ namespace Assets.Scripts.Controller.Upgrades
                     .Select(item => item.Key).ToArray();
 
                 int qualityIndex = 0;
-                List<UpgradeSO> qualityRelatedUpgrades = null;
+                List<Upgrade<UpgradeSO>> qualityRelatedUpgrades = null;
                 UpgradeQuality quality = qualityList[0];
 
                 while((qualityRelatedUpgrades  == null || qualityRelatedUpgrades.Count == 0) 
@@ -141,9 +146,8 @@ namespace Assets.Scripts.Controller.Upgrades
                 }
 
                 int randomUpgradeIndex = UnityEngine.Random.Range(0, qualityRelatedUpgrades.Count);
-                UpgradeSO upgrade = qualityRelatedUpgrades[randomUpgradeIndex];
 
-                upgradesToShow.Add(new Upgrade<UpgradeSO>(quality, upgrade));
+                upgradesToShow.Add(qualityRelatedUpgrades[randomUpgradeIndex]);
                 qualityRelatedUpgrades.RemoveAt(randomUpgradeIndex);
             }
 

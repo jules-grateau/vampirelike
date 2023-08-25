@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 321483505664
-    m_Localized: You take {value} less damage per hit
+    m_Localized: Your armor is raised by {value}
     m_Metadata:
       m_Items: []
   - m_Id: 1086637801472

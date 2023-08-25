@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 321483505664
-    m_Localized: "Vous subissez {value} d\xE9gats en moins par attaque."
+    m_Localized: "Votre armure est augment\xE9e de {value}"
     m_Metadata:
       m_Items: []
   - m_Id: 1086637801472

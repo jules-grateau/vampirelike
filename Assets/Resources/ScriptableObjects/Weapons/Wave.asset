@@ -29,7 +29,7 @@ MonoBehaviour:
       _value: 3
     - _key: 10
       _value: 1
-    - _key: 14
+    - _key: 16
       _value: 2
   _weaponStatus: {fileID: 11400000, guid: 330e216b977f9af4384a82318ead3f3c, type: 2}
   _bumpVector: {x: 0, y: 0}
@@ -40,8 +40,6 @@ MonoBehaviour:
   damageType: 0
   _explosionRadius: 0
   _particles: {fileID: 0}
-  _splitNbr: 0
-  splitTimes: 0
   directionType: 2
   _bounceOnWall: 0
   destructionType: 3

@@ -10,4 +10,12 @@ namespace Assets.Scripts.Types
         Epic,
         Legendary
     }
+
+    public enum DropCondition
+    {
+        None,
+        Range,
+        OtherStats
+    }
+
 }

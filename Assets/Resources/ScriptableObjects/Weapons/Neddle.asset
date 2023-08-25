@@ -17,7 +17,7 @@ MonoBehaviour:
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _weaponStats:
     _baseStats:
-    - _key: 14
+    - _key: 16
       _value: 2
     - _key: 2
       _value: 1
@@ -38,12 +38,10 @@ MonoBehaviour:
   damageType: 0
   _explosionRadius: 0
   _particles: {fileID: 0}
-  _splitNbr: 0
-  splitTimes: 0
   directionType: 4
   _bounceOnWall: 1
   destructionType: 3
-  _minMaxDelay: {x: 2, y: 2}
+  _minMaxDelay: {x: 1, y: 1}
   _comeBackToPlayer: 0
   _offset: {x: 0, y: 0}
-  _shootFromBehind: 0
+  _shootFromBehind: 1

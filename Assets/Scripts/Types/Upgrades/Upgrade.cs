@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.ScriptableObjects;
-using System.Collections;
-using UnityEngine;
 
 namespace Assets.Scripts.Types
 {

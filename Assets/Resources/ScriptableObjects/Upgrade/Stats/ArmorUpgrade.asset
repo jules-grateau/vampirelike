@@ -21,7 +21,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  _sprite: {fileID: 1220957953, guid: 04bfa7befce0cfd4ba93bb9b70c48bf2, type: 3}
   _description:
     m_TableReference:
       m_TableCollectionName: GUID:bfe33151eb2939b469dac22668146365
@@ -32,6 +31,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _maxAmout: 0
+  _sprite: {fileID: 1220957953, guid: 04bfa7befce0cfd4ba93bb9b70c48bf2, type: 3}
   _statsToUpgrade: 5
   _valueToAdd:
   - Quality: 0
@@ -43,8 +43,10 @@ MonoBehaviour:
   - Quality: 3
     Value: 5
   _additionType: 0
+  dropConditionTypes: 2
   _dropFrom: 0
   _dropUntil: 0
+  _otherStats: 3
   _maxValue: 0
   references:
     version: 2
