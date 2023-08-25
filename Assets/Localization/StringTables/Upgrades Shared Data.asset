@@ -151,6 +151,22 @@ MonoBehaviour:
     m_Key: SpeedUpgrade.Description
     m_Metadata:
       m_Items: []
+  - m_Id: 2478438241697792
+    m_Key: IceShardUpgrade.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2478678868918272
+    m_Key: IceShardUpgrade.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2479400708636672
+    m_Key: IceShardUpgrade_1.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2479454680940544
+    m_Key: IceShardUpgrade_1.Description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

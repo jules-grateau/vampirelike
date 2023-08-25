@@ -23,19 +23,16 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
             base.HandleBehaviour(self, collision2D);
             if (splitTimes > 0)
             {
+                int childSplitTime = splitTimes - 1;
                 for (int i = 0; i < splitNbr; i++)
                 {
                     int half = splitNbr / 2;
                     GameObject split = GameObject.Instantiate(self.gameObject, self.gameObject.transform.position, Quaternion.Euler(0, 0, self.gameObject.transform.rotation.eulerAngles.z + (i - half) * 25));
                     OnAllBehaviourOrchestrator orchestrator = split.GetComponent<OnAllBehaviourOrchestrator>();
                     orchestrator.copyAllBehaviours(self);
-                    orchestrator.alreadyTargeted = ((OnAllBehaviourOrchestrator)self).alreadyTargeted;
-                    orchestrator.getBehaviourByType<SplitBehaviour>().splitTimes = splitTimes - 1;
-                    SelfDestroyNbrOfHits destroBehaviour = orchestrator.getBehaviourByType<SelfDestroyNbrOfHits>();
-                    if (destroBehaviour != null)
-                    {
-                        destroBehaviour.numberOfHits += 1;
-                    }
+                    // We exclude the target that already encountered the parent projectile
+                    orchestrator.excludedTargets = ((OnAllBehaviourOrchestrator)self).alreadyTargeted;
+                    orchestrator.getBehaviourByType<SplitBehaviour>().splitTimes = childSplitTime;
                 }
             }
             return;

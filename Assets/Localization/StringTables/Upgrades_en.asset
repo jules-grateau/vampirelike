@@ -154,6 +154,22 @@ MonoBehaviour:
     m_Localized: Your projectiles are {value}% faster
     m_Metadata:
       m_Items: []
+  - m_Id: 2478438241697792
+    m_Localized: Ice Shard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2478678868918272
+    m_Localized: The Ice Shard now split {value} more times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2479454680940544
+    m_Localized: IceShard now split into {value} more projectile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2479400708636672
+    m_Localized: More Ice !
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

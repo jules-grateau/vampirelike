@@ -19,6 +19,8 @@ namespace Assets.Scripts.Types
         Radius,
         NbrOfHit,
         Duration,
+        SplitTimes,
+        SplitNumber,
         BaseDuration
     }
 }
