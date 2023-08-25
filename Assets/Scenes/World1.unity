@@ -12429,6 +12429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6161531166569940839, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1073377177}
     m_RemovedComponents:
     - {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
     m_RemovedGameObjects: []

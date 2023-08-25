@@ -35,11 +35,9 @@ MonoBehaviour:
   _isAnimatedHit: 1
   behaviourType: 0
   _growValue: {x: 0.01, y: 0.025, z: 0}
-  damageType: 0
-  _explosionRadius: 0
-  _particles: {fileID: 0}
-  _splitNbr: 2
-  splitTimes: 1
+  damageType: 1
+  _explosionRadius: 2
+  _particles: {fileID: 9050321676755602886, guid: b4384b93871994040929d9e3b4ff870c, type: 3}
   directionType: 3
   _bounceOnWall: 0
   destructionType: 1

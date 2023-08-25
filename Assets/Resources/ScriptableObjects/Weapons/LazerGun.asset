@@ -18,7 +18,7 @@ MonoBehaviour:
   _weaponStats:
     _baseStats:
     - _key: 2
-      _value: 15
+      _value: 10
     - _key: 9
       _value: 5
     - _key: 6
@@ -36,8 +36,6 @@ MonoBehaviour:
   damageType: 0
   _explosionRadius: 0
   _particles: {fileID: 0}
-  _splitNbr: 0
-  splitTimes: 0
   directionType: 2
   _bounceOnWall: 0
   destructionType: 2

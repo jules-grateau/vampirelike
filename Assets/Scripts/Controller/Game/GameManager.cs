@@ -81,6 +81,9 @@ namespace Assets.Scripts.Controller.Game
             }
             _playerGoldController = GameState.Player.GetComponent<PlayerGold>();
 
+            WeaponSpawnedController weaponSpawner = gameObject.GetComponent<WeaponSpawnedController>();
+            weaponSpawner.Init();
+
             OnUnpause();
         }
         public void OnPause()

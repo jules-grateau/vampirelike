@@ -16,15 +16,11 @@ public class WeaponSpawnedController : MonoBehaviour
 
     public List<WeaponSO> Weapons;
 
-    private void Awake()
+    public void Init()
     {
         Weapons = new List<WeaponSO>();
         Weapons.AddRange(Resources.LoadAll<WeaponSO>("ScriptableObjects/Weapons"));
         _instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
         foreach (GameObject spawn in _weaponSpawnPosition)
         {
             GameObject w = weaponCollectible.GetGameObject(spawn.transform.position);

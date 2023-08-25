@@ -18,11 +18,11 @@ MonoBehaviour:
   _collisionEvent: {fileID: 11400000, guid: c3494f9e28b23974f9f9bf4ae624ecef, type: 2}
   _damage: 15
   _statusDamages: {fileID: 11400000, guid: 330e216b977f9af4384a82318ead3f3c, type: 2}
-  health: 15
+  health: 35
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _dropXp: 1
   _xpCollectible: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
-  _xpValue: 1
+  _xpValue: 7
   _dropType: 0
   _collectibles:
   - {fileID: 11400000, guid: f3b73dd96a783354a84019243f2c7b70, type: 2}
