@@ -21,6 +21,10 @@ public class WeaponSpawnedController : MonoBehaviour
         Weapons = new List<WeaponSO>();
         Weapons.AddRange(Resources.LoadAll<WeaponSO>("ScriptableObjects/Weapons"));
         _instance = this;
+    }
+
+    public void SpawnWeapons()
+    {
         foreach (GameObject spawn in _weaponSpawnPosition)
         {
             GameObject w = weaponCollectible.GetGameObject(spawn.transform.position);

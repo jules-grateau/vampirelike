@@ -70,6 +70,9 @@ namespace Assets.Scripts.Controller.Game
 
         private void Start()
         {
+            WeaponSpawnedController weaponSpawner = gameObject.GetComponent<WeaponSpawnedController>();
+            weaponSpawner.Init();
+
             if (_gameData.PlayableCharacter && _gameData.PlayableCharacter.StartWeapons?.Length > 0)
             {
                 PlayerCollect collectScript = GameState.Player.GetComponent<PlayerCollect>();
@@ -79,10 +82,9 @@ namespace Assets.Scripts.Controller.Game
                     collectScript.PlayerGetWeaponEvent.Raise(weapon);
                 }
             }
-            _playerGoldController = GameState.Player.GetComponent<PlayerGold>();
+            weaponSpawner.SpawnWeapons();
 
-            WeaponSpawnedController weaponSpawner = gameObject.GetComponent<WeaponSpawnedController>();
-            weaponSpawner.Init();
+            _playerGoldController = GameState.Player.GetComponent<PlayerGold>();
 
             OnUnpause();
         }
