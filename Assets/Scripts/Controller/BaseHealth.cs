@@ -20,6 +20,7 @@ namespace Assets.Scripts.Controller
         protected GameObject _anchor;
         protected bool _hasDotStatus;
         protected float _cooloff = 0f;
+        protected bool _isDead = false;
 
         protected const float dotCooldown = 1f;
 
@@ -122,8 +123,9 @@ namespace Assets.Scripts.Controller
                 gameObject.GetComponent<Rigidbody2D>().velocity = (orientation ? 1 : -1) * hit.status.bumpForce;
             }
 
-            if (Health <= 0)
+            if (Health <= 0 && !_isDead)
             {
+                _isDead = true;
                 onDeath();
             }
         }

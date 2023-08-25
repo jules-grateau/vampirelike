@@ -73,7 +73,7 @@ namespace Assets.Scripts.ScriptableObjects.Characters
                     else
                     {
                         //Diminishing return by adding the percentage of what is left to be added
-                        _stats[statisticEnum] += (maxValue - currValue) * (value / 100);
+                        _stats[statisticEnum] += (maxValue - currValue) * value;
                     }
                     break;
 

@@ -22,7 +22,7 @@ MonoBehaviour:
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _dropXp: 1
   _xpCollectible: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
-  _xpValue: 7
+  _xpValue: 5
   _dropType: 0
   _collectibles:
   - {fileID: 11400000, guid: f3b73dd96a783354a84019243f2c7b70, type: 2}

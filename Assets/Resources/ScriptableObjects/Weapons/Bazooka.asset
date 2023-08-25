@@ -30,7 +30,8 @@ MonoBehaviour:
   _weaponStatus: {fileID: 11400000, guid: 2016f705c1e3fbb438c2fb9e2c26bf38, type: 2}
   _bumpVector: {x: 0, y: 0}
   _duration: 0
-  _isAnimatedHit: 1
+  _isAnimatedEnd: 1
+  _isAnimatedHit: 0
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 1

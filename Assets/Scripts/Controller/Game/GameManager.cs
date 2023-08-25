@@ -25,12 +25,6 @@ namespace Assets.Scripts.Controller.Game
         FloatVariable _gameTime;
 
         [SerializeField]
-        private AnimationCurve _xpCurve;
-
-        [SerializeField]
-        private AnimationCurve _difficultyCurve;
-
-        [SerializeField]
         private IntVariable _globalGold;
 
         private PlayerGold _playerGoldController;
@@ -60,6 +54,7 @@ namespace Assets.Scripts.Controller.Game
             GameState.Player = _gameData.PlayableCharacter.Init(playerSpawnPosition);
             GameState.XpCurve = _gameData.XpCurve;
             GameState.DifficultyCurve = _gameData.DifficultyCurve;
+            GameState.SpawnCooldown = _gameData.SpawnCooldown;
         }
 
         private void Update()
@@ -124,5 +119,6 @@ namespace Assets.Scripts.Controller.Game
         public GameStateEnum State { get; set; }
         public AnimationCurve XpCurve { get; set; }
         public AnimationCurve DifficultyCurve { get; set; }
+        public float SpawnCooldown { get; set; }
     }
 }

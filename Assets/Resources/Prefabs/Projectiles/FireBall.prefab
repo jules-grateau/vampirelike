@@ -152,7 +152,7 @@ Transform:
   m_Children:
   - {fileID: 951207276589425623}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4551646194762875713
 Rigidbody2D:
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.8
-  m_Color: {r: 1, g: 0.9157903, b: 0.4292453, a: 1}
+  m_Color: {r: 0.9622642, g: 0.40501505, b: 0.36765754, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0

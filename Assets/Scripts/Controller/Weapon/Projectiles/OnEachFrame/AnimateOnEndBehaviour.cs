@@ -6,9 +6,9 @@ using Assets.Scripts.Types;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
-    public class AnimateOnHitBehaviour : MovementBehaviour
+    public class AnimateOnEndBehaviour : MovementBehaviour
     {
-
+        private bool _isDestroyed = false;
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
             triggeringStates = new ProjectileState[] { ProjectileState.End };
@@ -16,9 +16,10 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)
         {
             Animator animator = self.gameObject.GetComponentInChildren<Animator>();
-            if (animator != null)
+            if (animator != null && !_isDestroyed)
             {
-                animator.SetBool("isDestroyed", true);
+                _isDestroyed = true;
+                animator.SetBool("isDestroyed", _isDestroyed);
             }
             return;
         }
