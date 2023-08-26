@@ -20,6 +20,8 @@ public class ChestInteractibleController : InteractibleController
     Ease easeType;
     [SerializeField]
     float dropTime;
+    [SerializeField]
+    bool destroyAfterLoot = false;
 
     private Queue<GameObject> queue = new Queue<GameObject>();
 
@@ -38,6 +40,17 @@ public class ChestInteractibleController : InteractibleController
         }
     }
 
+    public void SetLootQueue(Queue<GameObject> loots)
+    {
+        foreach (GameObject loot in loots)
+        {
+            loot.transform.position = gameObject.transform.position;
+            loot.transform.SetParent(gameObject.transform);
+            loot.SetActive(false);
+            queue.Enqueue(loot);
+        }
+    }
+
     protected override void TriggerAnimation()
     {
         DropAnimation();
@@ -45,9 +58,18 @@ public class ChestInteractibleController : InteractibleController
 
     private void DropAnimation()
     {
-        if (queue.Count <= 0) return;
+        if (queue.Count <= 0)
+        {
+            SetIsUsable(false);
+            if (destroyAfterLoot)
+            {
+                Destroy(gameObject);
+            }
+            return;
+        }
 
         GameObject lootGO = queue.Dequeue();
+        lootGO.transform.SetParent(null);
         Collider2D lootColider = lootGO.GetComponent<Collider2D>();
         lootColider.enabled = false;
         Vector2 offset = UnityEngine.Random.insideUnitCircle;
@@ -59,10 +81,7 @@ public class ChestInteractibleController : InteractibleController
         tweener.OnComplete(() =>
         {
             lootColider.enabled = true;
-            if (queue.Count > 0)
-            {
-                DropAnimation();
-            }
+            DropAnimation();
         });
     }
 }

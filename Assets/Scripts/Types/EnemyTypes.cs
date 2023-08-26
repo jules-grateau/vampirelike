@@ -6,6 +6,7 @@ namespace Assets.Scripts.Types
     public enum EnemyBehavior
     {
         FollowPlayer,
+        GatherCollectible
     }
 
     public enum EnemyDamage

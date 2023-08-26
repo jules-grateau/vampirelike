@@ -20,6 +20,12 @@ namespace Assets.Scripts.Controller.Collectible
                 Collect(collision);
                 Destroy(gameObject);
             }
+            else if (collision.gameObject.tag == "Enemy")
+            {
+                SeekCollectibleController seekCollectible = collision.gameObject.GetComponent<SeekCollectibleController>();
+                if (!seekCollectible) return;
+                seekCollectible.PickUp(this.gameObject);
+            }
         }
 
         protected void Collect(Collider2D collision)
