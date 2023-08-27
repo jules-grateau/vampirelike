@@ -45,7 +45,7 @@ namespace Assets.Scripts.ScriptableObjects
 
         public float MaxValue => _maxValue;
 
-        [DrawIf("_additionType", AdditionTypes.Multiplicative, ComparisonType.Equals, DisablingType.DontDraw)]
+        [DrawIf("_additionType", AdditionTypes.DiminishingReturn, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         float _maxValue;
 

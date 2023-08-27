@@ -58,23 +58,27 @@ namespace Assets.Scripts.ScriptableObjects.Characters
                 _stats.Add(statisticEnum, value);
                 return;
             }
-            
-            switch(additionType)
+
+            float currValue = _stats[statisticEnum];
+            switch (additionType)
             {
                 case AdditionTypes.Additive:
                     _stats[statisticEnum] += value;
                     break;
                 case AdditionTypes.Multiplicative:
-                    float currValue = _stats[statisticEnum];
+
                     if (currValue == 0f)
                     {
                         _stats[statisticEnum] = value;
                     }
                     else
                     {
-                        //Diminishing return by adding the percentage of what is left to be added
-                        _stats[statisticEnum] += (maxValue - currValue) * value;
+                        _stats[statisticEnum] *= value;
                     }
+                    break;
+                case AdditionTypes.DiminishingReturn:
+                    //Diminishing return by adding the percentage of what is left to be added
+                    _stats[statisticEnum] += (maxValue - currValue) * (value / 100);
                     break;
 
             }

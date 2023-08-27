@@ -4,7 +4,6 @@ using Assets.Scripts.ScriptableObjects;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.ScriptableObjects.Settings;
 using Assets.Scripts.Types;
-using Assets.Scripts.Types.Upgrades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -101,9 +100,6 @@ namespace Assets.Scripts.Controller.Upgrades
 
                 })
             );
-
-
-
 
             return _availableUpgrades;
         }

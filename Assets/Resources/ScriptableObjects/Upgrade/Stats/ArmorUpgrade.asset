@@ -43,9 +43,9 @@ MonoBehaviour:
   - Quality: 3
     Value: 10
   _additionType: 0
-  dropConditionTypes: 2
+  dropConditionTypes: 1
   _dropFrom: 0
-  _dropUntil: 0
+  _dropUntil: 50
   _otherStats: 3
   _maxValue: 0
   references:
