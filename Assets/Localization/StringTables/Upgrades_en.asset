@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 91388182528
-    m_Localized: Armor Up
+    m_Localized: Shield Up
     m_Metadata:
       m_Items: []
   - m_Id: 321483505664
-    m_Localized: Your armor is raised by {value}
+    m_Localized: Your shield is raised by {value}
     m_Metadata:
       m_Items: []
   - m_Id: 1086637801472
@@ -168,6 +168,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2479400708636672
     m_Localized: More Ice !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2830676566900736
+    m_Localized: Armor Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2830802458935296
+    m_Localized: Your armor is raised by {value} %
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2831178499260416
+    m_Localized: Health Regen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2831232161185792
+    m_Localized: Increase your health regen of {value} per tick
     m_Metadata:
       m_Items: []
   references:

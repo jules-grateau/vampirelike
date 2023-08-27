@@ -54,11 +54,17 @@ MonoBehaviour:
       _value: 0.5
     - _key: 9
       _value: 1
+    - _key: 11
+      _value: 10
+    - _key: 12
+      _value: 10
+    - _key: 13
+      _value: 1
   _startWeapons:
   - {fileID: 11400000, guid: 904a3be9bbfbd604794460f7e0244445, type: 2}
   _hitAudioClip: {fileID: 8300000, guid: 281dc59a06f5bdb42a28ad3f59532891, type: 3}
   _armorAudioClip: {fileID: 8300000, guid: 51a3f7c7491b09d48adeff0b2c4ef7e6, type: 3}
-  _armorSprite: {fileID: -1987710477, guid: 9030d8e5d3ed0bf449dcf92ef5501231, type: 3}
+  _armorSprite: {fileID: 1441622573, guid: 9030d8e5d3ed0bf449dcf92ef5501231, type: 3}
   _xp: {fileID: 11400000, guid: c678101c49edafa498744f1ae7df8f49, type: 2}
   _maxXP: {fileID: 11400000, guid: 86990462fda9503438982221eb449b5a, type: 2}
   _currentLevel: {fileID: 11400000, guid: 89937cfc28117db48a84b0622dcdd94a, type: 2}

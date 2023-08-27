@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915fe00c07444ed46858bf4befb5aa35, type: 3}
   m_Name: GameStateData
   m_EditorClassIdentifier: 
-  _playableCharacter: {fileID: 11400000, guid: 13585e7675c60504f9db544aab750f4b, type: 2}
+  _playableCharacter: {fileID: 11400000, guid: 7d00ff5875678d74cb5e4f727b038fbf, type: 2}
   _xpCurve:
     serializedVersion: 2
     m_Curve:
