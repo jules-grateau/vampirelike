@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tornado
+  m_Name: LazerSpawn
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1028469314, guid: b52ada6a6faaf0c439dd55915dbe46d8, type: 3}
-    - time: 0.11666667
-      value: {fileID: 154084378, guid: b52ada6a6faaf0c439dd55915dbe46d8, type: 3}
-    - time: 0.23333333
-      value: {fileID: -45798403, guid: b52ada6a6faaf0c439dd55915dbe46d8, type: 3}
-    - time: 0.35
-      value: {fileID: -427611922, guid: b52ada6a6faaf0c439dd55915dbe46d8, type: 3}
+      value: {fileID: -1212324238, guid: 03caf71fe2083564187542c283043e4e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 60
+  m_SampleRate: 24
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -50,16 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1028469314, guid: b52ada6a6faaf0c439dd55915dbe46d8, type: 3}
-    - {fileID: 154084378, guid: b52ada6a6faaf0c439dd55915dbe46d8, type: 3}
-    - {fileID: -45798403, guid: b52ada6a6faaf0c439dd55915dbe46d8, type: 3}
-    - {fileID: -427611922, guid: b52ada6a6faaf0c439dd55915dbe46d8, type: 3}
+    - {fileID: -1212324238, guid: 03caf71fe2083564187542c283043e4e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.36666667
+    m_StopTime: 0.041666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

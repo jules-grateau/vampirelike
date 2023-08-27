@@ -10,6 +10,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         [Header("Animation")]
         [SerializeField]
+        private bool _isAnimatedEnd;
+        [SerializeField]
         private bool _isAnimatedHit;
 
         [Header("Behaviour")]
@@ -56,13 +58,18 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             OnAllBehaviourOrchestrator onAllBehaviourOrchestrator = projectile.AddComponent<OnAllBehaviourOrchestrator>();
             onAllBehaviourOrchestrator.parent = Parent;
 
-            if (_isAnimatedHit)
+            if (_isAnimatedEnd)
             {
-                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new AnimateOnHitBehaviour());
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new AnimateOnEndBehaviour());
             }
             else
             {
-                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new NoAnimateOnHitBehaviour());
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new NoAnimateOnEndBehaviour());
+            }
+
+            if (_isAnimatedHit)
+            {
+                onAllBehaviourOrchestrator.addOnCollisionBehaviour(new AnimateOnHitBehaviour());
             }
 
             switch (behaviourType)

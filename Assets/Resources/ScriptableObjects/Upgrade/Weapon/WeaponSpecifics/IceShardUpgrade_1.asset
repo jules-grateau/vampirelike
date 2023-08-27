@@ -39,8 +39,10 @@ MonoBehaviour:
   - Quality: 3
     Value: 2
   _additionType: 0
+  dropConditionTypes: 1
   _dropFrom: 0
-  _dropUntil: 10
+  _dropUntil: 5
+  _otherStats: 0
   _maxValue: 0
   _forWeapon: {fileID: 11400000, guid: 74ff2579da37d4b409243db4405ce516, type: 2}
   references:
