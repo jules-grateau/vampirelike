@@ -75,6 +75,9 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
                 case EnemyBehavior.FollowPlayer:
                     movementScript = enemy.AddComponent<FollowPlayerController>();
                     break;
+                case EnemyBehavior.GatherCollectible:
+                    movementScript = enemy.AddComponent<SeekCollectibleController>();
+                    break;
                 default:
                     movementScript = null;
                     break;

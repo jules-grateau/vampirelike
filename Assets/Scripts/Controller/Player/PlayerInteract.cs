@@ -12,12 +12,23 @@ namespace Assets.Scripts.Controller.Player
     public class PlayerInteract : MonoBehaviour
     {
         [SerializeField]
-        private float _radius;
+        private float _radius = 2.5f;
+
+        private GameObject currentTarget;
 
         private void Update()
         {
             var hits = Physics2D.OverlapCircleAll(gameObject.transform.position, _radius, 1 << LayerMask.NameToLayer("Interactible"));
-            if (hits.Length <= 0) return;
+            if (hits.Length <= 0)
+            {
+                if (currentTarget)
+                {
+                    SpriteRenderer spriteOldTarget = currentTarget.GetComponent<SpriteRenderer>();
+                    spriteOldTarget.material.SetInt("_Interact", 0);
+                    currentTarget = null;
+                }
+                return;
+            }
 
             GameObject target = hits.Select(hit => new { data = hit, distance = Vector2.Distance(gameObject.transform.position, hit.transform.position) })
                 .Where(hit => Physics2D.Raycast(gameObject.transform.position, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
@@ -25,7 +36,19 @@ namespace Assets.Scripts.Controller.Player
                 .Select(hit => hit.data.gameObject)
                 .FirstOrDefault();
 
+            if (target && !target.Equals(currentTarget))
+            {
+                if (currentTarget)
+                {
+                    SpriteRenderer spriteOldTarget = currentTarget.GetComponent<SpriteRenderer>();
+                    spriteOldTarget.material.SetInt("_Interact", 0);
+                    currentTarget = null;
+                }
 
+                SpriteRenderer sprite = target.GetComponent<SpriteRenderer>();
+                sprite.material.SetInt("_Interact", 1);
+                currentTarget = target;
+            }
         }
     }
 }

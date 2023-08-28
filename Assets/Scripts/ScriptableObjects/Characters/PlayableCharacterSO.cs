@@ -120,6 +120,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
 
             PlayerKey playerKey = playableCharacterInstance.AddComponent<PlayerKey>();
             PlayerGold playerGold = playableCharacterInstance.AddComponent<PlayerGold>();
+            PlayerInteract playerInteract = playableCharacterInstance.AddComponent<PlayerInteract>();
 
             PlayerCollect playerCollect = playableCharacterInstance.AddComponent<PlayerCollect>();
             playerCollect.PlayerHealEvent = _playerHealEvent;

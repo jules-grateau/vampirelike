@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class DropCollectible : MonoBehaviour
 {
@@ -18,12 +19,22 @@ public class DropCollectible : MonoBehaviour
 
     public void OnDropCollectible()
     {
-        foreach (var _collectible in _collectibles)
+        SeekCollectibleController seekCollectible = gameObject.GetComponent<SeekCollectibleController>();
+        if (seekCollectible)
         {
-            for (int i = 0; i < _collectible.Value; i++)
+            GameObject stash = Instantiate(Resources.Load<GameObject>("Prefabs/Props/Persistant/stash_1"), gameObject.transform.position, Quaternion.identity);
+            ChestInteractibleController chestInteractible = stash.GetComponent<ChestInteractibleController>();
+            chestInteractible.SetLootQueue(seekCollectible.Loots);
+        }
+        else
+        {
+            foreach (var _collectible in _collectibles)
             {
-                Vector2 offset = UnityEngine.Random.insideUnitCircle * 0.5f;
-                _collectible.Key(gameObject.transform.position + new Vector3(offset.x, offset.y, 0));
+                for (int i = 0; i < _collectible.Value; i++)
+                {
+                    Vector2 offset = UnityEngine.Random.insideUnitCircle * 0.5f;
+                    _collectible.Key(gameObject.transform.position + new Vector3(offset.x, offset.y, 0));
+                }
             }
         }
     }
