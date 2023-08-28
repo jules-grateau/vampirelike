@@ -6,6 +6,7 @@ namespace Assets.Scripts.Types
     public enum AdditionTypes 
     {
         Additive,
-        Multiplicative
+        Multiplicative,
+        DiminishingReturn,
     }
 }

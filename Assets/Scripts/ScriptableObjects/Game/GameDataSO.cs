@@ -30,5 +30,14 @@ namespace Assets.Scripts.ScriptableObjects.Game
 
         [SerializeField]
         AnimationCurve _difficultyCurve;
+
+        public float SpawnCooldown
+        {
+            get { return _spawnCooldown; }
+            set { _spawnCooldown = value; }
+        }
+
+        [SerializeField]
+        float _spawnCooldown;
     }
 }

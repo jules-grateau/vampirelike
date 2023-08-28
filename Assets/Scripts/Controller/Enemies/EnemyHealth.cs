@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Assets.Scripts.Types;
 using System.Linq;
 using Assets.Scripts.ScriptableObjects.Status;
+using Assets.Scripts.Events.TypedEvents;
 
 namespace Assets.Scripts.Controller.Enemies
 {
@@ -14,6 +15,42 @@ namespace Assets.Scripts.Controller.Enemies
 
         [SerializeField]
         public AudioClip deathAudioClip;
+        [SerializeField]
+        public GameEventFloat PlayerHealEvent;
+
+        protected override void TakeDamageEffect(HitData hit, bool isDoTTick = false)
+        {
+            float modifiedDamage = hit.damage * (isDoTTick ? hit.status.doTRatio : 1f);
+            bool isCrit = false;
+
+            if (hit.source != null)
+            {
+                PlayerStatsController stats = hit.source.GetComponent<PlayerStatsController>();
+                if (stats)
+                {
+                    (isCrit, modifiedDamage) = stats.ComputeDamage(modifiedDamage, isDoTTick);
+                }
+                if (hit.status.isVampiric)
+                {
+                    PlayerHealEvent.Raise(modifiedDamage * hit.status.vampRatio);
+                }
+            }
+
+
+            DisplayDamage(modifiedDamage, isCrit, hit.status);
+            Health -= modifiedDamage;
+
+            if (hit.status.canBump)
+            {
+                bool orientation = hit.source.transform.position.x < gameObject.transform.position.x;
+                gameObject.GetComponent<Rigidbody2D>().velocity = (orientation ? 1 : -1) * hit.status.bumpForce;
+            }
+
+            if (Health <= 0)
+            {
+                onDeath();
+            }
+        }
 
         protected override void triggerBeforeDestroy()
         {

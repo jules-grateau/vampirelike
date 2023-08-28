@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 435987093
+  m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2723989452440442212, guid: 2dd259fe5ee39464a8c8d29cca396bc5, type: 3}
@@ -195,8 +195,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isLocked: 1
   OnUseKeyEvent: {fileID: 11400000, guid: 72ccd643d8118b444b637dc6837ac8ee, type: 2}
-  _loots:
-  - Item: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
-    Amount: 1
+  Loots: []
   easeType: 3
   dropTime: 1

@@ -181,11 +181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9099957636678581615, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 302.19998
+      value: 295
       objectReference: {fileID: 0}
     - target: {fileID: 9099957636678581615, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 126.11226
+      value: 123.49
       objectReference: {fileID: 0}
     - target: {fileID: 9099957636678581615, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11802,29 +11802,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
   m_UseDelaunayMesh: 0
---- !u!1 &1073377168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5947944469904783977, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-  m_PrefabInstance: {fileID: 8759885116109903408}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1073377177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073377168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93074182681da144958355d19ddcfea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weaponSpawnPosition:
-  - {fileID: 1845864126}
-  - {fileID: 1904144308}
-  - {fileID: 323314666}
-  weaponCollectible: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
-  Weapons: []
 --- !u!1 &1220070121
 GameObject:
   m_ObjectHideFlags: 0
@@ -12357,30 +12334,22 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 49772181}
+    - target: {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: _weaponSpawnPosition.Array.data[0]
+      value: 
+      objectReference: {fileID: 1845864126}
+    - target: {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: _weaponSpawnPosition.Array.data[1]
+      value: 
+      objectReference: {fileID: 1904144308}
+    - target: {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: _weaponSpawnPosition.Array.data[2]
+      value: 
+      objectReference: {fileID: 323314666}
     - target: {fileID: 2074779649004140502, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: floor
       value: 
       objectReference: {fileID: 49772181}
-    - target: {fileID: 2105279640170783832, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-      propertyPath: _difficultyCurve.m_Curve.Array.data[1].value
-      value: 100000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2105279640170783832, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-      propertyPath: _difficultyCurve.m_Curve.Array.data[0].inSlope
-      value: 839.4958
-      objectReference: {fileID: 0}
-    - target: {fileID: 2105279640170783832, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-      propertyPath: _difficultyCurve.m_Curve.Array.data[1].inSlope
-      value: 839.4958
-      objectReference: {fileID: 0}
-    - target: {fileID: 2105279640170783832, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-      propertyPath: _difficultyCurve.m_Curve.Array.data[0].outSlope
-      value: 839.4958
-      objectReference: {fileID: 0}
-    - target: {fileID: 2105279640170783832, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-      propertyPath: _difficultyCurve.m_Curve.Array.data[1].outSlope
-      value: 839.4958
-      objectReference: {fileID: 0}
     - target: {fileID: 4389660338472883355, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -12429,12 +12398,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5947944469904783977, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1073377177}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}

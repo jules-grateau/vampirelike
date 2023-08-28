@@ -20,6 +20,7 @@ namespace Assets.Scripts.Controller
         protected GameObject _anchor;
         protected bool _hasDotStatus;
         protected float _cooloff = 0f;
+        protected bool _isDead = false;
 
         protected const float dotCooldown = 1f;
 
@@ -98,35 +99,8 @@ namespace Assets.Scripts.Controller
 
         protected abstract void triggerBeforeDestroy();
 
-        protected virtual void TakeDamageEffect(HitData hit, bool isDoTTick = false)
-        {
-            float modifiedDamage = hit.damage * (isDoTTick ? hit.status.doTRatio : 1f);
-            bool isCrit = false;
+        protected abstract void TakeDamageEffect(HitData hit, bool isDoTTick = false);
 
-            if(hit.source != null)
-            {
-                PlayerStatsController stats = hit.source.GetComponent<PlayerStatsController>();
-                if (stats)
-                {
-                    (isCrit, modifiedDamage) = stats.ComputeDamage(modifiedDamage, isDoTTick);
-                }
-            }
-
-
-            DisplayDamage(modifiedDamage, isCrit, hit.status);
-            Health -= modifiedDamage;
-
-            if(hit.status.canBump)
-            {
-                bool orientation = hit.source.transform.position.x < gameObject.transform.position.x;
-                gameObject.GetComponent<Rigidbody2D>().velocity = (orientation ? 1 : -1) * hit.status.bumpForce;
-            }
-
-            if (Health <= 0)
-            {
-                onDeath();
-            }
-        }
 
         public void TakeDamage(HitData hit)
         {
