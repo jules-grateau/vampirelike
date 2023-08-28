@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24bfb318cfa68a4090ce1f86c8eccdf, type: 3}
+  m_Name: GiantRat
+  m_EditorClassIdentifier: 
+  _behaviorType: 1
+  _speed: 3.5
+  _damageType: 0
+  _collisionEvent: {fileID: 11400000, guid: c3494f9e28b23974f9f9bf4ae624ecef, type: 2}
+  _damage: 2
+  _statusDamages: {fileID: 11400000, guid: 330e216b977f9af4384a82318ead3f3c, type: 2}
+  health: 1
+  _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
+  _dropXp: 0
+  _xpCollectible: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
+  _xpValue: 1
+  _dropType: 1
+  _collectibles: []
+  _deathAudioClip: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}
+  _prefab: {fileID: 881878062649732175, guid: 348e29a14462803429e8089696fb783f, type: 3}

@@ -17,7 +17,9 @@ namespace Assets.Scripts.Controller.Enemies
         private EnemySO[] _enemies;
 
         [SerializeField]
-        private Tilemap floor;
+        private float _spawnCooldown = 5;
+
+        public Tilemap Floor;
 
         private GameObject _player;
 
@@ -51,6 +53,7 @@ namespace Assets.Scripts.Controller.Enemies
 
             if ((_delay >= spawnCooldown || _forceSpawn) && triggerSpawn)
             {
+                if (!Floor) return;
                 // If it's a "normal" round for spawning ennemies
                 if (!_forceSpawn)
                 {
@@ -66,7 +69,7 @@ namespace Assets.Scripts.Controller.Enemies
                     // Get random position
                     Vector2 playerPos = _player.transform.position;
                     Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * _radius + playerPos;
-                    bool isCorrectSpawn = floor.HasTile(Vector3Int.FloorToInt(spawnPos));
+                    bool isCorrectSpawn = Floor.HasTile(Vector3Int.FloorToInt(spawnPos));
 
                     // Pick random enemy
                     int random = UnityEngine.Random.Range(0, _enemies.Length);

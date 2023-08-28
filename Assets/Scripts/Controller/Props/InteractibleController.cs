@@ -65,9 +65,22 @@ public abstract class InteractibleController : MonoBehaviour
             }
             else
             {
-                _animator.SetTrigger("interract");
+                if (_animator)
+                {
+                    _animator.SetTrigger("interract");
+                }
+                else
+                {
+                    TriggerAnimation();
+                }
             }
         }
     }
     protected abstract void TriggerAnimation();
+
+    protected void SetIsUsable(bool isUsable)
+    {
+        SpriteRenderer spriteOldTarget = gameObject.GetComponent<SpriteRenderer>();
+        spriteOldTarget.material.SetInt("_Unusable", isUsable ? 0 : 1);
+    }
 }

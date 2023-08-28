@@ -22,5 +22,8 @@ namespace Assets.Scripts.ScriptableObjects.Stage
         public string SceneName => _sceneName;
         [SerializeField]
         string _sceneName;
+        public string TilesFolderName => _tilesFolderName;
+        [SerializeField]
+        string _tilesFolderName;
     }
 }

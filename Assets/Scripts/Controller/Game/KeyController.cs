@@ -26,8 +26,7 @@ namespace Assets.Scripts.Controller.Game
         private static KeyController _instance;
         public static KeyController Instance => _instance;
 
-        [SerializeField]
-        public Tilemap floor;
+        public Tilemap Floor;
         private float _radius = 0;
 
         GameObject _chestRef;
@@ -53,8 +52,8 @@ namespace Assets.Scripts.Controller.Game
             GameObject chestToSpawn = chestQueue.Dequeue();
             GameObject _player = GameManager.GameState.Player;
             Vector2 playerPos = _player.transform.position;
-            Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * _radius + playerPos;
-            bool isCorrectSpawn = floor.HasTile(Vector3Int.FloorToInt(spawnPos));
+            Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * UnityEngine.Random.Range(_radius, 500) + playerPos;
+            bool isCorrectSpawn = Floor.HasTile(Vector3Int.FloorToInt(spawnPos));
             if (isCorrectSpawn)
             {
                 chestToSpawn.transform.position = spawnPos;
