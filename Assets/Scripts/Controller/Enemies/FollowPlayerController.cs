@@ -27,7 +27,11 @@ public class FollowPlayerController : IEnemyMovement
     void Update()
     {
         if (!_player) return;
-        if (_enemyHealth.hasStun()) return;
+        if (_enemyHealth.hasStun())
+        {
+            _rigidbody.velocity = Vector2.zero;
+            return;
+        }
         
          float modifiedSpeed = Speed * _enemyHealth.getSlowValue();
 

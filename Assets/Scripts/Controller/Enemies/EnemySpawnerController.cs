@@ -17,9 +17,6 @@ namespace Assets.Scripts.Controller.Enemies
         private EnemySO[] _enemies;
 
         [SerializeField]
-        private float _spawnCooldown = 5;
-
-        [SerializeField]
         private Tilemap floor;
 
         private GameObject _player;
@@ -50,13 +47,15 @@ namespace Assets.Scripts.Controller.Enemies
             if (GameManager.GameState.State == Types.GameStateEnum.PAUSE) return;
             if (!_player) return;
 
-            if ((_delay >= _spawnCooldown || _forceSpawn) && triggerSpawn)
+            float spawnCooldown = GameManager.GameState.SpawnCooldown;
+
+            if ((_delay >= spawnCooldown || _forceSpawn) && triggerSpawn)
             {
                 // If it's a "normal" round for spawning ennemies
                 if (!_forceSpawn)
                 {
                     _phaseNbr++;
-                    _currentWaveAmount = GameManager.GameState.DifficultyCurve.Evaluate(_phaseNbr);
+                    _currentWaveAmount = GameManager.GameState.DifficultyCurve.Evaluate(_phaseNbr * spawnCooldown);
                     _spawnedPowerValue = 0;
                     Debug.Log("PHASE " + _phaseNbr + " STARTED -> need to generate " + _currentWaveAmount + " enemies");
                 }

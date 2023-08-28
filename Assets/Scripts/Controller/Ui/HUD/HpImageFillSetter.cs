@@ -38,15 +38,17 @@ namespace Assets.Scripts.Controller.Ui
             BaseStatistics<CharacterStatisticEnum> characterStatistics = _playerStatsController.CharacterStatistics;
             if (characterStatistics == null) return;
             float maxHp = characterStatistics.GetStats(Types.CharacterStatisticEnum.MaxHp);
+            float maxShield = characterStatistics.GetStats(Types.CharacterStatisticEnum.Shield);
 
             _image.fillAmount = Mathf.Clamp01(
                 Mathf.InverseLerp(_min, maxHp, _playerHealth.Health));
             _armorImage.fillAmount = Mathf.Clamp01(
-                    Mathf.InverseLerp(_min, maxHp, _playerHealth.Armor));
+                    Mathf.InverseLerp(_min, maxShield, _playerHealth.Shield));
 
             if (!_displayText) return;
 
-            _displayText.SetText(_playerHealth.Health.ToString() + " / " + maxHp.ToString());
+            string armorText = _playerHealth.Shield > 0 ? " - (" + _playerHealth.Shield.ToString() + " / " + maxShield.ToString() + ")" : "";
+            _displayText.SetText(_playerHealth.Health.ToString() + " / " + maxHp.ToString() + armorText);
         }
     }
 }

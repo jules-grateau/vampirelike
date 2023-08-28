@@ -18,11 +18,11 @@ MonoBehaviour:
   _weaponStats:
     _baseStats:
     - _key: 2
-      _value: 30
+      _value: 15
     - _key: 6
       _value: 10
     - _key: 9
-      _value: 15
+      _value: 10
     - _key: 4
       _value: 5
     - _key: 10
@@ -30,14 +30,13 @@ MonoBehaviour:
   _weaponStatus: {fileID: 11400000, guid: 2016f705c1e3fbb438c2fb9e2c26bf38, type: 2}
   _bumpVector: {x: 0, y: 0}
   _duration: 0
-  _isAnimatedHit: 1
+  _isAnimatedEnd: 1
+  _isAnimatedHit: 0
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 1
   _explosionRadius: 2
   _particles: {fileID: 5822821294587056223, guid: bb103fa15be3c2d49977c6431f980740, type: 3}
-  _splitNbr: 0
-  splitTimes: 0
   directionType: 3
   _bounceOnWall: 0
   destructionType: 1

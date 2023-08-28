@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 6438016225300855744}
   - component: {fileID: 3604009979325295880}
   m_Layer: 6
-  m_Name: Ricochet
+  m_Name: Acid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 98427364, guid: 7d4aadf6fa08b0e42aa763de4721c456, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

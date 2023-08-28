@@ -32,14 +32,13 @@ MonoBehaviour:
   _weaponStatus: {fileID: 11400000, guid: f81f94ed6f39a7343a49f180b2b1d318, type: 2}
   _bumpVector: {x: 0, y: 0}
   _duration: 5
-  _isAnimatedHit: 1
+  _isAnimatedEnd: 1
+  _isAnimatedHit: 0
   behaviourType: 0
   _growValue: {x: 0.01, y: 0.025, z: 0}
-  damageType: 0
-  _explosionRadius: 0
-  _particles: {fileID: 0}
-  _splitNbr: 2
-  splitTimes: 1
+  damageType: 1
+  _explosionRadius: 2
+  _particles: {fileID: 9050321676755602886, guid: b4384b93871994040929d9e3b4ff870c, type: 3}
   directionType: 3
   _bounceOnWall: 0
   destructionType: 1

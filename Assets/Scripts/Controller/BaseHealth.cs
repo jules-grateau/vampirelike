@@ -20,6 +20,7 @@ namespace Assets.Scripts.Controller
         protected GameObject _anchor;
         protected bool _hasDotStatus;
         protected float _cooloff = 0f;
+        protected bool _isDead = false;
 
         protected const float dotCooldown = 1f;
 
@@ -99,6 +100,7 @@ namespace Assets.Scripts.Controller
         protected abstract void triggerBeforeDestroy();
 
         protected abstract void TakeDamageEffect(HitData hit, bool isDoTTick = false);
+
 
         public void TakeDamage(HitData hit)
         {

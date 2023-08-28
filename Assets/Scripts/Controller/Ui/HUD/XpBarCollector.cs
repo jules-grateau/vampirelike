@@ -9,6 +9,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using Assets.Scripts.Controller.Collectible;
 using Assets.Scripts.Events.TypedEvents;
+using Assets.Scripts.Controller.Collectible.Soul;
 
 namespace Assets.Scripts.Controller.Ui
 {
@@ -58,6 +59,11 @@ namespace Assets.Scripts.Controller.Ui
             {
                 GameObject xp = soulsQueue.Dequeue();
                 xp.transform.position = collectedXpPosition + new Vector3(Random.Range(-spread, spread), 0f, 0f);
+
+                SoulColorController soulColorController = xp.GetComponent<SoulColorController>();
+                if (!soulColorController) return;
+                soulColorController.Init(xpCollectible.Value / 100);
+
                 xp.SetActive(true);
                 var orgDistance = Vector3.Distance(xp.transform.position, targetPosition);
 

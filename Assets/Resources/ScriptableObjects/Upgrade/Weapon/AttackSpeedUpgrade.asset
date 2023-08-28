@@ -31,14 +31,16 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _maxAmout: 0
-  _sprite: {fileID: 3056640150986470829, guid: 198112b8ad4c09242aa09764cff6f8c8, type: 3}
+  _sprite: {fileID: 1437785633, guid: 9030d8e5d3ed0bf449dcf92ef5501231, type: 3}
   _statsToUpgrade: 8
   _valueToAdd:
   - Quality: 0
-    Value: 1.05
-  _additionType: 1
+    Value: 5
+  _additionType: 0
+  dropConditionTypes: 1
   _dropFrom: 0
-  _dropUntil: 0
+  _dropUntil: 90
+  _otherStats: 0
   _maxValue: 100
   references:
     version: 2

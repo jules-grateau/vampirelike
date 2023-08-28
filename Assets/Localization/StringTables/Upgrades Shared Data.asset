@@ -16,11 +16,11 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: bfe33151eb2939b469dac22668146365
   m_Entries:
   - m_Id: 91388182528
-    m_Key: Armor.Title
+    m_Key: Shield.Title
     m_Metadata:
       m_Items: []
   - m_Id: 321483505664
-    m_Key: Armor.Description
+    m_Key: Shield.Description
     m_Metadata:
       m_Items: []
   - m_Id: 1086637801472
@@ -165,6 +165,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2479454680940544
     m_Key: IceShardUpgrade_1.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2830676566900736
+    m_Key: Armor.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2830802458935296
+    m_Key: Armor.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2831178499260416
+    m_Key: HealthRegen.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2831232161185792
+    m_Key: HealthRegen.Description
     m_Metadata:
       m_Items: []
   m_Metadata:

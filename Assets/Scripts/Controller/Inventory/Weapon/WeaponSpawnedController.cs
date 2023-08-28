@@ -16,14 +16,14 @@ public class WeaponSpawnedController : MonoBehaviour
 
     public List<WeaponSO> Weapons;
 
-    private void Awake()
+    public void Init()
     {
         Weapons = new List<WeaponSO>();
         Weapons.AddRange(Resources.LoadAll<WeaponSO>("ScriptableObjects/Weapons"));
         _instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
+
+    public void SpawnWeapons()
     {
         foreach (GameObject spawn in _weaponSpawnPosition)
         {
@@ -37,5 +37,10 @@ public class WeaponSpawnedController : MonoBehaviour
         WeaponSO w = Weapons[random];
         Weapons.RemoveAt(random);
         return w;
+    }
+
+    public void RemoveWeaponFromPool(WeaponSO weapon)
+    {
+        Weapons.Remove(weapon);
     }
 }

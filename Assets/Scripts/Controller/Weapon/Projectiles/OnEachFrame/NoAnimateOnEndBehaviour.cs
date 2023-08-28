@@ -6,7 +6,7 @@ using Assets.Scripts.Types;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
-    public class NoAnimateOnHitBehaviour : MovementBehaviour
+    public class NoAnimateOnEndBehaviour : MovementBehaviour
     {
 
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)

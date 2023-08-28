@@ -2684,7 +2684,6 @@ GameObject:
   - component: {fileID: 1118874284}
   - component: {fileID: 1118874283}
   - component: {fileID: 1118874285}
-  - component: {fileID: 1118874286}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2849,71 +2848,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &1118874286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118874281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjects:
-  - rid: 1860283921806131229
-  references:
-    version: 2
-    RefIds:
-    - rid: 1860283921806131229
-      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
-      data:
-        m_Target: {fileID: 1118874283}
-        m_TrackedProperties:
-          items:
-          - rid: 1860283921806131230
-          - rid: 1860283921806131231
-          - rid: 1860283921806131232
-        m_UpdateType: 0
-        m_Changed:
-          m_PersistentCalls:
-            m_Calls: []
-    - rid: 1860283921806131230
-      type: {class: UnityObjectProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
-      data:
-        m_PropertyPath: m_fontAsset
-        m_TypeString: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        m_VariantData:
-        - localeIdentifier:
-            m_Code: en
-          value: {fileID: 11400000, guid: 1b8c2bf5b2410ea4596fc57b3d491272, type: 2}
-        - localeIdentifier:
-            m_Code: ja
-          value: {fileID: 0}
-    - rid: 1860283921806131231
-      type: {class: BoolTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
-      data:
-        m_PropertyPath: m_hasFontAssetChanged
-        m_VariantData:
-        - localeIdentifier:
-            m_Code: en
-          value: 0
-        - localeIdentifier:
-            m_Code: ja
-          value: 1
-    - rid: 1860283921806131232
-      type: {class: EnumTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
-      data:
-        m_PropertyPath: m_fontStyle
-        m_VariantData:
-        - localeIdentifier:
-            m_Code: en
-          value: 1
-        - localeIdentifier:
-            m_Code: ja
-          value: 1
 --- !u!1 &1161222096
 GameObject:
   m_ObjectHideFlags: 0
