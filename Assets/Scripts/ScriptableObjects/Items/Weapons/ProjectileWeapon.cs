@@ -30,7 +30,6 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [DrawIf("damageType", ProjectileDamages.Explosion, ComparisonType.Equals, DisablingType.DontDraw)]
         [SerializeField]
         private GameObject _particles;
-        [DrawIf("damageType", ProjectileDamages.Split, ComparisonType.Equals, DisablingType.DontDraw)]
 
         [Header("Direction")]
         [SerializeField]
