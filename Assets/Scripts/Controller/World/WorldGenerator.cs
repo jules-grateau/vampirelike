@@ -12,18 +12,21 @@ using System.Threading;
 
 
 [Serializable]
-public class WorldShard
+public class WorldChunk
 {
-    public string shardName;
-    public BoundsInt? bounds;
+    public string chunkName;
     public Coordinates position;
+    public BoundsInt? bounds;
+
+    [System.NonSerialized]
+    public GameObject gameObject;
     public bool wasGenerated
     {
-        get { return !String.IsNullOrEmpty(shardName); }
+        get { return !String.IsNullOrEmpty(chunkName); }
     }
     public bool isDisplayed
     {
-        get { return bounds != null; }
+        get { return gameObject != null; }
     }
 }
 
@@ -70,6 +73,42 @@ public enum EdgePosition
     LowerRightCorner
 }
 
+public class PoolElement<T>
+{
+    public T Element;
+}
+
+public class Pool<T>
+{
+    private Queue<PoolElement<T>> _pool;
+
+    public Pool()
+    {
+        _pool = new Queue<PoolElement<T>>();
+    }
+
+    public void Add(T pe)
+    {
+        _pool.Enqueue(new PoolElement<T>() { Element = pe });
+    }
+
+    public void Set(List<T> toPool)
+    {
+        _pool = new Queue<PoolElement<T>>(toPool.Select(p => new PoolElement<T>() { Element = p }).ToList());
+    }
+
+    public T Take()
+    {
+        PoolElement<T> e = _pool.Dequeue();
+        return e.Element;
+    }
+
+    public void Release(T element)
+    {
+        _pool.Enqueue(new PoolElement<T>() { Element = element });
+    }
+}
+
 public class WorldGenerator : MonoBehaviour
 {
     [SerializeField]
@@ -79,16 +118,14 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField]
     private Grid grid;
 
-    private WorldEditor _worldEditor;
-
     public Tilemap FloorTilemap;
 
-    List<ShardSave> shardSaveList;
-
-    private Dictionary<Coordinates, WorldShard> _shardMap;
-    private Dictionary<string, TileBase> _refTiles;
-
-    private WorldShard currentShard; 
+    private Dictionary<Coordinates, WorldChunk> _chunkMap;
+    private WorldChunk currentChunk;
+    private List<string> _chunkNames;
+    private Dictionary<string, Pool<GameObject>> _chunkPool;
+    private int _poolSize = 9;
+    private BoundsInt _defaultBounds = new BoundsInt(-25, -25, 0, 50, 50, 1);
 
     // Start is called before the first frame update
     void Start()
@@ -96,46 +133,70 @@ public class WorldGenerator : MonoBehaviour
         seed = this.GenerateSeed();
         UnityEngine.Random.InitState(seed.GetHashCode());
 
-        _worldEditor = GetComponent<WorldEditor>();
-        _shardMap = new Dictionary<Coordinates, WorldShard>();
-        _refTiles = Resources.LoadAll<TileBase>("Tiles/" + Stage.TilesFolderName).ToDictionary(x => x.name, x => x);
+        _chunkMap = new Dictionary<Coordinates, WorldChunk>();
+        _chunkNames = new List<string>();
+        _chunkPool = new Dictionary<string, Pool<GameObject>>();
 
-        shardSaveList = _worldEditor.GetAllShardSave(Stage);
+        List<GameObject> chunkGOList = Resources.LoadAll<GameObject>("Prefabs/Chunks/" + Stage.SceneName).ToList();
+        foreach (GameObject chunkGO in chunkGOList)
+        {
+            Pool<GameObject> pool = new Pool<GameObject>();
+            for (int i = 0; i < _poolSize; i++)
+            {
+                GameObject poolChunk = Instantiate(chunkGO, grid.transform);
+                poolChunk.SetActive(false);
+                pool.Add(poolChunk);
+            }
+            _chunkNames.Add(chunkGO.name);
+            _chunkPool.Add(chunkGO.name, pool);
+        }
+
         InitMap();
-        gameObject.GetComponent<EnemySpawnerController>().Floor = FloorTilemap;
-        gameObject.GetComponent<KeyController>().Floor = FloorTilemap;
+    }
+
+    public bool IsOnFloor(Vector3 pos)
+    {
+        Coordinates chunkCoords = PosToCoordinates(pos);
+        foreach (Transform child in _chunkMap[chunkCoords].gameObject.transform)
+        {
+            Tilemap tm = child.GetComponent<Tilemap>();
+            if (tm.name.Equals("Floor"))
+            {
+                Debug.Log(pos + " -> " + chunkCoords.val);
+                return tm.HasTile(Vector3Int.FloorToInt(pos - (chunkCoords.val3 * _defaultBounds.size)));
+            }
+        }
+        return false;
+    }
+
+    public Coordinates PosToCoordinates(Vector3 pos)
+    {
+        int x = Mathf.FloorToInt((pos.x + (_defaultBounds.size.x / 2)) / _defaultBounds.size.x);
+        int y = Mathf.FloorToInt((pos.y + (_defaultBounds.size.y / 2)) / _defaultBounds.size.y);
+        return new Coordinates(x, y);
     }
 
     private void InitMap()
     {
-        int randomPick = UnityEngine.Random.Range(0, shardSaveList.Count);
-        ShardSave shardSave = shardSaveList[randomPick];
+        int randomPick = UnityEngine.Random.Range(0, _chunkNames.Count);
+        string chunkName = _chunkNames[randomPick];
+        GameObject chunkFromPool = _chunkPool[chunkName].Take();
+        chunkFromPool.SetActive(false);
 
-        foreach (LayerSave tileLayer in shardSave.tileLayers)
+        Coordinates origin = new Coordinates(0, 0);
+        currentChunk = new WorldChunk()
         {
-            Tilemap tm = grid.transform.Find(tileLayer.name).GetComponent<Tilemap>();
-            foreach (TileSave tile in tileLayer.tileList)
-            {
-                tm.SetTile(tile.pos, _refTiles[tile.tileName]);
-            }
-            /*TileBase[] tilesToCopy = tileLayer.tileList.Select(t => _refTiles[t.tileName]).ToArray();
-            tm.SetTilesBlock(tileLayer.bounds, tilesToCopy);*/
+            chunkName = chunkName,
+            bounds = _defaultBounds,
+            position = origin,
+            gameObject = chunkFromPool
+        };
+        chunkFromPool.transform.position = Vector3Int.zero;
+        //FloorTilemap = tm;
+        _chunkMap.Add(origin, currentChunk);
+        chunkFromPool.SetActive(true);
 
-
-            if (tm.name.Equals("Floor"))
-            {
-                Coordinates origin = new Coordinates(0, 0);
-                currentShard = new WorldShard()
-                {
-                    shardName = shardSave.saveName,
-                    bounds = shardSave.shardBounds,
-                    position = origin
-                };
-                FloorTilemap = tm;
-                _shardMap.Add(origin, currentShard);
-            }
-        }
-        PopoulateNeighbours(currentShard);
+        PopoulateNeighbours(currentChunk);
     }
 
     // Update is called once per frame
@@ -144,138 +205,120 @@ public class WorldGenerator : MonoBehaviour
         GameObject player = GameManager.GameState.Player;
         if (!player) return;
 
-        EdgePosition nearEdge = GetEdgePosition(player.transform.position, currentShard.bounds);
+        EdgePosition nearEdge = GetEdgePosition(player.transform.position, currentChunk.bounds);
         if (nearEdge.Equals(EdgePosition.None)) return;
 
-        ClearTiles(currentShard, nearEdge);
+        ClearTiles(currentChunk, nearEdge);
         Vector2Int orientation = GetEdgeLocation(nearEdge);
-        Coordinates checkCoordinates = new Coordinates(currentShard.position.val + orientation);
+        Coordinates checkCoordinates = new Coordinates(currentChunk.position.val + orientation);
 
-        currentShard = _shardMap[checkCoordinates];
-        PopoulateNeighbours(currentShard);
+        currentChunk = _chunkMap[checkCoordinates];
+        PopoulateNeighbours(currentChunk);
     }
 
-    private IEnumerator PasteOnLayer(Tilemap tm, WorldShard shard, LayerSave tileLayer, ShardSave shardSave, Vector2Int orientation, Coordinates checkCoordinates)
+    private IEnumerator PopulateIndicatedNeighbour(WorldChunk chunk, Coordinates checkCoordinates, Vector2Int orientation)
     {
-        bool wasAlreadyGenerated = _shardMap.ContainsKey(checkCoordinates) && _shardMap[checkCoordinates].wasGenerated;
-
-        Vector3Int position = shard.position.val3 * shardSave.shardBounds.size; //shard.bounds.Value.position;
-
-        Vector3Int offset = new Vector3Int(
-            Mathf.RoundToInt((orientation.x * shardSave.shardBounds.size.x) + position.x),
-            Mathf.RoundToInt((orientation.y * shardSave.shardBounds.size.y) + position.y)
-        );
-
-        Debug.DrawLine(offset, position, Color.cyan, 15);
-
-        TileBase[] tilesToCopy = tileLayer.tileList.Select(t => _refTiles[t.tileName]).ToArray();
-        BoundsInt bounds = CopyTilesWithOffset(tm, tileLayer, shardSave, offset);
-        DrawBounds(bounds, Color.yellow, 15);
-
-        if (tm.name.Equals("Floor"))
-        {
-            WorldShard newShard = new WorldShard()
-            {
-                shardName = shardSave.saveName,
-                bounds = bounds,
-                position = checkCoordinates
-            };
-            // If was already generated only add to it's coordinates
-            if (wasAlreadyGenerated)
-            {
-                _shardMap[checkCoordinates] = newShard;
-            }
-            else
-            {
-                _shardMap.Add(checkCoordinates, newShard);
-            }
-        }
-        yield return null;
-    }
-
-    private IEnumerator PopulateIndicatedNeighbour(WorldShard shard, Coordinates checkCoordinates, Vector2Int orientation)
-    {
-        bool wasAlreadyGenerated = _shardMap.ContainsKey(checkCoordinates) && _shardMap[checkCoordinates].wasGenerated;
+        bool wasAlreadyGenerated = _chunkMap.ContainsKey(checkCoordinates) && _chunkMap[checkCoordinates].wasGenerated;
 
         // If was already generated then use it's name
-        ShardSave shardSave;
+        GameObject chunkFromPool;
+        string chunkName;
         if (wasAlreadyGenerated)
         {
-            shardSave = shardSaveList.Where(x => x.saveName.Equals(_shardMap[checkCoordinates].shardName)).FirstOrDefault();
+            chunkName = _chunkMap[checkCoordinates].chunkName;
         }
         else
         {
-            int randomPick = UnityEngine.Random.Range(0, shardSaveList.Count);
-            shardSave = shardSaveList[randomPick];
+            int randomPick = UnityEngine.Random.Range(0, _chunkNames.Count);
+            chunkName = _chunkNames[randomPick];
+        }
+        chunkFromPool = _chunkPool[chunkName].Take();
+
+        Debug.Log("LOADING AT " + checkCoordinates.val + " - " + _chunkMap.ContainsKey(checkCoordinates) + " / " + wasAlreadyGenerated);
+
+        if (!chunk.bounds.HasValue) yield return null;
+
+        Vector3Int position = chunk.position.val3 * _defaultBounds.size; //chunk.bounds.Value.position;
+
+        Vector3Int offset = new Vector3Int(
+            Mathf.RoundToInt((orientation.x * _defaultBounds.size.x) + position.x),
+            Mathf.RoundToInt((orientation.y * _defaultBounds.size.y) + position.y)
+        );
+        chunkFromPool.transform.position = offset;
+        chunkFromPool.SetActive(true);
+
+        Debug.DrawLine(offset, position, Color.cyan, 15);
+
+        BoundsInt bounds = new BoundsInt(
+            Mathf.FloorToInt(offset.x - _defaultBounds.size.x / 2),
+            Mathf.FloorToInt(offset.y - _defaultBounds.size.y / 2), 0,
+            _defaultBounds.size.x,
+            _defaultBounds.size.y, 1
+        );
+        DrawBounds(bounds, Color.yellow, 15);
+
+        WorldChunk newChunk = new WorldChunk()
+        {
+            chunkName = chunkName,
+            bounds = bounds,
+            position = checkCoordinates,
+            gameObject = chunkFromPool
+        };
+
+        // If was already generated only add to it's coordinates
+        if (wasAlreadyGenerated)
+        {
+            _chunkMap[checkCoordinates] = newChunk;
+        }
+        else
+        {
+            _chunkMap.Add(checkCoordinates, newChunk);
         }
 
-        Debug.Log("LOADING AT " + checkCoordinates.val + " - " + _shardMap.ContainsKey(checkCoordinates) + " / " + wasAlreadyGenerated);
-        foreach (LayerSave tileLayer in shardSave.tileLayers)
-        {
-            if (!shard.bounds.HasValue) continue;
-            Tilemap tm = grid.transform.Find(tileLayer.name).GetComponent<Tilemap>();
-            StartCoroutine(PasteOnLayer(tm, shard, tileLayer, shardSave, orientation, checkCoordinates));
-        }
         yield return null;
     }
 
-    private void PopoulateNeighbours(WorldShard shard)
+    private void PopoulateNeighbours(WorldChunk chunk)
     {
-        Debug.Log("POPULATE NEIGBHOURS FROM " + shard.position);
+        Debug.Log("POPULATE NEIGBHOURS FROM " + chunk.position);
         foreach (EdgePosition edge in Enum.GetValues(typeof(EdgePosition)))
         {
             if (edge.Equals(EdgePosition.None)) continue;
             Vector2Int orientation = GetEdgeLocation(edge);
-            Coordinates checkCoordinates = new Coordinates(shard.position.val + orientation);
-            if (_shardMap.ContainsKey(checkCoordinates) && _shardMap[checkCoordinates].isDisplayed) continue;
-            StartCoroutine(PopulateIndicatedNeighbour(shard, checkCoordinates, orientation));
+            Coordinates checkCoordinates = new Coordinates(chunk.position.val + orientation);
+            if (_chunkMap.ContainsKey(checkCoordinates) && _chunkMap[checkCoordinates].isDisplayed) continue;
+            StartCoroutine(PopulateIndicatedNeighbour(chunk, checkCoordinates, orientation));
         }
     }
 
-    private IEnumerator ClearIndicatedTiles(WorldShard shard, EdgePosition furthestEdge)
+    private IEnumerator ClearIndicatedTiles(WorldChunk chunk, EdgePosition furthestEdge)
     {
         Vector2Int orientation = GetEdgeLocation(furthestEdge);
-        Coordinates checkCoordinates = new Coordinates(shard.position.val + orientation);
-        if (_shardMap.ContainsKey(checkCoordinates) && _shardMap[checkCoordinates] != null)
+        Coordinates checkCoordinates = new Coordinates(chunk.position.val + orientation);
+        WorldChunk sharAtCoordiantes = _chunkMap[checkCoordinates];
+        if (_chunkMap.ContainsKey(checkCoordinates) && sharAtCoordiantes != null && sharAtCoordiantes.isDisplayed)
         {
-            if (!_shardMap[checkCoordinates].bounds.HasValue) yield return true;
-            BoundsInt bounds = _shardMap[checkCoordinates].bounds.Value;
-            foreach (Transform child in grid.transform)
-            {
-                Tilemap tm = child.GetComponent<Tilemap>();
-                TileBase[] emptyTiles = new TileBase[bounds.size.x * bounds.size.y];
-                tm.SetTilesBlock(bounds, emptyTiles);
-            }
-            // When clearing shard data only delete bounds, not other metadata
-            _shardMap[checkCoordinates].bounds = null;
+            // When clearing chunk data only delete bounds, not other metadata
+            sharAtCoordiantes.bounds = null;
+
+            // Release to the pool
+            sharAtCoordiantes.gameObject.SetActive(false);
+
+            var k = _chunkPool[sharAtCoordiantes.chunkName];
+
+            _chunkPool[sharAtCoordiantes.chunkName].Release(sharAtCoordiantes.gameObject);
+            sharAtCoordiantes.gameObject = null;
         }
         yield return null;
     }
 
-    private void ClearTiles(WorldShard shard, EdgePosition nearEdge)
+    private void ClearTiles(WorldChunk chunk, EdgePosition nearEdge)
     {
         List<EdgePosition> furthestEdges = GetFurthestEdges(nearEdge);
         foreach (EdgePosition furthestEdge in furthestEdges)
         {
-            StartCoroutine(ClearIndicatedTiles(shard, furthestEdge));
+            StartCoroutine(ClearIndicatedTiles(chunk, furthestEdge));
         }
-    }
-
-    private BoundsInt CopyTilesWithOffset(Tilemap targetTilemap, LayerSave tileLayer, ShardSave shardSave, Vector3Int offset)
-    {
-        TileBase[] tilesToCopy = tileLayer.tileList.Select(t => _refTiles[t.tileName]).ToArray();
-        BoundsInt bounds = new BoundsInt(
-            Mathf.FloorToInt(offset.x - shardSave.shardBounds.size.x / 2),
-            Mathf.FloorToInt(offset.y - shardSave.shardBounds.size.y / 2), 0,
-            shardSave.shardBounds.size.x,
-            shardSave.shardBounds.size.y, 1
-        );
-        foreach (TileSave tile in tileLayer.tileList)
-        {
-            targetTilemap.SetTile(tile.pos + offset, _refTiles[tile.tileName]);
-        }
-        //targetTilemap.SetTilesBlock(bounds, tilesToCopy);
-        return bounds;
     }
 
     private string GenerateSeed(int stringLength = 10)

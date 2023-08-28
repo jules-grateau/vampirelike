@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f460faa811e3e654b84c432d3ca57ac5, type: 3}
+  m_Name: FaerieForest
+  m_EditorClassIdentifier: 
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:9f662509106496245817ac991d135460
+    m_TableEntryReference:
+      m_KeyId: 4972937216
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _sprite: {fileID: -497393897, guid: 25ab4345546090746a650beca61e6ffd, type: 3}
+  _description:
+    m_TableReference:
+      m_TableCollectionName: GUID:9f662509106496245817ac991d135460
+    m_TableEntryReference:
+      m_KeyId: 45015957504
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _sceneName: World3
+  _tilesFolderName: FaerieForest
+  references:
+    version: 2
+    RefIds: []

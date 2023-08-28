@@ -21,11 +21,12 @@ public class WorldEditor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Default Chunk Size
         _defaultBounds = new BoundsInt(-25, -25, 0, 50, 50, 1);
     }
 
 
-    public void SaveShard(StageSO stage, string saveName)
+    public void SaveChunk(StageSO stage, string saveName)
     {
         string savePath = Application.dataPath + "/Resources/Stages/" + stage.name;
         bool exists = System.IO.Directory.Exists(savePath);
@@ -33,8 +34,8 @@ public class WorldEditor : MonoBehaviour
             System.IO.Directory.CreateDirectory(savePath);
         }
 
-        ShardSave export = new ShardSave(saveName);
-        export.shardBounds = _defaultBounds;
+        ChunkSave export = new ChunkSave(saveName);
+        export.chunkBounds = _defaultBounds;
 
         foreach (Transform child in grid.transform)
         {
@@ -57,12 +58,12 @@ public class WorldEditor : MonoBehaviour
         Debug.Log("SAVED AT : " + savePath + "/" + saveName + ".json");
     }
 
-    public void LoadShard(StageSO stage, string saveName)
+    public void LoadChunk(StageSO stage, string saveName)
     {
-        TextAsset shard = Resources.Load<TextAsset>("Stages/" + stage.name + "/" + saveName);
-        ShardSave shardSave = JsonUtility.FromJson<ShardSave>(shard.text);
+        TextAsset chunk = Resources.Load<TextAsset>("Stages/" + stage.name + "/" + saveName);
+        ChunkSave chunkSave = JsonUtility.FromJson<ChunkSave>(chunk.text);
 
-        foreach (LayerSave tileLayer in shardSave.tileLayers)
+        foreach (LayerSave tileLayer in chunkSave.tileLayers)
         {
             Tilemap tm = grid.transform.Find(tileLayer.name).GetComponent<Tilemap>();
             //TileBase[] tilesToCopy = tileLayer.tileList.Select(t => Resources.Load<TileBase>("Tiles/" + stage.TilesFolderName + "/" + t.tileName)).ToArray();
@@ -76,10 +77,10 @@ public class WorldEditor : MonoBehaviour
         Debug.Log("LOADED FROM : " + saveName + ".json");
     }
 
-    public List<ShardSave> GetAllShardSave(StageSO stage)
+    public List<ChunkSave> GetAllChunkSave(StageSO stage)
     {
-        TextAsset[] shard = Resources.LoadAll<TextAsset>("Stages/" + stage.name);
-        return shard.Select( s => JsonUtility.FromJson<ShardSave>(s.text)).ToList();
+        TextAsset[] chunk = Resources.LoadAll<TextAsset>("Stages/" + stage.name);
+        return chunk.Select( s => JsonUtility.FromJson<ChunkSave>(s.text)).ToList();
     }
 
     public void ClearAllTiles()

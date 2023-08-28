@@ -45,13 +45,13 @@ public class LayerSave
 }
 
 [Serializable]
-public class ShardSave
+public class ChunkSave
 {
     public String saveName;
     public List<LayerSave> tileLayers;
-    public BoundsInt shardBounds;
+    public BoundsInt chunkBounds;
 
-    public ShardSave(String name)
+    public ChunkSave(String name)
     {
         saveName = name;
         tileLayers = new List<LayerSave>();

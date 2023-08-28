@@ -16,10 +16,7 @@ namespace Assets.Scripts.Controller.Enemies
         [SerializeField]
         private EnemySO[] _enemies;
 
-        [SerializeField]
-        private float _spawnCooldown = 5;
-
-        public Tilemap Floor;
+        private WorldGenerator _worldGenerator;
 
         private GameObject _player;
 
@@ -33,13 +30,13 @@ namespace Assets.Scripts.Controller.Enemies
 
         private void Awake()
         {
+            _worldGenerator = gameObject.GetComponent<WorldGenerator>();
             _radius = Mathf.Abs((Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height) / 1.5f);
         }
 
         private void Start()
         {
             _player = GameManager.GameState.Player;
-
             _enemies = Resources.LoadAll<EnemySO>("ScriptableObjects/Enemy");
         }
 
@@ -53,7 +50,7 @@ namespace Assets.Scripts.Controller.Enemies
 
             if ((_delay >= spawnCooldown || _forceSpawn) && triggerSpawn)
             {
-                if (!Floor) return;
+                if (!_worldGenerator) return;
                 // If it's a "normal" round for spawning ennemies
                 if (!_forceSpawn)
                 {
@@ -69,7 +66,7 @@ namespace Assets.Scripts.Controller.Enemies
                     // Get random position
                     Vector2 playerPos = _player.transform.position;
                     Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * _radius + playerPos;
-                    bool isCorrectSpawn = Floor.HasTile(Vector3Int.FloorToInt(spawnPos));
+                    bool isCorrectSpawn = _worldGenerator.IsOnFloor(spawnPos);
 
                     // Pick random enemy
                     int random = UnityEngine.Random.Range(0, _enemies.Length);

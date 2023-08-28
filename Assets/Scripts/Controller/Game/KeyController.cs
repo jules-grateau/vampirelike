@@ -26,7 +26,7 @@ namespace Assets.Scripts.Controller.Game
         private static KeyController _instance;
         public static KeyController Instance => _instance;
 
-        public Tilemap Floor;
+        private WorldGenerator _worldGenerator;
         private float _radius = 0;
 
         GameObject _chestRef;
@@ -38,6 +38,7 @@ namespace Assets.Scripts.Controller.Game
 
         void Awake()
         {
+            _worldGenerator = gameObject.GetComponent<WorldGenerator>();
             _chestRef = Resources.Load<GameObject>("Prefabs/Props/Persistant/chest_1");
             _radius = Mathf.Abs(Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height);
             _instance = this;
@@ -48,12 +49,13 @@ namespace Assets.Scripts.Controller.Game
             if (GameManager.GameState.State == Types.GameStateEnum.PAUSE) return;
             if (!GameManager.GameState.Player) return;
             if (chestQueue.Count <= 0) return;
+            if (!_worldGenerator) return;
 
             GameObject chestToSpawn = chestQueue.Dequeue();
             GameObject _player = GameManager.GameState.Player;
             Vector2 playerPos = _player.transform.position;
             Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * UnityEngine.Random.Range(_radius, 500) + playerPos;
-            bool isCorrectSpawn = Floor.HasTile(Vector3Int.FloorToInt(spawnPos));
+            bool isCorrectSpawn = _worldGenerator.IsOnFloor(spawnPos);
             if (isCorrectSpawn)
             {
                 chestToSpawn.transform.position = spawnPos;

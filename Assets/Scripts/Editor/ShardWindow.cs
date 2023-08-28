@@ -7,20 +7,20 @@ using System.IO;
 using System.Linq;
 using Assets.Scripts.ScriptableObjects.Stage;
 
-public class ShardWindow : EditorWindow
+public class ChunkWindow : EditorWindow
 {
-    string m_ShardName = "";
+    string m_ChunkName = "";
     StageSO[] m_Stages;
     int m_StageIndex = 0;
-    string[] m_Shards;
-    int m_ShardIndex = 0;
+    string[] m_Chunks;
+    int m_ChunkIndex = 0;
     WorldEditor m_worldGenerator;
 
-    [MenuItem("Window/Shard Editor")]
+    [MenuItem("Window/Chunk Editor")]
     static void Init()
     {
 
-        ShardWindow window = (ShardWindow)EditorWindow.GetWindow(typeof(ShardWindow));
+        ChunkWindow window = (ChunkWindow)EditorWindow.GetWindow(typeof(ChunkWindow));
         window.Show();
     }
 
@@ -30,45 +30,45 @@ public class ShardWindow : EditorWindow
         m_Stages = Resources.LoadAll<StageSO>("ScriptableObjects/Stage").ToArray();
     }
 
-    public void reloadShards()
+    public void reloadChunks()
     {
         TextAsset[] maps = Resources.LoadAll<TextAsset>("Stages/" + m_Stages[m_StageIndex].name);
-        m_Shards = maps.Select(x => x.name).ToArray();
+        m_Chunks = maps.Select(x => x.name).ToArray();
     }
 
 
     void OnGUI()
     {
         reloadStages();
-        reloadShards();
+        reloadChunks();
 
         GUILayout.Label("Base Settings", EditorStyles.boldLabel);
 
         this.m_StageIndex = EditorGUILayout.Popup(this.m_StageIndex, this.m_Stages.Select(x => x.name).ToArray());
-        if (GUILayout.Button("Reload shard from stage"))
+        if (GUILayout.Button("Reload chunk from stage"))
         {
-            reloadShards();
+            reloadChunks();
         }
 
-        this.m_ShardIndex = EditorGUILayout.Popup(this.m_ShardIndex, this.m_Shards);
+        this.m_ChunkIndex = EditorGUILayout.Popup(this.m_ChunkIndex, this.m_Chunks);
 
-        if (GUILayout.Button("Load shard"))
+        if (GUILayout.Button("Load chunk"))
         {
-            m_worldGenerator.LoadShard(this.m_Stages[this.m_StageIndex], this.m_Shards[this.m_ShardIndex]);
-            this.m_ShardName = this.m_Shards[this.m_ShardIndex];
+            m_worldGenerator.LoadChunk(this.m_Stages[this.m_StageIndex], this.m_Chunks[this.m_ChunkIndex]);
+            this.m_ChunkName = this.m_Chunks[this.m_ChunkIndex];
         }
 
-        this.m_ShardName = EditorGUILayout.TextField("Shard Name", this.m_ShardName);
+        this.m_ChunkName = EditorGUILayout.TextField("Chunk Name", this.m_ChunkName);
 
-        if (GUILayout.Button("Save shard"))
+        if (GUILayout.Button("Save chunk"))
         {
-            m_worldGenerator.SaveShard(this.m_Stages[this.m_StageIndex], this.m_ShardName);
+            m_worldGenerator.SaveChunk(this.m_Stages[this.m_StageIndex], this.m_ChunkName);
         }
 
-        if (GUILayout.Button("Clear shard"))
+        if (GUILayout.Button("Clear chunk"))
         {
             m_worldGenerator.ClearAllTiles();
-            this.m_ShardName = "";
+            this.m_ChunkName = "";
         }
     }
 }
