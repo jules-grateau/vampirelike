@@ -183,6 +183,14 @@ MonoBehaviour:
     m_Key: HealthRegen.Description
     m_Metadata:
       m_Items: []
+  - m_Id: 3968939883823104
+    m_Key: Tornado.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3969035107106816
+    m_Key: Tornado.Description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
