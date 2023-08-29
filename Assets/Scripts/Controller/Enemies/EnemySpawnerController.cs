@@ -66,12 +66,15 @@ namespace Assets.Scripts.Controller.Enemies
                     // Get random position
                     Vector2 playerPos = _player.transform.position;
                     Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * _radius + playerPos;
-                    bool isCorrectSpawn = _worldGenerator.IsOnFloor(spawnPos);
 
                     // Pick random enemy
                     int random = UnityEngine.Random.Range(0, _enemies.Length);
+                    Vector2 enemySize = _enemies[random].GetSize();
+                    Vector2 offset = _enemies[random].GetColliderOffset();
 
-                    if (isCorrectSpawn && (_enemies[random].health + _spawnedPowerValue) < (_currentWaveAmount + 10))
+                    bool isCorrectSpawn = IsEnemySpawnCorrect(spawnPos, enemySize, offset);
+
+                    if (isCorrectSpawn && (_enemies[random].health + _spawnedPowerValue) < (_currentWaveAmount + 10) )
                     {
                         Debug.DrawLine(_player.transform.position, spawnPos, Color.yellow, 2, false);
                         GameObject enemyGo = _enemies[random].GetEnemy();
@@ -92,5 +95,36 @@ namespace Assets.Scripts.Controller.Enemies
             }  
             _delay += Time.deltaTime;
         }
+
+        bool IsEnemySpawnCorrect(Vector3 spawnPos, Vector2 enemySize, Vector2 offset)
+        {
+            enemySize = enemySize / 2;
+            spawnPos += (Vector3) offset;
+            //If spawnPos is incorrect
+            if (!_worldGenerator.IsOnFloor(spawnPos)) return false;
+
+            //Otherwise, we check all extremity of the enemy
+            Vector2 topLeft = new Vector2(spawnPos.x - enemySize.x, spawnPos.y + enemySize.y);
+            Vector2 topRight = (Vector2) spawnPos + enemySize;
+            Vector2 bottomLeft = (Vector2)spawnPos - enemySize;
+            Vector2 bottomRight = new Vector2(spawnPos.x + enemySize.x, spawnPos.y - enemySize.y);
+
+            Debug.DrawLine(topRight, topLeft, Color.red, 1f);
+            Debug.DrawLine(topLeft, bottomLeft, Color.white, 1f);
+            Debug.DrawLine(bottomLeft, bottomRight, Color.green, 1f);
+            Debug.DrawLine(bottomRight, topRight, Color.blue, 1f);
+
+            if (!_worldGenerator.IsOnFloor(topLeft)) return false;
+            if (!_worldGenerator.IsOnFloor(topRight)) return false;
+            if (!_worldGenerator.IsOnFloor(bottomLeft)) return false;
+            if (!_worldGenerator.IsOnFloor(bottomRight)) return false;
+
+            RaycastHit2D hasDirectPath = Physics2D.Raycast(spawnPos, _player.transform.position, float.PositiveInfinity, 1 << LayerMask.NameToLayer("Wall"));
+            if (hasDirectPath.collider) return false;
+
+            return true;
+        }
+
+
     }
 }

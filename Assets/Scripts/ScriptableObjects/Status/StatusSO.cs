@@ -37,5 +37,9 @@ namespace Assets.Scripts.ScriptableObjects.Status
         [SerializeField]
         [DrawIf("isSlow", true, ComparisonType.Equals, DisablingType.DontDraw)]
         public float slowTime;
+        [SerializeField]
+        public bool isVampiric;
+        [DrawIf("isVampiric", true, ComparisonType.Equals, DisablingType.DontDraw)]
+        public float vampRatio;
     }
 }

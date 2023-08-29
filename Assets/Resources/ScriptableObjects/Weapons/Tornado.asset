@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f8b646a8dcb20a4084a497d36202016, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b9626cecdd6dac4abf391a48a088512, type: 3}
   m_Name: Tornado
   m_EditorClassIdentifier: 
   _projectilPrefab: {fileID: 5418220751937130542, guid: a6f194e02b5f63f489d94c39b4c6cbb3, type: 3}
@@ -40,7 +40,9 @@ MonoBehaviour:
   _explosionRadius: 0
   _particles: {fileID: 0}
   directionType: 5
+  _radiusPerSecond: 0.5
   _bounceOnWall: 0
   destructionType: 3
   _minMaxDelay: {x: 1, y: 1}
   _comeBackToPlayer: 0
+  _delayBetweenDeployement: 0.5

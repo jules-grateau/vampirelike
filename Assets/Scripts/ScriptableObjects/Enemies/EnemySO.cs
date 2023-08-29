@@ -37,6 +37,8 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
         public float health;
         [SerializeField]
         GameEventHitData _enemyHitEvent;
+        [SerializeField]
+        GameEventFloat _playerHealEvent;
 
         [Header("Xp")]
         [SerializeField]
@@ -130,6 +132,7 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             EnemyHealth enemyHealth = enemy.AddComponent<EnemyHealth>();
             enemyHealth.Health = health;
             enemyHealth.deathAudioClip = _deathAudioClip;
+            enemyHealth.PlayerHealEvent = _playerHealEvent;
 
             GameEventListenerHitData listenerHitData = enemy.AddComponent<GameEventListenerHitData>();
             listenerHitData.GameEvent = _enemyHitEvent;
@@ -141,6 +144,22 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
 
             return enemy;
 
+        }
+
+        public Vector2 GetSize()
+        {
+            BoxCollider2D collider = _prefab.GetComponentInChildren<BoxCollider2D>();
+            if (!collider) return new Vector2(0, 0);
+
+            return collider.size;
+        }
+
+        public Vector2 GetColliderOffset()
+        {
+            BoxCollider2D collider = _prefab.GetComponentInChildren<BoxCollider2D>();
+            if (!collider) return new Vector2(0, 0);
+
+            return collider.offset;
         }
 
     }
