@@ -128,7 +128,7 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 16119
   m_ForceReceiveLayers:
     serializedVersion: 2
     m_Bits: 16119
@@ -198,3 +198,4 @@ MonoBehaviour:
   Loots: []
   easeType: 3
   dropTime: 1
+  destroyAfterLoot: 0
