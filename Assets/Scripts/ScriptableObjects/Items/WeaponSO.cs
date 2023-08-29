@@ -55,7 +55,7 @@ namespace Assets.Scripts.ScriptableObjects.Items
             float attackCooldown = _weaponStats.GetStats(WeaponStatisticEnum.AttackCooldown);
             float attackSpeed = _weaponStats.GetStats(WeaponStatisticEnum.AttackSpeed);
 
-            return attackCooldown * (1 - (attackSpeed / 100));
+            return attackCooldown / (1 + (attackSpeed / 100));
         }
 
         // Function to override in Childs if behavior wanted on Upgrade
