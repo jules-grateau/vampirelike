@@ -186,6 +186,14 @@ MonoBehaviour:
     m_Localized: Augmente votre regeneration d'HP de {value}
     m_Metadata:
       m_Items: []
+  - m_Id: 3969035107106816
+    m_Localized: "Vous cr\xE9ez {value} tornade suppl\xE9mentaire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3968939883823104
+    m_Localized: Tornades
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
