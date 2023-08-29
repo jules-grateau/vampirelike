@@ -146,5 +146,21 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
 
         }
 
+        public Vector2 GetSize()
+        {
+            BoxCollider2D collider = _prefab.GetComponentInChildren<BoxCollider2D>();
+            if (!collider) return new Vector2(0, 0);
+
+            return collider.size;
+        }
+
+        public Vector2 GetColliderOffset()
+        {
+            BoxCollider2D collider = _prefab.GetComponentInChildren<BoxCollider2D>();
+            if (!collider) return new Vector2(0, 0);
+
+            return collider.offset;
+        }
+
     }
 }
