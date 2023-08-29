@@ -28,6 +28,8 @@ namespace Assets.Scripts.Controller.Game
 
         private WorldGenerator _worldGenerator;
         private float _radius = 0;
+        [SerializeField]
+        private float _maxSpawnRadius = 250;
 
         GameObject _chestRef;
 
@@ -54,7 +56,7 @@ namespace Assets.Scripts.Controller.Game
             GameObject chestToSpawn = chestQueue.Dequeue();
             GameObject _player = GameManager.GameState.Player;
             Vector2 playerPos = _player.transform.position;
-            Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * UnityEngine.Random.Range(_radius, 500) + playerPos;
+            Vector3 spawnPos = UnityEngine.Random.insideUnitCircle.normalized * UnityEngine.Random.Range(_radius, _maxSpawnRadius) + playerPos;
             bool isCorrectSpawn = _worldGenerator.IsOnFloor(spawnPos);
             if (isCorrectSpawn)
             {

@@ -118,8 +118,6 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField]
     private Grid grid;
 
-    public Tilemap FloorTilemap;
-
     private Dictionary<Coordinates, WorldChunk> _chunkMap;
     private WorldChunk currentChunk;
     private List<string> _chunkNames;
@@ -157,14 +155,25 @@ public class WorldGenerator : MonoBehaviour
     public bool IsOnFloor(Vector3 pos)
     {
         Coordinates chunkCoords = PosToCoordinates(pos);
-        foreach (Transform child in _chunkMap[chunkCoords].gameObject.transform)
+        if (_chunkMap.ContainsKey(chunkCoords))
         {
-            Tilemap tm = child.GetComponent<Tilemap>();
-            if (tm.name.Equals("Floor"))
+            foreach (Transform child in _chunkMap[chunkCoords].gameObject.transform)
             {
-                Debug.Log(pos + " -> " + chunkCoords.val);
-                return tm.HasTile(Vector3Int.FloorToInt(pos - (chunkCoords.val3 * _defaultBounds.size)));
+                Tilemap tm = child.GetComponent<Tilemap>();
+                if (tm.name.Equals("Floor"))
+                {
+                    Debug.Log(pos + " -> " + chunkCoords.val);
+                    return tm.HasTile(Vector3Int.FloorToInt(pos - (chunkCoords.val3 * _defaultBounds.size)));
+                }
             }
+        }
+        else
+        {
+            // If chunk does not exists on location load it
+            PopulateAtCoordinates(chunkCoords);
+            bool isOnFloor = IsOnFloor(pos);
+            ClearAtCoordinates(chunkCoords);
+            return isOnFloor;
         }
         return false;
     }
@@ -192,7 +201,6 @@ public class WorldGenerator : MonoBehaviour
             gameObject = chunkFromPool
         };
         chunkFromPool.transform.position = Vector3Int.zero;
-        //FloorTilemap = tm;
         _chunkMap.Add(origin, currentChunk);
         chunkFromPool.SetActive(true);
 
@@ -216,7 +224,13 @@ public class WorldGenerator : MonoBehaviour
         PopoulateNeighbours(currentChunk);
     }
 
-    private IEnumerator PopulateIndicatedNeighbour(WorldChunk chunk, Coordinates checkCoordinates, Vector2Int orientation)
+    private IEnumerator PopulateAtCoordinatesAsync(Coordinates checkCoordinates)
+    {
+        PopulateAtCoordinates(checkCoordinates);
+        yield return null;
+    }
+
+    private void PopulateAtCoordinates(Coordinates checkCoordinates)
     {
         bool wasAlreadyGenerated = _chunkMap.ContainsKey(checkCoordinates) && _chunkMap[checkCoordinates].wasGenerated;
 
@@ -234,20 +248,12 @@ public class WorldGenerator : MonoBehaviour
         }
         chunkFromPool = _chunkPool[chunkName].Take();
 
-        Debug.Log("LOADING AT " + checkCoordinates.val + " - " + _chunkMap.ContainsKey(checkCoordinates) + " / " + wasAlreadyGenerated);
-
-        if (!chunk.bounds.HasValue) yield return null;
-
-        Vector3Int position = chunk.position.val3 * _defaultBounds.size; //chunk.bounds.Value.position;
-
         Vector3Int offset = new Vector3Int(
-            Mathf.RoundToInt((orientation.x * _defaultBounds.size.x) + position.x),
-            Mathf.RoundToInt((orientation.y * _defaultBounds.size.y) + position.y)
+            Mathf.RoundToInt(checkCoordinates.val.x * _defaultBounds.size.x),
+            Mathf.RoundToInt(checkCoordinates.val.y * _defaultBounds.size.y)
         );
         chunkFromPool.transform.position = offset;
         chunkFromPool.SetActive(true);
-
-        Debug.DrawLine(offset, position, Color.cyan, 15);
 
         BoundsInt bounds = new BoundsInt(
             Mathf.FloorToInt(offset.x - _defaultBounds.size.x / 2),
@@ -274,8 +280,6 @@ public class WorldGenerator : MonoBehaviour
         {
             _chunkMap.Add(checkCoordinates, newChunk);
         }
-
-        yield return null;
     }
 
     private void PopoulateNeighbours(WorldChunk chunk)
@@ -287,14 +291,18 @@ public class WorldGenerator : MonoBehaviour
             Vector2Int orientation = GetEdgeLocation(edge);
             Coordinates checkCoordinates = new Coordinates(chunk.position.val + orientation);
             if (_chunkMap.ContainsKey(checkCoordinates) && _chunkMap[checkCoordinates].isDisplayed) continue;
-            StartCoroutine(PopulateIndicatedNeighbour(chunk, checkCoordinates, orientation));
+            StartCoroutine(PopulateAtCoordinatesAsync(checkCoordinates));
         }
     }
 
-    private IEnumerator ClearIndicatedTiles(WorldChunk chunk, EdgePosition furthestEdge)
+    private IEnumerator ClearAtCoordinatesAsync(Coordinates checkCoordinates)
     {
-        Vector2Int orientation = GetEdgeLocation(furthestEdge);
-        Coordinates checkCoordinates = new Coordinates(chunk.position.val + orientation);
+        ClearAtCoordinates(checkCoordinates);
+        yield return null;
+    }
+
+    private void ClearAtCoordinates(Coordinates checkCoordinates)
+    {
         WorldChunk sharAtCoordiantes = _chunkMap[checkCoordinates];
         if (_chunkMap.ContainsKey(checkCoordinates) && sharAtCoordiantes != null && sharAtCoordiantes.isDisplayed)
         {
@@ -304,12 +312,9 @@ public class WorldGenerator : MonoBehaviour
             // Release to the pool
             sharAtCoordiantes.gameObject.SetActive(false);
 
-            var k = _chunkPool[sharAtCoordiantes.chunkName];
-
             _chunkPool[sharAtCoordiantes.chunkName].Release(sharAtCoordiantes.gameObject);
             sharAtCoordiantes.gameObject = null;
         }
-        yield return null;
     }
 
     private void ClearTiles(WorldChunk chunk, EdgePosition nearEdge)
@@ -317,7 +322,9 @@ public class WorldGenerator : MonoBehaviour
         List<EdgePosition> furthestEdges = GetFurthestEdges(nearEdge);
         foreach (EdgePosition furthestEdge in furthestEdges)
         {
-            StartCoroutine(ClearIndicatedTiles(chunk, furthestEdge));
+            Vector2Int orientation = GetEdgeLocation(furthestEdge);
+            Coordinates checkCoordinates = new Coordinates(chunk.position.val + orientation);
+            StartCoroutine(ClearAtCoordinatesAsync(checkCoordinates));
         }
     }
 
