@@ -44,6 +44,8 @@ public class SeekCollectibleController : IEnemyMovement
         float modifiedSpeed = Speed * _enemyHealth.getSlowValue();
 
         GameObject focus = GetClosestCollectible(gameObject.transform.position, _player);
+        //TODO : Add behavior when nothing to collect
+        if (!focus) return;
         Debug.DrawLine(transform.position, focus.transform.position);
 
         Vector3 direction = focus.transform.position - transform.position;
