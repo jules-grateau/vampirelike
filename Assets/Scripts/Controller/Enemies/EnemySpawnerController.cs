@@ -119,8 +119,14 @@ namespace Assets.Scripts.Controller.Enemies
             if (!_worldGenerator.IsOnFloor(bottomLeft)) return false;
             if (!_worldGenerator.IsOnFloor(bottomRight)) return false;
 
-            RaycastHit2D hasDirectPath = Physics2D.Raycast(spawnPos, _player.transform.position, float.PositiveInfinity, 1 << LayerMask.NameToLayer("Wall"));
-            if (hasDirectPath.collider) return false;
+            RaycastHit2D hasDirectPath = Physics2D.Raycast(spawnPos, (_player.transform.position - spawnPos).normalized, Vector3.Distance(_player.transform.position, spawnPos), 1 << LayerMask.NameToLayer("Wall"));
+            if (hasDirectPath.collider)
+            {
+                Debug.DrawLine(spawnPos, hasDirectPath.point, Color.green, 1f);
+                Debug.DrawLine(hasDirectPath.point, _player.transform.position, Color.red, 1f);
+                return false;
+            };
+            Debug.DrawLine(spawnPos, _player.transform.position, Color.green, 1f);
 
             return true;
         }

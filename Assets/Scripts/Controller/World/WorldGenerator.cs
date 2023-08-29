@@ -112,6 +112,8 @@ public class Pool<T>
 public class WorldGenerator : MonoBehaviour
 {
     [SerializeField]
+    private bool generateWorld = true;
+    [SerializeField]
     private string seed;
     [SerializeField]
     public StageSO Stage;
@@ -169,11 +171,14 @@ public class WorldGenerator : MonoBehaviour
         }
         else
         {
-            // If chunk does not exists on location load it
-            PopulateAtCoordinates(chunkCoords);
-            bool isOnFloor = IsOnFloor(pos);
-            ClearAtCoordinates(chunkCoords);
-            return isOnFloor;
+            if (generateWorld)
+            {
+                // If chunk does not exists on location load it
+                PopulateAtCoordinates(chunkCoords);
+                bool isOnFloor = IsOnFloor(pos);
+                ClearAtCoordinates(chunkCoords);
+                return isOnFloor;
+            }
         }
         return false;
     }
@@ -204,12 +209,14 @@ public class WorldGenerator : MonoBehaviour
         _chunkMap.Add(origin, currentChunk);
         chunkFromPool.SetActive(true);
 
-        PopoulateNeighbours(currentChunk);
+        if(generateWorld)
+            PopoulateNeighbours(currentChunk);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!generateWorld) return;
         GameObject player = GameManager.GameState.Player;
         if (!player) return;
 

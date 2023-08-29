@@ -16,6 +16,9 @@ public class SeekCollectibleController : IEnemyMovement
     private float pickupCooldown = 0.5f;
     private Rigidbody2D _rigidbody;
     private EnemyHealth _enemyHealth;
+    private GameObject _focus;
+    protected float _cooloff = 0f;
+    protected const float seekCooldown = 5f;
 
     private bool _isFlipped = false;
     private bool _isPickingLoot = false;
@@ -43,13 +46,19 @@ public class SeekCollectibleController : IEnemyMovement
         
         float modifiedSpeed = Speed * _enemyHealth.getSlowValue();
 
-        GameObject focus = GetClosestCollectible(gameObject.transform.position, _player);
-        //TODO : Add behavior when nothing to collect
-        if (!focus) return;
-        Debug.DrawLine(transform.position, focus.transform.position);
+        // Seek a new focus when cooldown is ended or no more _focus
+        if (_cooloff >= seekCooldown || !_focus)
+        {
+            _focus = GetClosestCollectible(gameObject.transform.position, _player);
+            _cooloff = 0;
+        }
 
-        Vector3 direction = focus.transform.position - transform.position;
-        if (focus.Equals(_player))
+        //TODO : Add behavior when nothing to collect
+        if (!_focus) return;
+        Debug.DrawLine(transform.position, _focus.transform.position);
+
+        Vector3 direction = _focus.transform.position - transform.position;
+        if (_focus.Equals(_player))
         {
             direction = -direction;
         }
@@ -61,12 +70,14 @@ public class SeekCollectibleController : IEnemyMovement
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             _isFlipped = needToFlip;
         }
+        _cooloff += Time.fixedDeltaTime;
     }
 
     public void PickUp(GameObject item)
     {
         item.SetActive(false);
         Loots.Enqueue(item);
+        _focus = null;
         StartCoroutine(triggerPickup());
     }
 
@@ -80,10 +91,21 @@ public class SeekCollectibleController : IEnemyMovement
     private GameObject GetClosestCollectible(Vector2 shootFrom, GameObject player)
     {
         var hits = Physics2D.OverlapCircleAll(shootFrom, float.PositiveInfinity, 1 << LayerMask.NameToLayer("Collectible"));
-        if (hits.Length <= 0) return null;
+        if (hits.Length <= 0) return player;
 
         GameObject target = hits.Select(hit => new { data = hit, distance = Vector2.Distance(shootFrom, hit.transform.position) })
-            .Where(hit => Physics2D.Raycast(shootFrom, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
+            .Where(hit =>
+            {
+                RaycastHit2D hasDirectPath = Physics2D.Raycast(shootFrom, (hit.data.transform.position - (Vector3)shootFrom).normalized, hit.distance, 1 << LayerMask.NameToLayer("Wall"));
+                if (hasDirectPath.collider)
+                {
+                    Debug.DrawLine(shootFrom, hasDirectPath.point, Color.green, 1f);
+                    Debug.DrawLine(hasDirectPath.point, hit.data.transform.position, Color.red, 1f);
+                    return false;
+                };
+                Debug.DrawLine(shootFrom, hit.data.transform.position, Color.green, 1f);
+                return true;
+            })
             .OrderBy(hit => hit.distance)
             .Select(hit => hit.data.gameObject)
             .FirstOrDefault();

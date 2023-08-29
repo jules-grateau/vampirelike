@@ -537,6 +537,10 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 934362783623691582, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: Stage
+      value: 
+      objectReference: {fileID: 11400000, guid: fe7be1e98e6bb1b42b47c6c0b733be07, type: 2}
     - target: {fileID: 1676250163925351222, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: _weaponSpawnPosition.Array.data[0]
       value: 
@@ -608,37 +612,8 @@ PrefabInstance:
     - {fileID: 8724258893807595397, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
     - {fileID: 5134523956134659050, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5947944469904783977, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 998255718}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
---- !u!1 &998255716 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5947944469904783977, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-  m_PrefabInstance: {fileID: 998255715}
-  m_PrefabAsset: {fileID: 0}
---- !u!156049354 &998255717 stripped
-Grid:
-  m_CorrespondingSourceObject: {fileID: 3120141041137641595, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
-  m_PrefabInstance: {fileID: 998255715}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &998255718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998255716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c8605853202d4048a75e26180b5d3e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seed: ekymhehica
-  Stage: {fileID: 11400000, guid: fe7be1e98e6bb1b42b47c6c0b733be07, type: 2}
-  grid: {fileID: 998255717}
-  FloorTilemap: {fileID: 7619682761414052423, guid: 643f9ea3d8877954cb8ea220c9bd4ffa, type: 3}
 --- !u!1 &1220070121
 GameObject:
   m_ObjectHideFlags: 0

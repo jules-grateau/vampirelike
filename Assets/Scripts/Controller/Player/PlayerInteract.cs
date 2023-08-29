@@ -31,7 +31,18 @@ namespace Assets.Scripts.Controller.Player
             }
 
             GameObject target = hits.Select(hit => new { data = hit, distance = Vector2.Distance(gameObject.transform.position, hit.transform.position) })
-                .Where(hit => Physics2D.Raycast(gameObject.transform.position, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
+                .Where(hit =>
+                {
+                    RaycastHit2D hasDirectPath = Physics2D.Raycast(gameObject.transform.position, (hit.data.transform.position - gameObject.transform.position).normalized, hit.distance, 1 << LayerMask.NameToLayer("Wall"));
+                    if (hasDirectPath.collider)
+                    {
+                        Debug.DrawLine(gameObject.transform.position, hasDirectPath.point, Color.green, 1f);
+                        Debug.DrawLine(hasDirectPath.point, hit.data.transform.position, Color.red, 1f);
+                        return false;
+                    };
+                    Debug.DrawLine(gameObject.transform.position, hit.data.transform.position, Color.green, 1f);
+                    return true;
+                })
                 .OrderBy(hit => hit.distance)
                 .Select(hit => hit.data.gameObject)
                 .FirstOrDefault();

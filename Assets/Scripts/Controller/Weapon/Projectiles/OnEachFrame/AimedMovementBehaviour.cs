@@ -27,7 +27,18 @@ public class AimedMovementBehaviour : MovementBehaviour
         if (hits.Length <= 0) return null;
 
         GameObject target = hits.Select(hit => new { data = hit, distance = Vector2.Distance(shootFrom, hit.transform.position) })
-            .Where(hit => Physics2D.Raycast(shootFrom, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
+            .Where(hit =>
+            {
+                RaycastHit2D hasDirectPath = Physics2D.Raycast(shootFrom, (hit.data.transform.position - (Vector3)shootFrom).normalized, hit.distance, 1 << LayerMask.NameToLayer("Wall"));
+                if (hasDirectPath.collider)
+                {
+                    Debug.DrawLine(shootFrom, hasDirectPath.point, Color.green, 1f);
+                    Debug.DrawLine(hasDirectPath.point, hit.data.transform.position, Color.red, 1f);
+                    return false;
+                };
+                Debug.DrawLine(shootFrom, hit.data.transform.position, Color.green, 1f);
+                return true;
+            })
             .OrderBy(hit => hit.distance)
             .Select(hit => hit.data.gameObject)
             .FirstOrDefault();

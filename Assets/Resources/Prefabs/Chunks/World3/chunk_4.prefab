@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 4961176581333090354}
   - component: {fileID: 8552618289667224889}
   - component: {fileID: 5102956786793191889}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WithColiders
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -26366,7 +26366,7 @@ GameObject:
   - component: {fileID: 4976677995260510219}
   - component: {fileID: 8376975933193835039}
   m_Layer: 0
-  m_Name: World1_shard_4
+  m_Name: chunk_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
