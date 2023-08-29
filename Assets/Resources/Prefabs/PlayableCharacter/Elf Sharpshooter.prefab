@@ -155,7 +155,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.8
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.75
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -333,7 +333,7 @@ MonoBehaviour:
   - {x: 0.031735793, y: -0.49120903, z: 0}
   m_ShapePathHash: -1642085550
   m_Mesh: {fileID: 0}
-  m_InstanceId: 45518
+  m_InstanceId: 82622
   m_LocalBounds:
     m_Center: {x: -0.016652763, y: -0.032806158, z: 0}
     m_Extent: {x: 0.40627903, y: 0.45840287, z: 0}
