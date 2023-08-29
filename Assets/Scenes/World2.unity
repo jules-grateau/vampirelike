@@ -8955,10 +8955,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5112288440864814511, guid: 8eeb1c07aaa47ed4a87f4a2c70b9dfe7, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
+    - target: {fileID: 1696835160609255616, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341402782835180145, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 124.99997
+      objectReference: {fileID: 0}
     - target: {fileID: 5112288440864814511, guid: 5ecff175ba4d40c4f8b29ed8a4620167, type: 3}
       propertyPath: m_Camera
       value: 
@@ -9011,6 +9015,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5112288440864814511, guid: 8eeb1c07aaa47ed4a87f4a2c70b9dfe7, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11665,6 +11673,10 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 49772181}
+    - target: {fileID: 2074779649004140502, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: _maxSpawnRadius
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4389660338472883355, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: m_RootOrder
       value: 0
