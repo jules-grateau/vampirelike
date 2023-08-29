@@ -32,6 +32,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _sceneName: World2
+  _tilesFolderName: 
   references:
     version: 2
     RefIds: []

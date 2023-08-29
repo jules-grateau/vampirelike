@@ -18,7 +18,7 @@ MonoBehaviour:
   _collisionEvent: {fileID: 11400000, guid: c3494f9e28b23974f9f9bf4ae624ecef, type: 2}
   _damage: 2
   _statusDamages: {fileID: 11400000, guid: 330e216b977f9af4384a82318ead3f3c, type: 2}
-  health: 15
+  health: 1
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _playerHealEvent: {fileID: 11400000, guid: b09b69745e7a4bd4c9f2e923c9b90842, type: 2}
   _dropXp: 1

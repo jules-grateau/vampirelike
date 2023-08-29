@@ -12350,6 +12350,10 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 49772181}
+    - target: {fileID: 2074779649004140502, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
+      propertyPath: _maxSpawnRadius
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4389660338472883355, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: m_RootOrder
       value: 10

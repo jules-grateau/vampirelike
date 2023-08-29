@@ -16,8 +16,7 @@ namespace Assets.Scripts.Controller.Enemies
         [SerializeField]
         private EnemySO[] _enemies;
 
-        [SerializeField]
-        private Tilemap floor;
+        private WorldGenerator _worldGenerator;
 
         private GameObject _player;
 
@@ -31,13 +30,13 @@ namespace Assets.Scripts.Controller.Enemies
 
         private void Awake()
         {
+            _worldGenerator = gameObject.GetComponent<WorldGenerator>();
             _radius = Mathf.Abs((Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height) / 1.5f);
         }
 
         private void Start()
         {
             _player = GameManager.GameState.Player;
-
             _enemies = Resources.LoadAll<EnemySO>("ScriptableObjects/Enemy");
         }
 
@@ -51,6 +50,7 @@ namespace Assets.Scripts.Controller.Enemies
 
             if ((_delay >= spawnCooldown || _forceSpawn) && triggerSpawn)
             {
+                if (!_worldGenerator) return;
                 // If it's a "normal" round for spawning ennemies
                 if (!_forceSpawn)
                 {
@@ -101,7 +101,7 @@ namespace Assets.Scripts.Controller.Enemies
             enemySize = enemySize / 2;
             spawnPos += (Vector3) offset;
             //If spawnPos is incorrect
-            if (!floor.HasTile(Vector3Int.FloorToInt(spawnPos))) return false;
+            if (!_worldGenerator.IsOnFloor(spawnPos)) return false;
 
             //Otherwise, we check all extremity of the enemy
             Vector2 topLeft = new Vector2(spawnPos.x - enemySize.x, spawnPos.y + enemySize.y);
@@ -114,10 +114,13 @@ namespace Assets.Scripts.Controller.Enemies
             Debug.DrawLine(bottomLeft, bottomRight, Color.green, 1f);
             Debug.DrawLine(bottomRight, topRight, Color.blue, 1f);
 
-            if (!floor.HasTile(Vector3Int.FloorToInt(topLeft))) return false;
-            if (!floor.HasTile(Vector3Int.FloorToInt(topRight))) return false;
-            if (!floor.HasTile(Vector3Int.FloorToInt(bottomLeft))) return false;
-            if (!floor.HasTile(Vector3Int.FloorToInt(bottomRight))) return false;
+            if (!_worldGenerator.IsOnFloor(topLeft)) return false;
+            if (!_worldGenerator.IsOnFloor(topRight)) return false;
+            if (!_worldGenerator.IsOnFloor(bottomLeft)) return false;
+            if (!_worldGenerator.IsOnFloor(bottomRight)) return false;
+
+            RaycastHit2D hasDirectPath = Physics2D.Raycast(spawnPos, _player.transform.position, float.PositiveInfinity, 1 << LayerMask.NameToLayer("Wall"));
+            if (hasDirectPath.collider) return false;
 
             return true;
         }
