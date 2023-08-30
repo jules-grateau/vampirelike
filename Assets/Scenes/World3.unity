@@ -563,15 +563,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4389660338472883355, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 376.74652
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4389660338472883355, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 219.3957
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4389660338472883355, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2679492
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4389660338472883355, guid: 079b8c075bd05d54ca73faa595b7f7b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -781,7 +781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366659d2956fdca4bb1243d0ec7093e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followTag: Player
 --- !u!1001 &536909334963055779
 PrefabInstance:
   m_ObjectHideFlags: 0

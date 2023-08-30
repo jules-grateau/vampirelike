@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f240cfb12f26df341862169efadadf6e, type: 2}
+  m_Motion: {fileID: 7400000, guid: c64ec01f89b54184385a0ce5cf1e4c23, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -95,7 +95,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3f6120105180cc243bebaed40759c1a2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1393485a72b9c114daf42fdaad18501d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -123,7 +123,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cbdd21302e94cbb4590262e89ba1575f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4c3a666902ee40d42a5fa30de2b7a61b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -135,7 +135,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lazer
+  m_Name: Mine
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isDestroyed
@@ -208,7 +208,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e9b449f30ec8ff9428b0c9e5457d80cd, type: 2}
+  m_Motion: {fileID: 7400000, guid: 01057fb8c62ff354686ff4cea2adaebb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
