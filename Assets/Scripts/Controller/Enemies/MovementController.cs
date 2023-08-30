@@ -38,6 +38,10 @@ public abstract class MovementController : IEnemyMovement
         float modifiedSpeed = Speed * _enemyHealth.getSlowValue();
 
         Vector3 direction = ComputeDirection();
+        if (_enemyHealth.hasFear())
+        {
+            direction = - (_player.transform.position - transform.position);
+        }
 
         if (Mathf.Abs(direction.magnitude) < 0.1)
         {

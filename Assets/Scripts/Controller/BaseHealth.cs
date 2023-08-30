@@ -92,6 +92,10 @@ namespace Assets.Scripts.Controller
             {
                 yield return new WaitForSeconds(hit.status.slowTime);
             }
+            else if (hit.status.isFear)
+            {
+                yield return new WaitForSeconds(hit.status.fearTime);
+            }
             hits.Remove(hit);
             _hasDotStatus = hasDoTStatus();
             sp.sprite = null;
@@ -116,10 +120,14 @@ namespace Assets.Scripts.Controller
             return hits.Select(h => h.status).Where(s => s.isDoT).ToList().Count > 0;
         }
 
-
         public bool hasStun()
         {
             return hits.Select(h => h.status).Where(s => s.isStun).ToList().Count > 0;
+        }
+
+        public bool hasFear()
+        {
+            return hits.Select(h => h.status).Where(s => s.isFear).ToList().Count > 0;
         }
 
         public float getSlowValue()
