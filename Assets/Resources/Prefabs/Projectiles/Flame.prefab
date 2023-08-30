@@ -128,10 +128,10 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 1591
+    m_Bits: 567
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 1591
+    m_Bits: 567
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -162,7 +162,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4389094783381097955}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

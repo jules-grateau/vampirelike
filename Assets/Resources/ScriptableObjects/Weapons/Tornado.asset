@@ -41,8 +41,9 @@ MonoBehaviour:
   _particles: {fileID: 0}
   directionType: 5
   _radiusPerSecond: 0.5
-  _bounceOnWall: 0
-  destructionType: 3
-  _minMaxDelay: {x: 1, y: 1}
+  _endOnWall: 0
+  _restartOnWall: 0
+  destructionType: 03000000
+  restartTriggerType: 
   _comeBackToPlayer: 0
   _delayBetweenDeployement: 0.5

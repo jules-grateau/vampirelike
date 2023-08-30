@@ -10,6 +10,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 
         [SerializeField]
         public int numberOfHits;
+        public ProjectileState TriggeredProjectileState = ProjectileState.End;
 
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
@@ -19,7 +20,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         {
             if (((OnAllBehaviourOrchestrator)self).alreadyTargeted.Count >= numberOfHits)
             {
-                self.TriggerNewState(ProjectileState.End);
+                self.TriggerNewState(TriggeredProjectileState);
             }
             return;
         }

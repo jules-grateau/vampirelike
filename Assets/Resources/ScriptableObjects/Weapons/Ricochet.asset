@@ -34,6 +34,7 @@ MonoBehaviour:
   _weaponStatus: {fileID: 11400000, guid: fb45e35d693f04b45abf300075388f13, type: 2}
   _bumpVector: {x: 0, y: 0}
   _duration: 0
+  _isAnimatedEnd: 0
   _isAnimatedHit: 0
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
@@ -41,9 +42,11 @@ MonoBehaviour:
   _explosionRadius: 0
   _particles: {fileID: 0}
   directionType: 1
-  _bounceOnWall: 0
-  destructionType: 1
-  _minMaxDelay: {x: 0, y: 0}
+  _radiusPerSecond: 0
+  _endOnWall: 1
+  _restartOnWall: 0
+  destructionType: 01000000
+  restartTriggerType: 
   _comeBackToPlayer: 0
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

@@ -8,18 +8,20 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     {
         public float Range { get; set; }
 
-        private Vector3 initPosition;
+        public ProjectileState TriggeredProjectileState = ProjectileState.End;
+
+        public Vector3 InitPosition { get; set; }
 
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
             triggeringStates = new ProjectileState[] { ProjectileState.Start };
-            initPosition = self.transform.position;
+            InitPosition = self.transform.position;
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)
         {
-            if (Vector2.Distance(initPosition, self.transform.position) > Range)
+            if (Vector2.Distance(InitPosition, self.transform.position) > Range)
             {
-                self.TriggerNewState(Types.ProjectileState.End);
+                self.TriggerNewState(TriggeredProjectileState);
                 return;
             }
         }

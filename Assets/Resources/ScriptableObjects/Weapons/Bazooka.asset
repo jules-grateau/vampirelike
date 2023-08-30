@@ -38,9 +38,11 @@ MonoBehaviour:
   _explosionRadius: 2
   _particles: {fileID: 5822821294587056223, guid: bb103fa15be3c2d49977c6431f980740, type: 3}
   directionType: 3
-  _bounceOnWall: 0
-  destructionType: 1
-  _minMaxDelay: {x: 0, y: 0}
+  _radiusPerSecond: 0
+  _endOnWall: 1
+  _restartOnWall: 0
+  destructionType: 01000000
+  restartTriggerType: 
   _comeBackToPlayer: 0
   _offset: {x: 0, y: 0}
   _shootFromBehind: 0

@@ -11,6 +11,8 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         [SerializeField]
         public int numberOfHits;
 
+        public ProjectileState TriggeredProjectileState = ProjectileState.End;
+
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
             triggeringStates = new ProjectileState[] { ProjectileState.Start, ProjectileState.End };
@@ -19,7 +21,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         {
             if (collision2D.gameObject.tag == "Wall")
             {
-                self.TriggerNewState(Types.ProjectileState.Destroy);
+                self.TriggerNewState(TriggeredProjectileState);
             }
             return;
         }

@@ -32,11 +32,23 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         }
 
 
-        public T getBehaviourByType<T>() where T : BaseBehaviour<Collision2D>
+        public T getCollisionBehaviourByType<T>() where T : BaseBehaviour<Collision2D>
         {
             foreach (BaseBehaviour<Collision2D> behaviour in onCollisionBehaviours)
             {
-                if(behaviour is T)
+                if (behaviour is T)
+                {
+                    return (T)behaviour;
+                }
+            }
+            return null;
+        }
+
+        public T getEachFrameBehaviourByType<T>() where T : BaseBehaviour<float>
+        {
+            foreach (BaseBehaviour<float> behaviour in onEachFrameBehaviours)
+            {
+                if (behaviour is T)
                 {
                     return (T)behaviour;
                 }

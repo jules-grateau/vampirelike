@@ -9,5 +9,6 @@ namespace Assets.Scripts.Types
         Start = 1,
         End = 2,
         Destroy = 3,
+        Restart = 4,
     }
 }
