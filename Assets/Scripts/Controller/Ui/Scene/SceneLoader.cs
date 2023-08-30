@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,15 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField]
-    string _sceneName;
+    protected string _sceneName;
     [SerializeField]
     LoadSceneMode loadSceneMode = LoadSceneMode.Single;
     [SerializeField]
     UnityEvent _onLoadScene;
     [SerializeField]
     UnityEvent _onUnloadScene;
+    [SerializeField]
+    string _loadingSceneName = "LoadingScene";
 
     private void Awake()
     {
@@ -22,8 +25,20 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(_sceneName, loadSceneMode);
+        if (loadSceneMode == LoadSceneMode.Single)
+        {
+            SceneManager.LoadSceneAsync(_loadingSceneName, loadSceneMode).completed += LoadMainScene;
+        }
+        else
+        {
+            SceneManager.LoadScene(_sceneName, loadSceneMode);
+        }
         _onLoadScene.Invoke();
+    }
+
+    void LoadMainScene(AsyncOperation operation)
+    {
+        SceneManager.LoadSceneAsync(_sceneName, loadSceneMode);
     }
 
     void OnUnloadScene(Scene current)
