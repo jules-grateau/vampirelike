@@ -6,13 +6,11 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
     public class SelfDestroyRandomDelay : ProgressBehaviour
     {
-
-        [SerializeField]
-        public float minDelay;
-        [SerializeField]
-        public float maxDelay;
         public float Duration { get; set; }
         public float BaseDuration { get; set; }
+
+
+        public ProjectileState TriggeredProjectileState = ProjectileState.End;
 
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
@@ -24,9 +22,9 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         }
         IEnumerator ExecuteRandomTime(BaseBehaviourOrchestrator self)
         {
-            float time = Random.Range(minDelay, maxDelay) * (BaseDuration * (1 + (Duration / 100)));
+            float time = (BaseDuration * (1 + (Duration / 100)));
             yield return new WaitForSeconds(time);
-            self.TriggerNewState(Types.ProjectileState.End);
+            self.TriggerNewState(TriggeredProjectileState);
         }
     }
 }

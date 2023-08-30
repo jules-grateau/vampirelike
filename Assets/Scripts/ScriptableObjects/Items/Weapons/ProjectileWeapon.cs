@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Controller.Weapon.Projectiles;
 using Assets.Scripts.Controller.Weapon.Projectiles.OnEachFrame;
 using Assets.Scripts.Types;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.ScriptableObjects.Items.Weapons
@@ -40,15 +41,19 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
         [DrawIf("directionType", ProjectileDirection.Ricochet, ComparisonType.NotEqual, DisablingType.DontDraw)]
         [SerializeField]
-        private bool _bounceOnWall;
+        private bool _endOnWall;
         [DrawIf("directionType", ProjectileDirection.Ricochet, ComparisonType.NotEqual, DisablingType.DontDraw)]
+        [SerializeField]
+        private bool _restartOnWall;
 
         [Header("Destruction")]
         [SerializeField]
-        public ProjectileDestruction destructionType;
-        [DrawIf("destructionType", ProjectileDestruction.RandomAfterTime, ComparisonType.Equals, DisablingType.DontDraw)]
+        public ProjectileDestruction[] destructionType;
+
+        [Header("Restart")]
         [SerializeField]
-        private Vector2 _minMaxDelay;
+        public ProjectileDestruction[] restartTriggerType;
+
 
         [SerializeField]
         private bool _comeBackToPlayer;
@@ -163,38 +168,10 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     break;
             }
 
-            switch(destructionType)
-            {
-                case ProjectileDestruction.RandomAfterTime:
-                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new SelfDestroyRandomDelay()
-                    {
-                        minDelay = _minMaxDelay.x * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Range) / 100)),
-                        maxDelay = _minMaxDelay.y * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Range) / 100)),
-                        Duration = _weaponStats.GetStats(WeaponStatisticEnum.Duration),
-                        BaseDuration = _weaponStats.GetStats(WeaponStatisticEnum.BaseDuration)
-                    });
-                    break;
-                case ProjectileDestruction.DestroyOnRangeReach:
-                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new SelfDestroyRange()
-                    {
-                        Range = _weaponStats.GetStats(WeaponStatisticEnum.Range)
-                    });
-                    break;
-                case ProjectileDestruction.DestroyNbrOfHits:
-                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SelfDestroyNbrOfHits()
-                    {
-                        numberOfHits = Mathf.FloorToInt(_weaponStats.GetStats(WeaponStatisticEnum.NbrOfHit))
-                    });
-                    break;
-                case ProjectileDestruction.ReachPlayer:
-                    onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SelfDestroyOnPlayerReach()
-                    {
-                    });
-                    break;
-                case ProjectileDestruction.None:
-                default:
-                    break;
-            }
+            HandleProjectileDestructionTypes(onAllBehaviourOrchestrator, destructionType);
+
+            HandleProjectileDestructionTypes(onAllBehaviourOrchestrator, restartTriggerType, ProjectileState.Restart);
+
 
             if (_comeBackToPlayer)
             {
@@ -210,16 +187,65 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                 });
             }
 
-            if (!_bounceOnWall)
+            if (_endOnWall)
             {
                 onAllBehaviourOrchestrator.addOnCollisionBehaviour(new EndOnWallHit()
                 {
                 });
             }
 
+            if(_restartOnWall)
+            {
+                onAllBehaviourOrchestrator.addOnCollisionBehaviour(new EndOnWallHit()
+                {
+                    TriggeredProjectileState = ProjectileState.Restart
+                });
+            }
+
             projectile.transform.localScale = new Vector3(1f * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Size)/100)), 1f * (1 + (_weaponStats.GetStats(WeaponStatisticEnum.Size) / 100)), 1f);
 
             return projectile;
+        }
+
+
+        void HandleProjectileDestructionTypes(OnAllBehaviourOrchestrator onAllBehaviourOrchestrator, ProjectileDestruction[] destructionType, 
+            ProjectileState destructionState = ProjectileState.End)
+        {
+            if (destructionType.Contains(ProjectileDestruction.RandomAfterTime))
+            {
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new SelfDestroyRandomDelay()
+                {
+                    Duration = _weaponStats.GetStats(WeaponStatisticEnum.Duration),
+                    BaseDuration = _weaponStats.GetStats(WeaponStatisticEnum.BaseDuration),
+                    TriggeredProjectileState = destructionState
+                });
+            }
+
+            if (destructionType.Contains(ProjectileDestruction.OnRangeReach))
+            {
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new SelfDestroyRange()
+                {
+                    Range = _weaponStats.GetStats(WeaponStatisticEnum.Range),
+                    TriggeredProjectileState = destructionState
+                });
+            }
+
+            if (destructionType.Contains(ProjectileDestruction.NbrOfHits))
+            {
+                onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SelfDestroyNbrOfHits()
+                {
+                    numberOfHits = Mathf.FloorToInt(_weaponStats.GetStats(WeaponStatisticEnum.NbrOfHit)),
+                    TriggeredProjectileState = destructionState
+                });
+            }
+
+            if (destructionType.Contains(ProjectileDestruction.ReachPlayer))
+            {
+                onAllBehaviourOrchestrator.addOnCollisionBehaviour(new SelfDestroyOnPlayerReach()
+                {
+                    TriggeredProjectileState = destructionState
+                });
+            }
         }
     }
 }

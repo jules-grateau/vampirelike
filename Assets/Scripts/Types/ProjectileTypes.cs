@@ -28,8 +28,8 @@ namespace Assets.Scripts.Types
     {
         ReachPlayer = 4,
         RandomAfterTime = 3,
-        DestroyOnRangeReach = 2,
-        DestroyNbrOfHits = 1,
+        OnRangeReach = 2,
+        NbrOfHits = 1,
         None = 0
     }
 }

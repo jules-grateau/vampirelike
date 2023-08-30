@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Controller.Game;
+using Assets.Scripts.Types;
 using UnityEngine;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 
         [SerializeField]
         public int numberOfHits;
-
+        public ProjectileState TriggeredProjectileState = ProjectileState.End;
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
         }
@@ -16,7 +17,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         {
             if (collision2D.gameObject.GetInstanceID() == self.parent.gameObject.GetInstanceID())
             {
-                GameObject.Destroy(self.gameObject);
+                self.TriggerNewState(TriggeredProjectileState);
             }
             return;
         }
