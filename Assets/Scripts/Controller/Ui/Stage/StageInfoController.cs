@@ -9,12 +9,11 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Controller.Ui.CharacterSelection
 {
-    public class StageInfoController : MonoBehaviour
+    public class StageInfoController : SceneLoader
     {
         TextMeshProUGUI _name;
         Image _image;
         TextMeshProUGUI _description;
-        string _sceneName;
 
         public void Init(StageSO stage)
         {
@@ -30,7 +29,7 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
 
         public void OnClick()
         {
-            SceneManager.LoadScene(_sceneName, LoadSceneMode.Single);
+            LoadScene();
         }
 
     }

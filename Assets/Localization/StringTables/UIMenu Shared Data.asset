@@ -67,6 +67,10 @@ MonoBehaviour:
     m_Key: Button.Redraw
     m_Metadata:
       m_Items: []
+  - m_Id: 4429003807588352
+    m_Key: Title.Loading
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
