@@ -112,9 +112,13 @@ public class Pool<T>
 public class WorldGenerator : MonoBehaviour
 {
     [SerializeField]
+    private bool generateWorld = true;
+    [SerializeField]
     private string seed;
     [SerializeField]
     public StageSO Stage;
+    [SerializeField]
+    public Vector3 SpawnPosition;
     [SerializeField]
     private Grid grid;
 
@@ -123,6 +127,7 @@ public class WorldGenerator : MonoBehaviour
     private List<string> _chunkNames;
     private Dictionary<string, Pool<GameObject>> _chunkPool;
     private int _poolSize = 9;
+    private GameObject _player;
     private BoundsInt _defaultBounds = new BoundsInt(-25, -25, 0, 50, 50, 1);
 
     // Start is called before the first frame update
@@ -152,6 +157,18 @@ public class WorldGenerator : MonoBehaviour
         InitMap();
     }
 
+    public Vector3 getRandomPositionInsideChunk(Coordinates chunkCoords)
+    {
+        Vector3 pos = Vector3.zero;
+        while (!IsOnFloor(pos))
+        {
+            float x = UnityEngine.Random.Range(0, _defaultBounds.size.x);
+            float y = UnityEngine.Random.Range(0, _defaultBounds.size.y);
+            pos = new Vector3(chunkCoords.val.x * _defaultBounds.size.x +  x, chunkCoords.val.y * _defaultBounds.size.y + y, 0);
+        }
+        return pos;
+    }
+
     public bool IsOnFloor(Vector3 pos)
     {
         Coordinates chunkCoords = PosToCoordinates(pos);
@@ -162,18 +179,20 @@ public class WorldGenerator : MonoBehaviour
                 Tilemap tm = child.GetComponent<Tilemap>();
                 if (tm.name.Equals("Floor"))
                 {
-                    Debug.Log(pos + " -> " + chunkCoords.val);
                     return tm.HasTile(Vector3Int.FloorToInt(pos - (chunkCoords.val3 * _defaultBounds.size)));
                 }
             }
         }
         else
         {
-            // If chunk does not exists on location load it
-            PopulateAtCoordinates(chunkCoords);
-            bool isOnFloor = IsOnFloor(pos);
-            ClearAtCoordinates(chunkCoords);
-            return isOnFloor;
+            if (generateWorld)
+            {
+                // If chunk does not exists on location load it
+                PopulateAtCoordinates(chunkCoords);
+                bool isOnFloor = IsOnFloor(pos);
+                ClearAtCoordinates(chunkCoords);
+                return isOnFloor;
+            }
         }
         return false;
     }
@@ -204,16 +223,23 @@ public class WorldGenerator : MonoBehaviour
         _chunkMap.Add(origin, currentChunk);
         chunkFromPool.SetActive(true);
 
-        PopoulateNeighbours(currentChunk);
+        SpawnPosition = getRandomPositionInsideChunk(origin);
+
+        _player = GameManager.GameState.Player;
+        _player.transform.position = SpawnPosition;
+        _player.SetActive(true);
+
+        if (generateWorld)
+            PopoulateNeighbours(currentChunk);
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameManager.GameState.Player;
-        if (!player) return;
+        if (!generateWorld) return;
+        if (!_player) return;
 
-        EdgePosition nearEdge = GetEdgePosition(player.transform.position, currentChunk.bounds);
+        EdgePosition nearEdge = GetEdgePosition(_player.transform.position, currentChunk.bounds);
         if (nearEdge.Equals(EdgePosition.None)) return;
 
         ClearTiles(currentChunk, nearEdge);

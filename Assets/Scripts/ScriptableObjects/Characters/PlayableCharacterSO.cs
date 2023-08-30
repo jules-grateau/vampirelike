@@ -89,9 +89,9 @@ namespace Assets.Scripts.ScriptableObjects.Items
         [SerializeField]
         private GameEventCollectible _collectiblePickup;
 
-        public GameObject Init(Vector3 spawnPosition)
+        public GameObject Init()
         {
-            GameObject playableCharacterInstance = Instantiate(_prefab, spawnPosition, _prefab.transform.rotation);
+            GameObject playableCharacterInstance = Instantiate(_prefab, Vector3.zero, _prefab.transform.rotation);
             playableCharacterInstance.SetActive(false);
 
             PlayerStatsController playerStatsController = playableCharacterInstance.AddComponent<PlayerStatsController>();
@@ -171,7 +171,6 @@ namespace Assets.Scripts.ScriptableObjects.Items
             listenerWeapon.UnityEvent = new UnityEvent<WeaponSO>();
             listenerWeapon.UnityEvent.AddListener(weaponInventoryManager.EquipWeapon);
 
-            playableCharacterInstance.SetActive(true);
             return playableCharacterInstance;
         }
     }

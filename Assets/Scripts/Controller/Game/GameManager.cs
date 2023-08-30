@@ -42,16 +42,7 @@ namespace Assets.Scripts.Controller.Game
             _gameTime.value = 0f;
             OnPause();
 
-            GameObject playerSpawnGO = GameObject.FindGameObjectWithTag("PlayerSpawn");
-            if(!playerSpawnGO)
-            {
-                Debug.Log("Pas de PlayerSpawn dans la scene");
-                return;
-            }
-
-            Vector3 playerSpawnPosition = playerSpawnGO.transform.position;
-
-            GameState.Player = _gameData.PlayableCharacter.Init(playerSpawnPosition);
+            GameState.Player = _gameData.PlayableCharacter.Init();
             GameState.XpCurve = _gameData.XpCurve;
             GameState.DifficultyCurve = _gameData.DifficultyCurve;
             GameState.SpawnCooldown = _gameData.SpawnCooldown;

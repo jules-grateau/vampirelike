@@ -34,7 +34,18 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             //_currentAuraPrefab.GetComponentInChildren<Animator>().SetBool("isUse", true);
 
             GameObject[] targets = hits.Select(hit => new { data = hit, distance = Vector2.Distance(holderPosition, hit.transform.position) })
-                .Where(hit => Physics2D.Raycast(holderPosition, hit.data.transform.position, hit.distance, 1 << LayerMask.NameToLayer("Wall")).collider == null)
+                .Where(hit =>
+                {
+                    RaycastHit2D hasDirectPath = Physics2D.Raycast(holderPosition, (hit.data.transform.position - (Vector3)holderPosition).normalized, hit.distance, 1 << LayerMask.NameToLayer("Wall"));
+                    if (hasDirectPath.collider)
+                    {
+                        Debug.DrawLine(holderPosition, hasDirectPath.point, Color.green, 1f);
+                        Debug.DrawLine(hasDirectPath.point, hit.data.transform.position, Color.red, 1f);
+                        return false;
+                    };
+                    Debug.DrawLine(holderPosition, hit.data.transform.position, Color.green, 1f);
+                    return true;
+                })
                 .OrderBy(hit => hit.distance)
                 .Select(hit => hit.data.gameObject)
                 .Take(Mathf.RoundToInt(_weaponStats.GetStats(WeaponStatisticEnum.ProjectileNumber)))
