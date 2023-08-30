@@ -32,7 +32,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                     orchestrator.copyAllBehaviours(self);
                     // We exclude the target that already encountered the parent projectile
                     orchestrator.excludedTargets = ((OnAllBehaviourOrchestrator)self).alreadyTargeted;
-                    orchestrator.getBehaviourByType<SplitBehaviour>().splitTimes = childSplitTime;
+                    orchestrator.getCollisionBehaviourByType<SplitBehaviour>().splitTimes = childSplitTime;
                 }
             }
             return;

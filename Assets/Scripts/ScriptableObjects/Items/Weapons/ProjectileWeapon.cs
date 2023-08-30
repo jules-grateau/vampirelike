@@ -39,10 +39,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         [SerializeField]
         private float _radiusPerSecond;
 
-        [DrawIf("directionType", ProjectileDirection.Ricochet, ComparisonType.NotEqual, DisablingType.DontDraw)]
         [SerializeField]
         private bool _endOnWall;
-        [DrawIf("directionType", ProjectileDirection.Ricochet, ComparisonType.NotEqual, DisablingType.DontDraw)]
         [SerializeField]
         private bool _restartOnWall;
 
@@ -147,9 +145,13 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     });
                     break;
                 case ProjectileDirection.TurnBackTowardPlayer:
-                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new TurnTowardPlayerOnRange()
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new TurnTowardPlayerOnRestart()
                     {
                         Range = _weaponStats.GetStats(WeaponStatisticEnum.Range),
+                        speed = _weaponStats.GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + _weaponStats.GetStats(WeaponStatisticEnum.SpeedPercentage) / 100)
+                    });
+                    onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new StraightMovementBehaviour()
+                    {
                         speed = _weaponStats.GetStats(WeaponStatisticEnum.BaseSpeed) * (1 + _weaponStats.GetStats(WeaponStatisticEnum.SpeedPercentage) / 100)
                     });
                     break;
@@ -182,7 +184,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
             }
             else
             {
-                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new DestroyOnEndBehaviour()
+                onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new DestroyBehaviour()
                 {
                 });
             }
@@ -211,6 +213,8 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
         void HandleProjectileDestructionTypes(OnAllBehaviourOrchestrator onAllBehaviourOrchestrator, ProjectileDestruction[] destructionType, 
             ProjectileState destructionState = ProjectileState.End)
         {
+            if (destructionType == null || destructionType.Length <= 0) return;
+
             if (destructionType.Contains(ProjectileDestruction.RandomAfterTime))
             {
                 onAllBehaviourOrchestrator.addOnEachFrameBehaviour(new SelfDestroyRandomDelay()

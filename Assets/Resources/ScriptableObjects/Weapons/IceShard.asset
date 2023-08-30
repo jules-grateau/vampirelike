@@ -47,8 +47,7 @@ MonoBehaviour:
   _radiusPerSecond: 0
   _endOnWall: 1
   _restartOnWall: 0
-  destructionType: 
-  _minMaxDelay: {x: 2, y: 2}
+  destructionType: 01000000
   restartTriggerType: 
   _comeBackToPlayer: 0
   _offset: {x: 0, y: 0}
