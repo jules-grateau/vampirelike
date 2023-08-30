@@ -1,5 +1,6 @@
 ﻿using Cinemachine;
 using UnityEngine;
+using Assets.Scripts.Controller.Game;
 
 namespace Assets.Scripts.Controller
 {
@@ -7,14 +8,12 @@ namespace Assets.Scripts.Controller
     public class CameraFindFollow : MonoBehaviour
     {
         CinemachineVirtualCamera _virtualCamera;
-        [SerializeField]
-        string _followTag;
 
         // Use this for initialization
         void Start()
         {
             _virtualCamera = GetComponent<CinemachineVirtualCamera>();
-            GameObject player = GameObject.FindGameObjectWithTag(_followTag);
+            GameObject player = GameManager.GameState.Player;
             _virtualCamera.Follow = player.transform;
         }
     }
