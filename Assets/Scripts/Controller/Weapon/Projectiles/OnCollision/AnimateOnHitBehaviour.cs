@@ -8,7 +8,6 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
     public class AnimateOnHitBehaviour : OnCollisionDamageBehaviour
     {
-        private bool _isDestroyed = false;
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
             triggeringStates = new ProjectileState[] { ProjectileState.Start, ProjectileState.End };
