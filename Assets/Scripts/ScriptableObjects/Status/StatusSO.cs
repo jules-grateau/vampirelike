@@ -41,5 +41,10 @@ namespace Assets.Scripts.ScriptableObjects.Status
         public bool isVampiric;
         [DrawIf("isVampiric", true, ComparisonType.Equals, DisablingType.DontDraw)]
         public float vampRatio;
+        [SerializeField]
+        public bool isFear;
+        [SerializeField]
+        [DrawIf("isFear", true, ComparisonType.Equals, DisablingType.DontDraw)]
+        public float fearTime;
     }
 }
