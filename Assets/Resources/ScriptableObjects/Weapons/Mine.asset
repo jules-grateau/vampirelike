@@ -9,26 +9,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f47556a6acd7d4c8b27c025d587078, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b9626cecdd6dac4abf391a48a088512, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
   _projectilPrefab: {fileID: 4389094783381097955, guid: 6a8c788b845f2c54bb94ffe793e644d2, type: 3}
-  _icon: {fileID: 2040566619, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
+  _icon: {fileID: 1931974456, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
   _weaponStats:
     _baseStats:
-    - _key: 11
-      _value: 10
-    - _key: 9
-      _value: 10
     - _key: 2
       _value: 10
+    - _key: 11
+      _value: 5
+    - _key: 10
+      _value: 1
+    - _key: 9
+      _value: 10
+    - _key: 12
+      _value: 1
     - _key: 6
-      _value: 2
+      _value: 10
   _weaponStatus: {fileID: 11400000, guid: 2016f705c1e3fbb438c2fb9e2c26bf38, type: 2}
   _bumpVector: {x: 0, y: 0}
   _duration: 0
   _isAnimatedEnd: 1
   _isAnimatedHit: 0
-  _explosionRadius: 10
+  behaviourType: 0
+  _growValue: {x: 0, y: 0, z: 0}
+  damageType: 1
+  _explosionRadius: 1.5
   _particles: {fileID: 5822821294587056223, guid: bb103fa15be3c2d49977c6431f980740, type: 3}
+  directionType: 0
+  _radiusPerSecond: 0.5
+  _endOnWall: 0
+  _restartOnWall: 0
+  destructionType: 01000000
+  restartTriggerType: 
+  _comeBackToPlayer: 0
+  _delayBetweenDeployement: 0.5

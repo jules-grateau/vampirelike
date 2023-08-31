@@ -63,7 +63,7 @@ MonoBehaviour:
     - _key: 13
       _value: 1
   _startWeapons:
-  - {fileID: 11400000, guid: 5f351b031347ff94e945e31321516644, type: 2}
+  - {fileID: 11400000, guid: 42dc0b0b8a0996244aeebe2e8862bf22, type: 2}
   _hitAudioClip: {fileID: 8300000, guid: 281dc59a06f5bdb42a28ad3f59532891, type: 3}
   _armorAudioClip: {fileID: 8300000, guid: 51a3f7c7491b09d48adeff0b2c4ef7e6, type: 3}
   _armorSprite: {fileID: 1441622573, guid: 9030d8e5d3ed0bf449dcf92ef5501231, type: 3}
