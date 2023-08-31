@@ -414,6 +414,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _loadingSceneName: LoadingScene
 --- !u!95 &209158117
 Animator:
   serializedVersion: 5
