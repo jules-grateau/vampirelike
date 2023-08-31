@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Controller.Player;
+﻿using Assets.Scripts.Controller.Game;
+using Assets.Scripts.Controller.Player;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.Types;
 using System.Collections;
@@ -23,7 +24,7 @@ namespace Assets.Scripts.Controller.Ui
 
         private void Start()
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject player = GameManager.GameState.Player;
             if (!player) return;
 
             _playerStatsController = player.GetComponent<PlayerStatsController>();
@@ -47,8 +48,8 @@ namespace Assets.Scripts.Controller.Ui
 
             if (!_displayText) return;
 
-            string armorText = _playerHealth.Shield > 0 ? " - (" + _playerHealth.Shield.ToString() + " / " + maxShield.ToString() + ")" : "";
-            _displayText.SetText(_playerHealth.Health.ToString() + " / " + maxHp.ToString() + armorText);
+            string armorText = _playerHealth.Shield > 0 ? " - (" + Mathf.RoundToInt(_playerHealth.Shield).ToString() + " / " + maxShield.ToString() + ")" : "";
+            _displayText.SetText(Mathf.RoundToInt(_playerHealth.Health).ToString() + " / " + maxHp.ToString() + armorText);
         }
     }
 }
