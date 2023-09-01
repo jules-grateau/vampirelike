@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf00c676cf557a4091a606bdf704ed5, type: 3}
   m_Name: DarkAura
   m_EditorClassIdentifier: 
+  _localizedName:
+    m_TableReference:
+      m_TableCollectionName: GUID:66143b93ee9a50a468b260d6edb284de
+    m_TableEntryReference:
+      m_KeyId: 688774512640
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _projectilPrefab: {fileID: 2423956319905214540, guid: a723facea4339444e870ae1fd9cc5d17, type: 3}
   _icon: {fileID: -1467532058, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
@@ -29,3 +38,6 @@ MonoBehaviour:
   _bumpVector: {x: 0, y: 0}
   _duration: 0
   _auraPrefab: {fileID: 8157977609179841696, guid: aea45c642ddd4b34cb10e1ac475e1419, type: 3}
+  references:
+    version: 2
+    RefIds: []

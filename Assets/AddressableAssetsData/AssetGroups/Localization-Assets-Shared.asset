@@ -47,6 +47,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66143b93ee9a50a468b260d6edb284de
+    m_Address: Assets/Localization/StringTables/Weapon Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c17ae13eb6d78fd4193b14d5bdd60ca8, type: 2}
   m_SchemaSet:

@@ -43,7 +43,7 @@ namespace Assets.Scripts.Controller
                     }
                     _cooloff = 0;
                 }
-                _cooloff += Time.fixedDeltaTime;
+                _cooloff += Time.deltaTime;
             }
         }
 

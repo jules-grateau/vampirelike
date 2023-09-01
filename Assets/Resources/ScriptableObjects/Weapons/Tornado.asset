@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9626cecdd6dac4abf391a48a088512, type: 3}
   m_Name: Tornado
   m_EditorClassIdentifier: 
+  _localizedName:
+    m_TableReference:
+      m_TableCollectionName: GUID:66143b93ee9a50a468b260d6edb284de
+    m_TableEntryReference:
+      m_KeyId: 1951297765376
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _projectilPrefab: {fileID: 5418220751937130542, guid: a6f194e02b5f63f489d94c39b4c6cbb3, type: 3}
   _icon: {fileID: 1002916623, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
@@ -47,3 +56,6 @@ MonoBehaviour:
   restartTriggerType: 
   _comeBackToPlayer: 0
   _delayBetweenDeployement: 0.5
+  references:
+    version: 2
+    RefIds: []

@@ -19,6 +19,9 @@ GameObject:
   - component: {fileID: 2074779649004140502}
   - component: {fileID: 934362783623691582}
   - component: {fileID: 3900225912023364272}
+  - component: {fileID: 2650011281676417213}
+  - component: {fileID: -8507937506714105802}
+  - component: {fileID: -8388380336508096435}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -288,6 +291,76 @@ MonoBehaviour:
       - m_Target: {fileID: 1676250163925351222}
         m_TargetAssemblyTypeName: WeaponSpawnedController, Assembly-CSharp
         m_MethodName: RemoveWeaponFromPool
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2650011281676417213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd306dd1a3afa84cb948c768f9b47f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8507937506714105802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb336870c614f3743a7384bb494f180d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: b5fae13cf15011246b2d9ff1a76304f7, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2650011281676417213}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Game.GameStatistics,
+          Assembly-CSharp
+        m_MethodName: OnEnemyDie
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-8388380336508096435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031776349f7507e47b97fc6d49ce5e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3045b526433ee2946a8ca3289caa9aae, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2650011281676417213}
+        m_TargetAssemblyTypeName: Assets.Scripts.Controller.Game.GameStatistics,
+          Assembly-CSharp
+        m_MethodName: OnEnemyLogDamage
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

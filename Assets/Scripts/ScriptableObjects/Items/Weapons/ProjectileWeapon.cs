@@ -63,6 +63,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
 
             OnAllBehaviourOrchestrator onAllBehaviourOrchestrator = projectile.AddComponent<OnAllBehaviourOrchestrator>();
             onAllBehaviourOrchestrator.parent = Parent;
+            onAllBehaviourOrchestrator.parentWeapon = this;
 
             if (_isAnimatedEnd)
             {

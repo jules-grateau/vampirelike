@@ -71,6 +71,26 @@ MonoBehaviour:
     m_Key: Title.Loading
     m_Metadata:
       m_Items: []
+  - m_Id: 5090689271005184
+    m_Key: DamageRecap.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5107380822540288
+    m_Key: LevelRecap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5112525660684288
+    m_Key: TimeRecap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5115272749449216
+    m_Key: EnemyKilled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5115677965352960
+    m_Key: Total
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

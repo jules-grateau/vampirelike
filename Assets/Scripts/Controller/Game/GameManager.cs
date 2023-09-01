@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Controller.Game
 {
+    [RequireComponent(typeof(GameStatistics))]
     public class GameManager : MonoBehaviour
     {
         [SerializeField]
@@ -88,6 +89,7 @@ namespace Assets.Scripts.Controller.Game
 
         public void OnPlayerDeath()
         {
+            Time.timeScale = 0;
             SceneManager.LoadScene(_deathMenuSceneName, LoadSceneMode.Additive);
         }
 

@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9b392452d587044bf9ebdd487824f7, type: 3}
   m_Name: Fire Orbit
   m_EditorClassIdentifier: 
+  _localizedName:
+    m_TableReference:
+      m_TableCollectionName: GUID:66143b93ee9a50a468b260d6edb284de
+    m_TableEntryReference:
+      m_KeyId: 81649008640
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _projectilPrefab: {fileID: 4389094783381097955, guid: 2b0f3d6f95c5e1044aed10ecfe4775ff, type: 3}
   _icon: {fileID: 1875462916, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
@@ -28,16 +37,20 @@ MonoBehaviour:
   _weaponStatus: {fileID: 11400000, guid: 2016f705c1e3fbb438c2fb9e2c26bf38, type: 2}
   _bumpVector: {x: 0, y: 0}
   _duration: 0
+  _isAnimatedEnd: 0
   _isAnimatedHit: 0
   behaviourType: 0
   _growValue: {x: 0, y: 0, z: 0}
   damageType: 0
   _explosionRadius: 0
   _particles: {fileID: 0}
-  _splitNbr: 0
-  splitTimes: 0
   directionType: 0
-  _bounceOnWall: 1
-  destructionType: 0
-  _minMaxDelay: {x: 0, y: 0}
+  _radiusPerSecond: 0
+  _endOnWall: 0
+  _restartOnWall: 0
+  destructionType: 
+  restartTriggerType: 
   _comeBackToPlayer: 0
+  references:
+    version: 2
+    RefIds: []

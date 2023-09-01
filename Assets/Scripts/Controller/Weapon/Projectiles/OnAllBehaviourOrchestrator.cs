@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using Assets.Scripts.ScriptableObjects.Items;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
@@ -8,6 +9,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     {
         public List<GameObject> alreadyTargeted = new List<GameObject>();
         public List<GameObject> excludedTargets = new List<GameObject>();
+
         private void Start()
         {
             HandleAllStartBehaviour();
