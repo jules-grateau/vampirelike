@@ -14,6 +14,10 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
     [CreateAssetMenu(fileName = "Enemy", menuName = "Enemy/Basic", order = 9)]
     public class EnemySO : ScriptableObject
     {
+        [Header("Description")]
+        [SerializeField]
+        string _name;
+
         [Header("Behavior")]
         [SerializeField]
         EnemyBehavior _behaviorType;
@@ -60,6 +64,10 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
 
         [SerializeField]
         AudioClip _deathAudioClip;
+        [SerializeField]
+        GameEventString _onDeathEvent;
+        [SerializeField]
+        GameEventHitData _onTakeDamageLogEvent;
 
         [SerializeField]
         GameObject _prefab;
@@ -133,6 +141,9 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
             enemyHealth.Health = health;
             enemyHealth.deathAudioClip = _deathAudioClip;
             enemyHealth.PlayerHealEvent = _playerHealEvent;
+            enemyHealth.Name = _name;
+            enemyHealth.EnemyDieEvent = _onDeathEvent;
+            enemyHealth.LogEnemyHit = _onTakeDamageLogEvent;
 
             GameEventListenerHitData listenerHitData = enemy.AddComponent<GameEventListenerHitData>();
             listenerHitData.GameEvent = _enemyHitEvent;

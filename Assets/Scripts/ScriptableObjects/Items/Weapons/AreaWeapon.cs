@@ -81,6 +81,7 @@ namespace Assets.Scripts.ScriptableObjects.Items.Weapons
                     position = target.transform.position,
                     source = Parent,
                     status = _weaponStatus,
+                    weapon = this
                 });
             }
 

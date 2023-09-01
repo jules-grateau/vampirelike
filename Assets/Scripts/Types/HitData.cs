@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Types;
 using Assets.Scripts.ScriptableObjects.Status;
+using Assets.Scripts.ScriptableObjects.Items;
 
 public struct HitData
 {
@@ -11,4 +12,6 @@ public struct HitData
     public Vector2 position { get; set; }
     public GameObject source { get; set; }
     public StatusSO status { get; set; }
+
+    public WeaponSO weapon { get; set; }
 }

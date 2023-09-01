@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9626cecdd6dac4abf391a48a088512, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
+  _localizedName:
+    m_TableReference:
+      m_TableCollectionName: GUID:66143b93ee9a50a468b260d6edb284de
+    m_TableEntryReference:
+      m_KeyId: 539713142784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _projectilPrefab: {fileID: 4389094783381097955, guid: 6a8c788b845f2c54bb94ffe793e644d2, type: 3}
   _icon: {fileID: 1931974456, guid: 226b800e1df245f4cbaefb0b013fc353, type: 3}
   _enemyHitEvent: {fileID: 11400000, guid: 75c9e5e2c0f93554fa6eb03fd427f143, type: 2}
@@ -47,3 +56,6 @@ MonoBehaviour:
   restartTriggerType: 
   _comeBackToPlayer: 0
   _delayBetweenDeployement: 0.5
+  references:
+    version: 2
+    RefIds: []

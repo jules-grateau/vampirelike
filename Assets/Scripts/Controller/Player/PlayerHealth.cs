@@ -180,7 +180,7 @@ namespace Assets.Scripts.Controller.Player
         void HandlePlayerDeath()
         {
             triggerBeforeDestroy();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         protected override void triggerBeforeDestroy()

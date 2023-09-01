@@ -74,6 +74,26 @@ MonoBehaviour:
     m_Localized: Loading
     m_Metadata:
       m_Items: []
+  - m_Id: 5090689271005184
+    m_Localized: Damages done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5107380822540288
+    m_Localized: 'Level : '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5112525660684288
+    m_Localized: 'Time : '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5115272749449216
+    m_Localized: Enemies Killed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5115677965352960
+    m_Localized: Total
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

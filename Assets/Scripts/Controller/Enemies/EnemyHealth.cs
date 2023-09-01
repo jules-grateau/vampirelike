@@ -18,6 +18,10 @@ namespace Assets.Scripts.Controller.Enemies
         [SerializeField]
         public GameEventFloat PlayerHealEvent;
 
+        public GameEventString EnemyDieEvent;
+        public GameEventHitData LogEnemyHit;
+        public string Name;
+
         protected override void TakeDamageEffect(HitData hit, bool isDoTTick = false)
         {
             float modifiedDamage = hit.damage * (isDoTTick ? hit.status.doTRatio : 1f);
@@ -40,6 +44,9 @@ namespace Assets.Scripts.Controller.Enemies
             DisplayDamage(modifiedDamage, isCrit, hit.status);
             Health -= modifiedDamage;
 
+            LogEnemyHit.Raise(new HitData() { damage = modifiedDamage, instanceID = hit.instanceID, 
+                position = hit.position, source = hit.source, status = hit.status, weapon = hit.weapon });
+
             if (hit.status.canBump)
             {
                 bool orientation = hit.source.transform.position.x < gameObject.transform.position.x;
@@ -55,6 +62,9 @@ namespace Assets.Scripts.Controller.Enemies
         protected override void triggerBeforeDestroy()
         {
             AudioSource.PlayClipAtPoint(deathAudioClip, transform.position, 1);
+            if (!EnemyDieEvent) return;
+
+            EnemyDieEvent.Raise(Name);
         }
     }
 }

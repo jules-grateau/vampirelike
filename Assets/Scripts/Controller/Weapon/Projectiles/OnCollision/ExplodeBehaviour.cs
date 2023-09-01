@@ -35,7 +35,8 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                     damage = damage,
                     instanceID = hit.gameObject.GetInstanceID(),
                     position = hit.transform.position,
-                    source = self.parent
+                    source = self.parent,
+                    weapon = self.parentWeapon
                 });
             }
             return;

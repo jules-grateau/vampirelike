@@ -22,7 +22,8 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
                 damage = damage,
                 instanceID = collision2D.gameObject.GetInstanceID(),
                 position = collision2D.transform.position,
-                source = self.parent
+                source = self.parent,
+                weapon = self.parentWeapon
             });
         }
     }

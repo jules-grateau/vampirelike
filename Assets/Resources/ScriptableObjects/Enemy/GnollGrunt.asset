@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24bfb318cfa68a4090ce1f86c8eccdf, type: 3}
   m_Name: GnollGrunt
   m_EditorClassIdentifier: 
+  _name: 
   _behaviorType: 0
   _speed: 2
   _damageType: 0
@@ -31,4 +32,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
   - {fileID: 11400000, guid: a526b9eacd736d946b8dc214dbd5d285, type: 2}
   _deathAudioClip: {fileID: 8300000, guid: 42c7982befa3f6e40a6e15494f1baaae, type: 3}
+  _onDeathEvent: {fileID: 11400000, guid: b5fae13cf15011246b2d9ff1a76304f7, type: 2}
+  _onTakeDamageLogEvent: {fileID: 11400000, guid: 3045b526433ee2946a8ca3289caa9aae, type: 2}
   _prefab: {fileID: 881878062649732175, guid: 1d3e5d0fd036f0a4f9c6ea68ac461c3a, type: 3}

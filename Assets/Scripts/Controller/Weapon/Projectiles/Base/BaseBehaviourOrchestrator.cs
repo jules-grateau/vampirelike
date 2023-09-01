@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Assets.Scripts.Types;
 using System.Linq;
+using Assets.Scripts.ScriptableObjects.Items;
 
 namespace Assets.Scripts.Controller.Weapon.Projectiles
 {
@@ -11,6 +12,7 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     {
         public GameObject parent { get; set; }
         public ProjectileState currentState = ProjectileState.Start;
+        public WeaponSO parentWeapon;
 
         public List<BaseBehaviour<Collision2D>> onCollisionBehaviours = new List<BaseBehaviour<Collision2D>>();
         public List<BaseBehaviour<float>> onEachFrameBehaviours = new List<BaseBehaviour<float>>();

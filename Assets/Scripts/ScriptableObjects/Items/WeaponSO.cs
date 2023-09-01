@@ -7,11 +7,17 @@ using Assets.Scripts.ScriptableObjects.Items.Weapons;
 using Assets.Scripts.ScriptableObjects.Characters;
 using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.ScriptableObjects.Status;
+using UnityEngine.Localization;
 
 namespace Assets.Scripts.ScriptableObjects.Items
 {
     public abstract class WeaponSO : ScriptableObject
     {
+        [Header("Description")]
+        [SerializeField]
+        protected LocalizedString _localizedName;
+        public string Name => _localizedName?.GetLocalizedString();
+
         [Header("Display")]
         [SerializeField]
         protected GameObject _projectilPrefab;
