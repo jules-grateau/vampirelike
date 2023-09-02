@@ -12,71 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915fe00c07444ed46858bf4befb5aa35, type: 3}
   m_Name: GameStateData
   m_EditorClassIdentifier: 
-  _playableCharacter: {fileID: 11400000, guid: 13585e7675c60504f9db544aab750f4b, type: 2}
-  _xpCurve:
+  PlayableCharacter: {fileID: 11400000, guid: 13585e7675c60504f9db544aab750f4b, type: 2}
+  XpCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1
+      time: 0
       value: 10
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 136
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 50
-      value: 1000
-      inSlope: 16.770487
-      outSlope: 16.770487
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.06653789
-    - serializedVersion: 3
-      time: 100
-      value: 2500
+      time: 600
+      value: 200
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 136
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _difficultyCurve:
+  DifficultyCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1
-      value: 30
-      inSlope: 1.5719063
-      outSlope: 1.5719063
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 300
-      value: 500
-      inSlope: 2.697718
-      outSlope: 2.697718
-      tangentMode: 34
+      time: 0
+      value: 50
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2000
-      value: 7000
-      inSlope: 3.8235295
-      outSlope: 3.8235295
-      tangentMode: 34
+      time: 6000
+      value: 20000
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _spawnCooldown: 5
+  SpawnCooldown: 5

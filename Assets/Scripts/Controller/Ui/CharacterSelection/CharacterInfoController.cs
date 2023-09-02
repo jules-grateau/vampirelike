@@ -16,7 +16,7 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
         GameObject _statsInfo;
 
         [SerializeField]
-        GameDataSO _gameData;
+        GameDataManager _gameData;
 
         PlayableCharacterSO _playableCharacter;
 
@@ -41,7 +41,7 @@ namespace Assets.Scripts.Controller.Ui.CharacterSelection
 
         public void OnClick()
         {
-            _gameData.PlayableCharacter = _playableCharacter;
+            _gameData.GetInstance().PlayableCharacter = _playableCharacter;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
