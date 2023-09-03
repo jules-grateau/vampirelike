@@ -7,6 +7,7 @@ using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.ScriptableObjects.Game;
 
 namespace Assets.Scripts.Controller.Game
 {
@@ -14,7 +15,7 @@ namespace Assets.Scripts.Controller.Game
     public class GameManager : MonoBehaviour
     {
         [SerializeField]
-        GameDataSO _gameData;
+        GameDataManager _gameData;
         [SerializeField]
         string _deathMenuSceneName = "DeathMenu";
         [SerializeField]
@@ -43,10 +44,10 @@ namespace Assets.Scripts.Controller.Game
             _gameTime.value = 0f;
             OnPause();
 
-            GameState.Player = _gameData.PlayableCharacter.Init();
-            GameState.XpCurve = _gameData.XpCurve;
-            GameState.DifficultyCurve = _gameData.DifficultyCurve;
-            GameState.SpawnCooldown = _gameData.SpawnCooldown;
+            GameState.Player = _gameData.GetInstance().PlayableCharacter.Init();
+            GameState.XpCurve = _gameData.GetInstance().XpCurve;
+            GameState.DifficultyCurve = _gameData.GetInstance().DifficultyCurve;
+            GameState.SpawnCooldown = _gameData.GetInstance().SpawnCooldown;
         }
 
         private void Update()
@@ -60,11 +61,11 @@ namespace Assets.Scripts.Controller.Game
             WeaponSpawnedController weaponSpawner = gameObject.GetComponent<WeaponSpawnedController>();
             weaponSpawner.Init();
 
-            if (_gameData.PlayableCharacter && _gameData.PlayableCharacter.StartWeapons?.Length > 0)
+            if (_gameData.GetInstance().PlayableCharacter && _gameData.GetInstance().PlayableCharacter.StartWeapons?.Length > 0)
             {
                 PlayerCollect collectScript = GameState.Player.GetComponent<PlayerCollect>();
 
-                foreach (WeaponSO weapon in _gameData.PlayableCharacter.StartWeapons)
+                foreach (WeaponSO weapon in _gameData.GetInstance().PlayableCharacter.StartWeapons)
                 {
                     collectScript.PlayerGetWeaponEvent.Raise(weapon);
                 }

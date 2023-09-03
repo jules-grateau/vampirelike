@@ -10,16 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 4389660338472883355}
   - component: {fileID: 2105279640170783832}
+  - component: {fileID: 2650011281676417213}
+  - component: {fileID: 934362783623691582}
+  - component: {fileID: 2074779649004140502}
+  - component: {fileID: -6507167564589464170}
+  - component: {fileID: 1676250163925351222}
   - component: {fileID: 7285952802528126592}
   - component: {fileID: 8864972913782304005}
   - component: {fileID: 9110955650624085769}
   - component: {fileID: 1284124363385911551}
-  - component: {fileID: -6507167564589464170}
-  - component: {fileID: 1676250163925351222}
-  - component: {fileID: 2074779649004140502}
-  - component: {fileID: 934362783623691582}
   - component: {fileID: 3900225912023364272}
-  - component: {fileID: 2650011281676417213}
   - component: {fileID: -8507937506714105802}
   - component: {fileID: -8388380336508096435}
   m_Layer: 0
@@ -63,6 +63,115 @@ MonoBehaviour:
   _pauseEvent: {fileID: 11400000, guid: 6d9dbd05ca6ea874fa46ca39ba71faff, type: 2}
   _gameTime: {fileID: 11400000, guid: 1a818c579457a884c8446bcc77bc185a, type: 2}
   _globalGold: {fileID: 11400000, guid: ea8cb3ccb0171a440895c8bc171b72dd, type: 2}
+--- !u!114 &2650011281676417213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd306dd1a3afa84cb948c768f9b47f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &934362783623691582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8605853202d4048a75e26180b5d3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateWorld: 1
+  seed: 
+  Stage: {fileID: 0}
+  SpawnPosition: {x: 0, y: 0, z: 0}
+  grid: {fileID: 3120141041137641595}
+--- !u!114 &2074779649004140502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f76f7cb2dfa09b4ba6d83f0f82b9f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxSpawnRadius: 250
+  LootTables:
+  - loots:
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
+      Amount: 5
+    - Item: {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
+      Amount: 1
+    probability: 0.25
+  - loots:
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
+      Amount: 15
+    probability: 0.25
+  - loots:
+    - Item: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
+      Amount: 1
+    probability: 0.1
+  - loots:
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
+      Amount: 5
+    probability: 0.5
+  - loots:
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
+      Amount: 5
+    probability: 0.75
+  - loots:
+    - Item: {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
+      Amount: 2
+    probability: 0.5
+  - loots:
+    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
+      Amount: 25
+    probability: 0
+  - loots:
+    - Item: {fileID: 11400000, guid: a526b9eacd736d946b8dc214dbd5d285, type: 2}
+      Amount: 25
+    probability: 0.8
+--- !u!114 &-6507167564589464170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f2498a385d30648be01d8d794c0ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerSpawn: 1
+  _enemies: []
+--- !u!114 &1676250163925351222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947944469904783977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93074182681da144958355d19ddcfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponSpawnPosition:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponCollectible: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
+  Weapons: []
 --- !u!114 &7285952802528126592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,103 +284,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-6507167564589464170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947944469904783977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f2498a385d30648be01d8d794c0ee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerSpawn: 1
-  _enemies: []
---- !u!114 &1676250163925351222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947944469904783977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93074182681da144958355d19ddcfea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weaponSpawnPosition:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  weaponCollectible: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
-  Weapons: []
---- !u!114 &2074779649004140502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947944469904783977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f76f7cb2dfa09b4ba6d83f0f82b9f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxSpawnRadius: 250
-  LootTables:
-  - loots:
-    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
-      Amount: 5
-    - Item: {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
-      Amount: 1
-    probability: 0.25
-  - loots:
-    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
-      Amount: 15
-    probability: 0.25
-  - loots:
-    - Item: {fileID: 11400000, guid: 0dda5852d93e79a47bd7ddb063901621, type: 2}
-      Amount: 1
-    probability: 0.1
-  - loots:
-    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
-      Amount: 5
-    probability: 0.5
-  - loots:
-    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
-      Amount: 5
-    probability: 0.75
-  - loots:
-    - Item: {fileID: 11400000, guid: d4ac11eb2c2059b4682cebdb20d798ee, type: 2}
-      Amount: 2
-    probability: 0.5
-  - loots:
-    - Item: {fileID: 11400000, guid: 398b8d65eaa384a4da7103d34612e869, type: 2}
-      Amount: 25
-    probability: 0
-  - loots:
-    - Item: {fileID: 11400000, guid: a526b9eacd736d946b8dc214dbd5d285, type: 2}
-      Amount: 25
-    probability: 0.8
---- !u!114 &934362783623691582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947944469904783977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c8605853202d4048a75e26180b5d3e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generateWorld: 1
-  seed: 
-  Stage: {fileID: 0}
-  SpawnPosition: {x: 0, y: 0, z: 0}
-  grid: {fileID: 3120141041137641595}
 --- !u!114 &3900225912023364272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,18 +312,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2650011281676417213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5947944469904783977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd306dd1a3afa84cb948c768f9b47f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8507937506714105802
 MonoBehaviour:
   m_ObjectHideFlags: 0
