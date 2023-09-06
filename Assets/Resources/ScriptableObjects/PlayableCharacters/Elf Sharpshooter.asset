@@ -64,17 +64,6 @@ MonoBehaviour:
       _value: 1
   _startWeapons:
   - {fileID: 11400000, guid: 2e0c900d27141494d8c7db6de2f50440, type: 2}
-  - {fileID: 11400000, guid: a28c12320162937458925d8518061d7a, type: 2}
-  - {fileID: 11400000, guid: 190b9b2770e3a61498205f3cbbffa1a4, type: 2}
-  - {fileID: 11400000, guid: 65334bc06d53dcf4e8faf257a436c2fd, type: 2}
-  - {fileID: 11400000, guid: 74ff2579da37d4b409243db4405ce516, type: 2}
-  - {fileID: 11400000, guid: 42dc0b0b8a0996244aeebe2e8862bf22, type: 2}
-  - {fileID: 11400000, guid: 0b6b8eac69b270e49b40d1cd6dbaac0b, type: 2}
-  - {fileID: 11400000, guid: f809711093b6d07489845d8ae1c13653, type: 2}
-  - {fileID: 11400000, guid: 08906da152968c949b96228ec0ceca5b, type: 2}
-  - {fileID: 11400000, guid: b03de25a4eca60d458ab98a800282efd, type: 2}
-  - {fileID: 11400000, guid: 904a3be9bbfbd604794460f7e0244445, type: 2}
-  - {fileID: 11400000, guid: ad0bab009efdef84ebc287026bc2a9dc, type: 2}
   _hitAudioClip: {fileID: 8300000, guid: 281dc59a06f5bdb42a28ad3f59532891, type: 3}
   _armorAudioClip: {fileID: 8300000, guid: 51a3f7c7491b09d48adeff0b2c4ef7e6, type: 3}
   _armorSprite: {fileID: 1441622573, guid: 9030d8e5d3ed0bf449dcf92ef5501231, type: 3}
