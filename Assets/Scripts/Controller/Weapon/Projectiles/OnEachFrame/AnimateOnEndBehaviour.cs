@@ -17,18 +17,12 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)
         {
+            //The animator will switch the state to Destroy at the end of it's animation
             if (_animator != null && !_isDestroyed)
             {
                 _isDestroyed = true;
                 _animator.SetBool("isDestroyed", _isDestroyed);
             } 
-            
-            //Destroy the projectile when Destroy animation is over
-            if(_isDestroyed && _animator.GetCurrentAnimatorStateInfo(0).IsName("Destroy") 
-                && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
-            {
-                self.TriggerNewState(ProjectileState.Destroy);
-            }
 
             return;
         }
