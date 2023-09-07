@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LizardfolkTracker
   m_EditorClassIdentifier: 
   _name: 
+  _maxPerWave: 2
   _behaviorType: 0
   _speed: 2
   _damageType: 0

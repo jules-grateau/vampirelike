@@ -15,6 +15,7 @@ namespace Assets.Scripts.Controller.Enemies
 
         [SerializeField]
         private EnemySO[] _enemies;
+        private Dictionary<EnemySO, int> _nbEnemiesSpawn;
 
         private WorldGenerator _worldGenerator;
 
@@ -57,6 +58,7 @@ namespace Assets.Scripts.Controller.Enemies
                     _phaseNbr++;
                     _currentWaveAmount = GameManager.GameState.DifficultyCurve.Evaluate(_phaseNbr * spawnCooldown);
                     _spawnedPowerValue = 0;
+                    _nbEnemiesSpawn = new Dictionary<EnemySO, int>();
                     Debug.Log("PHASE " + _phaseNbr + " STARTED -> need to generate " + _currentWaveAmount + " enemies");
                 }
 
@@ -69,6 +71,13 @@ namespace Assets.Scripts.Controller.Enemies
 
                     // Pick random enemy
                     int random = UnityEngine.Random.Range(0, _enemies.Length);
+                    EnemySO enemySO = _enemies[random];
+                    while(enemySO.MaxPerWave > 0 && _nbEnemiesSpawn.GetValueOrDefault(enemySO) >= enemySO.MaxPerWave)
+                    {
+                        random = UnityEngine.Random.Range(0, _enemies.Length);
+                        enemySO = _enemies[random];
+                    } 
+
                     Vector2 enemySize = _enemies[random].GetSize();
                     Vector2 offset = _enemies[random].GetColliderOffset();
 
@@ -80,6 +89,13 @@ namespace Assets.Scripts.Controller.Enemies
                         GameObject enemyGo = _enemies[random].GetEnemy();
                         enemyGo.transform.position = spawnPos;
                         enemyGo.transform.rotation = Quaternion.identity;
+                        if (_nbEnemiesSpawn.ContainsKey(_enemies[random]))
+                        {
+                            _nbEnemiesSpawn[_enemies[random]]++;
+                        } else
+                        {
+                            _nbEnemiesSpawn.Add(_enemies[random], 1);
+                        }
                         
                         enemyGo.SetActive(true);
                         _spawnedPowerValue += _enemies[random].health;
