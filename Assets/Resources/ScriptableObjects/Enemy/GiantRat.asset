@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GiantRat
   m_EditorClassIdentifier: 
   _name: 
+  _maxPerWave: 1
   _behaviorType: 1
   _speed: 3.5
   _damageType: 0

@@ -17,6 +17,9 @@ namespace Assets.Scripts.ScriptableObjects.Enemies
         [Header("Description")]
         [SerializeField]
         string _name;
+        public int MaxPerWave => _maxPerWave;
+        [SerializeField]
+        int _maxPerWave;
 
         [Header("Behavior")]
         [SerializeField]
