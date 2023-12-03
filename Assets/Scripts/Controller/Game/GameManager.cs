@@ -1,13 +1,11 @@
 ﻿using Assets.Scripts.Controller.Player;
 using Assets.Scripts.Events;
-using Assets.Scripts.Events.TypedEvents;
 using Assets.Scripts.ScriptableObjects.Game;
 using Assets.Scripts.ScriptableObjects.Items;
 using Assets.Scripts.Types;
 using Assets.Scripts.Variables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Assets.Scripts.ScriptableObjects.Game;
 
 namespace Assets.Scripts.Controller.Game
 {

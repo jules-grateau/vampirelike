@@ -9,18 +9,21 @@ namespace Assets.Scripts.Controller.Weapon.Projectiles
     public class AnimateOnEndBehaviour : MovementBehaviour
     {
         private bool _isDestroyed = false;
+        Animator _animator;
         public override void HandleStartBehaviour(BaseBehaviourOrchestrator self)
         {
             triggeringStates = new ProjectileState[] { ProjectileState.End };
+            _animator = self.gameObject.GetComponentInChildren<Animator>();
         }
         public override void HandleBehaviour(BaseBehaviourOrchestrator self, float time)
         {
-            Animator animator = self.gameObject.GetComponentInChildren<Animator>();
-            if (animator != null && !_isDestroyed)
+            //The animator will switch the state to Destroy at the end of it's animation
+            if (_animator != null && !_isDestroyed)
             {
                 _isDestroyed = true;
-                animator.SetBool("isDestroyed", _isDestroyed);
-            }
+                _animator.SetBool("isDestroyed", _isDestroyed);
+            } 
+
             return;
         }
     }
