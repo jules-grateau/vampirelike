@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1570929362476943960}
   - component: {fileID: 3759582951572706346}
   - component: {fileID: 7686204385339597930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2573862583910467576}
   - component: {fileID: 7128001065442651182}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4922,7 +4922,7 @@ GameObject:
   - component: {fileID: 7879300432951084937}
   - component: {fileID: 6215168469263518731}
   - component: {fileID: 6697822248066793501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tornado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5041,7 +5041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8519759066801076647}
   - component: {fileID: 4984162805153185204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tornado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
